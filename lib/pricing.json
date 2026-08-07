@@ -1,0 +1,20 @@
+{
+  "basePrices": {
+    "haircut": 750,
+    "beard": 550,
+    "combo": 1150,
+    "royalShave": 600,
+    "fatherSon": 1150,
+    "tattooHair": 200,
+    "blackMask": 350,
+    "waxing": 150
+  },
+  "masterMultipliers": {
+    "junior": 0.8,
+    "barber": 1.0,
+    "top": 1.15,
+    "grand": 1.35
+  },
+  "currency": "грн",
+  "estimationLogic": "exact"
+}

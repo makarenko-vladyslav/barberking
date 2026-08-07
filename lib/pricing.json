@@ -1,20 +1,69 @@
 {
-  "basePrices": {
-    "haircut": 750,
-    "beard": 550,
-    "combo": 1150,
-    "royalShave": 600,
-    "fatherSon": 1150,
-    "tattooHair": 200,
-    "blackMask": 350,
-    "waxing": 150
-  },
-  "masterMultipliers": {
-    "junior": 0.8,
-    "barber": 1.0,
-    "top": 1.15,
-    "grand": 1.35
-  },
   "currency": "грн",
-  "estimationLogic": "exact"
+  "baseServices": [
+    {
+      "id": "haircut",
+      "name": "Чоловіча стрижка",
+      "price": 750,
+      "time": "45 хв"
+    },
+    {
+      "id": "combo",
+      "name": "Стрижка + Борода (Комплекс)",
+      "price": 1150,
+      "time": "75 хв"
+    },
+    {
+      "id": "beard",
+      "name": "Стрижка та моделювання бороди",
+      "price": 550,
+      "time": "30 хв"
+    },
+    {
+      "id": "shave",
+      "name": "Королівське гоління",
+      "price": 500,
+      "time": "40 хв"
+    },
+    {
+      "id": "father_son",
+      "name": "Батько + Син",
+      "price": 1150,
+      "time": "90 хв"
+    },
+    {
+      "id": "tattoo",
+      "name": "Художній татуаж (Tattoo Room)",
+      "price": 1500,
+      "time": "120 хв"
+    }
+  ],
+  "addons": [
+    {
+      "id": "camo",
+      "name": "Камуфлювання сивини",
+      "price": 550
+    },
+    {
+      "id": "black_mask",
+      "name": "Чорна маска (Black Mask)",
+      "price": 350
+    },
+    {
+      "id": "waxing",
+      "name": "Воскова корекція (вуха/ніс/брови)",
+      "price": 150
+    },
+    {
+      "id": "head_massage",
+      "name": "Масаж голови та шиї",
+      "price": 500
+    }
+  ],
+  "mastersMultipliers": {
+    "Junior Barber": 0.85,
+    "Barber": 1.0,
+    "Top Barber": 1.15,
+    "Grand Master": 1.3
+  }
 }

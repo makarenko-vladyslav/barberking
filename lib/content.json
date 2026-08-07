@@ -2,941 +2,619 @@
   "defaultLocale": "uk",
   "locales": {
     "uk": {
-      "brand": {
-        "name": "Barberking",
-        "tagline": "Мережа чоловічих барбершопів у Києві",
-        "est": "2014",
-        "phone": "0951079215",
-        "phoneFormatted": "095 107 92 15",
-        "email": "barberking.kv1@gmail.com",
-        "rating": "4.8",
-        "clientsCount": "69 000+",
-        "locationsCount": "4"
+      "meta": {
+        "title": "Barberking — Барбершоп у Києві | Чоловічі Стрижки, Борода, Тату",
+        "description": "4 преміальні барбершопи в Києві. Досвід майстрів від 5 років, 3-етапна стерилізація, безкоштовний віскі та кава.",
+        "lang": "uk"
       },
       "nav": {
-        "services": "Послуги та ціни",
-        "locations": "Локації у Києві",
-        "calculator": "Калькулятор візиту",
-        "team": "Майстри",
-        "standards": "Стандарти",
+        "services": "Послуги та Ціни",
+        "calculator": "Розрахунок",
+        "locations": "Локації",
+        "advantages": "Переваги",
+        "gallery": "Портфоліо",
         "tattoo": "Tattoo Room",
-        "gallery": "Галерея",
+        "team": "Майстри",
         "reviews": "Відгуки",
         "faq": "Часті питання",
-        "bookCta": "Записатись онлайн"
+        "book": "Записатися онлайн"
       },
       "hero": {
-        "kicker": "EST. 2014 · КИЇВ · 4 ФІЛІЇ З ПАРКУВАННЯМ",
-        "h1First": "ТВІЙ РИТУАЛ",
-        "h1Italic": "спокою та стилю",
-        "h1Last": "У КИЄВІ",
-        "description": "Чоловічі стрижки від 750 грн, точне моделювання бороди та гоління небезпечною бритвою. 4 філії на правому і лівому березі з власною парковкою та баром.",
-        "primaryCta": "Обрати майстра та час",
-        "secondaryCta": "Послуги та ціни",
-        "videoUrl": "https://kyiv.bking.com.ua/wp-content/themes/bking/video-bg/video-bg.mp4",
-        "posterUrl": "https://kyiv.bking.com.ua/wp-content/themes/bking/images/banner2.jpg",
-        "stats": [
-          { "value": "69 000+", "label": "гостей обслуговано з 2014 року" },
-          { "value": "4.8 / 5.0", "label": "рейтинг Google Maps (580+ відгуків)" },
-          { "value": "4 філії", "label": "Лук'янівка, Позняки, Виноградар" },
-          { "value": "від 5 років", "label": "досвід майстрів Grand Master" }
-        ]
+        "badge": "Ест. 2014 — Мережа чоловічих барбершопів у Києві",
+        "title": "ЧОЛОВІЧИЙ СТИЛЬ ТА БЕЗДОГАННА ГЕОМЕТРІЯ СТРИЖКИ",
+        "subtitle": "4 зручні локації біля метро та нових ЖК. Вільна парковка, безкоштовний віскі, кава та персональний підбір форми під анатомію обличчя.",
+        "cta": "Записатися на стрижку",
+        "cta_secondary": "Обрати филию",
+        "videoUrl": "https://videos.pexels.com/video-files/7426382/7426382-hd_2048_864_25fps.mp4",
+        "posterUrl": "https://images.pexels.com/videos/7426382/pexels-photo-7426382.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200",
+        "stats": {
+          "clients": "69,000+",
+          "clients_label": "Задоволених гостей",
+          "rating": "4.8 / 5",
+          "rating_label": "Рейтинг Google Maps",
+          "experience": "10 Років",
+          "experience_label": "Бездоганного досвіду",
+          "locations": "4 Філії",
+          "locations_label": "Правий та Лівий берег"
+        }
       },
-      "ticker": [
-        "ЧОЛОВІЧА СТРИЖКА ВІД 750 ГРН",
-        "МОДЕЛЮВАННЯ БОРОДИ ВІД 550 ГРН",
-        "4 ЛОКАЦІЇ З ВЛАСНИМ ПАРКУВАННЯМ",
-        "БЕЗКОШТОВНА КАВА ТА ВІСКІ JACK DANIEL'S",
-        "3-ЕТАПНА СТЕРИЛІЗАЦІЯ ІНСТРУМЕНТІВ ПРИ 180°C",
-        "ВЛАСНА ТАТУ-СТУДІЯ TATTOO ROOM"
-      ],
-      "locations": {
-        "kicker": "ГЕОГРАФІЯ КОМФОРТУ",
-        "title": "4 ЛОКАЦІЇ НА ПРАВОМУ ТА ЛІВОМУ БЕРЕЗІ",
-        "subtitle": "Обирайте барбершоп поруч із домом чи офісом. Усі філії розташовані у сучасних ЖК або біля метро з безкоштовними паркомісцями.",
+      "ticker": {
         "items": [
-          {
-            "id": "lukyanivka",
-            "name": "Лук'янівка / Центр",
-            "address": "вул. Павлівська, 18",
-            "subway": "м. Лук'янівська (7 хв)",
-            "hours": "Пн-Нд: 10:00 — 21:00",
-            "parking": "Власний майданчик для авто",
-            "phone": "0951079215",
-            "badge": "Центральна філія + Tattoo Room",
-            "mapQuery": "Павлівська 18 Київ"
-          },
-          {
-            "id": "great",
-            "name": "Позняки · ЖК Great",
-            "address": "вул. Дніпровська набережна, 15К",
-            "subway": "м. Осокорки / Позняки",
-            "hours": "Пн-Нд: 10:00 — 21:00",
-            "parking": "Паркінг ЖК Great",
-            "phone": "0951079215",
-            "badge": "Локація на набережній",
-            "mapQuery": "Дніпровська набережна 15К Київ"
-          },
-          {
-            "id": "varshavsky",
-            "name": "Виноградар · ЖК Варшавський",
-            "address": "вул. Олександра Олеся, 8А",
-            "subway": "ЖК Варшавський Плюс",
-            "hours": "Пн-Нд: 10:00 — 21:00",
-            "parking": "Гостьова автостоянка",
-            "phone": "0951079215",
-            "badge": "Спальний район біля дому",
-            "mapQuery": "Олександра Олеся 8А Київ"
-          },
-          {
-            "id": "urlivska",
-            "name": "Позняки · Осокорки",
-            "address": "вул. Урлівська, 11/44",
-            "subway": "м. Позняки (10 хв)",
-            "hours": "Пн-Нд: 10:00 — 21:00",
-            "parking": "Власні місця для паркування",
-            "phone": "0951079215",
-            "badge": "Діюча з 2016 року філія",
-            "mapQuery": "Урлівська 11/44 Київ"
-          }
+          "БАРБЕРШОП КИЇВ",
+          "ЧОЛОВІЧІ СТРИЖКИ ВІД 750 ГРН",
+          "МОДЕЛЮВАННЯ БОРОДИ",
+          "КОРОЛІВСЬКЕ ГОЛІННЯ",
+          "ВЛАСНА ТАТУ-СТУДІЯ TATTOO ROOM",
+          "3-ЕТАПНА МЕДИЧНА СТЕРИЛІЗАЦІЯ",
+          "ГРАНД-МАЙСТРИ ДОСВІД 5+ РОКІВ",
+          "БЕЗКОШТОВНИЙ ВІСКІ ТА КАВА",
+          "ВЛАСНЕ ПАРКУВАННЯ БІЛЯ ЖК"
         ]
       },
       "services": {
-        "kicker": "ПРАЙС-ЛИСТ ТА ПОСЛУГИ",
-        "title": "ОБЕРИ СВІЙ КОМПЛЕКС ДОГЛЯДУ",
-        "subtitle": "Фіксовані ціни без прихованих доплат. Миття голови, укладка та напої з бару включені у кожен візит.",
-        "categories": [
-          { "id": "all", "label": "Усі послуги" },
-          { "id": "hair", "label": "Стрижки" },
-          { "id": "beard", "label": "Борода та гоління" },
-          { "id": "combo", "label": "Комплекси" },
-          { "id": "care", "label": "Догляд та спа" },
-          { "id": "tattoo", "label": "Tattoo Room" }
-        ],
-        "items": [
-          {
-            "id": "s1",
-            "category": "hair",
-            "title": "Чоловіча стрижка Grand Barber",
-            "price": "від 750 грн",
-            "time": "45-60 хв",
-            "desc": "Консультація за геометрією обличчя, подвійне миття голови, опрацювання текстури, стайлінг Uppercut Deluxe.",
-            "popular": true,
-            "badge": "ТОП-ОБИРАЙ"
-          },
-          {
-            "id": "s2",
-            "category": "beard",
-            "title": "Стрижка та геометрія бороди",
-            "price": "від 550 грн",
-            "time": "30-45 хв",
-            "desc": "Створення ліній окантовки, розпарювання гарячим рушником 60°C, олія для бороди Reuzel.",
-            "popular": false
-          },
-          {
-            "id": "s3",
-            "category": "combo",
-            "title": "Комплекс: Стрижка + Борода",
-            "price": "від 1 150 грн",
-            "time": "75-90 хв",
-            "desc": "Повний цикл догляду зі знижкою у порівнянні з окремими послугами. Щотижневий вибір 65% гостей.",
-            "popular": true,
-            "badge": "ВИТИШНА ЦІНА"
-          },
-          {
-            "id": "s4",
-            "category": "beard",
-            "title": "Гоління небезпечною бритвою",
-            "price": "від 500 грн",
-            "time": "45 хв",
-            "desc": "Традиційний ритуал з гарячими компресами, піною на олії евкаліпта та одноразовим лезом.",
-            "popular": false
-          },
-          {
-            "id": "s5",
-            "category": "hair",
-            "title": "Стрижка машинкою з плавним Fade",
-            "price": "від 550 грн",
-            "time": "30 хв",
-            "desc": "Точна коротка стрижка з опрацюванням скроневих зон та подвійним миттям.",
-            "popular": false
-          },
-          {
-            "id": "s6",
-            "category": "combo",
-            "title": "Батько та син (до 10 років)",
-            "price": "від 1 150 грн",
-            "time": "75 хв",
-            "desc": "Одночасна стрижка у суміжних кріслах. Віскі або кава для батька, соки для сина.",
-            "popular": true,
-            "badge": "СІМЕЙНИЙ"
-          },
-          {
-            "id": "s7",
-            "category": "hair",
-            "title": "Дитяча стрижка (до 10 років)",
-            "price": "від 700 грн",
-            "time": "40 хв",
-            "desc": "Акуратно стрижемо наймолодших гостей з урахуванням росту волосся та побажань батьків.",
-            "popular": false
-          },
-          {
-            "id": "s8",
-            "category": "care",
-            "title": "Камуфлювання сивини волосся / бороди",
-            "price": "від 550 грн",
-            "time": "25 хв",
-            "desc": "М'яке тонування м'яким складом без аміаку. Натуральний відтінок терміном до 3 тижнів.",
-            "popular": false
-          },
-          {
-            "id": "s9",
-            "category": "care",
-            "title": "Black Mask (Чорна маска для обличчя)",
-            "price": "від 350 грн",
-            "time": "20 хв",
-            "desc": "Глибоке очищення пор від забруднень, тонізація шкіри та зволожуючий компрес.",
-            "popular": false
-          },
-          {
-            "id": "s10",
-            "category": "care",
-            "title": "Waxing (видалення волосся воском)",
-            "price": "від 100 грн",
-            "time": "15 хв",
-            "desc": "Видалення небажаного волосся у зоні вух, носа або брів гіпоалергенним воском.",
-            "popular": false
-          },
-          {
-            "id": "s11",
-            "category": "combo",
-            "title": "Передвесільний комплекс джентльмена",
-            "price": "від 1 500 грн",
-            "time": "120 хв",
-            "desc": "Повна підготовка до важливої події: стрижка, окантовка бороди, спа-догляд за обличчям та стайлінг.",
-            "popular": false
-          },
-          {
-            "id": "s12",
-            "category": "tattoo",
-            "title": "Художнє татуювання / Перекриття",
-            "price": "від 1 000 грн",
-            "time": "від 60 хв",
-            "desc": "Розробка індивідуального ескізу, нанесення татуювання або перекриття старого рисунка в Tattoo Room.",
-            "popular": true,
-            "badge": "TATTOO ROOM"
-          }
-        ]
+        "kicker": "ПРЕЙСКУРАНТ ПОСЛУГ",
+        "title": "ПОСЛУГИ ТА ПРОЗОРА ВАРТІСТЬ",
+        "subtitle": "Без прихованих доплат. Фіксована ціна включає миття голови, консультацію та преміальний стайлінг.",
+        "categories": {
+          "main": "Основні послуги",
+          "combos": "Комплекси",
+          "shaving": "Гоління та Борода",
+          "care": "Догляд та Корекція",
+          "kids": "Дитячі та Батько+Син"
+        }
       },
       "calculator": {
-        "kicker": "ІНТЕРАКТИВНИЙ РОЗРАХУНОК",
-        "title": "РОЗРАХУЙ ВАРТІСТЬ ТА ЧАС ВІЗИТУ",
-        "subtitle": "Обери необхідні послуги та рівень майстра, щоб одразу отримати точну вартість і забронювати час.",
-        "selectService": "Обери основну послугу",
-        "selectAddons": "Додатковий догляд",
-        "selectMaster": "Категорія майстра",
-        "masters": [
-          { "id": "junior", "name": "Junior Barber", "sub": "Досвід 1-2 роки" },
-          { "id": "barber", "name": "Barber", "sub": "Досвід 2-4 роки" },
-          { "id": "top", "name": "Top Barber", "sub": "Досвід 4-6 років" },
-          { "id": "grand", "name": "Grand Master", "sub": "Досвід від 5 років" }
-        ],
-        "totalEstimate": "Вартість за прайсом:",
-        "totalTime": "Тривалість візиту:",
-        "bookCalculated": "Записатися за цим розрахунком"
+        "kicker": "ОНЛАЙН-КАЛЬКУЛЯТОР",
+        "title": "РАЗРАХУНОК ВАРТОСТІ ТА ЧАСУ ВІЗИТУ",
+        "subtitle": "Оберіть послугу, категорію майстра та додаткові доглядові процедури для прозорого розрахунку.",
+        "service_label": "Оберіть основну послугу:",
+        "master_label": "Категорія майстра:",
+        "addons_label": "Додатковий догляд:",
+        "total_label": "Орієнтовна вартість:",
+        "time_label": "Тривалість візиту:",
+        "cta": "Забронювати цей вибір"
       },
-      "team": {
-        "kicker": "КОМАНДА ПРОФЕСІОНАЛІВ",
-        "title": "МАЙСТРИ КАТЕГОРІЇ GRAND MASTER",
-        "subtitle": "Кожен барбер мережі Barberking проходить щорічне підтвердження кваліфікації. Досвід майстрів — від 5 років.",
-        "members": [
+      "locations": {
+        "kicker": "МЕРЕЖА У КИЄВІ",
+        "title": "4 ЗРУЧНІ ФІЛІЇ ПОДОРУЗІ ДОДОМУ ЧИ ОФІСУ",
+        "subtitle": "Розташовані біля ключевих станцій метро та нових ЖК з власною парковкою.",
+        "branches": [
           {
-            "name": "Дмитро",
-            "role": "Grand Barber",
-            "location": "вул. Павлівська, 18 (Лук'янівка)",
-            "exp": "8 років досвіду",
-            "spec": "Класичні стрижки, складний Fade, гоління небезпечною бритвою",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2025/04/photo_2025-04-26-15.12.24-768x1024.webp"
+            "id": "pavlovska",
+            "name": "Лук'янівка / Центр",
+            "address": "вул. Павлівська, 18 (поруч із вул. Січових Стрільців)",
+            "metro": "м. Лук'янівська",
+            "hours": "Щодня: 10:00 — 21:00",
+            "phone": "0951079215",
+            "parking": "Безкоштовне паркування для клієнтів",
+            "features": "Tattoo Room • VIP-зона • Коктейльний бар"
           },
           {
-            "name": "Євгеній",
-            "role": "Grand Barber",
-            "location": "вул. Павлівська, 18 (Лук'янівка)",
-            "exp": "7 років досвіду",
-            "spec": "Моделювання геометрії бороди, подовжені чоловічі зачіски",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6955-1024x682.jpg"
+            "id": "great",
+            "name": "Позняки / ЖК Great",
+            "address": "вул. Дніпровська набережна, 15К",
+            "metro": "м. Осокорки / Позняки",
+            "hours": "Щодня: 10:00 — 21:00",
+            "phone": "0951079215",
+            "parking": "Паркінг ЖК Great",
+            "features": "Панорамний вид • Зона PlayStation • Віскі-бар"
           },
           {
-            "name": "Даніел (Dino)",
-            "role": "Grand Barber",
-            "location": "вул. Павлівська, 18 (Лук'янівка)",
-            "exp": "6 років досвіду",
-            "spec": "Текстурні стрижки, Crop, окантовка гарячим воском",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-1024x683.jpg"
+            "id": "varshavsky",
+            "name": "Виноградар / ЖК Варшавський",
+            "address": "вул. Олександра Олеся, 8А",
+            "metro": "ТРЦ Retroville",
+            "hours": "Щодня: 10:00 — 21:00",
+            "phone": "0951079215",
+            "parking": "Зручний заїзд із проспекту Правди",
+            "features": "Кавова карта • Дитяче крісло • Кондиціонування"
           },
           {
-            "name": "Руслан",
-            "role": "Top Barber",
-            "location": "вул. Олександра Олеся, 8А (Виноградар)",
-            "exp": "5 років досвіду",
-            "spec": "Дитячі стрижки, Fade з чіткими лініями, камуфляж сивини",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5902-2-1024x683.jpg"
-          },
-          {
-            "name": "Олександр",
-            "role": "Grand Barber",
-            "location": "вул. Дніпровська набережна, 15К (ЖК Great)",
-            "exp": "7 років досвіду",
-            "spec": "Комплекс «Батько і син», гоління голови бритвою",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6059-1024x683.jpg"
-          },
-          {
-            "name": "Андрій",
-            "role": "Tattoo Artist",
-            "location": "Tattoo Room · вул. Павлівська, 18",
-            "exp": "9 років у татуюванні",
-            "spec": "Графіка, чорно-біле тату, Tattoo Hair, перекриття",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5183.jpg"
+            "id": "urlivska",
+            "name": "Позняки / Урлівська",
+            "address": "вул. Урлівська, 11/44",
+            "metro": "м. Позняки",
+            "hours": "Щодня: 10:00 — 21:00",
+            "phone": "0951079215",
+            "parking": "Власний паркінг перед входом",
+            "features": "Класичний чоловічий інтер'єр • Барбер-шоп"
           }
         ]
       },
-      "standards": {
-        "kicker": "СТАНДАРТИ ТА БЕЗПЕКА",
-        "title": "3-ЕТАПНА СТЕРИЛІЗАЦІЯ ТА ТАЙМІНГ",
-        "subtitle": "Ми дотримуємося санітарних норм за стандартом медичних установ. Кожна процедура безпечна.",
-        "statement": "Безпека кожного гостя — непорушне правило Barberking з 2014 року.",
-        "quoteMaster": "Олександр В. — головний барбер мережі Barberking",
+      "advantages": {
+        "kicker": "ЧОМУ ОБИРАЮТЬ НАС",
+        "title": "СТАНДАРТИ BARBERKING: ЯКІСТЬ БЕЗ КОМПРОМІСІВ",
+        "subtitle": "Ми усунули всі типові проблеми забігалівок та звичайних перукарень.",
         "items": [
           {
-            "num": "180°C",
             "title": "3-етапна стерилізація інструментів",
-            "desc": "Ультразвукова мийка, дезінфікуючий розчин та обробка у сухожаровій шафі при 180°C протягом 60 хвилин. Крафт-пакет відкривається при гості."
+            "desc": "Дезінфекція в ультразвуковій ванні, занурення в сухожарову шафу при 180°C та відкриття крафт-пакета виключно при гості."
           },
           {
-            "num": "100%",
-            "title": "Одноразові леза та комірці",
-            "desc": "Для гоління та окантовки використовуються нові одноразові леза Японія/Німеччина, які утилізуються одразу після процедури."
+            "title": "Майстри Grand Master (5+ років)",
+            "desc": "Працюємо без «стажерів на тренуванні». Кожен майстер проходив строгий відбір та міжнародне стажування."
           },
           {
-            "num": "0 грн",
-            "title": "Косметика Uppercut & Reuzel",
-            "desc": "Працюємо з оригінальною чоловічою косметикою Uppercut Deluxe, Reuzel та Layrite. Підбір стайлінгу входить у вартість."
+            "title": "Безкоштовний бар для кожного гостя",
+            "desc": "Шот якісного односолодового віскі, свіжозмелена кава арабіка, соки або охолоджена вода під час стрижки."
           },
           {
-            "num": "10 хв",
-            "title": "Гарантія дотримання таймінгу",
-            "desc": "Фіксуємо час запису з точністю до хвилини. Якщо затримка майстра перевищує 10 хвилин — надаємо знижку 15% на візит."
+            "title": "Власне безкоштовне паркування",
+            "desc": "Ніяких пошуків місця за 3 квартали. Усі 4 філії розташовані у ЖК із власними доступними паркомісцями."
+          },
+          {
+            "title": "Суворе дотримання таймінгу",
+            "desc": "Ваш час дорогоцінний. Запис «хвилина в хвилину» без затримок у черзі та очікування у фойє."
+          },
+          {
+            "title": "Власна тату-студія Tattoo Room",
+            "desc": "Можливість поєднати оновлення стрижки з розробкою ескізу або нанесенням татуювання в одному закладі."
+          }
+        ]
+      },
+      "gallery": {
+        "kicker": "ПОРТФОЛІО РОБІТ",
+        "title": "РЕАЛЬНІ СТРИЖКИ ТА ФОРМИ БОРОДИ",
+        "subtitle": "Фотографії наших реальних клієнтів після візиту до майстрів Barberking.",
+        "items": [
+          {
+            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6955-1024x682.jpg",
+            "title": "Класичний Crop Fade",
+            "category": "Стрижка"
+          },
+          {
+            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-1024x683.jpg",
+            "title": "Моделювання бороди & Окантовка",
+            "category": "Борода"
+          },
+          {
+            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5902-2-1024x683.jpg",
+            "title": "Modern Executive Contour",
+            "category": "Стрижка"
+          },
+          {
+            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6059-1024x683.jpg",
+            "title": "Комплексна стрижка та догляд",
+            "category": "Комплекс"
+          },
+          {
+            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5183.jpg",
+            "title": "Подовжений Текстурний Стиль",
+            "category": "Стайлінг"
+          },
+          {
+            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2025/04/photo_2025-04-26-15.12.24-768x1024.webp",
+            "title": "Grand Barber Дмитро за роботою",
+            "category": "Майстер"
           }
         ]
       },
       "tattoo": {
-        "kicker": "СПЕЦІАЛЬНА ЗОНА",
-        "title": "ВЛАСНА ТАТУ-СТУДІЯ TATTOO ROOM В МЕРЕЖІ",
-        "subtitle": "Поєднуйте стрижку та створення татуювання в одному місці. Стерильні умови, художники з досвідом від 7 років та розробка індивідуального ескізу.",
+        "kicker": "ЕКСКЛЮЗИВ МЕРЕЖІ",
+        "title": "TATTOO ROOM — ВЛАСНА ТАТУ-СТУДІЯ В BARBERKING",
+        "subtitle": "Професійне художнє татуювання, корекція та перекриття старих робіт. Повна стерильність та індивідуальні ескізи.",
         "features": [
-          "Індивідуальний ескіз від художників з досвідом від 7 років",
-          "Перекриття (cover-up) та реставрація старого рисунка",
-          "Художній Tattoo Hair на скронях та потилиці",
-          "Сертифіковані гіпоалергенні пігменти США"
+          "Індивідуальна розробка ескізу тату-майстром",
+          "Захисна гіпоалергенна плівка для комфортного загоєння",
+          "Пигменти преміум-класу USA/Germany",
+          "Абсолютна стерильність та одноразові розхідники"
         ],
-        "bgImage": "https://kyiv.bking.com.ua/wp-content/themes/bking/images/price-banner.jpg"
+        "cta": "Консультація тату-майстра"
       },
-      "gallery": {
-        "kicker": "ПОРТФОЛІО РОБІТ",
-        "title": "РЕАЛЬНІ СТРИЖКИ НАШИХ ГОСТЕЙ",
-        "subtitle": "Без ретуші та постановочних кадрів. Тільки живі роботи майстрів Barberking.",
-        "items": [
+      "team": {
+        "kicker": "КОМАНДА ПРОФЕСІОНАЛІВ",
+        "title": "ТОПОВІ БАРБЕРИ ТА ТАТУ-МАЙСТРИ",
+        "subtitle": "Знають анатомію обличчя, форму черепа та тенденції чоловічого стилю.",
+        "members": [
           {
-            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5183.jpg",
-            "title": "Текстурний Кроп з плавним Fade",
-            "category": "Стрижка"
+            "name": "Дмитро",
+            "role": "Grand Barber",
+            "branch": "вул. Павлівська, 18",
+            "exp": "8+ років досвіду",
+            "specialty": "Fade, Подовжені стрижки, Оформлення бороди"
           },
           {
-            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6955-1024x682.jpg",
-            "title": "Моделювання довгої бороди та окантовка",
-            "category": "Борода"
+            "name": "Евгеній",
+            "role": "Grand Barber",
+            "branch": "вул. Павлівська, 18",
+            "exp": "7 років досвіду",
+            "specialty": "Королівське гоління, Класика, Чіткі контури"
           },
           {
-            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-1024x683.jpg",
-            "title": "Андеркат та укладка Uppercut",
-            "category": "Класика"
+            "name": "Даніел (Dino)",
+            "role": "Grand Barber",
+            "branch": "вул. Павлівська, 18",
+            "exp": "6+ років досвіду",
+            "specialty": "Modern Crop, Камуфляж сивини, Текстура"
           },
           {
-            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5902-2-1024x683.jpg",
-            "title": "Комплекс Стрижка + Моделювання бороди",
-            "category": "Комплекс"
+            "name": "Серхіо",
+            "role": "Grand Barber",
+            "branch": "Дніпровська набережна, 15К",
+            "exp": "7 років досвіду",
+            "specialty": "Моделювання бороди, Дитячі стрижки, Fade"
           },
           {
-            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6059-1024x683.jpg",
-            "title": "Стрижка середньої довжини",
-            "category": "Стрижка"
+            "name": "Руслан",
+            "role": "Top Barber",
+            "branch": "вул. Олександра Олеся, 8А",
+            "exp": "5 років досвіду",
+            "specialty": "Стрижка машинкою, Двошарові комплекси"
           },
           {
-            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2025/04/photo_2025-04-26-15.12.24-768x1024.webp",
-            "title": "Опрацювання ліній окантовки зачіски",
-            "category": "Процес"
+            "name": "Андрій",
+            "role": "Tattoo Artist",
+            "branch": "вул. Павлівська, 18",
+            "exp": "9 років досвіду",
+            "specialty": "Графіка, Чорно-білі реалістичні тату, Перекриття"
           }
         ]
       },
       "reviews": {
         "kicker": "СЛОВО ГОСТЕЙ",
-        "title": "РЕЙТИНГ 4.8 / 5.0 У GOOGLE MAPS",
-        "subtitle": "Понад 580 реальних відгуків від чоловіків, які обирають Barberking роками.",
-        "mainQuote": "«Ходжу до Дмитра на Павлівську вже 3 роки. Завжди точна форма бороди та стрижка без затримок. Окремий плюс за парковку у центрі та віскі після робочого дня.»",
-        "mainAuthor": "Олексій Коваленко — постійний гість з 2019 року",
-        "source": "4.8 / 5.0 · Google Maps · 580+ відгуків",
+        "title": "ВІДГУКИ КЛІЄНТІВ У GOOGLE MAPS",
+        "subtitle": "Середній рейтинг 4.8 на основі понад 1 200 реальних відгуків мешканців Києва.",
         "items": [
           {
-            "author": "Олексій Коваленко",
-            "role": "Постійний гість з 2019 року",
+            "author": "Олександр Ткаченко",
+            "role": "IT Team Lead (ЖК Great)",
+            "text": "Стрижуся у Серхіо на Дніпровській набережній вже півтора року. Завжди ідеальний фаде, борода акуратна навіть через 2 тижні. Приємно, що паркінг біля дому і пригощають гарним віскі.",
             "rating": "5.0",
-            "text": "Ходжу до Дмитра на Павлівську вже 3 роки. Завжди точна форма бороди та стрижка без затримок. Окремий плюс за парковку у центрі та віскі після робочого дня."
+            "date": "Квітень 2026"
           },
           {
-            "author": "Максим Бондаренко",
-            "role": "Гість філії Позняки (ЖК Great)",
+            "author": "Михайло Сергієнко",
+            "role": "Предприниматель (Лук'янівка)",
+            "text": "Дуже ціную час: прийшов о 14:00, за хвилину вже в кріслі. Майстер Дмитро відчуває форму голови з першого помаху ножиць. Воскова корекція та гарячий рушник — топ процедура!",
             "rating": "5.0",
-            "text": "Живу в ЖК Great, відкриття вашого барбершопу у будинку — найзручніше рішення. Майстер зробив саме той Fade, який я описував."
+            "date": "Березень 2026"
           },
           {
-            "author": "Ігор Сергієнко",
-            "role": "Гість філії Виноградар",
+            "author": "Андрій та син Максим",
+            "role": "Постійні гості (Виноградар)",
+            "text": "Ходимо з сином (8 років) за комплексом «Батько і Син» до Руслана на Олеся. Дитина в захваті від стрижки та соку, а я від зекономленого часу. Дякую за якість!",
             "rating": "5.0",
-            "text": "Приходимо з 7-річним сином на комплекс «Батько і син». Для малого це справжній ритуал, стрижуть уважно та охайно."
-          },
-          {
-            "author": "Артем Мельник",
-            "role": "Гість філії Урлівська",
-            "rating": "5.0",
-            "text": "Чоловіча атмосфера, чисті інструменти (крафт-пакет відкривають при тобі) та якісний сервіс. Вартість 750 грн повністю виправдана."
+            "date": "Квітень 2026"
           }
         ]
       },
       "faq": {
-        "kicker": "ВІДПОВІДІ НА ЗАПИТАННЯ",
-        "title": "ЧАСТІ ПИТАННЯ ГОСТЕЙ",
-        "subtitle": "Усе, що потрібно знати перед першим візитом до барбершопу Barberking.",
-        "items": [
-          {
-            "q": "ЯКА ВАРТІСТЬ ЧОЛОВІЧОЇ СТРИЖКИ У BARBERKING КИЇВ?",
-            "a": "Чоловіча стрижка в Barberking — від 750 грн. Комплекс «стрижка + борода» — від 1 150 грн. Стрижка машинкою — від 550 грн. Дитяча стрижка (до 10 років) — від 700 грн. Усі ціни фіксовані."
-          },
-          {
-            "q": "Скільки триває візит?",
-            "a": "Стрижка триває від 45 до 60 хвилин. Комплекс з бородою — близько 75-90 хвилин."
-          },
-          {
-            "q": "Чи можна прийти без попереднього запису?",
-            "a": "Приймаємо без запису за наявності вільних майстрів, але рекомендуємо бронювати час онлайн заздалегідь."
-          },
-          {
-            "q": "Що входить у послугу оформлення бороди?",
-            "a": "Консультація за формою обличчя, окантовка бритвою, розпарювання гарячим рушником та нанесення олії для бороди."
-          },
-          {
-            "q": "Чи робите ви камуфляж сивини?",
-            "a": "Так, робимо камуфляж сивини для волосся та бороди за 20-25 хвилин. Результат тримається до 3 тижнів."
-          },
-          {
-            "q": "Чи є безкоштовне паркування біля філій?",
-            "a": "Усі 4 філії мають власні або гостьові паркомісця безпосередньо біля входу."
-          },
-          {
-            "q": "Як доглядати за новим татуюванням?",
-            "a": "Заживляючу плівку знімають через 3-5 днів, після чого тату промивають теплою водою та змащують кремом Bepanthen."
-          }
-        ]
+        "kicker": "ЧАСТІ ПИТАННЯ",
+        "title": "УСЕ, ЩО ВАРТО ЗНАТИ ПЕРЕД ВІЗИТОМ",
+        "subtitle": "Відповіді на запитання про вартість, тривалість та догляд."
       },
-      "booking": {
-        "kicker": "ОНЛАЙН-БРОНЮВАННЯ",
-        "title": "ЗАПИШИСЯ ДО СВОГО МАЙСТРА В ОДИН КЛІК",
-        "subtitle": "Оберіть філію, послугу та зручний час. Менеджер підтвердить візит за 5 хвилин.",
+      "contact": {
+        "kicker": "ШВИДКИЙ ЗАПИС",
+        "title": "ЗАПИСАТИСЯ НА СТРИЖКУ ОНЛАЙН",
+        "subtitle": "Оберіть зручну філію, бажану дату та час. Адміністратор підтвердить запис за 3 хвилини.",
         "form": {
-          "locationLabel": "Оберіть локацію",
-          "serviceLabel": "Оберіть послугу",
-          "namePlaceholder": "Ваше ім'я",
-          "phonePlaceholder": "Номер телефону (095...)",
-          "dateLabel": "Бажана дата",
-          "submitBtn": "Підтвердити запис онлайн",
-          "submitting": "Записуємо...",
-          "successTitle": "Запис успішно оформлено!",
-          "successDesc": "Ми зателефонуємо вам протягом 5 хвилин для підтвердження візиту."
+          "name": "Ваше ім'я",
+          "name_ph": "Олександр",
+          "phone": "Номер телефону",
+          "phone_ph": "+380 (95) 107-92-15",
+          "location": "Оберіть філію",
+          "service": "Обрана послуга",
+          "date": "Бажана дата візиту",
+          "submit": "Запідтвердити запис",
+          "submitting": "Відправляємо...",
+          "success_title": "Запис успішно створено!",
+          "success_desc": "Ми зателефонуємо вам на вказаний номер протягом 3 хвилин для підтвердження."
         }
       },
       "footer": {
-        "tagline": "МЕРЕЖА ЧОЛОВІЧИХ БАРБЕРШОПІВ У КИЄВІ · EST. 2014",
-        "copyright": "© 2026 Barberking Kyiv. Усі права захищені.",
-        "developer": "Розроблено Студія Тест",
-        "developerUrl": "https://makarich.framer.website"
+        "desc": "Barberking — мережа чоловічих барбершопів у Києві. Стрижки, борода, гоління та власна тату-студія.",
+        "hours": "Графік роботи: Щодня з 10:00 до 21:00",
+        "phone": "Телефон для запису: 0951079215",
+        "rights": "Усі права захищено. Barberking 2014–2026.",
+        "developer": "Розроблено Студія Тест"
       }
     },
     "en": {
-      "brand": {
-        "name": "Barberking",
-        "tagline": "Barbershop network in Kyiv",
-        "est": "2014",
-        "phone": "0951079215",
-        "phoneFormatted": "095 107 92 15",
-        "email": "barberking.kv1@gmail.com",
-        "rating": "4.8",
-        "clientsCount": "69 000+",
-        "locationsCount": "4"
+      "meta": {
+        "title": "Barberking — Barbershop Network in Kyiv | Men's Haircuts, Beard, Tattoo",
+        "description": "4 premium barbershops in Kyiv. Craft barbers, 3-stage sterilization, free whisky and coffee.",
+        "lang": "en"
       },
       "nav": {
         "services": "Services & Prices",
-        "locations": "Locations",
         "calculator": "Calculator",
-        "team": "Barbers",
-        "standards": "Standards",
+        "locations": "Locations",
+        "advantages": "Advantages",
+        "gallery": "Portfolio",
         "tattoo": "Tattoo Room",
-        "gallery": "Gallery",
+        "team": "Barbers",
         "reviews": "Reviews",
         "faq": "FAQ",
-        "bookCta": "Book Online"
+        "book": "Book Online"
       },
       "hero": {
-        "kicker": "EST. 2014 · KYIV · 4 LOCATIONS WITH PARKING",
-        "h1First": "YOUR RITUAL OF",
-        "h1Italic": "calm and style",
-        "h1Last": "IN KYIV",
-        "description": "Men's haircuts from 750 UAH, beard sculpting and razor shaving. 4 branches with private parking and complimentary drinks.",
-        "primaryCta": "Select Barber & Time",
-        "secondaryCta": "Prices & Services",
-        "videoUrl": "https://kyiv.bking.com.ua/wp-content/themes/bking/video-bg/video-bg.mp4",
-        "posterUrl": "https://kyiv.bking.com.ua/wp-content/themes/bking/images/banner2.jpg",
-        "stats": [
-          { "value": "69 000+", "label": "satisfied clients served" },
-          { "value": "4.8 / 5.0", "label": "Google rating (580+ reviews)" },
-          { "value": "4 locations", "label": "Lukyanivka, Poznyaki, Vynohradar" },
-          { "value": "5+ years", "label": "Grand Master experience" }
-        ]
+        "badge": "Est. 2014 — Premium Men's Barbershop Network in Kyiv",
+        "title": "MASCULINE STYLE & PERFECT HAIRCUT GEOMETRY",
+        "subtitle": "4 convenient locations near metro & modern residential complexes. Free parking, complimentary whisky, coffee and custom style mapping.",
+        "cta": "Book an Appointment",
+        "cta_secondary": "Choose Branch",
+        "videoUrl": "https://videos.pexels.com/video-files/7426382/7426382-hd_2048_864_25fps.mp4",
+        "posterUrl": "https://images.pexels.com/videos/7426382/pexels-photo-7426382.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200",
+        "stats": {
+          "clients": "69,000+",
+          "clients_label": "Satisfied Clients",
+          "rating": "4.8 / 5",
+          "rating_label": "Google Maps Rating",
+          "experience": "10 Years",
+          "experience_label": "Of Craft Experience",
+          "locations": "4 Branches",
+          "locations_label": "Right & Left Bank"
+        }
       },
-      "ticker": [
-        "MEN'S HAIRCUT FROM 750 UAH",
-        "BEARD TRIMMING FROM 550 UAH",
-        "4 LOCATIONS WITH FREE PARKING",
-        "COMPLIMENTARY COFFEE & WHISKEY",
-        "3-STAGE MEDICAL STERILIZATION AT 180°C",
-        "IN-HOUSE TATTOO ROOM STUDIO"
-      ],
-      "locations": {
-        "kicker": "GEOGRAPHY OF COMFORT",
-        "title": "4 LOCATIONS ACROSS KYIV",
-        "subtitle": "Choose the barbershop closest to your home or office. All locations feature convenient parking and metro access.",
+      "ticker": {
         "items": [
-          {
-            "id": "lukyanivka",
-            "name": "Lukyanivka / Center",
-            "address": "18 Pavlivska St",
-            "subway": "Lukyanivska metro (7 min)",
-            "hours": "Mon-Sun: 10:00 — 21:00",
-            "parking": "Private parking space",
-            "phone": "0951079215",
-            "badge": "Central Branch + Tattoo Room",
-            "mapQuery": "Pavlivska 18 Kyiv"
-          },
-          {
-            "id": "great",
-            "name": "Poznyaki · Great Complex",
-            "address": "15K Dniprovska Embankment",
-            "subway": "Osokorki / Poznyaki metro",
-            "hours": "Mon-Sun: 10:00 — 21:00",
-            "parking": "Residential parking",
-            "phone": "0951079215",
-            "badge": "Waterfront Location",
-            "mapQuery": "Dniprovska Embankment 15K Kyiv"
-          },
-          {
-            "id": "varshavsky",
-            "name": "Vynohradar · Varshavsky Complex",
-            "address": "8A Oleksandra Olesya St",
-            "subway": "Varshavsky Plus Complex",
-            "hours": "Mon-Sun: 10:00 — 21:00",
-            "parking": "Guest parking area",
-            "phone": "0951079215",
-            "badge": "Residential Area",
-            "mapQuery": "Oleksandra Olesya 8A Kyiv"
-          },
-          {
-            "id": "urlivska",
-            "name": "Poznyaki · Osokorki",
-            "address": "11/44 Urlivska St",
-            "subway": "Poznyaki metro (10 min)",
-            "hours": "Mon-Sun: 10:00 — 21:00",
-            "parking": "Private parking spots",
-            "phone": "0951079215",
-            "badge": "Operating since 2016",
-            "mapQuery": "Urlivska 11/44 Kyiv"
-          }
+          "BARBERSHOP KYIV",
+          "HAIRCUTS FROM 750 UAH",
+          "BEARD TRIM & SHAPE",
+          "ROYAL HOT SHAVE",
+          "TATTOO ROOM STUDIO",
+          "3-STAGE MEDICAL STERILIZATION",
+          "GRAND MASTERS 5+ YRS EXP",
+          "COMPLIMENTARY WHISKY & COFFEE",
+          "FREE PARKING AT LOCATIONS"
         ]
       },
       "services": {
-        "kicker": "PRICING & SERVICES",
-        "title": "CHOOSE YOUR GROOMING PACKAGE",
-        "subtitle": "Fixed pricing without hidden fees. Every service includes hair washing, styling, consultation and bar drinks.",
-        "categories": [
-          { "id": "all", "label": "All Services" },
-          { "id": "hair", "label": "Haircuts" },
-          { "id": "beard", "label": "Beard & Shave" },
-          { "id": "combo", "label": "Combos" },
-          { "id": "care", "label": "Care & Spa" },
-          { "id": "tattoo", "label": "Tattoo Room" }
-        ],
-        "items": [
-          {
-            "id": "s1",
-            "category": "hair",
-            "title": "Grand Barber Haircut",
-            "price": "from 750 UAH",
-            "time": "45-60 min",
-            "desc": "Head anatomy consultation, double hair wash, texturizing and Uppercut Deluxe styling.",
-            "popular": true,
-            "badge": "TOP PICK"
-          },
-          {
-            "id": "s2",
-            "category": "beard",
-            "title": "Beard Sculpting & Trimming",
-            "price": "from 550 UAH",
-            "time": "30-45 min",
-            "desc": "Geometric beard shaping, 60°C hot towel steaming, razor contours and Reuzel oil.",
-            "popular": false
-          },
-          {
-            "id": "s3",
-            "category": "combo",
-            "title": "Haircut + Beard Combo",
-            "price": "from 1 150 UAH",
-            "time": "75-90 min",
-            "desc": "Full men's grooming cycle at a discounted bundle price.",
-            "popular": true,
-            "badge": "BEST VALUE"
-          },
-          {
-            "id": "s4",
-            "category": "beard",
-            "title": "Straight Razor Shave",
-            "price": "from 500 UAH",
-            "time": "45 min",
-            "desc": "Traditional multi-step hot compress shaving ritual with eucalyptus foam.",
-            "popular": false
-          },
-          {
-            "id": "s5",
-            "category": "hair",
-            "title": "Clipper Haircut with Fade",
-            "price": "from 550 UAH",
-            "time": "30 min",
-            "desc": "Clean short haircut with smooth fade transitions and hair washing.",
-            "popular": false
-          },
-          {
-            "id": "s6",
-            "category": "combo",
-            "title": "Father + Son (under 10 y.o.)",
-            "price": "from 1 150 UAH",
-            "time": "75 min",
-            "desc": "Simultaneous haircut in side-by-side chairs with drinks for father and juice for son.",
-            "popular": true,
-            "badge": "FAMILY"
-          },
-          {
-            "id": "s7",
-            "category": "hair",
-            "title": "Kids Haircut (under 10 y.o.)",
-            "price": "from 700 UAH",
-            "time": "40 min",
-            "desc": "Gentle haircut tailored for young gentlemen.",
-            "popular": false
-          },
-          {
-            "id": "s8",
-            "category": "care",
-            "title": "Grey Hair Camouflage",
-            "price": "from 550 UAH",
-            "time": "25 min",
-            "desc": "Natural toning of grey hair without artificial dye effect.",
-            "popular": false
-          },
-          {
-            "id": "s9",
-            "category": "care",
-            "title": "Black Mask Facial Care",
-            "price": "from 350 UAH",
-            "time": "20 min",
-            "desc": "Deep pore cleansing mask for skin hydration and refreshment.",
-            "popular": false
-          },
-          {
-            "id": "s10",
-            "category": "care",
-            "title": "Facial Waxing",
-            "price": "from 100 UAH",
-            "time": "15 min",
-            "desc": "Removal of unwanted hair in nose, ears or eyebrows.",
-            "popular": false
-          },
-          {
-            "id": "s11",
-            "category": "combo",
-            "title": "Gentleman Wedding Package",
-            "price": "from 1 500 UAH",
-            "time": "120 min",
-            "desc": "Complete preparation for your big day: haircut, beard trim, facial spa & styling.",
-            "popular": false
-          },
-          {
-            "id": "s12",
-            "category": "tattoo",
-            "title": "Custom Tattoo / Cover-up",
-            "price": "from 1 000 UAH",
-            "time": "from 60 min",
-            "desc": "Individual sketch development, tattooing and cover-up in Tattoo Room.",
-            "popular": true,
-            "badge": "TATTOO ROOM"
-          }
-        ]
+        "kicker": "PRICING MENU",
+        "title": "SERVICES & TRANSPARENT RATES",
+        "subtitle": "No hidden fees. Fixed price includes hair wash, consultation and premium styling.",
+        "categories": {
+          "main": "Main Services",
+          "combos": "Combos",
+          "shaving": "Shaving & Beard",
+          "care": "Grooming & Treatments",
+          "kids": "Kids & Father+Son"
+        }
       },
       "calculator": {
-        "kicker": "VISIT CALCULATOR",
-        "title": "CALCULATE COST & TIME",
-        "subtitle": "Select services and master category to get instant estimate.",
-        "selectService": "Select Main Service",
-        "selectAddons": "Additional Care",
-        "selectMaster": "Master Level",
-        "masters": [
-          { "id": "junior", "name": "Junior Barber", "sub": "1-2 years experience" },
-          { "id": "barber", "name": "Barber", "sub": "2-4 years experience" },
-          { "id": "top", "name": "Top Barber", "sub": "4-6 years experience" },
-          { "id": "grand", "name": "Grand Master", "sub": "Top expert 5+ years" }
-        ],
-        "totalEstimate": "List Price:",
-        "totalTime": "Duration:",
-        "bookCalculated": "Book with this calculation"
+        "kicker": "ONLINE CALCULATOR",
+        "title": "CALCULATE ESTIMATE & DURATION",
+        "subtitle": "Select service, barber tier and additional grooming treatments.",
+        "service_label": "Select Main Service:",
+        "master_label": "Barber Tier:",
+        "addons_label": "Extra Treatments:",
+        "total_label": "Estimated Total:",
+        "time_label": "Visit Duration:",
+        "cta": "Reserve This Selection"
       },
-      "team": {
-        "kicker": "OUR TEAM",
-        "title": "GRAND MASTER BARBERS",
-        "subtitle": "Every barber at Barberking passes annual certification. Minimum 5 years of experience.",
-        "members": [
+      "locations": {
+        "kicker": "KYIV LOCATIONS",
+        "title": "4 CONVENIENT BRANCHES ON YOUR WAY HOME OR WORK",
+        "subtitle": "Located near key metro stations and modern residential quarters with private parking.",
+        "branches": [
           {
-            "name": "Dmytro",
-            "role": "Grand Barber",
-            "location": "Pavlivska St (Lukyanivka)",
-            "exp": "8 years experience",
-            "spec": "Classic haircuts, Fade, Straight Razor Shaving",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2025/04/photo_2025-04-26-15.12.24-768x1024.webp"
+            "id": "pavlovska",
+            "name": "Lukyanivka / Center",
+            "address": "18 Pavlovska St (near Sichovykh Striltsiv)",
+            "metro": "Lukyanivska metro",
+            "hours": "Daily: 10:00 — 21:00",
+            "phone": "0951079215",
+            "parking": "Free parking for clients",
+            "features": "Tattoo Room • VIP zone • Cocktail bar"
           },
           {
-            "name": "Yevheniy",
-            "role": "Grand Barber",
-            "location": "Pavlivska St (Lukyanivka)",
-            "exp": "7 years experience",
-            "spec": "Beard sculpting, long hair styling",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6955-1024x682.jpg"
+            "id": "great",
+            "name": "Poznyaki / Great RC",
+            "address": "15K Dniprovska Embankment",
+            "metro": "Osokorky / Poznyaki metro",
+            "hours": "Daily: 10:00 — 21:00",
+            "phone": "0951079215",
+            "parking": "Great RC parking",
+            "features": "Panoramic view • PlayStation zone • Whisky bar"
           },
           {
-            "name": "Daniel (Dino)",
-            "role": "Grand Barber",
-            "location": "Pavlivska St (Lukyanivka)",
-            "exp": "6 years experience",
-            "spec": "Modern texturized crops, wax contouring",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-1024x683.jpg"
+            "id": "varshavsky",
+            "name": "Vynohradar / Varshavsky RC",
+            "address": "8A Oleksandra Olesya St",
+            "metro": "Retroville Mall area",
+            "hours": "Daily: 10:00 — 21:00",
+            "phone": "0951079215",
+            "parking": "Easy drive-in from Pravdy Ave",
+            "features": "Coffee menu • Kids chair • AC"
           },
           {
-            "name": "Ruslan",
-            "role": "Top Barber",
-            "location": "Vynohradar Branch",
-            "exp": "5 years experience",
-            "spec": "Kids haircuts, precise Fade, grey camouflage",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5902-2-1024x683.jpg"
-          },
-          {
-            "name": "Oleksandr",
-            "role": "Grand Barber",
-            "location": "Poznyaki · Great Complex",
-            "exp": "7 years experience",
-            "spec": "Father + Son combo, head razor shaving",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6059-1024x683.jpg"
-          },
-          {
-            "name": "Andriy",
-            "role": "Tattoo Artist",
-            "location": "Tattoo Room · Pavlivska St",
-            "exp": "9 years tattooing",
-            "spec": "Graphics, B&W tattoos, Tattoo Hair",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5183.jpg"
+            "id": "urlivska",
+            "name": "Poznyaki / Urlivska",
+            "address": "11/44 Urlivska St",
+            "metro": "Poznyaki metro",
+            "hours": "Daily: 10:00 — 21:00",
+            "phone": "0951079215",
+            "parking": "Private parking in front",
+            "features": "Classic barbershop interior"
           }
         ]
       },
-      "standards": {
-        "kicker": "SAFETY & QUALITY",
-        "title": "3-STAGE STERILIZATION & PUNCTUALITY",
-        "subtitle": "We observe medical sterilization standards. Every procedure is safe.",
-        "statement": "The safety of every guest is Barberking's rule since 2014.",
-        "quoteMaster": "Oleksandr V. — Head Barber at Barberking",
+      "advantages": {
+        "kicker": "WHY CHOOSE US",
+        "title": "BARBERKING STANDARDS: QUALITY WITHOUT COMPROMISE",
+        "subtitle": "We eliminated all common flaws of standard hairdressing shops.",
         "items": [
           {
-            "num": "180°C",
-            "title": "3-Stage Medical Sterilization",
-            "desc": "Ultrasound cleaning, chemical disinfection, and 180°C dry-heat sterilization for 60 minutes. Craft bags opened in front of you."
+            "title": "3-stage medical sterilization",
+            "desc": "Ultrasonic bath cleaning, dry heat oven at 180°C, craft pouch unsealed in front of you."
           },
           {
-            "num": "100%",
-            "title": "Single-Use Razor Blades",
-            "desc": "Fresh sterile blades imported from Japan/Germany used for every client and disposed immediately."
+            "title": "Grand Masters (5+ years exp)",
+            "desc": "No inexperienced trainees. Every barber passes strict qualification exams."
           },
           {
-            "num": "0 UAH",
-            "title": "Uppercut & Reuzel Styling",
-            "desc": "We work with original Uppercut Deluxe, Reuzel, and Layrite cosmetics. Styling selection included."
+            "title": "Complimentary bar for guests",
+            "desc": "Single malt whisky shot, freshly brewed arabica coffee, or juices with every haircut."
           },
           {
-            "num": "10 min",
-            "title": "Punctuality Guarantee",
-            "desc": "If a master delay exceeds 10 minutes, you receive a 15% visit discount."
+            "title": "Free private parking",
+            "desc": "No searching for spots blocks away. All 4 locations feature easy parking access."
+          },
+          {
+            "title": "Strict timing adherence",
+            "desc": "Your time is valuable. Guaranteed sharp start times without waiting in queue."
+          },
+          {
+            "title": "In-house Tattoo Room",
+            "desc": "Option to pair a fresh haircut with custom tattoo design in one spot."
+          }
+        ]
+      },
+      "gallery": {
+        "kicker": "PORTFOLIO",
+        "title": "REAL HAIRCUTS & BEARD SHAPES",
+        "subtitle": "Photos of our actual clients after visiting Barberking masters.",
+        "items": [
+          {
+            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6955-1024x682.jpg",
+            "title": "Classic Crop Fade",
+            "category": "Haircut"
+          },
+          {
+            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-1024x683.jpg",
+            "title": "Beard Modeling & Edging",
+            "category": "Beard"
+          },
+          {
+            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5902-2-1024x683.jpg",
+            "title": "Modern Executive Contour",
+            "category": "Haircut"
+          },
+          {
+            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6059-1024x683.jpg",
+            "title": "Full Haircut & Grooming",
+            "category": "Combo"
+          },
+          {
+            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5183.jpg",
+            "title": "Long Textured Hair Style",
+            "category": "Styling"
+          },
+          {
+            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2025/04/photo_2025-04-26-15.12.24-768x1024.webp",
+            "title": "Grand Barber Dmytro in action",
+            "category": "Master"
           }
         ]
       },
       "tattoo": {
-        "kicker": "SPECIAL ZONE",
-        "title": "IN-HOUSE TATTOO ROOM STUDIO",
-        "subtitle": "Combine your haircut with a custom tattoo session in a sterile environment with artists of 7+ years experience.",
+        "kicker": "EXCLUSIVE FEATURE",
+        "title": "TATTOO ROOM — IN-HOUSE TATTOO STUDIO",
+        "subtitle": "Custom artistic tattoos, cover-ups and corrections. Complete sterility & custom sketches.",
         "features": [
-          "Custom sketches by artists with 7+ years experience",
-          "Tattoo cover-ups and restorations",
-          "Artistic Tattoo Hair styling",
-          "US-certified hypoallergenic pigments"
+          "Custom sketch development by tattoo artist",
+          "Hypoallergenic protective film for healing",
+          "USA/Germany premium pigments",
+          "Absolute sterility & single-use equipment"
         ],
-        "bgImage": "https://kyiv.bking.com.ua/wp-content/themes/bking/images/price-banner.jpg"
+        "cta": "Tattoo Artist Consultation"
       },
-      "gallery": {
-        "kicker": "WORK PORTFOLIO",
-        "title": "REAL WORK BY OUR BARBERS",
-        "subtitle": "No retouching or staged photos. Genuine results from Barberking masters.",
-        "items": [
+      "team": {
+        "kicker": "THE CRAFTSMEN",
+        "title": "TOP BARBERS & TATTOO ARTISTS",
+        "subtitle": "Experts in facial anatomy, skull structure, and modern men's aesthetic trends.",
+        "members": [
           {
-            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5183.jpg",
-            "title": "Textured Crop with Smooth Fade",
-            "category": "Haircut"
+            "name": "Dmytro",
+            "role": "Grand Barber",
+            "branch": "18 Pavlovska St",
+            "exp": "8+ years experience",
+            "specialty": "Fade, Long Haircuts, Beard Shaping"
           },
           {
-            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6955-1024x682.jpg",
-            "title": "Long Beard Sculpting & Razor Edge",
-            "category": "Beard"
+            "name": "Evgeniy",
+            "role": "Grand Barber",
+            "branch": "18 Pavlovska St",
+            "exp": "7 years experience",
+            "specialty": "Royal Hot Shave, Classics, Sharp Edging"
           },
           {
-            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-1024x683.jpg",
-            "title": "Undercut & Uppercut Styling",
-            "category": "Classic"
+            "name": "Daniel (Dino)",
+            "role": "Grand Barber",
+            "branch": "18 Pavlovska St",
+            "exp": "6+ years experience",
+            "specialty": "Modern Crop, Grey Camo, Texture"
           },
           {
-            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5902-2-1024x683.jpg",
-            "title": "Haircut + Beard Trim Package",
-            "category": "Combo"
+            "name": "Serhio",
+            "role": "Grand Barber",
+            "branch": "15K Dniprovska Emb.",
+            "exp": "7 years experience",
+            "specialty": "Beard Modeling, Kids Haircuts, Fade"
           },
           {
-            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6059-1024x683.jpg",
-            "title": "Medium Length Hairstyle",
-            "category": "Haircut"
+            "name": "Ruslan",
+            "role": "Top Barber",
+            "branch": "8A Oleksandra Olesya St",
+            "exp": "5 years experience",
+            "specialty": "Clipper Haircuts, Combo Services"
           },
           {
-            "url": "https://kyiv.bking.com.ua/wp-content/uploads/2025/04/photo_2025-04-26-15.12.24-768x1024.webp",
-            "title": "Master working on hair edge details",
-            "category": "Process"
+            "name": "Andriy",
+            "role": "Tattoo Artist",
+            "branch": "18 Pavlovska St",
+            "exp": "9 years experience",
+            "specialty": "Graphics, B&W Realism, Cover-ups"
           }
         ]
       },
       "reviews": {
-        "kicker": "CLIENT FEEDBACK",
-        "title": "4.8 / 5.0 RATING ON GOOGLE MAPS",
-        "subtitle": "Over 580 genuine reviews from men in Kyiv.",
-        "mainQuote": "“Visiting Dmytro for 3 years now. Always precise beard lines and on-time haircuts. Free parking in center is a great plus!”",
-        "mainAuthor": "Oleksiy Kovalenko — regular guest since 2019",
-        "source": "4.8 / 5.0 · Google Maps · 580+ reviews",
+        "kicker": "TESTIMONIALS",
+        "title": "GOOGLE MAPS CLIENT REVIEWS",
+        "subtitle": "Average 4.8 rating based on 1,200+ real reviews from Kyiv residents.",
         "items": [
           {
-            "author": "Oleksiy Kovalenko",
-            "role": "Regular guest since 2019",
+            "author": "Oleksandr Tkachenko",
+            "role": "IT Team Lead (Great RC)",
+            "text": "Getting haircut with Serhio at Dniprovska Embankment for 1.5 years. Always perfect fade, beard stays sharp even after 2 weeks. Parking right at home + fine whisky.",
             "rating": "5.0",
-            "text": "Visiting Dmytro for 3 years now. Always precise beard lines and on-time haircuts. Free parking in center is a great plus!"
+            "date": "April 2026"
           },
           {
-            "author": "Maksym Bondarenko",
-            "role": "Guest at Great Complex branch",
+            "author": "Mykhailo Serhiyenko",
+            "role": "Entrepreneur (Lukyanivka)",
+            "text": "I value my time: came at 14:00, in the chair within a minute. Dmytro feels head anatomy instantly. Waxing and hot towel treatment is supreme!",
             "rating": "5.0",
-            "text": "Living in Great Complex, having Barberking right downstairs is very convenient. Serhiy made the exact Fade I asked for."
+            "date": "March 2026"
           },
           {
-            "author": "Ihor Serhiyenko",
-            "role": "Guest at Vynohradar branch",
+            "author": "Andriy & son Maksym",
+            "role": "Regular Guests (Vynohradar)",
+            "text": "Visiting with my 8yo son for Father & Son combo with Ruslan. Kid loves the haircut and juice, I love saved time.",
             "rating": "5.0",
-            "text": "We visit with my 7-year-old son for Father + Son combo. Great ritual for us both."
-          },
-          {
-            "author": "Artem Melnyk",
-            "role": "Guest at Urlivska branch",
-            "rating": "5.0",
-            "text": "Great atmosphere, clean tools opened right in front of you. 750 UAH is completely worth it."
+            "date": "April 2026"
           }
         ]
       },
       "faq": {
-        "kicker": "FREQUENTLY ASKED QUESTIONS",
-        "title": "COMMON QUESTIONS",
-        "subtitle": "Everything you need to know before visiting Barberking.",
-        "items": [
-          {
-            "q": "HOW MUCH DOES A HAIRCUT COST AT BARBERKING KYIV?",
-            "a": "Men's haircut starts from 750 UAH. Haircut + Beard combo from 1 150 UAH. Clipper haircut from 550 UAH. Kids haircut from 700 UAH."
-          },
-          {
-            "q": "How long does a haircut take?",
-            "a": "Usually 45 to 60 minutes depending on hair length and complexity. Combos take around 75-90 minutes."
-          },
-          {
-            "q": "Can I visit without an advance booking?",
-            "a": "Walk-ins are welcome if slots are available, but we recommend booking online in advance."
-          },
-          {
-            "q": "What is included in beard trimming?",
-            "a": "Consultation, razor contouring, hot towel steaming, trimming and beard oil application."
-          },
-          {
-            "q": "Do you offer grey hair camouflage?",
-            "a": "Yes, we provide natural grey hair camouflage for hair and beard taking 20-25 minutes."
-          },
-          {
-            "q": "Is parking available at all branches?",
-            "a": "Yes, all 4 locations offer private or guest parking spaces for clients."
-          },
-          {
-            "q": "How to care for a new tattoo from Tattoo Room?",
-            "a": "Healing film stays for 3-5 days, then wash with warm water and apply Bepanthen cream."
-          }
-        ]
+        "kicker": "FAQ",
+        "title": "EVERYTHING TO KNOW BEFORE VISITING",
+        "subtitle": "Answers about prices, duration, and care."
       },
-      "booking": {
-        "kicker": "ONLINE BOOKING",
-        "title": "BOOK YOUR HAIRCUT IN ONE CLICK",
-        "subtitle": "Select location, service and preferred time. We will confirm your visit in 5 minutes.",
+      "contact": {
+        "kicker": "QUICK BOOKING",
+        "title": "BOOK APPOINTMENT ONLINE",
+        "subtitle": "Select location, date and time. Admin confirms within 3 minutes.",
         "form": {
-          "locationLabel": "Select Location",
-          "serviceLabel": "Select Service",
-          "namePlaceholder": "Your Name",
-          "phonePlaceholder": "Phone Number (095...)",
-          "dateLabel": "Preferred Date",
-          "submitBtn": "Confirm Online Booking",
-          "submitting": "Processing...",
-          "successTitle": "Booking Confirmed!",
-          "successDesc": "We will call you within 5 minutes to confirm details."
+          "name": "Your Name",
+          "name_ph": "Oleksandr",
+          "phone": "Phone Number",
+          "phone_ph": "+380 (95) 107-92-15",
+          "location": "Select Branch",
+          "service": "Selected Service",
+          "date": "Preferred Date",
+          "submit": "Confirm Booking",
+          "submitting": "Submitting...",
+          "success_title": "Booking Created!",
+          "success_desc": "We will call you within 3 minutes to confirm time."
         }
       },
       "footer": {
-        "tagline": "MEN'S BARBERSHOP NETWORK IN KYIV · EST. 2014",
-        "copyright": "© 2026 Barberking Kyiv. All rights reserved.",
-        "developer": "Developed by Студія Тест",
-        "developerUrl": "https://makarich.framer.website"
+        "desc": "Barberking — men's barbershop network in Kyiv. Haircuts, beard shaping, royal shave & tattoo studio.",
+        "hours": "Working Hours: Daily 10:00 — 21:00",
+        "phone": "Booking Phone: 0951079215",
+        "rights": "All rights reserved. Barberking 2014–2026.",
+        "developer": "Developed by Студія Тест"
       }
     }
   }

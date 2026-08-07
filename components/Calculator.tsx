@@ -1,217 +1,180 @@
 "use client";
+
 import { useState } from "react";
 import { useLocale } from "@/lib/i18n";
-import pricing from "@/lib/pricing.json";
-
-interface MasterOption {
-  id: string;
-  name: string;
-  sub: string;
-}
+import pricingData from "@/lib/pricing.json";
 
 export default function Calculator() {
   const { t } = useLocale();
 
-  const kicker = t("calculator.kicker") as string;
-  const title = t("calculator.title") as string;
-  const subtitle = t("calculator.subtitle") as string;
-  const selectServiceLabel = t("calculator.selectService") as string;
-  const selectMasterLabel = t("calculator.selectMaster") as string;
-  const masters = (t("calculator.masters") as MasterOption[]) || [];
+  const [selectedService, setSelectedService] = useState(pricingData.baseServices[0].id);
+  const [selectedMaster, setSelectedMaster] = useState("Barber");
+  const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
 
-  const [selectedService, setSelectedService] = useState<string>("haircut");
-  const [hasBeard, setHasBeard] = useState<boolean>(false);
-  const [hasCare, setHasCare] = useState<boolean>(false);
-  const [selectedMaster, setSelectedMaster] = useState<string>("barber");
+  const toggleAddon = (id: string) => {
+    setSelectedAddons((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
+  };
 
-  // Calculate live estimate
-  const baseServicePrice =
-    pricing.basePrices[selectedService as keyof typeof pricing.basePrices] || 750;
-  const beardPrice = hasBeard ? pricing.basePrices.beard : 0;
-  const carePrice = hasCare ? pricing.basePrices.blackMask : 0;
+  const baseObj = pricingData.baseServices.find((s) => s.id === selectedService) || pricingData.baseServices[0];
+  const multiplier = (pricingData.mastersMultipliers as Record<string, number>)[selectedMaster] || 1.0;
 
-  const rawSum = baseServicePrice + beardPrice + carePrice;
-  const masterMult =
-    pricing.masterMultipliers[selectedMaster as keyof typeof pricing.masterMultipliers] || 1.0;
+  const basePriceCalculated = Math.round(baseObj.price * multiplier);
+  const addonsTotal = selectedAddons.reduce((acc, addonId) => {
+    const found = pricingData.addons.find((a) => a.id === addonId);
+    return acc + (found ? found.price : 0);
+  }, 0);
 
-  const finalEstimate = Math.round(rawSum * masterMult);
-  const estimatedTime = 45 + (hasBeard ? 30 : 0) + (hasCare ? 20 : 0);
+  const grandTotal = basePriceCalculated + addonsTotal;
 
   return (
-    <section id="calculator" className="py-20 sm:py-28 bg-[hsl(0_0%_7%)] text-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="max-w-3xl mb-12">
-          <span className="text-xs sm:text-sm font-mono tracking-widest text-[hsl(32_90%_50%)] uppercase mb-2 block">
-            — {kicker}
+    <section id="calculator" className="py-24 bg-bg-light text-text-main scroll-mt-20 border-b border-stone-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="flex flex-col items-start mb-12">
+          <span className="text-xs font-semibold text-accent uppercase tracking-widest mb-2 font-mono">
+            ОНЛАЙН-РОЗРАХУНОК
           </span>
-          <h2 className="font-display font-extrabold text-4xl sm:text-6xl text-white tracking-tight uppercase leading-none mb-4">
-            {title}
+          <h2 className="font-display font-extrabold text-4xl sm:text-6xl text-stone-900 tracking-wide uppercase">
+            РОЗРАХУНОК ВАРТОСТІ ТА ЧАСУ ВІЗИТУ
           </h2>
-          <p className="text-base sm:text-lg text-white/70 font-light">
-            {subtitle}
+          <p className="text-stone-600 text-base max-w-2xl mt-2 font-normal leading-relaxed">
+            Оберіть необхідну послугу, категорію майстра та додаткові доглядові процедури для прозорого підсумку.
           </p>
         </div>
 
-        {/* Interactive Builder Container */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-8 rounded-2xl bg-[hsl(0_0%_11%)] border border-white/10 shadow-2xl">
-          {/* Controls Side (8 cols) */}
-          <div className="lg:col-span-8 flex flex-col gap-8">
-            {/* Step 1: Main Service */}
+        {/* Interactive Calculator Surface */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Controls Box */}
+          <div className="lg:col-span-7 bg-white p-6 sm:p-8 border border-stone-300 shadow-md rounded-xs space-y-8">
+            {/* Step 1 */}
             <div>
-              <label className="text-sm font-mono text-[hsl(32_90%_50%)] uppercase block mb-3">
-                1. {selectServiceLabel}
-              </label>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {[
-                  { id: "haircut", label: "Чоловіча стрижка", price: "750 грн" },
-                  { id: "royalShave", label: "Королівське гоління", price: "500 грн" },
-                  { id: "fatherSon", label: "Батько та син", price: "1150 грн" },
-                ].map((s) => (
-                  <button
-                    key={s.id}
-                    onClick={() => setSelectedService(s.id)}
-                    className={`p-4 rounded-xl border text-left flex flex-col justify-between transition-all ${
-                      selectedService === s.id
-                        ? "bg-[hsl(32_90%_50%/0.15)] border-[hsl(32_90%_50%)] text-white"
-                        : "bg-white/5 border-white/10 hover:border-white/30 text-white/70"
-                    }`}
-                  >
-                    <span className="font-display font-bold text-xl uppercase">
-                      {s.label}
-                    </span>
-                    <span className="text-xs font-mono text-[hsl(32_90%_50%)] mt-2">
-                      від {s.price}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Step 2: Addons */}
-            <div>
-              <label className="text-sm font-mono text-[hsl(32_90%_50%)] uppercase block mb-3">
-                2. Додати до візиту
+              <label className="block font-display font-bold text-xl uppercase mb-4 text-stone-900">
+                1. ОСНОВНА ПОСЛУГА:
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <label
-                  className={`p-4 rounded-xl border flex items-center justify-between cursor-pointer transition-all ${
-                    hasBeard
-                      ? "bg-[hsl(32_90%_50%/0.15)] border-[hsl(32_90%_50%)]"
-                      : "bg-white/5 border-white/10 hover:border-white/30"
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <input
-                      type="checkbox"
-                      checked={hasBeard}
-                      onChange={(e) => setHasBeard(e.target.checked)}
-                      className="w-5 h-5 accent-[hsl(32_90%_50%)]"
-                    />
-                    <div>
-                      <span className="font-display font-bold text-lg uppercase block">
-                        Моделювання бороди
-                      </span>
-                      <span className="text-xs text-white/60">
-                        +550 грн (30 хв)
-                      </span>
-                    </div>
-                  </div>
-                </label>
-
-                <label
-                  className={`p-4 rounded-xl border flex items-center justify-between cursor-pointer transition-all ${
-                    hasCare
-                      ? "bg-[hsl(32_90%_50%/0.15)] border-[hsl(32_90%_50%)]"
-                      : "bg-white/5 border-white/10 hover:border-white/30"
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <input
-                      type="checkbox"
-                      checked={hasCare}
-                      onChange={(e) => setHasCare(e.target.checked)}
-                      className="w-5 h-5 accent-[hsl(32_90%_50%)]"
-                    />
-                    <div>
-                      <span className="font-display font-bold text-lg uppercase block">
-                        Black Mask догляд
-                      </span>
-                      <span className="text-xs text-white/60">
-                        +350 грн (20 хв)
-                      </span>
-                    </div>
-                  </div>
-                </label>
-              </div>
-            </div>
-
-            {/* Step 3: Master Tier */}
-            <div>
-              <label className="text-sm font-mono text-[hsl(32_90%_50%)] uppercase block mb-3">
-                3. {selectMasterLabel}
-              </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                {masters.map((m) => (
+                {pricingData.baseServices.map((srv) => (
                   <button
-                    key={m.id}
-                    onClick={() => setSelectedMaster(m.id)}
-                    className={`p-3 rounded-xl border text-center transition-all ${
-                      selectedMaster === m.id
-                        ? "bg-[hsl(32_90%_50%)] text-[hsl(0_0%_7%)] font-bold border-[hsl(32_90%_50%)]"
-                        : "bg-white/5 border-white/10 text-white/70 hover:border-white/30"
+                    key={srv.id}
+                    type="button"
+                    onClick={() => setSelectedService(srv.id)}
+                    className={`p-4 text-left border rounded-xs transition-all flex flex-col justify-between ${
+                      selectedService === srv.id
+                        ? "border-amber-600 bg-amber-50/80 text-stone-900 shadow-sm font-semibold"
+                        : "border-stone-200 hover:border-stone-400 text-stone-700"
                     }`}
                   >
-                    <span className="font-display font-bold text-lg uppercase block leading-tight">
-                      {m.name}
-                    </span>
-                    <span className="text-[0.65rem] opacity-75 block mt-1">
-                      {m.sub}
+                    <span className="text-sm font-semibold">{srv.name}</span>
+                    <span className="font-display font-bold text-stone-900 text-lg mt-2 tabular-nums">
+                      від {srv.price} {pricingData.currency}
                     </span>
                   </button>
                 ))}
+              </div>
+            </div>
+
+            {/* Step 2 */}
+            <div>
+              <label className="block font-display font-bold text-xl uppercase mb-4 text-stone-900">
+                2. КАТЕГОРІЯ МАЙСТРА:
+              </label>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                {Object.keys(pricingData.mastersMultipliers).map((masterKey) => (
+                  <button
+                    key={masterKey}
+                    type="button"
+                    onClick={() => setSelectedMaster(masterKey)}
+                    className={`p-3 text-center border font-display text-base uppercase transition-all ${
+                      selectedMaster === masterKey
+                        ? "bg-stone-900 text-amber-400 border-stone-900 font-bold shadow-xs"
+                        : "border-stone-200 text-stone-600 hover:border-stone-400"
+                    }`}
+                  >
+                    {masterKey}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div>
+              <label className="block font-display font-bold text-xl uppercase mb-4 text-stone-900">
+                3. ДОДАТКОВИЙ ДОГЛЯД:
+              </label>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {pricingData.addons.map((addon) => {
+                  const isSelected = selectedAddons.includes(addon.id);
+                  return (
+                    <button
+                      key={addon.id}
+                      type="button"
+                      onClick={() => toggleAddon(addon.id)}
+                      className={`p-3 border text-left flex items-center justify-between transition-colors ${
+                        isSelected
+                          ? "border-stone-900 bg-stone-900 text-white"
+                          : "border-stone-200 text-stone-700 hover:border-stone-400"
+                      }`}
+                    >
+                      <span className="text-xs font-medium">{addon.name}</span>
+                      <span className="font-display font-bold text-sm ml-2 tabular-nums">
+                        +{addon.price} {pricingData.currency}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>
 
-          {/* Estimate Summary Panel (4 cols) */}
-          <div className="lg:col-span-4 p-6 rounded-xl bg-gradient-to-b from-white/10 to-white/5 border border-white/15 flex flex-col justify-between">
-            <div>
-              <span className="text-xs font-mono uppercase tracking-widest text-[hsl(32_90%_50%)] block mb-4">
-                Підсумок розрахунку
-              </span>
+          {/* Estimate Summary Box */}
+          <div className="lg:col-span-5 bg-stone-900 text-white p-6 sm:p-8 shadow-xl rounded-xs border border-stone-800 sticky top-28">
+            <span className="text-xs uppercase tracking-widest text-amber-400 font-mono">
+              ПІДСУМОК РОЗРАХУНКУ
+            </span>
+            <h3 className="font-display font-bold text-3xl text-white mt-1 mb-6 uppercase">
+              ОРИЄНТОВНИЙ БЮДЖЕТ
+            </h3>
 
-              <div className="flex flex-col gap-4 mb-6">
-                <div className="flex justify-between text-sm border-b border-white/10 pb-2">
-                  <span className="text-white/70">Оригінальна калькуляція:</span>
-                  <span className="font-mono text-white font-bold">{rawSum} грн</span>
-                </div>
-                <div className="flex justify-between text-sm border-b border-white/10 pb-2">
-                  <span className="text-white/70">Категорія майстра:</span>
-                  <span className="font-mono text-[hsl(32_90%_50%)] font-bold">
-                    {masters.find((m) => m.id === selectedMaster)?.name}
+            <div className="space-y-4 text-sm border-b border-stone-800 pb-6 mb-6 font-mono">
+              <div className="flex justify-between items-center text-stone-300">
+                <span>Основна послуга:</span>
+                <span className="font-semibold text-white">{baseObj.name}</span>
+              </div>
+              <div className="flex justify-between items-center text-stone-300">
+                <span>Рівень майстра:</span>
+                <span className="font-semibold text-amber-400">{selectedMaster}</span>
+              </div>
+              <div className="flex justify-between items-center text-stone-300">
+                <span>Тривалість:</span>
+                <span className="text-stone-200">{baseObj.time}</span>
+              </div>
+              {selectedAddons.length > 0 && (
+                <div className="flex justify-between items-start text-stone-300">
+                  <span>Додатково:</span>
+                  <span className="text-right text-xs text-stone-400 max-w-[180px]">
+                    {selectedAddons
+                      .map((id) => pricingData.addons.find((a) => a.id === id)?.name)
+                      .join(", ")}
                   </span>
                 </div>
-                <div className="flex justify-between text-sm border-b border-white/10 pb-2">
-                  <span className="text-white/70">Тривалість:</span>
-                  <span className="font-mono text-white font-bold">~ {estimatedTime} хв</span>
-                </div>
-              </div>
+              )}
+            </div>
 
-              <div className="bg-[hsl(0_0%_7%)] p-4 rounded-xl border border-white/10 mb-6 text-center">
-                <span className="text-xs font-mono uppercase text-white/60 block mb-1">
-                  Підсумкова вартість
-                </span>
-                <span className="font-display font-extrabold text-5xl text-[hsl(32_90%_50%)]">
-                  {finalEstimate} грн
-                </span>
-              </div>
+            <div className="flex flex-col mb-8">
+              <span className="text-xs text-stone-400 uppercase tracking-wider font-mono">
+                ОРІЄНТОВНА ВАРТІСТЬ:
+              </span>
+              <span className="font-display font-black text-5xl text-amber-400 mt-1 tabular-nums">
+                ~ {grandTotal} {pricingData.currency}
+              </span>
             </div>
 
             <a
-              href="#booking"
-              className="w-full py-4 rounded bg-[hsl(32_90%_50%)] text-[hsl(0_0%_7%)] font-display font-extrabold text-xl tracking-wider text-center hover:bg-[hsl(28_95%_45%)] transition-colors shadow-lg"
+              href="#contact"
+              className="block text-center w-full bg-accent text-bg-dark font-display font-bold py-4 text-xl uppercase tracking-wider hover:bg-accent-hover transition-colors shadow-lg"
             >
-              Записатись за розрахунком
+              Забронювати вибір online
             </a>
           </div>
         </div>

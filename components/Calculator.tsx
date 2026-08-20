@@ -1,124 +1,132 @@
 "use client";
-
 import { useState } from "react";
 import { useLocale } from "@/lib/i18n";
-import pricingData from "@/lib/pricing.json";
 
-export default function Calculator() {
+interface CalculatorProps {
+  onOpenBooking: (details?: string) => void;
+}
+
+export default function Calculator({ onOpenBooking }: CalculatorProps) {
   const { t } = useLocale();
 
-  const [selectedService, setSelectedService] = useState(pricingData.baseServices[0].id);
-  const [selectedMaster, setSelectedMaster] = useState("Barber");
-  const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
+  const [rank, setRank] = useState<number>(1.0); // 1.0 = Barber, 1.25 = Top, 1.5 = Grand
+  const [selectedServices, setSelectedServices] = useState<
+    Array<{ id: string; name: string; basePrice: number; time: number }>
+  >([
+    { id: "haircut", name: "Професійна стрижка", basePrice: 750, time: 45 },
+    { id: "beard", name: "Стрижка та окантовка бороди", basePrice: 550, time: 30 },
+  ]);
 
-  const toggleAddon = (id: string) => {
-    setSelectedAddons((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    );
+  const availableServices = [
+    { id: "haircut", name: "Професійна чоловіча стрижка", basePrice: 750, time: 45 },
+    { id: "beard", name: "Стрижка та окантовка бороди", basePrice: 550, time: 30 },
+    { id: "shave", name: "Королівське гоління", basePrice: 600, time: 45 },
+    { id: "camo_beard", name: "Камуфляж сивини бороди", basePrice: 550, time: 25 },
+    { id: "black_mask", name: "Чорна маска очищення обличчя", basePrice: 350, time: 20 },
+    { id: "waxing", name: "Воскова депіляція (ніс/вуха)", basePrice: 150, time: 15 },
+  ];
+
+  const toggleService = (srv: typeof availableServices[0]) => {
+    if (selectedServices.some((s) => s.id === srv.id)) {
+      setSelectedServices(selectedServices.filter((s) => s.id !== srv.id));
+    } else {
+      setSelectedServices([...selectedServices, srv]);
+    }
   };
 
-  const baseObj = pricingData.baseServices.find((s) => s.id === selectedService) || pricingData.baseServices[0];
-  const multiplier = (pricingData.mastersMultipliers as Record<string, number>)[selectedMaster] || 1.0;
+  const totalPrice = Math.round(
+    selectedServices.reduce((acc, s) => acc + s.basePrice, 0) * rank
+  );
+  const totalTime = selectedServices.reduce((acc, s) => acc + s.time, 0);
 
-  const basePriceCalculated = Math.round(baseObj.price * multiplier);
-  const addonsTotal = selectedAddons.reduce((acc, addonId) => {
-    const found = pricingData.addons.find((a) => a.id === addonId);
-    return acc + (found ? found.price : 0);
-  }, 0);
-
-  const grandTotal = basePriceCalculated + addonsTotal;
+  const getRankName = () => {
+    if (rank === 1.0) return "Barber";
+    if (rank === 1.25) return "Top Barber";
+    return "Grand Barber";
+  };
 
   return (
-    <section id="calculator" className="py-24 bg-bg-light text-text-main scroll-mt-20 border-b border-stone-300">
+    <section id="calculator" className="py-20 bg-[hsl(18_12%_8%)] text-white scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col items-start mb-12">
-          <span className="text-xs font-semibold text-accent uppercase tracking-widest mb-2 font-mono">
-            ОНЛАЙН-РОЗРАХУНОК
-          </span>
-          <h2 className="font-display font-extrabold text-4xl sm:text-6xl text-stone-900 tracking-wide uppercase">
-            РОЗРАХУНОК ВАРТОСТІ ТА ЧАСУ ВІЗИТУ
+        <div className="space-y-2 mb-12 text-center max-w-3xl mx-auto">
+          <div className="text-amber-500 text-xs font-bold uppercase tracking-widest">
+            {String(t("calculator.kicker"))}
+          </div>
+          <h2 className="font-display font-extrabold text-5xl sm:text-7xl uppercase tracking-tight text-white">
+            {String(t("calculator.heading"))}
           </h2>
-          <p className="text-stone-600 text-base max-w-2xl mt-2 font-normal leading-relaxed">
-            Оберіть необхідну послугу, категорію майстра та додаткові доглядові процедури для прозорого підсумку.
+          <p className="text-gray-400 text-base sm:text-lg">
+            {String(t("calculator.subheading"))}
           </p>
         </div>
 
-        {/* Interactive Calculator Surface */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Controls Box */}
-          <div className="lg:col-span-7 bg-white p-6 sm:p-8 border border-stone-300 shadow-md rounded-xs space-y-8">
-            {/* Step 1 */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-[hsl(18_10%_12%)] border border-hairline rounded-lg p-6 sm:p-10 shadow-2xl">
+          {/* Controls */}
+          <div className="lg:col-span-7 space-y-8">
+            {/* Rank Selection */}
             <div>
-              <label className="block font-display font-bold text-xl uppercase mb-4 text-stone-900">
-                1. ОСНОВНА ПОСЛУГА:
+              <label className="block text-xs uppercase tracking-widest text-amber-500 font-bold mb-3">
+                {String(t("calculator.selectRank"))}
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {pricingData.baseServices.map((srv) => (
-                  <button
-                    key={srv.id}
-                    type="button"
-                    onClick={() => setSelectedService(srv.id)}
-                    className={`p-4 text-left border rounded-xs transition-all flex flex-col justify-between ${
-                      selectedService === srv.id
-                        ? "border-amber-600 bg-amber-50/80 text-stone-900 shadow-sm font-semibold"
-                        : "border-stone-200 hover:border-stone-400 text-stone-700"
-                    }`}
-                  >
-                    <span className="text-sm font-semibold">{srv.name}</span>
-                    <span className="font-display font-bold text-stone-900 text-lg mt-2 tabular-nums">
-                      від {srv.price} {pricingData.currency}
-                    </span>
-                  </button>
-                ))}
+              <div className="grid grid-cols-3 gap-3">
+                <button
+                  type="button"
+                  onClick={() => setRank(1.0)}
+                  className={`py-3 px-2 rounded font-display font-bold text-xl text-center border transition-all ${
+                    rank === 1.0
+                      ? "bg-amber-500 text-black border-amber-500"
+                      : "bg-gray-800 text-gray-300 border-hairline hover:bg-gray-700"
+                  }`}
+                >
+                  Barber
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setRank(1.25)}
+                  className={`py-3 px-2 rounded font-display font-bold text-xl text-center border transition-all ${
+                    rank === 1.25
+                      ? "bg-amber-500 text-black border-amber-500"
+                      : "bg-gray-800 text-gray-300 border-hairline hover:bg-gray-700"
+                  }`}
+                >
+                  Top Barber
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setRank(1.5)}
+                  className={`py-3 px-2 rounded font-display font-bold text-xl text-center border transition-all ${
+                    rank === 1.5
+                      ? "bg-amber-500 text-black border-amber-500"
+                      : "bg-gray-800 text-gray-300 border-hairline hover:bg-gray-700"
+                  }`}
+                >
+                  Grand Barber
+                </button>
               </div>
             </div>
 
-            {/* Step 2 */}
+            {/* Service Checkboxes */}
             <div>
-              <label className="block font-display font-bold text-xl uppercase mb-4 text-stone-900">
-                2. КАТЕГОРІЯ МАЙСТРА:
-              </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                {Object.keys(pricingData.mastersMultipliers).map((masterKey) => (
-                  <button
-                    key={masterKey}
-                    type="button"
-                    onClick={() => setSelectedMaster(masterKey)}
-                    className={`p-3 text-center border font-display text-base uppercase transition-all ${
-                      selectedMaster === masterKey
-                        ? "bg-stone-900 text-amber-400 border-stone-900 font-bold shadow-xs"
-                        : "border-stone-200 text-stone-600 hover:border-stone-400"
-                    }`}
-                  >
-                    {masterKey}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Step 3 */}
-            <div>
-              <label className="block font-display font-bold text-xl uppercase mb-4 text-stone-900">
-                3. ДОДАТКОВИЙ ДОГЛЯД:
+              <label className="block text-xs uppercase tracking-widest text-amber-500 font-bold mb-3">
+                {String(t("calculator.selectServices"))}
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {pricingData.addons.map((addon) => {
-                  const isSelected = selectedAddons.includes(addon.id);
+                {availableServices.map((srv) => {
+                  const isChecked = selectedServices.some((s) => s.id === srv.id);
                   return (
                     <button
-                      key={addon.id}
+                      key={srv.id}
                       type="button"
-                      onClick={() => toggleAddon(addon.id)}
-                      className={`p-3 border text-left flex items-center justify-between transition-colors ${
-                        isSelected
-                          ? "border-stone-900 bg-stone-900 text-white"
-                          : "border-stone-200 text-stone-700 hover:border-stone-400"
+                      onClick={() => toggleService(srv)}
+                      className={`p-3 rounded border text-left flex items-center justify-between transition-all ${
+                        isChecked
+                          ? "bg-amber-500/10 border-amber-500 text-white"
+                          : "bg-gray-800/60 border-hairline text-gray-400 hover:text-gray-200"
                       }`}
                     >
-                      <span className="text-xs font-medium">{addon.name}</span>
-                      <span className="font-display font-bold text-sm ml-2 tabular-nums">
-                        +{addon.price} {pricingData.currency}
+                      <span className="font-semibold text-sm">{srv.name}</span>
+                      <span className="text-amber-400 font-bold text-sm ml-2">
+                        {isChecked ? "✓" : "+"}
                       </span>
                     </button>
                   );
@@ -127,55 +135,59 @@ export default function Calculator() {
             </div>
           </div>
 
-          {/* Estimate Summary Box */}
-          <div className="lg:col-span-5 bg-stone-900 text-white p-6 sm:p-8 shadow-xl rounded-xs border border-stone-800 sticky top-28">
-            <span className="text-xs uppercase tracking-widest text-amber-400 font-mono">
-              ПІДСУМОК РОЗРАХУНКУ
-            </span>
-            <h3 className="font-display font-bold text-3xl text-white mt-1 mb-6 uppercase">
-              ОРИЄНТОВНИЙ БЮДЖЕТ
-            </h3>
+          {/* Results Display Box */}
+          <div className="lg:col-span-5 bg-gradient-to-b from-gray-900 to-[hsl(18_12%_8%)] border border-hairline rounded-lg p-6 flex flex-col justify-between">
+            <div className="space-y-6">
+              <div className="border-b border-hairline pb-4">
+                <span className="text-xs uppercase tracking-widest text-gray-400">
+                  Обрано послуг: {selectedServices.length} · Мастер: {getRankName()}
+                </span>
+              </div>
 
-            <div className="space-y-4 text-sm border-b border-stone-800 pb-6 mb-6 font-mono">
-              <div className="flex justify-between items-center text-stone-300">
-                <span>Основна послуга:</span>
-                <span className="font-semibold text-white">{baseObj.name}</span>
+              <div className="space-y-2">
+                <div className="text-xs uppercase tracking-wider text-gray-400">
+                  {String(t("calculator.totalPrice"))}
+                </div>
+                <div className="font-display font-extrabold text-6xl text-amber-400">
+                  {totalPrice} UAH
+                </div>
               </div>
-              <div className="flex justify-between items-center text-stone-300">
-                <span>Рівень майстра:</span>
-                <span className="font-semibold text-amber-400">{selectedMaster}</span>
+
+              <div className="space-y-1">
+                <div className="text-xs uppercase tracking-wider text-gray-400">
+                  {String(t("calculator.totalTime"))}
+                </div>
+                <div className="font-display font-bold text-3xl text-white">
+                  ~ {totalTime} {String(t("calculator.minutes"))}
+                </div>
               </div>
-              <div className="flex justify-between items-center text-stone-300">
-                <span>Тривалість:</span>
-                <span className="text-stone-200">{baseObj.time}</span>
-              </div>
-              {selectedAddons.length > 0 && (
-                <div className="flex justify-between items-start text-stone-300">
-                  <span>Додатково:</span>
-                  <span className="text-right text-xs text-stone-400 max-w-[180px]">
-                    {selectedAddons
-                      .map((id) => pricingData.addons.find((a) => a.id === id)?.name)
-                      .join(", ")}
-                  </span>
+
+              {selectedServices.length > 0 && (
+                <div className="text-xs text-gray-400 space-y-1 border-t border-hairline pt-3">
+                  <div className="font-semibold text-gray-300">Включено у візит:</div>
+                  <ul className="list-disc list-inside space-y-0.5">
+                    {selectedServices.map((s) => (
+                      <li key={s.id}>{s.name}</li>
+                    ))}
+                    <li>Безкоштовний кава / віскі бар</li>
+                  </ul>
                 </div>
               )}
             </div>
 
-            <div className="flex flex-col mb-8">
-              <span className="text-xs text-stone-400 uppercase tracking-wider font-mono">
-                ОРІЄНТОВНА ВАРТІСТЬ:
-              </span>
-              <span className="font-display font-black text-5xl text-amber-400 mt-1 tabular-nums">
-                ~ {grandTotal} {pricingData.currency}
-              </span>
-            </div>
-
-            <a
-              href="#contact"
-              className="block text-center w-full bg-accent text-bg-dark font-display font-bold py-4 text-xl uppercase tracking-wider hover:bg-accent-hover transition-colors shadow-lg"
+            <button
+              onClick={() =>
+                onOpenBooking(
+                  `Розрахунок (${getRankName()}): ${selectedServices
+                    .map((s) => s.name)
+                    .join(", ")} = ${totalPrice} UAH`
+                )
+              }
+              disabled={selectedServices.length === 0}
+              className="mt-8 w-full bg-amber-500 hover:bg-amber-400 disabled:opacity-50 text-black font-display font-extrabold text-2xl py-4 rounded transition-all shadow-xl shadow-amber-500/20"
             >
-              Забронювати вибір online
-            </a>
+              {String(t("calculator.bookNow"))}
+            </button>
           </div>
         </div>
       </div>

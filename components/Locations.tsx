@@ -1,88 +1,154 @@
 "use client";
-
+import { useState } from "react";
 import { useLocale } from "@/lib/i18n";
 
-export default function Locations() {
+interface LocationsProps {
+  onOpenBooking: (locationId?: string) => void;
+}
+
+export default function Locations({ onOpenBooking }: LocationsProps) {
   const { t } = useLocale();
-  const branches = t("locations.branches") as any[];
+  const list = (t("locations.list") as Array<{
+    id: string;
+    name: string;
+    address: string;
+    metro: string;
+    phone: string;
+    hours: string;
+    features: string[];
+    mapQuery: string;
+  }>) || [];
+
+  const [activeTab, setActiveTab] = useState(list[0]?.id || "pavlivska");
+  const selected = list.find((item) => item.id === activeTab) || list[0];
 
   return (
-    <section id="locations" className="py-24 bg-bg-dark border-b border-border-dark scroll-mt-20">
+    <section id="locations" className="py-20 bg-[hsl(18_12%_8%)] text-white scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col items-start mb-12">
-          <span className="text-xs font-semibold text-accent uppercase tracking-widest mb-2 font-mono">
-            МЕРЕЖА У КИЄВІ
-          </span>
-          <h2 className="font-display font-extrabold text-4xl sm:text-6xl text-text-light tracking-wide uppercase">
-            4 ФІЛІЇ НА ПРАВОМУ ТА ЛІВОМУ БЕРЕЗІ
+        <div className="space-y-2 mb-12">
+          <div className="text-amber-500 text-xs font-bold uppercase tracking-widest">
+            {String(t("locations.kicker"))}
+          </div>
+          <h2 className="font-display font-extrabold text-5xl sm:text-7xl uppercase tracking-tight text-white">
+            {String(t("locations.heading"))}
           </h2>
-          <p className="text-text-muted text-base max-w-2xl mt-2 font-normal leading-relaxed">
-            Зручно розташовані біля ключових станцій метро та сучасних ЖК із власним безкоштовним паркінгом.
+          <p className="text-gray-400 text-base sm:text-lg max-w-2xl">
+            {String(t("locations.subheading"))}
           </p>
         </div>
 
-        {/* 4 Branch Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {branches.map((branch) => (
-            <div
-              key={branch.id}
-              className="bg-bg-card border border-border-dark p-6 sm:p-8 flex flex-col justify-between hover:border-accent/70 transition-colors relative group"
+        {/* Location Tabs */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+          {list.map((loc) => (
+            <button
+              key={loc.id}
+              onClick={() => setActiveTab(loc.id)}
+              className={`p-4 rounded border text-left transition-all ${
+                activeTab === loc.id
+                  ? "bg-amber-500 text-black border-amber-500 shadow-lg shadow-amber-500/20"
+                  : "bg-[hsl(18_10%_12%)] text-gray-300 border-hairline hover:border-gray-600"
+              }`}
             >
-              <div>
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-border-dark/60">
-                  <span className="text-xs font-mono font-bold text-accent uppercase tracking-wider px-2.5 py-1 bg-secondary border border-border-dark">
-                    {branch.metro}
-                  </span>
-                  <span className="text-xs text-text-muted font-mono">095 107 92 15</span>
-                </div>
-
-                <h3 className="font-display font-bold text-3xl text-text-light group-hover:text-accent transition-colors mb-3">
-                  {branch.name}
-                </h3>
-
-                <div className="space-y-2 text-xs text-text-muted mb-6 font-mono">
-                  <p><strong className="text-text-light uppercase">АДРЕСА:</strong> {branch.address}</p>
-                  <p><strong className="text-text-light uppercase">ГОДИНИ:</strong> {branch.hours}</p>
-                  <p><strong className="text-accent uppercase">ПАРКІНГ:</strong> {branch.parking}</p>
-                </div>
+              <div className="font-display font-extrabold text-2xl uppercase leading-tight">
+                {loc.name}
               </div>
-
-              <div className="pt-4 border-t border-border-dark/60 flex items-center justify-between text-xs font-mono">
-                <span className="text-text-muted">{branch.features}</span>
-                <a
-                  href="#contact"
-                  className="font-display font-bold text-accent hover:text-accent-hover text-base uppercase tracking-wider"
-                >
-                  Записатися сюди →
-                </a>
+              <div
+                className={`text-xs mt-1 ${
+                  activeTab === loc.id ? "text-black/80" : "text-gray-400"
+                }`}
+              >
+                {loc.metro}
               </div>
-            </div>
+            </button>
           ))}
         </div>
 
-        {/* Embedded Location Banner */}
-        <div className="relative border border-border-dark bg-secondary/60 p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="max-w-xl">
-            <span className="text-[10px] font-mono font-bold text-accent uppercase tracking-widest mb-1 block">
-              ЄДИНИЙ СТАНДАРТ СЕРВІСУ
-            </span>
-            <h4 className="font-display font-bold text-2xl text-text-light mb-2 uppercase">
-              ЗРУЧНИЙ ДОЇЗД ТА ВІЛЬНІ МІСЦЯ ДЛЯ ПАРКУВАННЯ
-            </h4>
-            <p className="text-xs text-text-muted leading-relaxed">
-              Усі 4 заклади працюють щодня з 10:00 до 21:00. Приходьте раніше за свіжою кавою чи віскі у комфортній барній зоні.
-            </p>
+        {/* Selected Location Details & Embed Map */}
+        {selected && (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch bg-[hsl(18_10%_12%)] border border-hairline rounded-lg p-6 sm:p-8">
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="inline-block bg-amber-500/10 text-amber-400 border border-hairline-accent px-3 py-1 rounded text-xs font-bold uppercase">
+                  {selected.metro}
+                </div>
+
+                <h3 className="font-display font-extrabold text-4xl uppercase text-white">
+                  {selected.name}
+                </h3>
+
+                <div className="space-y-3 text-sm text-gray-300">
+                  <div className="flex items-start space-x-3">
+                    <span className="text-amber-500 font-bold text-lg">📍</span>
+                    <div>
+                      <div className="text-gray-400 text-xs">Адреса:</div>
+                      <div className="font-semibold text-white">{selected.address}</div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-3">
+                    <span className="text-amber-500 font-bold text-lg">🕒</span>
+                    <div>
+                      <div className="text-gray-400 text-xs">Графік роботи:</div>
+                      <div className="font-semibold text-white">{selected.hours}</div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-3">
+                    <span className="text-amber-500 font-bold text-lg">📞</span>
+                    <div>
+                      <div className="text-gray-400 text-xs">Прямий телефон:</div>
+                      <a
+                        href={String(t("brand.phoneRaw"))}
+                        className="font-semibold text-amber-400 hover:underline"
+                      >
+                        {selected.phone}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <div className="text-xs uppercase text-gray-400 font-bold mb-2">
+                    Зручності у цій філії:
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {selected.features.map((feat, i) => (
+                      <span
+                        key={i}
+                        className="bg-gray-800 text-gray-200 text-xs px-2.5 py-1 rounded border border-hairline"
+                      >
+                        ✓ {feat}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-hairline">
+                <button
+                  onClick={() => onOpenBooking(selected.id)}
+                  className="w-full bg-amber-500 hover:bg-amber-400 text-black font-display font-extrabold text-2xl py-3 rounded transition-all shadow-lg shadow-amber-500/20"
+                >
+                  {String(t("locations.bookThis"))} →
+                </button>
+              </div>
+            </div>
+
+            {/* Map Embed */}
+            <div className="lg:col-span-7 min-h-[320px] rounded-md overflow-hidden border border-hairline relative bg-gray-900">
+              <iframe
+                title={`Map of ${selected.name}`}
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: "350px" }}
+                loading="lazy"
+                allowFullScreen
+                src={`https://www.google.com/maps?q=${selected.mapQuery}&output=embed`}
+              />
+            </div>
           </div>
-          <a
-            href="https://maps.google.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-secondary border border-border-dark text-text-light hover:text-accent hover:border-accent font-display font-bold px-6 py-3.5 text-lg uppercase tracking-wider transition-colors whitespace-nowrap"
-          >
-            Відкрити у Google Maps ↗
-          </a>
-        </div>
+        )}
       </div>
     </section>
   );

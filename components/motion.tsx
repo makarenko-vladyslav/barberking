@@ -14,28 +14,80 @@
  */
 
 import { motion, useReducedMotion, useScroll, useTransform, type Variants } from "framer-motion";
-import { useRef, type ReactNode } from "react";
+import { Children, useEffect, useRef, useState, type ReactNode, type RefObject } from "react";
 
 /** Fast out of the gate, long settle — reads as engineered rather than bouncy. */
 const EASE_OUT: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 /**
- * One in-view contract for the whole site.
+ * Elements still waiting to be revealed, watched by ONE listener for the page.
  *
- * `once` matters: a reveal that replays on every scroll-back reads as a glitch.
+ * This used to be Framer's `whileInView` with `once: true`, and Safari made a
+ * liar of it. WebKit coalesces IntersectionObserver entries during a fast
+ * scroll: a section the visitor flicked past is reported once, already out of
+ * view, as `isIntersecting: false`. The animation never starts, and `once`
+ * means nothing ever looks again — the section stays at opacity 0 for the rest
+ * of the visit. Measured on a generated clinic page after one flick to the
+ * bottom: Chromium 0 blank sections, WebKit 2, one of them the whole team.
  *
- * The other two numbers were wrong and cost real damage. `amount: 0.25` waits
- * for a QUARTER OF THE ELEMENT to be visible — on a phone a section is often
- * taller than four viewports, so a quarter of it can never fit on screen and the
- * condition is never met. The content then stays at opacity 0 forever and the
- * visitor sees a blank screen where a section should be. A negative bottom
- * margin made it worse by shrinking the trigger box further, so even sections
- * that did fire only started after half a screen of scrolling.
- *
- * Now: fire as soon as ANY part appears, and start 15% before it reaches the
- * viewport, so the movement is already settling when the visitor gets there.
+ * Geometry cannot be skipped that way. "Has the top of this element come above
+ * the reveal line" is true from the moment it is true, whether the scroll
+ * arrived in one jump or in a hundred small ones.
  */
-const VIEWPORT = { once: true, amount: "some", margin: "0px 0px 15% 0px" } as const;
+const pending = new Set<() => void>();
+let queued = false;
+let listening = false;
+
+function sweep(): void {
+  queued = false;
+  for (const check of pending) check();
+  if (pending.size > 0 || !listening) return;
+  window.removeEventListener("scroll", schedule);
+  window.removeEventListener("resize", schedule);
+  listening = false;
+}
+
+function schedule(): void {
+  if (queued) return;
+  queued = true;
+  requestAnimationFrame(sweep);
+}
+
+function watch(check: () => void): () => void {
+  pending.add(check);
+  if (!listening) {
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule, { passive: true });
+    listening = true;
+  }
+  schedule();
+  return () => {
+    pending.delete(check);
+  };
+}
+
+/**
+ * True once the element has crossed the reveal line, and true forever after —
+ * a reveal that replays on scroll-back reads as a glitch.
+ *
+ * The line sits 15% below the fold so the movement is already settling by the
+ * time the visitor's eye arrives, rather than starting under it.
+ */
+function useRevealed(ref: RefObject<Element | null>): boolean {
+  const [revealed, setRevealed] = useState(false);
+
+  useEffect(() => {
+    if (revealed) return;
+    return watch(() => {
+      const element = ref.current;
+      if (element && element.getBoundingClientRect().top < window.innerHeight * 1.15) {
+        setRevealed(true);
+      }
+    });
+  }, [ref, revealed]);
+
+  return revealed;
+}
 
 /** Semantic tags a section actually needs — animation must not force a `div`. */
 type Tag =
@@ -60,6 +112,8 @@ interface RevealProps extends MotionBoxProps {
  * anything that is not a list — headings, images, panels, whole sections.
  */
 export function Reveal({ children, delay = 0, y = 32, as = "div", className }: RevealProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const revealed = useRevealed(ref);
   const reduced = useReducedMotion();
 
   if (reduced) {
@@ -70,10 +124,10 @@ export function Reveal({ children, delay = 0, y = 32, as = "div", className }: R
   const Animated = motion[as] as typeof motion.div;
   return (
     <Animated
+      ref={ref}
       className={className}
       initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={VIEWPORT}
+      animate={revealed ? { opacity: 1, y: 0 } : { opacity: 0, y }}
       transition={{ duration: 0.55, ease: EASE_OUT, delay }}
     >
       {children}
@@ -97,6 +151,8 @@ const itemVariants: Variants = {
  * hand-counted `delay`.
  */
 export function Stagger({ children, as = "div", className }: MotionBoxProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const revealed = useRevealed(ref);
   const reduced = useReducedMotion();
 
   if (reduced) {
@@ -107,10 +163,10 @@ export function Stagger({ children, as = "div", className }: MotionBoxProps) {
   const Animated = motion[as] as typeof motion.div;
   return (
     <Animated
+      ref={ref}
       className={className}
       initial="hidden"
-      whileInView="show"
-      viewport={VIEWPORT}
+      animate={revealed ? "show" : "hidden"}
       variants={containerVariants}
     >
       {children}
@@ -158,6 +214,8 @@ interface TextRevealProps {
  * headline.
  */
 export function TextReveal({ text, as = "h2", className }: TextRevealProps) {
+  const ref = useRef<HTMLHeadingElement>(null);
+  const revealed = useRevealed(ref);
   const reduced = useReducedMotion();
 
   if (reduced) {
@@ -169,11 +227,11 @@ export function TextReveal({ text, as = "h2", className }: TextRevealProps) {
   const Animated = motion[as] as typeof motion.h2;
   return (
     <Animated
+      ref={ref}
       className={className}
       aria-label={text}
       initial="hidden"
-      whileInView="show"
-      viewport={VIEWPORT}
+      animate={revealed ? "show" : "hidden"}
       variants={containerVariants}
     >
       {words.map((word, i) => (
@@ -210,5 +268,185 @@ export function Parallax({ children, distance = 80, as = "div", className }: Par
     <Animated ref={ref} className={className} style={reduced ? undefined : { y }}>
       {children}
     </Animated>
+  );
+}
+
+interface MarqueeProps {
+  /** One pass of content. It is repeated as many times as the screen needs. */
+  children: ReactNode;
+  /** Seconds for one pass to cross its own width. Higher is calmer. */
+  duration?: number;
+  /** Right-to-left by default; `true` runs it the other way. */
+  reverse?: boolean;
+  className?: string;
+}
+
+/**
+ * An endless ticker that actually loops seamlessly.
+ *
+ * Hand-rolled marquees fail the same three ways every time, and the client sees
+ * all three: the track is two copies animated `translateX(0 → -50%)` while the
+ * flex container carries a `gap`, so half the track is one gap short of half
+ * the width and the loop point visibly jumps; the content is shorter than the
+ * screen, so the visitor reads the same phrase twice side by side; and a wide
+ * text layer moved without a compositor hint repaints every frame, which is
+ * where the stutter on Safari comes from.
+ *
+ * All three are plumbing. The gap lives INSIDE one pass, so passes tile exactly.
+ * The number of passes is measured against the container, so the strip is
+ * always at least one screen longer than the screen. The track moves by exactly
+ * one pass width, on its own layer.
+ */
+export function Marquee({ children, duration = 26, reverse = false, className }: MarqueeProps) {
+  const box = useRef<HTMLDivElement>(null);
+  const pass = useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion();
+  const [width, setWidth] = useState(0);
+  const [copies, setCopies] = useState(2);
+
+  useEffect(() => {
+    const measure = (): void => {
+      const passWidth = pass.current?.offsetWidth ?? 0;
+      const boxWidth = box.current?.offsetWidth ?? 0;
+      if (passWidth === 0) return;
+      setWidth(passWidth);
+      setCopies(Math.max(2, Math.ceil(boxWidth / passWidth) + 1));
+    };
+
+    measure();
+    // Fonts land after first paint and change every width on the strip.
+    document.fonts?.ready.then(measure).catch(() => undefined);
+    window.addEventListener("resize", measure, { passive: true });
+    return () => window.removeEventListener("resize", measure);
+  }, [children]);
+
+  // The trailing gap belongs to the pass, not to the track — that is what makes
+  // consecutive passes tile with no seam.
+  const onePass = (key: number, hidden: boolean) => (
+    <div
+      key={key}
+      ref={key === 0 ? pass : undefined}
+      aria-hidden={hidden || undefined}
+      className="flex shrink-0 items-center gap-[var(--marquee-gap,2.5rem)] pr-[var(--marquee-gap,2.5rem)]"
+    >
+      {children}
+    </div>
+  );
+
+  if (reduced) {
+    return (
+      <div ref={box} className={`overflow-hidden ${className ?? ""}`}>
+        <div className="flex">{onePass(0, false)}</div>
+      </div>
+    );
+  }
+
+  return (
+    <div ref={box} className={`overflow-hidden ${className ?? ""}`}>
+      <motion.div
+        className="flex w-max"
+        style={{ willChange: "transform" }}
+        animate={{ x: reverse ? [-width, 0] : [0, -width] }}
+        transition={{ duration, ease: "linear", repeat: Infinity }}
+      >
+        {Array.from({ length: copies }, (_, i) => onePass(i, i > 0))}
+      </motion.div>
+    </div>
+  );
+}
+
+interface CarouselProps {
+  /** One element per slide. */
+  children: ReactNode;
+  /** Seconds a slide holds before the next one. 0 turns autoplay off. */
+  interval?: number;
+  /** Accessible name for the strip, in the site's language. */
+  label?: string;
+  className?: string;
+}
+
+/**
+ * A slider a finger can actually move.
+ *
+ * The generator's own carousels were dots and nothing else: three decorative
+ * spans under a single static quote, so swiping did nothing and the section
+ * showed one review where the client's site has eight. The failure is worth
+ * naming — a slider is not a look, it is scroll behaviour, and native
+ * scroll-snap already implements it correctly on every engine, including
+ * momentum on iOS and vertical page scroll that never gets hijacked.
+ *
+ * So the track is a real scroller. The dots read its position rather than
+ * owning it, which means they stay correct however the slide was reached.
+ */
+export function Carousel({ children, interval = 6, label, className }: CarouselProps) {
+  const track = useRef<HTMLDivElement>(null);
+  const slides = Children.toArray(children);
+  const reduced = useReducedMotion();
+  const [active, setActive] = useState(0);
+  const [held, setHeld] = useState(false);
+
+  useEffect(() => {
+    const element = track.current;
+    if (!element) return;
+    const follow = (): void => {
+      const index = Math.round(element.scrollLeft / Math.max(1, element.clientWidth));
+      setActive(Math.min(slides.length - 1, Math.max(0, index)));
+    };
+    element.addEventListener("scroll", follow, { passive: true });
+    return () => element.removeEventListener("scroll", follow);
+  }, [slides.length]);
+
+  const goTo = (index: number): void => {
+    const element = track.current;
+    if (element) element.scrollTo({ left: index * element.clientWidth, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    if (reduced || held || interval <= 0 || slides.length < 2) return;
+    const id = window.setInterval(() => {
+      const element = track.current;
+      if (!element) return;
+      const next = Math.round(element.scrollLeft / Math.max(1, element.clientWidth)) + 1;
+      element.scrollTo({ left: (next % slides.length) * element.clientWidth, behavior: "smooth" });
+    }, interval * 1000);
+    return () => window.clearInterval(id);
+  }, [reduced, held, interval, slides.length]);
+
+  return (
+    <div className={className}>
+      <div
+        ref={track}
+        role="region"
+        aria-label={label}
+        aria-roledescription="carousel"
+        onPointerEnter={() => setHeld(true)}
+        onPointerLeave={() => setHeld(false)}
+        onTouchStart={() => setHeld(true)}
+        className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-4 pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {slides.map((slide, i) => (
+          <div key={i} className="w-full shrink-0 snap-center">
+            {slide}
+          </div>
+        ))}
+      </div>
+
+      {slides.length > 1 ? (
+        <div className="mt-6 flex justify-center gap-2">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => goTo(i)}
+              aria-label={`${i + 1} / ${slides.length}`}
+              aria-current={i === active || undefined}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                i === active ? "w-8 bg-current opacity-100" : "w-2 bg-current opacity-30"
+              }`}
+            />
+          ))}
+        </div>
+      ) : null}
+    </div>
   );
 }

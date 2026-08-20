@@ -1,63 +1,64 @@
 "use client";
+import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
+import content from '@/lib/content.json';
 
-import { createContext, useContext, useState, useCallback, type ReactNode } from "react";
-import content from "@/lib/content.json";
-
-interface LocaleContextType {
+type LocaleContextType = {
   locale: string;
   setLocale: (l: string) => void;
-  t: (path: string) => any;
-}
+  t: (path: string) => unknown;
+};
 
 const LocaleContext = createContext<LocaleContextType>({
   locale: content.defaultLocale,
   setLocale: () => {},
-  t: () => "",
+  t: (path: string) => path,
 });
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState(() => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("locale") || content.defaultLocale;
-    }
-    return content.defaultLocale;
-  });
+  const [locale, setLocaleState] = useState(content.defaultLocale);
 
-  const setLocale = useCallback((l: string) => {
-    setLocaleState(l);
-    if (typeof window !== "undefined") {
-      localStorage.setItem("locale", l);
+  useEffect(() => {
+    const saved = localStorage.getItem('locale');
+    if (saved && saved !== content.defaultLocale && saved in content.locales) {
+      setLocaleState(saved);
     }
   }, []);
 
-  const t = useCallback(
-    (path: string): any => {
-      const keys = path.split(".");
-      const locales = content.locales as Record<string, Record<string, any>>;
-      let val: any = locales[locale];
-      for (const k of keys) {
-        if (val && typeof val === "object" && k in val) {
-          val = val[k];
-        } else {
-          val = undefined;
-          break;
-        }
-      }
-      if (val !== undefined) return val;
+  const setLocale = useCallback((l: string) => {
+    setLocaleState(l);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('locale', l);
+    }
+  }, []);
 
-      val = locales[content.defaultLocale];
-      for (const k of keys) {
-        if (val && typeof val === "object" && k in val) {
-          val = val[k];
-        } else {
-          val = undefined;
-          break;
-        }
+  const t = useCallback((path: string): unknown => {
+    const keys = path.split('.');
+    const locales = content.locales as Record<string, Record<string, unknown>>;
+    let val: unknown = locales[locale];
+    
+    for (const k of keys) {
+      if (val && typeof val === 'object' && k in (val as Record<string, unknown>)) {
+        val = (val as Record<string, unknown>)[k];
+      } else {
+        val = undefined;
+        break;
       }
-      return val ?? path;
-    },
-    [locale]
-  );
+    }
+    
+    if (val !== undefined) return val;
+
+    // Fallback to defaultLocale
+    val = locales[content.defaultLocale];
+    for (const k of keys) {
+      if (val && typeof val === 'object' && k in (val as Record<string, unknown>)) {
+        val = (val as Record<string, unknown>)[k];
+      } else {
+        val = undefined;
+        break;
+      }
+    }
+    return val ?? path;
+  }, [locale]);
 
   return (
     <LocaleContext.Provider value={{ locale, setLocale, t }}>

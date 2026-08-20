@@ -1,69 +1,22 @@
 {
-  "currency": "грн",
-  "baseServices": [
-    {
-      "id": "haircut",
-      "name": "Чоловіча стрижка",
-      "price": 750,
-      "time": "45 хв"
-    },
-    {
-      "id": "combo",
-      "name": "Стрижка + Борода (Комплекс)",
-      "price": 1150,
-      "time": "75 хв"
-    },
-    {
-      "id": "beard",
-      "name": "Стрижка та моделювання бороди",
-      "price": 550,
-      "time": "30 хв"
-    },
-    {
-      "id": "shave",
-      "name": "Королівське гоління",
-      "price": 500,
-      "time": "40 хв"
-    },
-    {
-      "id": "father_son",
-      "name": "Батько + Син",
-      "price": 1150,
-      "time": "90 хв"
-    },
-    {
-      "id": "tattoo",
-      "name": "Художній татуаж (Tattoo Room)",
-      "price": 1500,
-      "time": "120 хв"
-    }
+  "currency": "UAH",
+  "ranks": [
+    { "id": "junior", "multiplier": 0.8 },
+    { "id": "barber", "multiplier": 1.0 },
+    { "id": "top", "multiplier": 1.25 },
+    { "id": "grand", "multiplier": 1.5 }
   ],
-  "addons": [
-    {
-      "id": "camo",
-      "name": "Камуфлювання сивини",
-      "price": 550
-    },
-    {
-      "id": "black_mask",
-      "name": "Чорна маска (Black Mask)",
-      "price": 350
-    },
-    {
-      "id": "waxing",
-      "name": "Воскова корекція (вуха/ніс/брови)",
-      "price": 150
-    },
-    {
-      "id": "head_massage",
-      "name": "Масаж голови та шиї",
-      "price": 500
-    }
-  ],
-  "mastersMultipliers": {
-    "Junior Barber": 0.85,
-    "Barber": 1.0,
-    "Top Barber": 1.15,
-    "Grand Master": 1.3
-  }
+  "services": [
+    { "id": "haircut", "basePrice": 750, "timeMin": 45 },
+    { "id": "beard", "basePrice": 550, "timeMin": 30 },
+    { "id": "complex", "basePrice": 1150, "timeMin": 60 },
+    { "id": "clipper", "basePrice": 550, "timeMin": 30 },
+    { "id": "shave", "basePrice": 600, "timeMin": 45 },
+    { "id": "kids", "basePrice": 700, "timeMin": 45 },
+    { "id": "father_son", "basePrice": 1150, "timeMin": 75 },
+    { "id": "camo_hair", "basePrice": 550, "timeMin": 25 },
+    { "id": "camo_beard", "basePrice": 550, "timeMin": 25 },
+    { "id": "black_mask", "basePrice": 350, "timeMin": 20 },
+    { "id": "waxing", "basePrice": 150, "timeMin": 15 }
+  ]
 }

@@ -1,107 +1,126 @@
 "use client";
-
 import { useLocale } from "@/lib/i18n";
 
 export default function Footer() {
   const { t } = useLocale();
 
   return (
-    <footer className="bg-bg-dark text-text-light border-t border-border-dark pt-16 pb-8 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-border-dark/60">
-          {/* Brand Column */}
-          <div className="md:col-span-5 flex flex-col items-start space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xs bg-accent text-bg-dark flex items-center justify-center font-display font-black text-2xl tracking-tighter">
-                BK
-              </div>
-              <span className="font-display font-extrabold text-3xl text-text-light tracking-wide">
-                BARBERKING
-              </span>
-            </div>
-            <p className="text-xs text-text-muted max-w-sm leading-relaxed">
-              Barberking — мережа чоловічих барбершопів у Києві. Чоловіча культура, бездоганний сервіс, 3-етапна стерилізація та власна тату-студія.
-            </p>
-            <p className="text-xs font-mono text-accent">
-              Графік роботи: Щодня з 10:00 до 21:00
+    <footer className="bg-[hsl(18_15%_6%)] text-gray-400 pt-16 pb-8 border-t border-hairline text-sm relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        
+        {/* Layer 1: Giant Full-Width Brand Wordmark Bleeding Off Bottom Edge */}
+        <div className="border-b border-hairline pb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+          <div>
+            <span className="font-display font-extrabold text-7xl sm:text-9xl text-white tracking-wider block leading-none">
+              BARBERKING
+            </span>
+            <span className="text-amber-500 font-display font-bold text-2xl uppercase tracking-widest mt-2 block">
+              {String(t("brand.tagline"))} · EST. 2014
+            </span>
+          </div>
+
+          {/* Layer 2: Social Row as TEXT Links */}
+          <div className="flex space-x-4">
+            <a
+              href={String(t("brand.instagram"))}
+              target="_blank"
+              rel="noreferrer"
+              className="px-4 py-2 bg-gray-900 hover:bg-amber-500 hover:text-black border border-hairline rounded text-white font-bold text-xs uppercase tracking-wider transition-colors"
+            >
+              INSTAGRAM
+            </a>
+            <a
+              href={String(t("brand.facebook"))}
+              target="_blank"
+              rel="noreferrer"
+              className="px-4 py-2 bg-gray-900 hover:bg-amber-500 hover:text-black border border-hairline rounded text-white font-bold text-xs uppercase tracking-wider transition-colors"
+            >
+              FACEBOOK
+            </a>
+            <a
+              href={String(t("brand.tiktok"))}
+              target="_blank"
+              rel="noreferrer"
+              className="px-4 py-2 bg-gray-900 hover:bg-amber-500 hover:text-black border border-hairline rounded text-white font-bold text-xs uppercase tracking-wider transition-colors"
+            >
+              TIKTOK
+            </a>
+          </div>
+        </div>
+
+        {/* Layer 3: Multi-column Grid (Nav, Contacts, Hours) */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          
+          {/* About Column */}
+          <div className="space-y-3">
+            <h4 className="font-display font-bold text-xl text-white uppercase">
+              {String(t("footer.aboutTitle"))}
+            </h4>
+            <p className="text-xs text-gray-400 leading-relaxed">
+              {String(t("footer.aboutText"))}
             </p>
           </div>
 
-          {/* Navigation Column */}
-          <div className="md:col-span-3 flex flex-col space-y-2 text-xs uppercase tracking-wider text-text-muted font-mono">
-            <span className="font-display font-bold text-base text-text-light uppercase mb-2">
-              НАВІГАЦІЯ
-            </span>
-            <a href="#services" className="hover:text-accent transition-colors py-0.5">
-              Послуги та Ціни
-            </a>
-            <a href="#calculator" className="hover:text-accent transition-colors py-0.5">
-              Онлайн-розрахунок
-            </a>
-            <a href="#locations" className="hover:text-accent transition-colors py-0.5">
-              Локації Києва
-            </a>
-            <a href="#tattoo" className="hover:text-accent transition-colors py-0.5">
-              Tattoo Room
-            </a>
-            <a href="#team" className="hover:text-accent transition-colors py-0.5">
-              Команда майстрів
-            </a>
-            <a href="#faq" className="hover:text-accent transition-colors py-0.5">
-              Часті питання
-            </a>
+          {/* Locations Column */}
+          <div className="space-y-3">
+            <h4 className="font-display font-bold text-xl text-white uppercase">
+              {String(t("footer.locationsTitle"))}
+            </h4>
+            <ul className="space-y-1.5 text-xs text-gray-400">
+              <li>— Лук'янівка: вул. Павлівська 18</li>
+              <li>— Позняки: Дніпровська набережна 15К</li>
+              <li>— Виноградар: вул. Олександра Олеся 8А</li>
+              <li>— Позняки: вул. Урлівська 11/44</li>
+            </ul>
           </div>
 
           {/* Contacts Column */}
-          <div className="md:col-span-4 flex flex-col space-y-2 text-xs text-text-muted font-mono">
-            <span className="font-display font-bold text-base text-text-light uppercase mb-2">
-              КОНТАКТИ ФІЛІЙ
-            </span>
-            <p>вул. Павлівська, 18 (Лук'янівка / Центр)</p>
-            <p>вул. Дніпровська набережна, 15К (ЖК Great)</p>
-            <p>вул. Олександра Олеся, 8А (ЖК Варшавський)</p>
-            <p>вул. Урлівська, 11/44 (Позняки)</p>
-            <a href="tel:0951079215" className="font-display font-bold text-accent text-xl mt-3 block">
-              095 107 92 15
+          <div className="space-y-3">
+            <h4 className="font-display font-bold text-xl text-white uppercase">
+              {String(t("footer.contactsTitle"))}
+            </h4>
+            <div className="space-y-1.5 text-xs">
+              <div>
+                Телефон:{" "}
+                <a
+                  href={String(t("brand.phoneRaw"))}
+                  className="text-amber-400 font-bold hover:underline"
+                >
+                  {String(t("brand.phone"))}
+                </a>
+              </div>
+              <div>Email: {String(t("brand.email"))}</div>
+              <div>Графік: Щодня 09:00 — 21:00</div>
+            </div>
+          </div>
+
+          {/* Hours / Service Note Column */}
+          <div className="space-y-3">
+            <h4 className="font-display font-bold text-xl text-white uppercase">
+              ОНЛАЙН СЕРВІС
+            </h4>
+            <p className="text-xs text-gray-400 leading-relaxed">
+              Запис доступний цілодобово. Всі 4 локації оснащені автономним живленням та безкоштовним баром.
+            </p>
+          </div>
+
+        </div>
+
+        {/* Layer 4: Legal Row & Developer Credit Line */}
+        <div className="pt-8 border-t border-hairline flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
+          <div>{String(t("footer.copyright"))}</div>
+          <div className="text-gray-400">
+            <a
+              href="https://makarich.framer.website"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-amber-400 transition-colors"
+            >
+              {String(t("footer.developer"))}
             </a>
           </div>
         </div>
 
-        {/* Social Row as Plain Text Links */}
-        <div className="py-6 border-b border-border-dark/40 flex items-center justify-between text-xs font-mono text-text-muted">
-          <span>СОЦІАЛЬНІ МЕРЕЖІ:</span>
-          <div className="flex gap-6">
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent uppercase">
-              INSTAGRAM
-            </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent uppercase">
-              FACEBOOK
-            </a>
-            <a href="https://t.me" target="_blank" rel="noopener noreferrer" className="hover:text-accent uppercase">
-              TELEGRAM
-            </a>
-          </div>
-        </div>
-
-        {/* Legal Row & Developer Credit */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-muted font-mono">
-          <span>© 2014–2026 BARBERKING. УСІ ПРАВА ЗАХИЩЕНО.</span>
-          <a
-            href="https://makarich.framer.website"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-accent transition-colors underline font-medium"
-          >
-            Розроблено Студія Тест
-          </a>
-        </div>
-
-        {/* Giant Bleeding Wordmark at Footer Bottom */}
-        <div className="w-full text-center overflow-hidden border-t border-border-dark/30 pt-10 -mb-12 pointer-events-none select-none">
-          <span className="font-display font-black text-[13vw] sm:text-[15vw] leading-none text-white/[0.03] uppercase tracking-tighter whitespace-nowrap block">
-            BARBERKING KYIV
-          </span>
-        </div>
       </div>
     </footer>
   );

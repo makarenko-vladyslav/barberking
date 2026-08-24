@@ -6,15 +6,15 @@ export default function Gallery() {
   const { t } = useLocale();
 
   const realImages = [
-    { url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-300x200.jpg", title: String(t("gallery.img1")) },
-    { url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5902-2-300x200.jpg", title: String(t("gallery.img2")) },
-    { url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6059-300x200.jpg", title: String(t("gallery.img3")) },
-    { url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5183-300x200.jpg", title: String(t("gallery.img4")) },
-    { url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6955-300x200.jpg", title: String(t("gallery.img5")) },
-    { url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5352-300x200.jpg", title: String(t("gallery.img6")) },
-    { url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_7104-300x200.jpg", title: String(t("gallery.img7")) },
-    { url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_4972-300x200.jpg", title: String(t("gallery.img8")) },
-    { url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_4572-300x200.jpg", title: String(t("gallery.img9")) }
+    { url: "/barberking/media/efa843d5303a55ab.jpg", title: String(t("gallery.img1")) },
+    { url: "/barberking/media/3de94b826c157f9d.jpg", title: String(t("gallery.img2")) },
+    { url: "/barberking/media/7d68ec366c050a0f.jpg", title: String(t("gallery.img3")) },
+    { url: "/barberking/media/558b1a9dde7d9efc.jpg", title: String(t("gallery.img4")) },
+    { url: "/barberking/media/68694e9df96631aa.jpg", title: String(t("gallery.img5")) },
+    { url: "/barberking/media/eef99b5fe845d343.jpg", title: String(t("gallery.img6")) },
+    { url: "/barberking/media/3cb4bc541f8fcf33.jpg", title: String(t("gallery.img7")) },
+    { url: "/barberking/media/ef9a434c10d88667.jpg", title: String(t("gallery.img8")) },
+    { url: "/barberking/media/62b0764570b9184a.jpg", title: String(t("gallery.img9")) }
   ];
 
   const [activeImg, setActiveImg] = useState<string | null>(null);

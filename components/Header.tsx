@@ -46,7 +46,7 @@ export default function Header() {
         {/* Real Client Logo */}
         <a href="#" className="flex items-center gap-2 group py-1">
           <img
-            src="https://kyiv.bking.com.ua/wp-content/themes/bking/images/logo.png"
+            src="/barberking/media/210b09d0793a22f8.png"
             alt="Barberking Kyiv"
             className="h-9 sm:h-10 w-auto object-contain transition-transform group-hover:scale-105"
           />
@@ -126,7 +126,7 @@ export default function Header() {
         <div className="fixed inset-0 z-50 bg-[hsl(0_0%_5%)] flex flex-col justify-between p-6 sm:p-10">
           <div className="flex items-center justify-between border-b border-[hsl(0_0%_15%)] pb-4">
             <img
-              src="https://kyiv.bking.com.ua/wp-content/themes/bking/images/logo.png"
+              src="/barberking/media/210b09d0793a22f8.png"
               alt={String(t("header.brandAlt"))}
               className="h-8 w-auto object-contain"
             />

@@ -1,3 +1,5 @@
+import { MotionLayer } from "@/components/motion-layer";
+import "./motion-layer.css";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import type { Metadata } from "next";
 import { LocaleProvider } from "@/lib/i18n";
@@ -25,7 +27,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <LocaleProvider>
           {children}
         </LocaleProvider>
-      <SmoothScroll /></body>
+      <SmoothScroll />  <MotionLayer />
+      </body>
     </html>
   );
 }

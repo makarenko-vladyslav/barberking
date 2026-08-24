@@ -15,7 +15,7 @@ export default function TattooSection() {
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-xs overflow-hidden border border-[hsl(38_90%_50%/0.4)] shadow-2xl bg-[hsl(0_0%_12%)]">
               <img
-                src="https://kyiv.bking.com.ua/wp-content/uploads/2026/06/img_4703-e1782466384832-759x1024.webp"
+                src="/barberking/media/024ab8c94532e3e3.webp"
                 alt={String(t("tattoo.photo1Alt"))}
                 loading="lazy"
                 className="w-full h-[460px] object-cover object-top filter contrast-110"
@@ -37,7 +37,7 @@ export default function TattooSection() {
             {/* Overlapped Secondary Frame using a unique themed stock image url to avoid repetition */}
             <div className="hidden sm:block absolute -bottom-6 -right-6 w-48 h-48 rounded-xs overflow-hidden border-2 border-[hsl(38_90%_50%)] shadow-2xl z-20 transform rotate-2">
               <img
-                src="https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_7104-300x200.jpg"
+                src="/barberking/media/3cb4bc541f8fcf33.jpg"
                 alt={String(t("tattoo.photo2Alt"))}
                 loading="lazy"
                 className="w-full h-full object-cover filter brightness-90"

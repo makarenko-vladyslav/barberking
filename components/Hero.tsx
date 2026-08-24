@@ -15,7 +15,7 @@ export default function Hero() {
           muted
           loop
           playsInline
-          poster="https://kyiv.bking.com.ua/wp-content/themes/bking/images/banner2.jpg"
+          poster="/barberking/media/36fa59f33a84581a.jpg"
           className="w-full h-full object-cover scale-105 filter brightness-40 contrast-110"
         >
           <source src={String(t("hero.videoSrc"))} type="video/mp4" />

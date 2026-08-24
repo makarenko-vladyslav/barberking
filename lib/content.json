@@ -98,7 +98,7 @@
             "price": "750 грн",
             "category": "haircut",
             "tag": "ХІТ ПРОДАЖІВ",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-300x200.jpg"
+            "photo": "/barberking/media/efa843d5303a55ab.jpg"
           },
           {
             "id": "combo",
@@ -108,7 +108,7 @@
             "category": "combo",
             "tag": "ВИБІР ГОСТЕЙ",
             "signature": true,
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5902-2-300x200.jpg"
+            "photo": "/barberking/media/3de94b826c157f9d.jpg"
           },
           {
             "id": "beard",
@@ -117,7 +117,7 @@
             "price": "550 грн",
             "category": "beard",
             "tag": "",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6059-300x200.jpg"
+            "photo": "/barberking/media/7d68ec366c050a0f.jpg"
           },
           {
             "id": "razor_shave",
@@ -126,7 +126,7 @@
             "price": "500 грн",
             "category": "beard",
             "tag": "РИТУАЛ",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5183-300x200.jpg"
+            "photo": "/barberking/media/558b1a9dde7d9efc.jpg"
           },
           {
             "id": "father_son",
@@ -135,7 +135,7 @@
             "price": "1 150 грн",
             "category": "combo",
             "tag": "СІМЕЙНИЙ",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6955-300x200.jpg"
+            "photo": "/barberking/media/68694e9df96631aa.jpg"
           },
           {
             "id": "grey_camouflage",
@@ -144,7 +144,7 @@
             "price": "550 грн",
             "category": "care",
             "tag": "",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5352-300x200.jpg"
+            "photo": "/barberking/media/eef99b5fe845d343.jpg"
           },
           {
             "id": "clipper",
@@ -153,7 +153,7 @@
             "price": "550 грн",
             "category": "haircut",
             "tag": "",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_4972-300x200.jpg"
+            "photo": "/barberking/media/ef9a434c10d88667.jpg"
           },
           {
             "id": "waxing",
@@ -162,7 +162,7 @@
             "price": "150 грн",
             "category": "care",
             "tag": "",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_4572-300x200.jpg"
+            "photo": "/barberking/media/62b0764570b9184a.jpg"
           }
         ],
         "footnote": "* Ціни вказані для категорії Barber. При виборі Top або Grand Barber ціна відповідно змінюється.",
@@ -259,112 +259,112 @@
             "name": "Дмитро",
             "role": "Grand Barber",
             "branch": "вул. Павлівська, 18",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2025/04/photo_2025-04-26-15.12.24-768x1024.webp",
+            "photo": "/barberking/media/cb21fce583949171.webp",
             "spec": "Експерт класичних стрижок, фейду та моделювання довгої бороди. Досвід 8 років."
           },
           {
             "name": "Евгеній",
             "role": "Grand Barber",
             "branch": "вул. Павлівська, 18",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2024/12/1-scaled-e1736622253994-859x1024.jpg",
+            "photo": "/barberking/media/47bdacb7ed0e5d90.jpg",
             "spec": "Спеціаліст із королівського гоління клинковою бритвою та догляду за шкірою."
           },
           {
             "name": "Даніел (Dino)",
             "role": "Grand Barber",
             "branch": "вул. Павлівська, 18",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2026/03/dyno-e1774703810461-904x1024.webp",
+            "photo": "/barberking/media/c95335bf6f2294f5.webp",
             "spec": "Майстер креативних текстурних стрижок та геометричних ліній."
           },
           {
             "name": "Максим",
             "role": "Grand Barber",
             "branch": "вул. Павлівська, 18",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2026/03/img_1831-e1773677468520-737x1024.webp",
+            "photo": "/barberking/media/95c049defc314132.webp",
             "spec": "Вільний стиль, точні фейди та догляд за чутливою шкірою обличчя."
           },
           {
             "name": "Андрій (ART)",
             "role": "Tattoo Artist",
             "branch": "вул. Павлівська, 18",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2026/06/img_4703-e1782466384832-759x1024.webp",
+            "photo": "/barberking/media/024ab8c94532e3e3.webp",
             "spec": "Графіка, чорно-біле татуювання, перекриття та авторські ескізи."
           },
           {
             "name": "Олександр",
             "role": "Grand Barber",
             "branch": "вул. Дніпровська набережна, 15К",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-300x200.jpg",
+            "photo": "/barberking/media/efa843d5303a55ab.jpg",
             "spec": "Класичний чоловічий стиль, підбір форми під структуру волосся."
           },
           {
             "name": "Серхіо",
             "role": "Grand Barber",
             "branch": "вул. Дніпровська набережна, 15К",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5902-2-300x200.jpg",
+            "photo": "/barberking/media/3de94b826c157f9d.jpg",
             "spec": "Стрижки подовженого волосся та моделювання геометрії бороди."
           },
           {
             "name": "Руслан",
             "role": "Top Barber",
             "branch": "вул. Олександра Олеся, 8А",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6059-300x200.jpg",
+            "photo": "/barberking/media/7d68ec366c050a0f.jpg",
             "spec": "Стрижки машинкою, камуфляж сивини та дитячий догляд."
           },
           {
             "name": "Артур",
             "role": "Top Barber",
             "branch": "вул. Урлівська, 11/44",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5183-300x200.jpg",
+            "photo": "/barberking/media/558b1a9dde7d9efc.jpg",
             "spec": "Сучасні текстурні стрижки та швидкий сервіс."
           },
           {
             "name": "Богдан",
             "role": "Barber",
             "branch": "вул. Павлівська, 18",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6955-300x200.jpg",
+            "photo": "/barberking/media/68694e9df96631aa.jpg",
             "spec": "Чисті фейди та класичне оформлення бороди."
           },
           {
             "name": "Денис",
             "role": "Barber",
             "branch": "вул. Дніпровська набережна, 15К",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5352-300x200.jpg",
+            "photo": "/barberking/media/eef99b5fe845d343.jpg",
             "spec": "Індивідуальний підхід до кожного гостя."
           },
           {
             "name": "Ігор",
             "role": "Barber",
             "branch": "вул. Олександра Олеся, 8А",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_4972-300x200.jpg",
+            "photo": "/barberking/media/ef9a434c10d88667.jpg",
             "spec": "Професійний догляд та укладка."
           },
           {
             "name": "Микола",
             "role": "Top Barber",
             "branch": "вул. Урлівська, 11/44",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_4572-300x200.jpg",
+            "photo": "/barberking/media/62b0764570b9184a.jpg",
             "spec": "Експерт з бритви та гоління."
           },
           {
             "name": "Влад",
             "role": "Barber",
             "branch": "вул. Павлівська, 18",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5867-300x200.jpg",
+            "photo": "/barberking/media/82d63e0b80d35c31.jpg",
             "spec": "Стильні чоловічі зачіски та догляд."
           },
           {
             "name": "Марк",
             "role": "Junior Barber",
             "branch": "вул. Дніпровська набережна, 15К",
-            "photo": "https://kyiv.bking.com.ua/wp-content/themes/bking/images/banner2.jpg",
+            "photo": "/barberking/media/36fa59f33a84581a.jpg",
             "spec": "Акуратність та увага до деталей."
           },
           {
             "name": "Тимур",
             "role": "Junior Barber",
             "branch": "вул. Урлівська, 11/44",
-            "photo": "https://kyiv.bking.com.ua/wp-content/themes/bking/images/map-banner.jpg",
+            "photo": "/barberking/media/25737c91946010b6.jpg",
             "spec": "Сучасні тенденції чоловічої моди."
           }
         ]
@@ -629,7 +629,7 @@
             "price": "750 UAH",
             "category": "haircut",
             "tag": "BESTSELLER",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-300x200.jpg"
+            "photo": "/barberking/media/efa843d5303a55ab.jpg"
           },
           {
             "id": "combo",
@@ -639,7 +639,7 @@
             "category": "combo",
             "tag": "MOST POPULAR",
             "signature": true,
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5902-2-300x200.jpg"
+            "photo": "/barberking/media/3de94b826c157f9d.jpg"
           },
           {
             "id": "beard",
@@ -648,7 +648,7 @@
             "price": "550 UAH",
             "category": "beard",
             "tag": "",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6059-300x200.jpg"
+            "photo": "/barberking/media/7d68ec366c050a0f.jpg"
           },
           {
             "id": "razor_shave",
@@ -657,7 +657,7 @@
             "price": "500 UAH",
             "category": "beard",
             "tag": "RITUAL",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5183-300x200.jpg"
+            "photo": "/barberking/media/558b1a9dde7d9efc.jpg"
           },
           {
             "id": "father_son",
@@ -666,7 +666,7 @@
             "price": "1 150 UAH",
             "category": "combo",
             "tag": "FAMILY",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6955-300x200.jpg"
+            "photo": "/barberking/media/68694e9df96631aa.jpg"
           },
           {
             "id": "grey_camouflage",
@@ -675,7 +675,7 @@
             "price": "550 UAH",
             "category": "care",
             "tag": "",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5352-300x200.jpg"
+            "photo": "/barberking/media/eef99b5fe845d343.jpg"
           },
           {
             "id": "clipper",
@@ -684,7 +684,7 @@
             "price": "550 UAH",
             "category": "haircut",
             "tag": "",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_4972-300x200.jpg"
+            "photo": "/barberking/media/ef9a434c10d88667.jpg"
           },
           {
             "id": "waxing",
@@ -693,7 +693,7 @@
             "price": "150 UAH",
             "category": "care",
             "tag": "",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_4572-300x200.jpg"
+            "photo": "/barberking/media/62b0764570b9184a.jpg"
           }
         ],
         "footnote": "* Prices listed for Barber tier. Selecting Top or Grand Barber adjusts the final rate.",
@@ -790,112 +790,112 @@
             "name": "Dmytro",
             "role": "Grand Barber",
             "branch": "18 Pavlovska St.",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2025/04/photo_2025-04-26-15.12.24-768x1024.webp",
+            "photo": "/barberking/media/cb21fce583949171.webp",
             "spec": "Expert in classic cuts, skin fades, and long beard styling. 8 years experience."
           },
           {
             "name": "Yevheniy",
             "role": "Grand Barber",
             "branch": "18 Pavlovska St.",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2024/12/1-scaled-e1736622253994-859x1024.jpg",
+            "photo": "/barberking/media/47bdacb7ed0e5d90.jpg",
             "spec": "Straight razor shave specialist and beard sculptor."
           },
           {
             "name": "Daniel (Dino)",
             "role": "Grand Barber",
             "branch": "18 Pavlovska St.",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2026/03/dyno-e1774703810461-904x1024.webp",
+            "photo": "/barberking/media/c95335bf6f2294f5.webp",
             "spec": "Creative texture haircuts and crisp hairline work."
           },
           {
             "name": "Maksym",
             "role": "Grand Barber",
             "branch": "18 Pavlovska St.",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2026/03/img_1831-e1773677468520-737x1024.webp",
+            "photo": "/barberking/media/95c049defc314132.webp",
             "spec": "Modern haircuts and scalp treatments."
           },
           {
             "name": "Andriy (ART)",
             "role": "Tattoo Artist",
             "branch": "18 Pavlovska St.",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2026/06/img_4703-e1782466384832-759x1024.webp",
+            "photo": "/barberking/media/024ab8c94532e3e3.webp",
             "spec": "Black & Grey graphics, custom sketches, and cover-ups."
           },
           {
             "name": "Oleksandr",
             "role": "Grand Barber",
             "branch": "15K Dniprovska Embankment",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-300x200.jpg",
+            "photo": "/barberking/media/efa843d5303a55ab.jpg",
             "spec": "Classic men's style tailored to head shape."
           },
           {
             "name": "Sergio",
             "role": "Grand Barber",
             "branch": "15K Dniprovska Embankment",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5902-2-300x200.jpg",
+            "photo": "/barberking/media/3de94b826c157f9d.jpg",
             "spec": "Long hair styling and beard contouring."
           },
           {
             "name": "Ruslan",
             "role": "Top Barber",
             "branch": "8A Oleksandra Олеся St.",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6059-300x200.jpg",
+            "photo": "/barberking/media/7d68ec366c050a0f.jpg",
             "spec": "Clipper cuts, grey camouflage, and kids grooming."
           },
           {
             "name": "Artur",
             "role": "Top Barber",
             "branch": "11/44 Urlivska St.",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5183-300x200.jpg",
+            "photo": "/barberking/media/558b1a9dde7d9efc.jpg",
             "spec": "Modern textured haircuts and fast service."
           },
           {
             "name": "Bohdan",
             "role": "Barber",
             "branch": "18 Pavlovska St.",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6955-300x200.jpg",
+            "photo": "/barberking/media/68694e9df96631aa.jpg",
             "spec": "Clean fades and classic beard shaping."
           },
           {
             "name": "Denys",
             "role": "Barber",
             "branch": "15K Dniprovska Embankment",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5352-300x200.jpg",
+            "photo": "/barberking/media/eef99b5fe845d343.jpg",
             "spec": "Individual approach to every guest."
           },
           {
             "name": "Ihor",
             "role": "Barber",
             "branch": "8A Oleksandra Olesya St.",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_4972-300x200.jpg",
+            "photo": "/barberking/media/ef9a434c10d88667.jpg",
             "spec": "Professional styling and grooming."
           },
           {
             "name": "Mykola",
             "role": "Top Barber",
             "branch": "11/44 Urlivska St.",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_4572-300x200.jpg",
+            "photo": "/barberking/media/62b0764570b9184a.jpg",
             "spec": "Straight razor and shaving expert."
           },
           {
             "name": "Vlad",
             "role": "Barber",
             "branch": "18 Pavlovska St.",
-            "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5867-300x200.jpg",
+            "photo": "/barberking/media/82d63e0b80d35c31.jpg",
             "spec": "Stylish men's hairstyles and care."
           },
           {
             "name": "Mark",
             "role": "Junior Barber",
             "branch": "15K Dniprovska Embankment",
-            "photo": "https://kyiv.bking.com.ua/wp-content/themes/bking/images/banner2.jpg",
+            "photo": "/barberking/media/36fa59f33a84581a.jpg",
             "spec": "Precision and attention to detail."
           },
           {
             "name": "Timur",
             "role": "Junior Barber",
             "branch": "11/44 Urlivska St.",
-            "photo": "https://kyiv.bking.com.ua/wp-content/themes/bking/images/map-banner.jpg",
+            "photo": "/barberking/media/25737c91946010b6.jpg",
             "spec": "Modern men's fashion trends."
           }
         ]

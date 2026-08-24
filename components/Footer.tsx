@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Brand Info */}
           <div>
             <img
-              src="https://kyiv.bking.com.ua/wp-content/themes/bking/images/logo.png"
+              src="/barberking/media/210b09d0793a22f8.png"
               alt={String(t("footer.brandAlt"))}
               className="h-10 w-auto object-contain mb-4"
             />

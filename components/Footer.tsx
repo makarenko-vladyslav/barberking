@@ -1,126 +1,102 @@
 "use client";
+
 import { useLocale } from "@/lib/i18n";
 
 export default function Footer() {
   const { t } = useLocale();
 
   return (
-    <footer className="bg-[hsl(18_15%_6%)] text-gray-400 pt-16 pb-8 border-t border-hairline text-sm relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        
-        {/* Layer 1: Giant Full-Width Brand Wordmark Bleeding Off Bottom Edge */}
-        <div className="border-b border-hairline pb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
-          <div>
-            <span className="font-display font-extrabold text-7xl sm:text-9xl text-white tracking-wider block leading-none">
+    <footer className="bg-[hsl(24_22%_4%)] text-white pt-20 pb-8 border-t border-white/10 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-16 relative z-10">
+          {/* Brand Col */}
+          <div className="lg:col-span-2">
+            <a href="#" className="font-display text-4xl font-extrabold tracking-wider text-white mb-2 block">
               BARBERKING
+            </a>
+            <span className="text-[10px] uppercase tracking-[0.25em] text-[hsl(38_92%_50%)] font-bold block mb-4">
+              МЕРЕЖА ЧОЛОВІЧИХ БАРБЕРШОПІВ У КИЄВІ
             </span>
-            <span className="text-amber-500 font-display font-bold text-2xl uppercase tracking-widest mt-2 block">
-              {String(t("brand.tagline"))} · EST. 2014
-            </span>
-          </div>
-
-          {/* Layer 2: Social Row as TEXT Links */}
-          <div className="flex space-x-4">
-            <a
-              href={String(t("brand.instagram"))}
-              target="_blank"
-              rel="noreferrer"
-              className="px-4 py-2 bg-gray-900 hover:bg-amber-500 hover:text-black border border-hairline rounded text-white font-bold text-xs uppercase tracking-wider transition-colors"
-            >
-              INSTAGRAM
-            </a>
-            <a
-              href={String(t("brand.facebook"))}
-              target="_blank"
-              rel="noreferrer"
-              className="px-4 py-2 bg-gray-900 hover:bg-amber-500 hover:text-black border border-hairline rounded text-white font-bold text-xs uppercase tracking-wider transition-colors"
-            >
-              FACEBOOK
-            </a>
-            <a
-              href={String(t("brand.tiktok"))}
-              target="_blank"
-              rel="noreferrer"
-              className="px-4 py-2 bg-gray-900 hover:bg-amber-500 hover:text-black border border-hairline rounded text-white font-bold text-xs uppercase tracking-wider transition-colors"
-            >
-              TIKTOK
-            </a>
-          </div>
-        </div>
-
-        {/* Layer 3: Multi-column Grid (Nav, Contacts, Hours) */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          
-          {/* About Column */}
-          <div className="space-y-3">
-            <h4 className="font-display font-bold text-xl text-white uppercase">
-              {String(t("footer.aboutTitle"))}
-            </h4>
-            <p className="text-xs text-gray-400 leading-relaxed">
-              {String(t("footer.aboutText"))}
+            <p className="text-xs text-white/60 leading-relaxed mb-6 max-w-sm">
+              {String(t("footer.tagline"))}
             </p>
-          </div>
-
-          {/* Locations Column */}
-          <div className="space-y-3">
-            <h4 className="font-display font-bold text-xl text-white uppercase">
-              {String(t("footer.locationsTitle"))}
-            </h4>
-            <ul className="space-y-1.5 text-xs text-gray-400">
-              <li>— Лук'янівка: вул. Павлівська 18</li>
-              <li>— Позняки: Дніпровська набережна 15К</li>
-              <li>— Виноградар: вул. Олександра Олеся 8А</li>
-              <li>— Позняки: вул. Урлівська 11/44</li>
-            </ul>
-          </div>
-
-          {/* Contacts Column */}
-          <div className="space-y-3">
-            <h4 className="font-display font-bold text-xl text-white uppercase">
-              {String(t("footer.contactsTitle"))}
-            </h4>
-            <div className="space-y-1.5 text-xs">
-              <div>
-                Телефон:{" "}
-                <a
-                  href={String(t("brand.phoneRaw"))}
-                  className="text-amber-400 font-bold hover:underline"
-                >
-                  {String(t("brand.phone"))}
-                </a>
-              </div>
-              <div>Email: {String(t("brand.email"))}</div>
-              <div>Графік: Щодня 09:00 — 21:00</div>
+            <div className="flex gap-3">
+              <a
+                href="https://www.instagram.com/barberking_kv/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-3.5 py-2 rounded bg-white/10 hover:bg-[hsl(38_92%_50%)] hover:text-black text-[11px] font-extrabold uppercase tracking-wider transition-all"
+              >
+                INSTAGRAM
+              </a>
+              <a
+                href="https://www.facebook.com/BarberKingkh/"
+                target="_blank"
+                rel="noreferrer"
+                className="px-3.5 py-2 rounded bg-white/10 hover:bg-[hsl(38_92%_50%)] hover:text-black text-[11px] font-extrabold uppercase tracking-wider transition-all"
+              >
+                FACEBOOK
+              </a>
             </div>
           </div>
 
-          {/* Hours / Service Note Column */}
-          <div className="space-y-3">
-            <h4 className="font-display font-bold text-xl text-white uppercase">
-              ОНЛАЙН СЕРВІС
+          {/* Nav Col */}
+          <div>
+            <h4 className="font-display text-lg font-bold text-[hsl(38_92%_50%)] uppercase mb-4">
+              {String(t("footer.navigation"))}
             </h4>
-            <p className="text-xs text-gray-400 leading-relaxed">
-              Запис доступний цілодобово. Всі 4 локації оснащені автономним живленням та безкоштовним баром.
-            </p>
+            <ul className="space-y-2 text-xs text-white/70">
+              <li><a href="#services" className="hover:text-white transition-colors py-1 block">{String(t("footer.link1"))}</a></li>
+              <li><a href="#calculator" className="hover:text-white transition-colors py-1 block">{String(t("footer.link2"))}</a></li>
+              <li><a href="#locations" className="hover:text-white transition-colors py-1 block">{String(t("footer.link3"))}</a></li>
+              <li><a href="#tattoo" className="hover:text-white transition-colors py-1 block">{String(t("footer.link4"))}</a></li>
+              <li><a href="#team" className="hover:text-white transition-colors py-1 block">{String(t("footer.link5"))}</a></li>
+            </ul>
           </div>
 
-        </div>
+          {/* Branches Col */}
+          <div>
+            <h4 className="font-display text-lg font-bold text-[hsl(38_92%_50%)] uppercase mb-4">
+              Філії у Києві
+            </h4>
+            <ul className="space-y-2 text-xs text-white/70">
+              <li>{String(t("footer.b1"))}</li>
+              <li>{String(t("footer.b2"))}</li>
+              <li>{String(t("footer.b3"))}</li>
+              <li>{String(t("footer.b4"))}</li>
+            </ul>
+          </div>
 
-        {/* Layer 4: Legal Row & Developer Credit Line */}
-        <div className="pt-8 border-t border-hairline flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
-          <div>{String(t("footer.copyright"))}</div>
-          <div className="text-gray-400">
-            <a
-              href="https://makarich.framer.website"
-              target="_blank"
-              rel="noreferrer"
-              className="hover:text-amber-400 transition-colors"
-            >
-              {String(t("footer.developer"))}
-            </a>
+          {/* Contact Col */}
+          <div>
+            <h4 className="font-display text-lg font-bold text-[hsl(38_92%_50%)] uppercase mb-4">
+              {String(t("footer.contacts"))}
+            </h4>
+            <ul className="space-y-2 text-xs text-white/70">
+              <li><a href="tel:0951079215" className="font-bold text-white hover:text-[hsl(38_92%_50%)] py-1 block">095 107 92 15</a></li>
+              <li>{String(t("footer.email"))}</li>
+              <li className="pt-2 text-[10px] text-white/50">{String(t("footer.workingHours"))}</li>
+            </ul>
           </div>
         </div>
 
+        {/* Giant Watermark Display Text Bleeding Off Bottom Edge */}
+        <div
+          className="w-full font-display font-black text-[15vw] sm:text-[16vw] text-white/[0.04] leading-none select-none tracking-tighter uppercase text-center block overflow-hidden -mb-6"
+          aria-hidden="true"
+        >
+          BARBERKING
+        </div>
+
+        {/* Legal Row */}
+        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-white/50 gap-4">
+          <div>
+            © 2026 BARBERKING. {String(t("footer.rights"))}
+          </div>
+          <div>
+            {String(t("footer.developer"))}
+          </div>
+        </div>
       </div>
     </footer>
   );

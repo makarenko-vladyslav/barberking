@@ -1,193 +1,166 @@
 "use client";
+
 import { useState } from "react";
 import { useLocale } from "@/lib/i18n";
+import pricing from "@/lib/pricing.json";
 
-interface CalculatorProps {
-  onOpenBooking: (details?: string) => void;
-}
-
-export default function Calculator({ onOpenBooking }: CalculatorProps) {
+export default function Calculator() {
   const { t } = useLocale();
 
-  const [rank, setRank] = useState<number>(1.0); // 1.0 = Barber, 1.25 = Top, 1.5 = Grand
-  const [selectedServices, setSelectedServices] = useState<
-    Array<{ id: string; name: string; basePrice: number; time: number }>
-  >([
-    { id: "haircut", name: "Професійна стрижка", basePrice: 750, time: 45 },
-    { id: "beard", name: "Стрижка та окантовка бороди", basePrice: 550, time: 30 },
-  ]);
+  const [selectedServices, setSelectedServices] = useState<string[]>(["haircut"]);
+  const [masterCategory, setMasterCategory] = useState<"barber" | "topBarber" | "grandMaster">("grandMaster");
+  const [selectedBranch, setSelectedBranch] = useState<"pavlivska" | "great" | "varshavsky" | "urlivska">("pavlivska");
 
-  const availableServices = [
-    { id: "haircut", name: "Професійна чоловіча стрижка", basePrice: 750, time: 45 },
-    { id: "beard", name: "Стрижка та окантовка бороди", basePrice: 550, time: 30 },
-    { id: "shave", name: "Королівське гоління", basePrice: 600, time: 45 },
-    { id: "camo_beard", name: "Камуфляж сивини бороди", basePrice: 550, time: 25 },
-    { id: "black_mask", name: "Чорна маска очищення обличчя", basePrice: 350, time: 20 },
-    { id: "waxing", name: "Воскова депіляція (ніс/вуха)", basePrice: 150, time: 15 },
-  ];
+  const servicesMap = pricing.baseServices as Record<string, { name: string; price: number }>;
+  const masterMultipliers = pricing.masterCategories as Record<string, { label: string; multiplier: number }>;
+  const branchMultipliers = pricing.branchMultipliers as Record<string, number>;
 
-  const toggleService = (srv: typeof availableServices[0]) => {
-    if (selectedServices.some((s) => s.id === srv.id)) {
-      setSelectedServices(selectedServices.filter((s) => s.id !== srv.id));
+  const toggleService = (key: string) => {
+    if (selectedServices.includes(key)) {
+      if (selectedServices.length > 1) {
+        setSelectedServices(selectedServices.filter((s) => s !== key));
+      }
     } else {
-      setSelectedServices([...selectedServices, srv]);
+      setSelectedServices([...selectedServices, key]);
     }
   };
 
-  const totalPrice = Math.round(
-    selectedServices.reduce((acc, s) => acc + s.basePrice, 0) * rank
-  );
-  const totalTime = selectedServices.reduce((acc, s) => acc + s.time, 0);
+  const rawSum = selectedServices.reduce((acc, key) => acc + (servicesMap[key]?.price || 0), 0);
+  const masterMult = masterMultipliers[masterCategory]?.multiplier || 1.0;
+  const branchMult = branchMultipliers[selectedBranch] || 1.0;
 
-  const getRankName = () => {
-    if (rank === 1.0) return "Barber";
-    if (rank === 1.25) return "Top Barber";
-    return "Grand Barber";
-  };
+  const calculatedTotal = Math.round(rawSum * masterMult * branchMult);
+  const estimatedTime = selectedServices.length * 35;
 
   return (
-    <section id="calculator" className="py-20 bg-[hsl(18_12%_8%)] text-white scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-2 mb-12 text-center max-w-3xl mx-auto">
-          <div className="text-amber-500 text-xs font-bold uppercase tracking-widest">
+    <section id="calculator" className="py-20 bg-[hsl(24_15%_10%)] text-white relative border-b border-white/10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Title */}
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-xs font-bold uppercase tracking-[0.25em] text-[hsl(38_92%_50%)] mb-2 block">
             {String(t("calculator.kicker"))}
-          </div>
-          <h2 className="font-display font-extrabold text-5xl sm:text-7xl uppercase tracking-tight text-white">
-            {String(t("calculator.heading"))}
+          </span>
+          <h2 className="font-display text-4xl sm:text-6xl font-extrabold uppercase tracking-tight text-white mb-3">
+            {String(t("calculator.title"))}
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg">
-            {String(t("calculator.subheading"))}
+          <p className="text-white/70 text-sm">
+            {String(t("calculator.subtitle"))}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-[hsl(18_10%_12%)] border border-hairline rounded-lg p-6 sm:p-10 shadow-2xl">
-          {/* Controls */}
-          <div className="lg:col-span-7 space-y-8">
-            {/* Rank Selection */}
-            <div>
-              <label className="block text-xs uppercase tracking-widest text-amber-500 font-bold mb-3">
-                {String(t("calculator.selectRank"))}
-              </label>
-              <div className="grid grid-cols-3 gap-3">
-                <button
-                  type="button"
-                  onClick={() => setRank(1.0)}
-                  className={`py-3 px-2 rounded font-display font-bold text-xl text-center border transition-all ${
-                    rank === 1.0
-                      ? "bg-amber-500 text-black border-amber-500"
-                      : "bg-gray-800 text-gray-300 border-hairline hover:bg-gray-700"
-                  }`}
-                >
-                  Barber
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setRank(1.25)}
-                  className={`py-3 px-2 rounded font-display font-bold text-xl text-center border transition-all ${
-                    rank === 1.25
-                      ? "bg-amber-500 text-black border-amber-500"
-                      : "bg-gray-800 text-gray-300 border-hairline hover:bg-gray-700"
-                  }`}
-                >
-                  Top Barber
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setRank(1.5)}
-                  className={`py-3 px-2 rounded font-display font-bold text-xl text-center border transition-all ${
-                    rank === 1.5
-                      ? "bg-amber-500 text-black border-amber-500"
-                      : "bg-gray-800 text-gray-300 border-hairline hover:bg-gray-700"
-                  }`}
-                >
-                  Grand Barber
-                </button>
+        {/* Interactive Card */}
+        <div className="bg-[hsl(24_18%_7%)] border border-white/15 rounded-xl p-6 sm:p-10 shadow-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* Options Left */}
+            <div className="lg:col-span-7 flex flex-col space-y-6">
+              {/* Select Services Checklist */}
+              <div>
+                <label className="text-xs font-bold uppercase tracking-wider text-[hsl(38_92%_50%)] mb-3 block">
+                  {String(t("calculator.selectServices"))}
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {Object.entries(servicesMap).map(([key, item]) => {
+                    const active = selectedServices.includes(key);
+                    return (
+                      <button
+                        key={key}
+                        type="button"
+                        onClick={() => toggleService(key)}
+                        className={`px-3.5 py-2.5 rounded text-xs font-semibold text-left transition-all border flex items-center justify-between ${
+                          active
+                            ? "bg-[hsl(38_92%_50%/0.18)] border-[hsl(38_92%_50%)] text-white"
+                            : "bg-white/5 border-white/10 text-white/70 hover:bg-white/10"
+                        }`}
+                      >
+                        <span className="truncate pr-2">{item.name}</span>
+                        <span className="font-bold text-[hsl(38_92%_50%)] shrink-0">
+                          {item.price} {String(t("calculator.currency"))}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
 
-            {/* Service Checkboxes */}
-            <div>
-              <label className="block text-xs uppercase tracking-widest text-amber-500 font-bold mb-3">
-                {String(t("calculator.selectServices"))}
-              </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {availableServices.map((srv) => {
-                  const isChecked = selectedServices.some((s) => s.id === srv.id);
-                  return (
+              {/* Select Master Level */}
+              <div>
+                <label className="text-xs font-bold uppercase tracking-wider text-white/80 mb-2 block">
+                  {String(t("calculator.selectCategory"))}
+                </label>
+                <div className="grid grid-cols-3 gap-2">
+                  {Object.entries(masterMultipliers).map(([key, item]) => (
                     <button
-                      key={srv.id}
+                      key={key}
                       type="button"
-                      onClick={() => toggleService(srv)}
-                      className={`p-3 rounded border text-left flex items-center justify-between transition-all ${
-                        isChecked
-                          ? "bg-amber-500/10 border-amber-500 text-white"
-                          : "bg-gray-800/60 border-hairline text-gray-400 hover:text-gray-200"
+                      onClick={() => setMasterCategory(key as "barber" | "topBarber" | "grandMaster")}
+                      className={`py-2 rounded text-xs font-bold uppercase transition-all border ${
+                        masterCategory === key
+                          ? "bg-[hsl(38_92%_50%)] text-[hsl(24_18%_7%)] border-[hsl(38_92%_50%)]"
+                          : "bg-white/5 border-white/10 text-white/70 hover:bg-white/10"
                       }`}
                     >
-                      <span className="font-semibold text-sm">{srv.name}</span>
-                      <span className="text-amber-400 font-bold text-sm ml-2">
-                        {isChecked ? "✓" : "+"}
-                      </span>
+                      {item.label}
                     </button>
-                  );
-                })}
+                  ))}
+                </div>
+              </div>
+
+              {/* Select Location Branch */}
+              <div>
+                <label className="text-xs font-bold uppercase tracking-wider text-white/80 mb-2 block">
+                  {String(t("calculator.selectLocation"))}
+                </label>
+                <select
+                  value={selectedBranch}
+                  onChange={(e) => setSelectedBranch(e.target.value as "pavlivska" | "great" | "varshavsky" | "urlivska")}
+                  className="w-full bg-white/5 border border-white/15 rounded p-3 text-xs text-white focus:outline-none focus:border-[hsl(38_92%_50%)]"
+                >
+                  <option value="pavlivska" className="bg-black">{String(t("calculator.opt1"))}</option>
+                  <option value="great" className="bg-black">{String(t("calculator.opt2"))}</option>
+                  <option value="varshavsky" className="bg-black">{String(t("calculator.opt3"))}</option>
+                  <option value="urlivska" className="bg-black">{String(t("calculator.opt4"))}</option>
+                </select>
               </div>
             </div>
-          </div>
 
-          {/* Results Display Box */}
-          <div className="lg:col-span-5 bg-gradient-to-b from-gray-900 to-[hsl(18_12%_8%)] border border-hairline rounded-lg p-6 flex flex-col justify-between">
-            <div className="space-y-6">
-              <div className="border-b border-hairline pb-4">
-                <span className="text-xs uppercase tracking-widest text-gray-400">
-                  Обрано послуг: {selectedServices.length} · Мастер: {getRankName()}
+            {/* Total Display Right */}
+            <div className="lg:col-span-5 bg-[hsl(24_15%_13%)] border border-white/10 rounded-lg p-6 flex flex-col justify-between text-center lg:text-left">
+              <div>
+                <span className="text-xs uppercase tracking-widest text-white/60 block mb-1">
+                  {String(t("calculator.totalEstimate"))}
                 </span>
+                <div className="font-display text-5xl sm:text-6xl font-extrabold text-[hsl(38_92%_50%)] my-2">
+                  {calculatedTotal} <span className="text-2xl text-white/80">{String(t("calculator.currency"))}</span>
+                </div>
+
+                <div className="flex items-center justify-center lg:justify-start gap-2 text-xs text-white/70 mb-6">
+                  <span>{String(t("calculator.timeLabel"))}</span>
+                  <span className="font-bold text-white">~{estimatedTime} {String(t("calculator.minutes"))}</span>
+                </div>
+
+                <div className="space-y-2 text-left text-xs text-white/60 border-t border-white/10 pt-4 mb-6">
+                  <div className="flex justify-between">
+                    <span>{String(t("calculator.selectedServicesLabel"))}</span>
+                    <span className="text-white font-semibold">{selectedServices.length}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>{String(t("calculator.discountLabel"))}</span>
+                    <span className="text-[hsl(38_92%_50%)] font-semibold">{String(t("calculator.discountVal"))}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>{String(t("calculator.barLabel"))}</span>
+                    <span className="text-white font-semibold">{String(t("calculator.barVal"))}</span>
+                  </div>
+                </div>
               </div>
 
-              <div className="space-y-2">
-                <div className="text-xs uppercase tracking-wider text-gray-400">
-                  {String(t("calculator.totalPrice"))}
-                </div>
-                <div className="font-display font-extrabold text-6xl text-amber-400">
-                  {totalPrice} UAH
-                </div>
-              </div>
-
-              <div className="space-y-1">
-                <div className="text-xs uppercase tracking-wider text-gray-400">
-                  {String(t("calculator.totalTime"))}
-                </div>
-                <div className="font-display font-bold text-3xl text-white">
-                  ~ {totalTime} {String(t("calculator.minutes"))}
-                </div>
-              </div>
-
-              {selectedServices.length > 0 && (
-                <div className="text-xs text-gray-400 space-y-1 border-t border-hairline pt-3">
-                  <div className="font-semibold text-gray-300">Включено у візит:</div>
-                  <ul className="list-disc list-inside space-y-0.5">
-                    {selectedServices.map((s) => (
-                      <li key={s.id}>{s.name}</li>
-                    ))}
-                    <li>Безкоштовний кава / віскі бар</li>
-                  </ul>
-                </div>
-              )}
+              <a
+                href="#booking"
+                className="w-full py-3.5 rounded text-xs font-extrabold uppercase tracking-widest bg-[hsl(38_92%_50%)] text-[hsl(24_18%_7%)] hover:bg-[hsl(38_92%_42%)] transition-all shadow-lg text-center block"
+              >
+                {String(t("calculator.bookCalculated"))}
+              </a>
             </div>
-
-            <button
-              onClick={() =>
-                onOpenBooking(
-                  `Розрахунок (${getRankName()}): ${selectedServices
-                    .map((s) => s.name)
-                    .join(", ")} = ${totalPrice} UAH`
-                )
-              }
-              disabled={selectedServices.length === 0}
-              className="mt-8 w-full bg-amber-500 hover:bg-amber-400 disabled:opacity-50 text-black font-display font-extrabold text-2xl py-4 rounded transition-all shadow-xl shadow-amber-500/20"
-            >
-              {String(t("calculator.bookNow"))}
-            </button>
           </div>
         </div>
       </div>

@@ -3,452 +3,678 @@
   "locales": {
     "uk": {
       "meta": {
-        "title": "Barberking — Мережа барбершопів у Києві | Стрижки, Борода, Гоління",
-        "description": "Сучасні чоловічі барбершопи Barberking у Києві: 4 зручні локації, класичне гоління, комплексна стрижка, власна Tattoo Room. Безкоштовний бар та паркінг. Онлайн-запис 24/7.",
-        "keywords": "барбершоп Київ, чоловіча стрижка Київ, стрижка бороди, королівське гоління, Barberking, Лук'янівка, Позняки, ЖК Варшавський, ЖК Грейт"
+        "title": "Barberking — Мережа чоловічих барбершопів у Києві | Стрижки та гоління",
+        "description": "Сучасні чоловічі стрижки, догляд за бородою, королівське гоління та тату-студія у Києві. 4 філії з власним паркувальним майданчиком.",
+        "lang": "uk"
       },
-      "brand": {
-        "name": "BARBERKING",
-        "tagline": "ЧОЛОВІЧІ СТРИЖКИ ТА ГОЛІННЯ",
-        "established": "Est. 2014",
-        "phone": "095 107 92 15",
-        "phoneRaw": "tel:0951079215",
-        "email": "barberking.kv1@gmail.com",
-        "instagram": "https://www.instagram.com/barberking_kv/",
-        "facebook": "https://www.facebook.com/BarberKingkh/",
-        "tiktok": "https://kyiv.bking.com.ua/wp-content/uploads/2025/01/tiktok.svg"
+      "interstitial": {
+        "standards": "СТАНДАРТИ ОБСЛУГОВУВАННЯ · КАТЕГОРИЗАЦІЯ МАЙСТРІВ · МЕРЕЖА BARBERKING",
+        "methodology": "10+ РОКІВ БЕЗДОГАННОЇ МЕТОДОЛОГІЇ СТРИЖКИ ТА ГОЛІННЯ В КИЄВІ",
+        "branchesParking": "4 ФІЛІЇ З ВЛАСНИМ ПАРКІНГОМ",
+        "freeBar": "БЕЗКОШТОВНИЙ ВІСКІ-БАР ДЛЯ ГОСТЕЙ",
+        "sterility": "100% СТЕРИЛЬНІСТЬ ТА ОДНОРАЗОВІ ЛЕЗА"
       },
       "nav": {
-        "locations": "Локації",
-        "services": "Послуги та ціни",
-        "calculator": "Калькулятор",
-        "craft": "Переваги",
-        "gallery": "Галерея",
-        "team": "Майстри",
+        "services": "Прейскурант",
+        "calculator": "Розрахунок",
+        "locations": "4 Філії",
         "tattoo": "Tattoo Room",
+        "team": "Майстри",
+        "gallery": "Галерея",
+        "whyUs": "Стандарти",
         "reviews": "Відгуки",
-        "faq": "Часті питання",
-        "bookBtn": "Записатися онлайн",
-        "langLabel": "Мова:"
+        "faq": "Питання",
+        "book": "Записатися онлайн",
+        "languageLabel": "Мова сайту / Language:",
+        "toggleMenu": "Toggle Mobile Menu",
+        "brandSub": "КИЇВ · 4 ФІЛІЇ"
       },
       "hero": {
-        "kicker": "МЕРЕЖА БАРБЕРШОПІВ У КИЄВІ · 4 ЛОКАЦІЇ",
-        "titleWord1": "БЕЗДОГАННИЙ",
-        "titleWord2": "СТИЛЬ",
-        "titleWord3": "БЕЗ КОМПРОМІСІВ",
-        "subtitle": "10 років майстерності, 69,000+ задоволених чоловіків. Преміальний догляд за волоссям і бородою, власна тату-студія та безкоштовний бар у кожній локації Києва.",
-        "ctaPrimary": "Обрати філію та час",
-        "ctaSecondary": "Переглянути ціни",
-        "badgeStat": "4.8★ Google Maps",
-        "badgeCount": "69,000+ гостей",
-        "liveStatus": "ПРАЦЮЄМО ВІДПРЯМО ЗАРАЗ · ПАРКОВКА ВІЛЬНА"
+        "kicker": "EST. 2014 · КИЇВ · 4 ФІЛІЇ В МЕРЕЖІ",
+        "title": "КОРОЛІВСЬКИЙ ДОГЛЯД ТА ЧОЛОВІЧИЙ СТИЛЬ",
+        "subtitle": "4 преміальні філії у Києві із безкоштовним баром, вбудованою Tattoo Room та фаховим сервісом від Grand Master барберів.",
+        "ctaPrimary": "Записатися онлайн на стрижку",
+        "ctaSecondary": "Переглянути 4 локації на карті",
+        "ratingText": "4.8 / 5.0 · GOOGLE MAPS (587 ВІДГУКІВ)",
+        "meta1": "ПН-НД: 10:00 – 21:00",
+        "meta2": "4 ФІЛІЇ З ВЛАСНИМ ПАРКІНГОМ",
+        "meta3": "БЕЗОПЛАТНИЙ ВІСКІ-БАР ДЛЯ ГОСТЕЙ",
+        "flankLeft": "ПРАВИЙ ТА ЛІВИЙ БЕРЕГ — ЛУК'ЯНІВКА, ПОЗНЯКИ, ВИНОГРАДАР",
+        "flankRight": "ВЛАСНИЙ ПАРКІНГ ТА ЛОУНДЖ-ЗОНА ДЛЯ КОЖНОГО ГОСТЯ",
+        "yearsText": "РОКІВ",
+        "scrollText": "SCROLL"
       },
-      "marquee": [
-        "4 ЗРУЧНІ ФІЛІЇ В КИЄВІ",
-        "ВЛАСНА TATTOO ROOM",
-        "БЕЗКОШТОВНИЙ БАР ДЛЯ ГОСТЕЙ",
-        "МАЙСТРИ GRAND BARBER",
-        "НАКОПИЧУВАЛЬНА СИСТЕМА ЗНИЖОК",
-        "ПРОЗОРІ ЦІНИ ВІД 550 UAH",
-        "ГАРАНТІЯ ПУНКТУАЛЬНОСТІ ВІЗИТУ"
-      ],
-      "locations": {
-        "kicker": "ОБЕРІТЬ СВІЙ БАРБЕРШОП",
-        "heading": "4 ЗРУЧНІ ФІЛІЇ В КИЄВІ",
-        "subheading": "Правий та Лівий берег. Кожна локація обладнана професійними кріслами, власною парковкою та безкоштовним баром з напоями.",
-        "bookThis": "Записатися в цю філію",
-        "list": [
-          {
-            "id": "pavlivska",
-            "name": "Лук'янівка / Центр",
-            "address": "вул. Павлівська 18 (поруч з вул. Січових Стрільців, 10)",
-            "metro": "м. Лук'янівська (7 хв)",
-            "phone": "095 107 92 15",
-            "hours": "Щодня: 09:00 — 21:00",
-            "features": ["Власна Tattoo Room", "Безкоштовний бар", "Зручний паркінг"],
-            "mapQuery": "вулиця+Павлівська+18+Київ"
-          },
-          {
-            "id": "great",
-            "name": "Позняки / ЖК Great",
-            "address": "вул. Дніпровська набережна 15К",
-            "metro": "м. Осокорки / Позняки",
-            "phone": "095 107 92 15",
-            "hours": "Щодня: 09:00 — 21:00",
-            "features": ["Новий ЖК на набережній", "Підземний та наземний паркінг", "Кавова зона"],
-            "mapQuery": "Дніпровська+набережна+15К+Київ"
-          },
-          {
-            "id": "varshavsky",
-            "name": "Виноградар / ЖК Варшавський",
-            "address": "вул. Олександра Олеся 8А",
-            "metro": "м. Нивки / Оболонь",
-            "phone": "095 107 92 15",
-            "hours": "Щодня: 09:00 — 21:00",
-            "features": ["Сучасний простір", "Зручні крісла розкладні", "Напої для гостей"],
-            "mapQuery": "вулиця+Олександра+Олеся+8А+Київ"
-          },
-          {
-            "id": "urlivska",
-            "name": "Позняки / Урлівська",
-            "address": "вул. Урлівська 11/44",
-            "metro": "м. Позняки (10 хв)",
-            "phone": "095 107 92 15",
-            "hours": "Щодня: 09:00 — 21:00",
-            "features": ["Затишна атмосфера", "Дитяче крісло", "Безкоштовний віскі та кава"],
-            "mapQuery": "вулиця+Урлівська+11/44+Київ"
-          }
-        ]
+      "ticker": {
+        "item1": "ЧОЛОВІЧІ СТРИЖКИ ВІД 750 UAH",
+        "item2": "КОМПЛЕКС СТРИЖКА + БОРОДА ВІД 1 150 UAH",
+        "item3": "БЕЗКОШТОВНИЙ ВІСКІ-БАР ДЛЯ КОЖНОГО ГОСТЯ",
+        "item4": "ВЛАСНЕ ПАРКУВАННЯ БІЛЯ КОЖНОЇ ФІЛІЇ",
+        "item5": "ВЛАСНА TATTOO ROOM В МЕРЕЖІ",
+        "item6": "ГРАНД МАЙСТРИ З ДОСВІДОМ ВІД 5 РОКІВ"
       },
       "services": {
-        "kicker": "ПРАЙС-ЛИСТ ТА ПОСЛУГИ",
-        "heading": "ПРОЗОРІ ЦІНИ БЕЗ ПРИХОВАНИХ ДОПЛАТ",
-        "subheading": "Оберіть категорію майстра для точного розрахунку. Кожна стрижка включає миття голови, укладку стайлінгом та безкоштовний напій.",
-        "rankTabs": {
-          "barber": "Barber",
-          "top": "Top Barber",
-          "grand": "Grand Barber"
+        "kicker": "ПРЕЙСКУРАНТ ПОСЛУГ ТА СЕРВІСУ",
+        "title": "ПОСЛУГИ ТА ПРОЗОРІ ЦІНИ",
+        "subtitle": "Оберіть необхідну послугу або комплексний догляд. Фіксована вартість без прихованих доплат.",
+        "fixedCost": "ФІКСОВАНА ВАРТІСТЬ",
+        "item1Title": "Комплекс «Стрижка + Борода»",
+        "item1Desc": "Повний класичний догляд за зачіскою та обличчям. Моделювання",
+        "item1Badge": "ГОЛОВНИЙ ВИБІР",
+        "item2Title": "Професійна чоловіча стрижка",
+        "item2Desc": "Консультація за формою обличчя, подвійне миття голови, фахов",
+        "item3Title": "Стрижка та окантовка бороди",
+        "item3Desc": "Оформлення бороди машинкою та шейвером, нанесення зволожуючо",
+        "item4Title": "Королівське гоління небезпечною бритвою",
+        "item4Desc": "Класичний ритуал із розпарюванням шкіри гарячим рушником, пр",
+        "item5Title": "Стрижка машинкою (2 насадки)",
+        "item5Desc": "Рівномірна коротка стрижка з чіткою окантовкою ліній скронь ",
+        "item6Title": "Комплекс «Батько + Син»",
+        "item6Desc": "Спільний візит для батька та сина (до 10 років). Спеціальний",
+        "item7Title": "Камуфлювання сивини (волосся / борода)",
+        "item7Price": "від 550 UAH",
+        "item7Desc": "Делікатне тонування без ефекту пофарбованості. Природний від",
+        "item8Title": "Депіляція воском (ніс, вуха, брови)",
+        "item8Desc": "Швидке та акуратне видалення небажаного волосся воском гаряч",
+        "item9Title": "Художнє татуювання (Tattoo Room)",
+        "item9Price": "від 1 000 UAH",
+        "item9Duration": "від 60 хв",
+        "item9Desc": "Авторські ескізи, реставрація та нові сеанси татуювання у вл",
+        "tabs": {
+          "all": "Усі послуги",
+          "hair": "Стрижки",
+          "beard": "Борода та Гоління",
+          "complex": "Комплекси",
+          "care": "Догляд",
+          "tattoo": "Tattoo Room"
         },
-        "categories": {
-          "main": "Основні послуги",
-          "combos": "Комплексні пропозиції",
-          "shaving": "Гоління та догляд",
-          "care": "Косметологія та SPA"
-        },
-        "bookItem": "Записатися"
+        "searchPlaceholder": "Пошук послуги (напр. борода, камуфляж)...",
+        "bookBtn": "Записатись",
+        "footnote": "* До вартості кожної послуги входить миття голови, укладка стайлінгом Proraso/Reuzel та напій у барі.",
+        "calcCTA": "Перейти до калькулятора візиту"
       },
       "calculator": {
-        "kicker": "IНТЕРАКТИВНИЙ КАЛЬКУЛЯТОР",
-        "heading": "РОЗРАХУЙТЕ ВАРТІСТЬ ТА ЧАС ВІЗИТУ",
-        "subheading": "Оберіть необхідні послуги та рівень барбера для миттєвого розрахунку тривалості та підсумкової вартості.",
-        "selectRank": "Рівень майстра:",
-        "selectServices": "Оберіть послуги:",
-        "totalPrice": "Підсумкова вартість:",
-        "totalTime": "Орієнтовний час:",
-        "minutes": "хв",
-        "bookNow": "Записатися з цим набором"
+        "kicker": "ОБЧИСЛІТЬ ВАРТІСТЬ ВІЗИТУ",
+        "title": "ІНТЕРАКТИВНИЙ КАЛЬКУЛЯТОР ПОСЛУГ",
+        "subtitle": "Налаштуйте склад візиту, оберіть категорію майстра та локацію для миттєвого розрахунку.",
+        "selectCategory": "Категорія майстра:",
+        "selectLocation": "Філія в Києві:",
+        "selectServices": "Оберіть необхідні послуги:",
+        "totalEstimate": "Орієнтовна вартість:",
+        "timeEstimate": "Орієнтовний час:",
+        "minutes": "хвилин",
+        "bookCalculated": "Забронювати на цей розрахунок",
+        "opt1": "Лук'янівка (вул. Павлівська 18)",
+        "opt2": "Позняки / ЖК Great (Дніпровська Наб. 15К)",
+        "opt3": "Виноградар (вул. Олександра Олеся 8А)",
+        "opt4": "Осокорки (вул. Урлівська 11/44)",
+        "currency": "UAH",
+        "timeLabel": "ЧАС ВІЗИТУ:",
+        "selectedServicesLabel": "Обрано послуг:",
+        "discountLabel": "Накопичувальна знижка:",
+        "discountVal": "від 5% до 15%",
+        "barLabel": "Напій у барі:",
+        "barVal": "Безкоштовно"
       },
-      "craft": {
-        "kicker": "ЧОМУ ОБИРАЮТЬ BARBERKING",
-        "heading": "4 СТАЛЕВІ ПРИНЦИПИ МЕРЕЖІ",
-        "subheading": "Ми створили простір, де чоловік отримує ідеальний результат без затримок та шаблонного підходу.",
-        "items": [
-          {
-            "num": "01",
-            "title": "Бездоганна пунктуальність",
-            "desc": "Сеанс починається хвилина в хвилину. Ми цінуємо ваш час і гарантуємо відсутність черг."
-          },
-          {
-            "num": "02",
-            "title": "Досвідчені Grand Мастри",
-            "desc": "Майстри з досвідом від 5 років підбирають форму під анатомічні особливості вашої голови та обличчя."
-          },
-          {
-            "num": "03",
-            "title": "Власна Tattoo Room",
-            "desc": "Єдиний барбершоп у мережі Києва з власною сертифікованою тату-студією та стерильним обладнанням."
-          },
-          {
-            "num": "04",
-            "title": "Безкоштовний Бар та Паркінг",
-            "desc": "Еспресо, заспокійливий чай чи преміальний віскі для кожного гостя без додаткової плати."
-          }
-        ]
+      "locations": {
+        "kicker": "ЗРУЧНА ЛОКАЦІЙНА МЕРЕЖА",
+        "title": "4 ФІЛІЇ У КИЄВІ З ПАРКУВАННЯМ",
+        "subtitle": "Обирайте барбершоп поруч із домом або офісом на Правому чи Лівому березі.",
+        "addressLabel": "АДРЕСА:",
+        "landmarkLabel": "ОРИЄНТИР:",
+        "hoursLabel": "ГРАФІК:",
+        "parkingLabel": "ПАРКОВКА:",
+        "servicesLabel": "СЕРВІСИ:",
+        "mapFilter": "grayscale(0.85) invert(0.9) contrast(1.2)",
+        "branch1": {
+          "title": "Лук'янівка / Центр",
+          "address": "вул. Павлівська 18",
+          "metro": "м. Лук'янівська (7 хв пішки)",
+          "hours": "Пн-Нд: 10:00 – 21:00",
+          "parking": "Власна парковка для гостей",
+          "features": "Бар, Tattoo Room, Lounge zone"
+        },
+        "branch2": {
+          "title": "Позняки / ЖК Great",
+          "address": "вул. Дніпровська Набережна 15К",
+          "metro": "ЖК Great / Лівий берег",
+          "hours": "Пн-Нд: 10:00 – 21:00",
+          "parking": "Паркінг житлового комплексу",
+          "features": "Панорамний вид, Віскі-бар"
+        },
+        "branch3": {
+          "title": "Виноградар / ЖК Варшавський",
+          "address": "вул. Олександра Олеся 8А",
+          "metro": "ЖК Варшавський Плюс",
+          "hours": "Пн-Нд: 10:00 – 21:00",
+          "parking": "Зручний під'їзд до дверей",
+          "features": "Кавова зона, PlayStation 5"
+        },
+        "branch4": {
+          "title": "Позняки / Урлівська",
+          "address": "вул. Урлівська 11/44",
+          "metro": "м. Осокорки / Позняки",
+          "hours": "Пн-Нд: 10:00 – 21:00",
+          "parking": "Парковка вздовж вулиці",
+          "features": "Затишна атмосфера, Дитяча зона"
+        },
+        "mapCTA": "Прокласти маршрут в Google Maps"
       },
-      "gallery": {
-        "kicker": "НАШІ РОБОТИ",
-        "heading": "РЕАЛЬНІ РЕЗУЛЬТАТИ БЕЗ ФОТОШОПУ",
-        "subheading": "Перегляньте приклади стрижок, оформлення бороди та робіт нашої тату-студії.",
-        "filters": {
-          "all": "Усі роботи",
-          "haircuts": "Стрижки",
-          "beards": "Бороди",
-          "shave": "Гоління"
-        }
-      },
-      "video": {
-        "kicker": "АТМОСФЕРА BARBERKING",
-        "heading": "ПРИЄДНУЙТЕСЯ ДО КЛУБНОЇ АТМОСФЕРИ",
-        "subheading": "Подивіться, як проходить процес створення вашого нового образу у наших барбершопах."
+      "tattoo": {
+        "kicker": "ЕКСКЛЮЗИВНИЙ СЕРВІС В МЕРЕЖІ",
+        "title": "ВЛАСНА ТАТУ-СТУДІЯ ТА VIP BAR",
+        "subtitle": "Поєднуйте догляд за зачіскою з художнім татуюванням та відпочинком у затишному чоловічому клубі.",
+        "quote": "ТУТ СТВОРЮЄТЬСЯ НЕ ПРОСТО ЗАЧІСКА — ЦЕ ПРОСТІР ЧОЛОВІЧОГО ХАРАКТЕРУ ТА СТИЛЮ",
+        "stat1Val": "10+ РОКІВ",
+        "stat1Desc": "ДОСВІДУ ТАТУ-МАЙСТРІВ",
+        "stat2Val": "4 ФІЛІЇ",
+        "stat2Desc": "МЕРЕЖІ В КИЄВІ",
+        "stat3Val": "587+",
+        "stat3Desc": "ВІДГУКІВ У GOOGLE MAPS",
+        "stat4Val": "100%",
+        "stat4Desc": "СТЕРИЛЬНІСТЬ ТА БЕЗПЕКА",
+        "certAlt": "Barberking Tattoo Room Certificate",
+        "hairAlt": "Barberking Tattoo Hair",
+        "feature1Title": "Художнє татуювання",
+        "feature1Desc": "Стерильне обладнання, одноразові розхідні матеріали та авторські ескізи від тату-майстрів Андрія та Анастасії.",
+        "feature2Title": "Безкоштовний Бар",
+        "feature2Desc": "Колекційний віскі, холодне пиво, свіжообсмажена кава або чаї для кожного гостя без обмежень.",
+        "feature3Title": "Tattoo Hair & Контури",
+        "feature3Desc": "Створення візерунків на волоссі та філігранна окантовка бороди з використанням воску та вогню."
       },
       "team": {
         "kicker": "КОМАНДА ПРОФЕСІОНАЛІВ",
-        "heading": "МАЙСТРИ, ЯКИМ ДОВІРЯЮТЬ СТИЛЬ",
-        "subheading": "Grand та Top барбери з багаторічним досвідом. Кожен майстер проходить внутрішню атестацію щопівроку.",
-        "bookMaster": "Записатися до майстра"
+        "title": "МАЙСТРИ КАТЕГОРІЇ GRAND MASTER",
+        "subtitle": "Досвідчені барбери, які володіють класичними та сучасними техніками стрижки та гоління.",
+        "experience": "Досвід від 5 років",
+        "bookMaster": "Записатися до майстра",
+        "members": [
+          { "name": "ДАНІЕЛ (DINO)", "role": "GRAND BARBER", "location": "вул. Павлівська 18", "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2026/03/dyno-e1774703810461-904x1024.webp", "initials": "DD" },
+          { "name": "ДМИТРО", "role": "GRAND BARBER", "location": "вул. Павлівська 18", "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2025/04/photo_2025-04-26-15.12.24-768x1024.webp", "initials": "ДМ" },
+          { "name": "ЄВГЕНІЙ", "role": "GRAND BARBER", "location": "вул. Павлівська 18", "initials": "ЄВ" },
+          { "name": "МАКСИМ", "role": "GRAND BARBER", "location": "вул. Павлівська 18", "initials": "МК" },
+          { "name": "АРСЕНІЙ", "role": "BARBER", "location": "вул. Павлівська 18", "initials": "АР" },
+          { "name": "МАРК", "role": "GRAND BARBER", "location": "вул. Павлівська 18", "initials": "МР" },
+          { "name": "ІВАН", "role": "GRAND BARBER", "location": "Всі філії мережі", "initials": "ІВ" },
+          { "name": "ОЛЕКСАНДР", "role": "GRAND BARBER", "location": "Дніпровська Набережна 15К", "initials": "ОЛ" },
+          { "name": "СЕРХІО", "role": "GRAND BARBER", "location": "Дніпровська Набережна 15К", "initials": "СР" },
+          { "name": "РУСЛАН", "role": "TOP BARBER", "location": "вул. Олександра Олеся 8А", "initials": "РС" },
+          { "name": "АНДРІЙ", "role": "TATTOO ARTIST", "location": "вул. Павлівська 18", "initials": "АН" },
+          { "name": "АНАСТАСІЯ", "role": "TATTOO ARTIST", "location": "Tattoo Room", "initials": "АН" },
+          { "name": "ОЛЕГ", "role": "GRAND BARBER", "location": "вул. Павлівська 18", "initials": "ОЛ" },
+          { "name": "БОГДАН", "role": "TOP BARBER", "location": "вул. Урлівська 11/44", "initials": "БГ" },
+          { "name": "ІГОР", "role": "BARBER", "location": "вул. Олександра Олеся 8А", "initials": "ІГ" }
+        ]
       },
-      "tattoo": {
-        "kicker": "TATTOO ROOM В BARBERKING",
-        "heading": "ХУДОЖНЄ ТАТУЮВАННЯ В БАРБЕРШОПІ",
-        "subheading": "Окремий стерильний кабінет на Павлівській 18. Художні татуювання будь-якої складності, перекриття та авторські ескізи.",
-        "feature1": "Стерильне одноразове обладнання",
-        "feature2": "Безкоштовна консультація та ескіз",
-        "feature3": "Професійний догляд та плівка",
-        "cta": "Записатися в Tattoo Room"
+      "gallery": {
+        "kicker": "ПОРТФОЛІО ТА АТМОСФЕРА",
+        "title": "РЕАЛЬНІ РОБОТИ БЕЗ ФОТОШОПУ",
+        "subtitle": "Оцініть геометрію ліній, плавність переходів fade та затишний інтер'єр наших закладів.",
+        "cap1": "Чоловіча стрижка в барбершопі",
+        "cap2": "Стильна чоловіча зачіска та геометрія",
+        "cap3": "Моделювання та стрижка бороди",
+        "cap4": "Королівське гоління з розпарюванням",
+        "cap5": "Класична стрижка під машинку",
+        "cap6": "Майстерність та персональний підхід"
+      },
+      "video": {
+        "kicker": "АТМОСФЕРА BARBERKING",
+        "title": "МІСЦЕ, КУДИ ХОЧЕТЬСЯ ПОВЕРТАТИСЯ",
+        "subtitle": "Пориньте у процес створення стильного чоловічого образу та дружньої атмосфери."
+      },
+      "whyUs": {
+        "kicker": "СТАНДАРТИ BARBERKING",
+        "title": "ЧОМУ ОБИРАЮТЬ МЕРЕЖУ BARBERKING",
+        "subtitle": "Ми сформували сервіс, який гарантує повагу до вашого часу, безпеку та перевірений результат.",
+        "item1Title": "Точність у часі без затримок",
+        "item1Desc": "Ми поважаємо графік гостей. Ваш сеанс розпочнеться точно о погодженій хвилині.",
+        "item2Title": "Преміальна косметика",
+        "item2Desc": "Використовуємо гіпоалергенні італійські засоби Proraso, Reuzel, Uppercut для шкіри та волосся.",
+        "item3Title": "Стерильність 100%",
+        "item3Desc": "Тристопенева дезінфекція інструментів та одноразові леза для кожного клієнта.",
+        "item4Title": "Прозора лояльність",
+        "item4Desc": "Накопичувальна система знижок та спеціальні комплекси «Батько + Син»."
       },
       "reviews": {
-        "kicker": "ВІДГУКИ КЛІЄНТІВ",
-        "heading": "ЩО КАЖУТЬ ГОСТІ ПРО BARBERKING",
-        "subheading": "Середній рейтинг 4.8★ на основі понад 580 реальних відгуків у Google Maps.",
-        "ratingText": "4.8 / 5.0 на Google Maps"
+        "kicker": "СЛОВО НАШИХ ГОСТЕЙ",
+        "title": "РЕАЛЬНІ ВІДГУКИ З GOOGLE MAPS",
+        "subtitle": "Середня оцінка 4.8 / 5.0 за результатами сотень підтверджених візитів.",
+        "ratingMeta": "4.8 / 5.0 · GOOGLE MAPS · 587 ВІДГУКІВ",
+        "list": [
+          {
+            "name": "Олександр М.",
+            "branch": "Лук'янівка (вул. Павлівська 18)",
+            "desc": "Постійний гість з 2019 року",
+            "text": "Ходжу в Barberking уже майже 5 років до майстра Dino. Завжди чітка геометрія стрижки та оформлення бороди. Безкоштовний віскі в барі — чудовий бонус після робочого дня!"
+          },
+          {
+            "name": "Віктор К.",
+            "branch": "Позняки (ЖК Great)",
+            "desc": "Постійний гість з 2022 року",
+            "text": "Чудовий новий барбершоп на Дніпровській набережні! Дуже зручне паркування біля комплексу. Стригся у майстра Олександра — чітко зробив fade і підказав догляд за шкірою."
+          },
+          {
+            "name": "Андрій Т.",
+            "branch": "ЖК Варшавський",
+            "desc": "Постійний гість з 2021 року",
+            "text": "Приходимо з 7-річним сином за комплексною стрижкою «Батько + Син». Син задоволений іграми на PS5, а я — якістю стрижки. Рекомендую всім чоловікам у районі Виноградар!"
+          }
+        ]
       },
       "faq": {
-        "kicker": "ЧАСТІ ПИТАННЯ",
-        "heading": "ВСЕ, ЩО ВАРТО ЗНАТИ ПЕРЕД ВІЗИТОМ",
-        "subheading": "Знайдіть відповіді на найпопулярніші запитання про вартість, час та послуги."
+        "kicker": "ВІДПОВІДІ НА ПИТАННЯ",
+        "title": "ЧАСТІ ПИТАННЯ КЛІЄНТІВ",
+        "subtitle": "Все, що варто знати перед першим візитом до Barberking.",
+        "list": [
+          {
+            "q": "Скільки коштує чоловіча стрижка у Barberking Київ?",
+            "a": "Чоловіча стрижка в Barberking — від 750 грн. Комплекс «Стрижка + Борода» — від 1 150 грн. Стрижка машинкою — від 550 грн. Актуальні ціни від обраної категорії майстра легко розрахувати в нашому інтерактивному калькуляторі."
+          },
+          {
+            "q": "Скільки триває чоловіча стрижка?",
+            "a": "Зазвичай сеанс триває від 45 до 60 хвилин — залежно від довжини волосся, форми та складності обраного фасону."
+          },
+          {
+            "q": "Чи можна записатися день у день?",
+            "a": "Так, якщо є вільні слоти у майстрів. Найшвидше перевірити вільний час — заповнивши онлайн-форму запису на нашому сайті або зателефонувавши за номером 095 107 92 15."
+          },
+          {
+            "q": "Що входить в оформлення та стрижку бороди?",
+            "a": "Консультація щодо форми під пропорції обличчя, моделювання та окантовка машинкою/шейвером, доглядові засоби (олія чи бальзам) та фінальна перевірка геометрії ліній."
+          },
+          {
+            "q": "Чи робите камуфляж сивини?",
+            "a": "Так, ми виконуємо камуфлювання сивини волосся та бороди з підбором відтінку природно під ваш натуральний колір без ефекту пофарбованості."
+          },
+          {
+            "q": "Як діє накопичувальна система знижок?",
+            "a": "Для постійних гостей у мережі діє накопичувальна бонусна система зі знижками від 5% до 15% на послуги та професійну чоловічу косметику."
+          }
+        ]
       },
-      "bookingModal": {
-        "title": "ОНЛАЙН-ЗАПИС ДО BARBERKING",
-        "subtitle": "Оберіть зручну філію, послугу та дату візиту",
-        "step1": "1. Філія",
-        "step2": "2. Послуга",
-        "step3": "3. Ваші дані",
-        "nameLabel": "Ваше ім'я",
-        "phoneLabel": "Номер телефону",
-        "dateLabel": "Бажана дата",
-        "timeLabel": "Бажаний час",
-        "commentLabel": "Коментар або побажання",
-        "submit": "Підтвердити запис онлайн",
-        "success": "Заявку успішно прийнято! Менеджер зателефонує вам протягом 5 хвилин."
-      },
-      "ctaBanner": {
-        "title": "ГОТОВІ ОНОВИТИ СВІЙ СТИЛЬ?",
-        "subtitle": "Отримайте 10% знижки на перший комплексний візит при записі через сайт.",
-        "btn": "Записатися зараз"
+      "booking": {
+        "kicker": "ШВИДКИЙ ОНЛАЙН-ЗАПИС",
+        "title": "ОБЕРІТЬ ЗРУЧНИЙ ЧАС ТА ФІЛІЮ В КИЄВІ",
+        "subtitle": "Зарезервуйте сеанс за 30 секунд. Підтвердження візиту надійде в SMS або дзвінком адміністратора.",
+        "formBranch": "Оберіть філію",
+        "formService": "Оберіть послугу",
+        "formMaster": "Бажаний майстер",
+        "formName": "Ваше ім'я",
+        "formPhone": "Номер телефону",
+        "formDate": "Дата візиту",
+        "formTime": "Час візиту",
+        "submitBtn": "Підтвердити онлайн-запис",
+        "successTitle": "Запис успішно підтверджено!",
+        "successDesc": "Адміністратор обраної філії зв'яжеться з вами протягом 5 хвилин для уточнення деталей.",
+        "directCall": "АБО ЗАТЕЛЕФОНУЙТЕ: 095 107 92 15",
+        "trustLine": "Безкоштовне скасування за 2 години · Власна парковка біля кожної філії",
+        "opt1": "Лук'янівка / вул. Павлівська 18",
+        "opt2": "Позняки / ЖК Great",
+        "opt3": "Виноградар / ЖК Варшавський",
+        "opt4": "Осокорки / вул. Урлівська 11/44",
+        "srv1": "Чоловіча стрижка (750 UAH)",
+        "srv2": "Комплекс «Стрижка + Борода» (1 150 UAH)",
+        "srv3": "Стрижка бороди (550 UAH)",
+        "srv4": "Королівське гоління (600 UAH)",
+        "srv5": "Консультація в Tattoo Room",
+        "respLabel": "ВІДПОВІДЬ:",
+        "respVal": "ДО 5 ХВИЛИН"
       },
       "footer": {
-        "aboutTitle": "ПРО BARBERKING",
-        "aboutText": "Мережа сучасних барбершопів у Києві. 10 років створюємо стиль для чоловіків, які цінують свій час та якість.",
-        "navTitle": "НАВІГАЦІЯ",
-        "locationsTitle": "НАШІ ФІЛІЇ В КИЄВІ",
-        "contactsTitle": "КОНТАКТИ",
-        "copyright": "© 2026 Barberking. Усі права захищено.",
-        "developer": "Розроблено Студія Тест"
+        "tagline": "Мережа сучасних чоловічих барбершопів у Києві. Стрижки, борода, гоління та татуювання.",
+        "navigation": "Навігація",
+        "contacts": "Контакти",
+        "hours": "Графік роботи",
+        "workingHours": "Пн-Нд: 10:00 – 21:00 без вихідних",
+        "rights": "Всі права захищено.",
+        "developer": "Розроблено — Студія Тест · Київ",
+        "link1": "Послуги та ціни",
+        "link2": "Калькулятор візиту",
+        "link3": "4 Локації в Києві",
+        "link4": "Tattoo Room",
+        "link5": "Команда майстрів",
+        "b1": "вул. Павлівська 18 (Лук'янівка)",
+        "b2": "вул. Дніпровська Набережна 15К (ЖК Great)",
+        "b3": "вул. Олександра Олеся 8А (Варшавський)",
+        "b4": "вул. Урлівська 11/44 (Позняки)",
+        "email": "barberking.kv1@gmail.com"
       }
     },
     "en": {
       "meta": {
-        "title": "Barberking — Barbershop Network in Kyiv | Haircuts, Beard, Shaving",
-        "description": "Modern men's barbershops Barberking in Kyiv: 4 convenient locations, royal shave, haircuts, in-house Tattoo Room. Free bar and parking. Online booking 24/7.",
-        "keywords": "barbershop Kyiv, men haircut Kyiv, beard trim, royal shave, Barberking"
+        "title": "Barberking — Premium Barbershop Network in Kyiv | Haircuts & Shaving",
+        "description": "Modern men's haircuts, beard grooming, royal shaving, and in-house tattoo studio in Kyiv. 4 branches with private parking.",
+        "lang": "en"
       },
-      "brand": {
-        "name": "BARBERKING",
-        "tagline": "MEN'S HAIRCUTS & SHAVING",
-        "established": "Est. 2014",
-        "phone": "095 107 92 15",
-        "phoneRaw": "tel:0951079215",
-        "email": "barberking.kv1@gmail.com",
-        "instagram": "https://www.instagram.com/barberking_kv/",
-        "facebook": "https://www.facebook.com/BarberKingkh/",
-        "tiktok": "https://kyiv.bking.com.ua/wp-content/uploads/2025/01/tiktok.svg"
+      "interstitial": {
+        "standards": "SERVICE STANDARDS · MASTER CATEGORIES · BARBERKING NETWORK",
+        "methodology": "10+ YEARS OF FLAWLESS HAIRCUT & SHAVING METHODOLOGY IN KYIV",
+        "branchesParking": "4 BRANCHES WITH PRIVATE PARKING",
+        "freeBar": "COMPLIMENTARY WHISKEY BAR FOR GUESTS",
+        "sterility": "100% STERILITY & SINGLE-USE BLADES"
       },
       "nav": {
-        "locations": "Locations",
-        "services": "Services & Prices",
+        "services": "Catalog",
         "calculator": "Calculator",
-        "craft": "Advantages",
-        "gallery": "Gallery",
-        "team": "Team",
+        "locations": "4 Branches",
         "tattoo": "Tattoo Room",
+        "team": "Masters",
+        "gallery": "Gallery",
+        "whyUs": "Standards",
         "reviews": "Reviews",
         "faq": "FAQ",
-        "bookBtn": "Book Online",
-        "langLabel": "Lang:"
+        "book": "Book Online",
+        "languageLabel": "Language:",
+        "toggleMenu": "Toggle Mobile Menu",
+        "brandSub": "KYIV · 4 BRANCHES"
       },
       "hero": {
-        "kicker": "BARBERSHOP NETWORK IN KYIV · 4 LOCATIONS",
-        "titleWord1": "IMPECCABLE",
-        "titleWord2": "STYLE",
-        "titleWord3": "WITHOUT COMPROMISE",
-        "subtitle": "10 years of craft, 69,000+ satisfied gentlemen. Premium hair & beard care, in-house tattoo studio and complimentary bar in every branch.",
-        "ctaPrimary": "Choose Location & Time",
-        "ctaSecondary": "View Prices",
-        "badgeStat": "4.8★ Google Maps",
-        "badgeCount": "69,000+ Guests",
-        "liveStatus": "OPEN RIGHT NOW · PARKING AVAILABLE"
+        "kicker": "EST. 2014 · KYIV · 4 NETWORK BRANCHES",
+        "title": "ROYAL CARE & MASCULINE STYLE",
+        "subtitle": "4 premium locations in Kyiv featuring complimentary bar, in-house Tattoo Room, and Grand Master barbers.",
+        "ctaPrimary": "Book Haircut Online",
+        "ctaSecondary": "View 4 Locations on Map",
+        "ratingText": "4.8 / 5.0 · GOOGLE MAPS (587 REVIEWS)",
+        "meta1": "MON-SUN: 10:00 – 21:00",
+        "meta2": "4 BRANCHES WITH PRIVATE PARKING",
+        "meta3": "COMPLIMENTARY WHISKEY BAR FOR GUESTS",
+        "flankLeft": "RIGHT & LEFT BANK — LUKIANIVKA, POZNIAKY, VYNOHRADAR",
+        "flankRight": "PRIVATE PARKING & LOUNGE ZONE FOR EVERY GUEST",
+        "yearsText": "YEARS",
+        "scrollText": "SCROLL"
       },
-      "marquee": [
-        "4 CONVENIENT LOCATIONS IN KYIV",
-        "IN-HOUSE TATTOO ROOM",
-        "FREE COMPLIMENTARY BAR",
-        "GRAND BARBER CRAFTSMEN",
-        "DISCOUNT LOYALTY SYSTEM",
-        "TRANSPARENT PRICES FROM 550 UAH",
-        "PUNCTUALITY GUARANTEE"
-      ],
-      "locations": {
-        "kicker": "CHOOSE YOUR BARBERSHOP",
-        "heading": "4 LOCATIONS IN KYIV",
-        "subheading": "Right & Left bank locations with professional chairs, private parking and free bar.",
-        "bookThis": "Book this branch",
-        "list": [
-          {
-            "id": "pavlivska",
-            "name": "Lukyanivka / Centre",
-            "address": "18 Pavlivska str. (near Sichovykh Striltsiv 10)",
-            "metro": "Lukyanivska metro (7 min)",
-            "phone": "095 107 92 15",
-            "hours": "Daily: 09:00 — 21:00",
-            "features": ["In-house Tattoo Room", "Free bar", "Private parking"],
-            "mapQuery": "вулиця+Павлівська+18+Київ"
-          },
-          {
-            "id": "great",
-            "name": "Poznyaky / Great Complex",
-            "address": "15K Dniprovska Embankment str.",
-            "metro": "Osokorki / Poznyaky metro",
-            "phone": "095 107 92 15",
-            "hours": "Daily: 09:00 — 21:00",
-            "features": ["New complex", "Underground parking", "Coffee zone"],
-            "mapQuery": "Дніпровська+набережна+15К+Київ"
-          },
-          {
-            "id": "varshavsky",
-            "name": "Vynohradar / Varshavsky Complex",
-            "address": "8A Oleksandra Olesya str.",
-            "metro": "Nyvky / Obolon metro",
-            "phone": "095 107 92 15",
-            "hours": "Daily: 09:00 — 21:00",
-            "features": ["Modern space", "Reclining chairs", "Complimentary drinks"],
-            "mapQuery": "вулиця+Олександра+Олеся+8А+Київ"
-          },
-          {
-            "id": "urlivska",
-            "name": "Poznyaky / Urlivska",
-            "address": "11/44 Urlivska str.",
-            "metro": "Poznyaky metro (10 min)",
-            "phone": "095 107 92 15",
-            "hours": "Daily: 09:00 — 21:00",
-            "features": ["Cozy vibe", "Kids chair", "Free whiskey & espresso"],
-            "mapQuery": "вулиця+Урлівська+11/44+Київ"
-          }
-        ]
+      "ticker": {
+        "item1": "MEN'S HAIRCUTS FROM 750 UAH",
+        "item2": "HAIRCUT + BEARD COMBO FROM 1 150 UAH",
+        "item3": "COMPLIMENTARY WHISKEY BAR FOR EVERY GUEST",
+        "item4": "PRIVATE PARKING AT EVERY LOCATION",
+        "item5": "IN-HOUSE TATTOO ROOM",
+        "item6": "GRAND MASTERS WITH 5+ YEARS EXP"
       },
       "services": {
-        "kicker": "PRICELIST & SERVICES",
-        "heading": "TRANSPARENT PRICES NO HIDDEN FEES",
-        "subheading": "Select barber rank for exact pricing. Every haircut includes wash, styling and complimentary drink.",
-        "rankTabs": {
-          "barber": "Barber",
-          "top": "Top Barber",
-          "grand": "Grand Barber"
+        "kicker": "SERVICE CATALOG",
+        "title": "SERVICES & TRANSPARENT PRICES",
+        "subtitle": "Choose your service or complex package. Fixed prices without hidden fees.",
+        "fixedCost": "FIXED PRICE",
+        "item1Title": "Haircut + Beard Combo",
+        "item1Desc": "Full classic care for hair and face. Modeling",
+        "item1Badge": "TOP CHOICE",
+        "item2Title": "Professional Men's Haircut",
+        "item2Desc": "Face shape consultation, double hair wash, professional",
+        "item3Title": "Beard Trim & Edging",
+        "item3Desc": "Beard styling with clipper and shaver, moisturizing oil",
+        "item4Title": "Royal Hot Towel Shave",
+        "item4Desc": "Classic ritual with hot towel skin steaming, professional",
+        "item5Title": "Clipper Haircut (2 guards)",
+        "item5Desc": "Even short haircut with clean temple and neckline edging",
+        "item6Title": "Father + Son Combo",
+        "item6Desc": "Joint visit for father and son (up to 10 years). Special",
+        "item7Title": "Grey Hair Camouflage (Hair / Beard)",
+        "item7Price": "from 550 UAH",
+        "item7Desc": "Delicate tinting without dyed look. Natural tone",
+        "item8Title": "Wax Hair Removal (Nose, Ears, Brows)",
+        "item8Desc": "Quick and neat unwanted hair removal with hot wax",
+        "item9Title": "Custom Tattoo (Tattoo Room)",
+        "item9Price": "from 1 000 UAH",
+        "item9Duration": "from 60 mins",
+        "item9Desc": "Custom sketches, restoration and new tattoo sessions",
+        "tabs": {
+          "all": "All Services",
+          "hair": "Haircuts",
+          "beard": "Beard & Shave",
+          "complex": "Combos",
+          "care": "Face Care",
+          "tattoo": "Tattoo Room"
         },
-        "categories": {
-          "main": "Main Services",
-          "combos": "Combo Packages",
-          "shaving": "Shaving & Grooming",
-          "care": "Face Care & SPA"
-        },
-        "bookItem": "Book Now"
+        "searchPlaceholder": "Search service (e.g. beard, camouflage)...",
+        "bookBtn": "Book Now",
+        "footnote": "* Every service includes hair washing, Proraso/Reuzel styling, and complimentary bar drinks.",
+        "calcCTA": "Open Visit Calculator"
       },
       "calculator": {
-        "kicker": "INTERACTIVE CALCULATOR",
-        "heading": "ESTIMATE YOUR VISIT COST AND TIME",
-        "subheading": "Select desired services and barber rank for real-time price and duration estimation.",
-        "selectRank": "Barber Rank:",
-        "selectServices": "Select Services:",
-        "totalPrice": "Total Price:",
-        "totalTime": "Estimated Duration:",
-        "minutes": "min",
-        "bookNow": "Book This Package"
+        "kicker": "CALCULATE VISIT COST",
+        "title": "INTERACTIVE PRICE ESTIMATOR",
+        "subtitle": "Customize your visit options, pick a master category and branch for an instant estimate.",
+        "selectCategory": "Master Category:",
+        "selectLocation": "Kyiv Branch:",
+        "selectServices": "Select Required Services:",
+        "totalEstimate": "Estimated Cost:",
+        "timeEstimate": "Estimated Duration:",
+        "minutes": "mins",
+        "bookCalculated": "Book This Estimate",
+        "opt1": "Lukianivka (18 Pavlivska St.)",
+        "opt2": "Pozniaky / Great RC (15K Dniprovska Emb.)",
+        "opt3": "Vynohradar (8A Oleksandra Olesia St.)",
+        "opt4": "Osokorky (11/44 Urlivska St.)",
+        "currency": "UAH",
+        "timeLabel": "VISIT TIME:",
+        "selectedServicesLabel": "Selected services:",
+        "discountLabel": "Cumulative discount:",
+        "discountVal": "from 5% to 15%",
+        "barLabel": "Bar drink:",
+        "barVal": "Free"
       },
-      "craft": {
-        "kicker": "WHY CHOOSE BARBERKING",
-        "heading": "4 SOLID PILLARS OF OUR BRAND",
-        "subheading": "We built a place where every man receives top quality without delays.",
-        "items": [
-          {
-            "num": "01",
-            "title": "Strict Punctuality",
-            "desc": "Session starts exactly on time. We respect your schedule and guarantee zero waiting."
-          },
-          {
-            "num": "02",
-            "title": "Grand Master Craftsmen",
-            "desc": "Barbers with 5+ years experience craft custom cuts fitted to your face and head anatomy."
-          },
-          {
-            "num": "03",
-            "title": "In-house Tattoo Room",
-            "desc": "The only barbershop network in Kyiv with a certified sterile tattoo room."
-          },
-          {
-            "num": "04",
-            "title": "Free Bar & Parking",
-            "desc": "Espresso, tea or premium whiskey complimentary for every guest."
-          }
-        ]
+      "locations": {
+        "kicker": "CONVENIENT BRANCH NETWORK",
+        "title": "4 BRANCHES IN KYIV WITH PARKING",
+        "subtitle": "Pick a barbershop near home or office on the Right or Left Bank.",
+        "addressLabel": "ADDRESS:",
+        "landmarkLabel": "LANDMARK:",
+        "hoursLabel": "HOURS:",
+        "parkingLabel": "PARKING:",
+        "servicesLabel": "SERVICES:",
+        "mapFilter": "grayscale(0.85) invert(0.9) contrast(1.2)",
+        "branch1": {
+          "title": "Lukianivka / Center",
+          "address": "18 Pavlivska St.",
+          "metro": "Lukianivska Metro (7 min walk)",
+          "hours": "Mon-Sun: 10:00 – 21:00",
+          "parking": "Private Guest Parking",
+          "features": "Bar, Tattoo Room, Lounge zone"
+        },
+        "branch2": {
+          "title": "Pozniaky / Great Residential",
+          "address": "15K Dniprovska Embankment",
+          "metro": "Great RC / Left Bank",
+          "hours": "Mon-Sun: 10:00 – 21:00",
+          "parking": "Complex Parking",
+          "features": "Panoramic view, Whiskey bar"
+        },
+        "branch3": {
+          "title": "Vynohradar / Varshavskyi",
+          "address": "8A Oleksandra Olesia St.",
+          "metro": "Varshavskyi Plus RC",
+          "hours": "Mon-Sun: 10:00 – 21:00",
+          "parking": "Easy Drive-in",
+          "features": "Coffee zone, PlayStation 5"
+        },
+        "branch4": {
+          "title": "Pozniaky / Urlivska",
+          "address": "11/44 Urlivska St.",
+          "metro": "Osokorky / Pozniaky Metro",
+          "hours": "Mon-Sun: 10:00 – 21:00",
+          "parking": "Street Parking",
+          "features": "Cozy Atmosphere, Kids Zone"
+        },
+        "mapCTA": "Get Directions on Google Maps"
       },
-      "gallery": {
-        "kicker": "OUR PORTFOLIO",
-        "heading": "REAL RESULTS WITHOUT PHOTOSHOP",
-        "subheading": "Explore real examples of haircuts, beard trims and tattoo work.",
-        "filters": {
-          "all": "All Works",
-          "haircuts": "Haircuts",
-          "beards": "Beard Trims",
-          "shave": "Royal Shave"
-        }
-      },
-      "video": {
-        "kicker": "BARBERKING VIBE",
-        "heading": "JOIN OUR CLUB ATMOSPHERE",
-        "subheading": "Watch how your new style is created inside our shops."
+      "tattoo": {
+        "kicker": "EXCLUSIVE NETWORK FEATURE",
+        "title": "IN-HOUSE TATTOO STUDIO & VIP BAR",
+        "subtitle": "Combine fresh haircut grooming with custom body art and relaxing atmosphere.",
+        "quote": "CRAFTING MASCULINE CHARACTER & TIMELSS STYLE IN A PRIVATE GENTLEMEN CLUB",
+        "stat1Val": "10+ YEARS",
+        "stat1Desc": "TATTOO ARTIST EXPERIENCE",
+        "stat2Val": "4 BRANCHES",
+        "stat2Desc": "NETWORK IN KYIV",
+        "stat3Val": "587+",
+        "stat3Desc": "GOOGLE MAPS REVIEWS",
+        "stat4Val": "100%",
+        "stat4Desc": "STERILITY & SAFETY",
+        "certAlt": "Barberking Tattoo Room Certificate",
+        "hairAlt": "Barberking Tattoo Hair",
+        "feature1Title": "Custom Tattoos",
+        "feature1Desc": "Sterile gear, single-use consumables and custom flash art by resident tattoo artists.",
+        "feature2Title": "Complimentary Bar",
+        "feature2Desc": "Whiskey selection, cold beer, freshly brewed coffee or tea for every guest.",
+        "feature3Title": "Tattoo Hair & Edging",
+        "feature3Desc": "Precision hair graphics and wax/fire beard contouring."
       },
       "team": {
         "kicker": "PRO TEAM",
-        "heading": "MASTERS TRUSTED WITH YOUR STYLE",
-        "subheading": "Grand and Top barbers undergoing semi-annual internal certifications.",
-        "bookMaster": "Book with Master"
+        "title": "GRAND MASTER BARBERS",
+        "subtitle": "Experienced barbers mastering classic and modern haircutting and shaving techniques.",
+        "experience": "5+ Years Experience",
+        "bookMaster": "Book Master",
+        "members": [
+          { "name": "DANIEL (DINO)", "role": "GRAND BARBER", "location": "18 Pavlivska St.", "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2026/03/dyno-e1774703810461-904x1024.webp", "initials": "DD" },
+          { "name": "DMYTRO", "role": "GRAND BARBER", "location": "18 Pavlivska St.", "photo": "https://kyiv.bking.com.ua/wp-content/uploads/2025/04/photo_2025-04-26-15.12.24-768x1024.webp", "initials": "DM" },
+          { "name": "YEVHENII", "role": "GRAND BARBER", "location": "18 Pavlivska St.", "initials": "YE" },
+          { "name": "MAKSYM", "role": "GRAND BARBER", "location": "18 Pavlivska St.", "initials": "MK" },
+          { "name": "ARSENII", "role": "BARBER", "location": "18 Pavlivska St.", "initials": "AR" },
+          { "name": "MARK", "role": "GRAND BARBER", "location": "18 Pavlivska St.", "initials": "MR" },
+          { "name": "IVAN", "role": "GRAND BARBER", "location": "All branches", "initials": "IV" },
+          { "name": "OLEKSANDR", "role": "GRAND BARBER", "location": "15K Dniprovska Emb.", "initials": "OL" },
+          { "name": "SERHIO", "role": "GRAND BARBER", "location": "15K Dniprovska Emb.", "initials": "SR" },
+          { "name": "RUSLAN", "role": "TOP BARBER", "location": "8A Oleksandra Olesia St.", "initials": "RS" },
+          { "name": "ANDRII", "role": "TATTOO ARTIST", "location": "18 Pavlivska St.", "initials": "AN" },
+          { "name": "ANASTASIIA", "role": "TATTOO ARTIST", "location": "Tattoo Room", "initials": "AN" },
+          { "name": "OLEH", "role": "GRAND BARBER", "location": "18 Pavlivska St.", "initials": "OL" },
+          { "name": "BOHDAN", "role": "TOP BARBER", "location": "11/44 Urlivska St.", "initials": "BG" },
+          { "name": "IHOR", "role": "BARBER", "location": "8A Oleksandra Olesia St.", "initials": "IH" }
+        ]
       },
-      "tattoo": {
-        "kicker": "TATTOO ROOM AT BARBERKING",
-        "heading": "ARTISTIC TATTOOING IN A BARBERSHOP",
-        "subheading": "Private sterile cabinet at Pavlivska 18. Custom tattoos, cover-ups and sketches.",
-        "feature1": "Sterile single-use equipment",
-        "feature2": "Free consultation & sketch",
-        "feature3": "Professional aftercare film",
-        "cta": "Book Tattoo Session"
+      "gallery": {
+        "kicker": "PORTFOLIO & ATMOSPHERE",
+        "title": "REAL WORKS WITHOUT PHOTOSHOP",
+        "subtitle": "Explore sharp line geometry, smooth fades, and interior ambiance.",
+        "cap1": "Men's haircut in barbershop",
+        "cap2": "Stylish men's hairstyle & geometry",
+        "cap3": "Beard grooming & trimming",
+        "cap4": "Royal shaving with hot towel",
+        "cap5": "Classic clipper haircut",
+        "cap6": "Mastership & personal approach"
+      },
+      "video": {
+        "kicker": "BARBERKING VIBES",
+        "title": "A PLACE YOU'LL WANT TO RETURN TO",
+        "subtitle": "Dive into the process of creating stylish men's looks in a friendly vibe."
+      },
+      "whyUs": {
+        "kicker": "BARBERKING STANDARDS",
+        "title": "WHY CLIENTS CHOOSE BARBERKING",
+        "subtitle": "We built a service focused on respecting your time, safety, and look.",
+        "item1Title": "Punctuality Guarantee",
+        "item1Desc": "We respect your schedule. Your appointment starts right on time.",
+        "item2Title": "Premium Cosmetics",
+        "item2Desc": "Hypoallergenic Italian products by Proraso, Reuzel, and Uppercut.",
+        "item3Title": "100% Sterility",
+        "item3Desc": "3-stage tool sterilization and fresh single-use blades for every guest.",
+        "item4Title": "Transparent Loyalty",
+        "item4Desc": "Cumulative discounts and special Father + Son combo packages."
       },
       "reviews": {
-        "kicker": "CLIENT REVIEWS",
-        "heading": "WHAT OUR GUESTS SAY ABOUT US",
-        "subheading": "4.8★ average rating based on over 580 real reviews on Google Maps.",
-        "ratingText": "4.8 / 5.0 on Google Maps"
+        "kicker": "CLIENT FEEDBACK",
+        "title": "REAL GOOGLE MAPS REVIEWS",
+        "subtitle": "Average rating of 4.8 / 5.0 over hundreds of verified visits.",
+        "ratingMeta": "4.8 / 5.0 · GOOGLE MAPS · 587 REVIEWS",
+        "list": [
+          {
+            "name": "Oleksandr M.",
+            "branch": "Lukianivka (18 Pavlivska St.)",
+            "desc": "Regular guest since 2019",
+            "text": "I've been coming to Barberking for almost 5 years to master Dino. Always precise geometry and beard styling. Free whiskey at the bar is a great bonus after work!"
+          },
+          {
+            "name": "Viktor K.",
+            "branch": "Pozniaky (Great RC)",
+            "desc": "Regular guest since 2022",
+            "text": "Great new barbershop on Dniprovska Embankment! Very convenient parking near the complex. Had a haircut with master Oleksandr — clean fade and great skincare advice."
+          },
+          {
+            "name": "Andrii T.",
+            "branch": "Varshavskyi RC",
+            "desc": "Regular guest since 2021",
+            "text": "We come with my 7-year-old son for the Father + Son combo. My son enjoys PS5 games, and I love the quality haircut. Highly recommended for everyone in Vynohradar!"
+          }
+        ]
       },
       "faq": {
-        "kicker": "FREQUENTLY ASKED QUESTIONS",
-        "heading": "EVERYTHING YOU NEED TO KNOW BEFORE YOUR VISIT",
-        "subheading": "Find quick answers regarding pricing, timing, and service options."
+        "kicker": "Q&A",
+        "title": "FREQUENTLY ASKED QUESTIONS",
+        "subtitle": "Everything you need to know before visiting Barberking.",
+        "list": [
+          {
+            "q": "How much is a men's haircut at Barberking Kyiv?",
+            "a": "Men's haircut at Barberking starts from 750 UAH. Haircut + Beard combo from 1,150 UAH. Clipper haircut from 550 UAH. Easily calculate prices in our calculator."
+          },
+          {
+            "q": "How long does a haircut take?",
+            "a": "Usually a session takes from 45 to 60 minutes depending on hair length, shape and complexity."
+          },
+          {
+            "q": "Can I book a same-day appointment?",
+            "a": "Yes, subject to available slots. The fastest way is booking online or calling 095 107 92 15."
+          },
+          {
+            "q": "What is included in beard trimming?",
+            "a": "Consultation on face proportions, machine/shaver trimming, care products (oil/balm) and line check."
+          },
+          {
+            "q": "Do you do grey hair camouflage?",
+            "a": "Yes, we provide hair and beard grey camouflage matching your natural tone without dyed look."
+          },
+          {
+            "q": "How does the discount system work?",
+            "a": "Regular guests enjoy cumulative bonus discounts from 5% to 15% on services and cosmetics."
+          }
+        ]
       },
-      "bookingModal": {
-        "title": "ONLINE BOOKING AT BARBERKING",
-        "subtitle": "Select location, service and convenient date",
-        "step1": "1. Location",
-        "step2": "2. Service",
-        "step3": "3. Your Details",
-        "nameLabel": "Your Name",
-        "phoneLabel": "Phone Number",
-        "dateLabel": "Preferred Date",
-        "timeLabel": "Preferred Time",
-        "commentLabel": "Notes / Preferences",
-        "submit": "Confirm Online Booking",
-        "success": "Booking request received! Manager will call you within 5 minutes."
-      },
-      "ctaBanner": {
-        "title": "READY TO REFRESH YOUR LOOK?",
-        "subtitle": "Get 10% off your first combo visit when booking online.",
-        "btn": "Book Now"
+      "booking": {
+        "kicker": "QUICK ONLINE BOOKING",
+        "title": "CHOOSE YOUR CONVENIENT TIME & BRANCH IN KYIV",
+        "subtitle": "Reserve your appointment in 30 seconds. Confirmation will follow via SMS or call.",
+        "formBranch": "Select Branch",
+        "formService": "Select Service",
+        "formMaster": "Preferred Master",
+        "formName": "Your Name",
+        "formPhone": "Phone Number",
+        "formDate": "Date of Visit",
+        "formTime": "Time of Visit",
+        "submitBtn": "Confirm Online Booking",
+        "successTitle": "Booking Received!",
+        "successDesc": "Our manager will contact you within 5 minutes to confirm.",
+        "directCall": "OR CALL DIRECTLY: 095 107 92 15",
+        "trustLine": "Free cancellation 2h prior · Private parking at every branch",
+        "opt1": "Lukianivka / 18 Pavlivska St.",
+        "opt2": "Pozniaky / Great RC",
+        "opt3": "Vynohradar / Varshavskyi RC",
+        "opt4": "Osokorky / 11/44 Urlivska St.",
+        "srv1": "Men's Haircut (750 UAH)",
+        "srv2": "Haircut + Beard Combo (1 150 UAH)",
+        "srv3": "Beard Trim (550 UAH)",
+        "srv4": "Royal Shave (600 UAH)",
+        "srv5": "Tattoo Room Consultation",
+        "respLabel": "REPLY:",
+        "respVal": "WITHIN 5 MINS"
       },
       "footer": {
-        "aboutTitle": "ABOUT BARBERKING",
-        "aboutText": "Network of modern barbershops in Kyiv. 10 years of styling men who value time and craftsmanship.",
-        "navTitle": "NAVIGATION",
-        "locationsTitle": "OUR KYIV LOCATIONS",
-        "contactsTitle": "CONTACTS",
-        "copyright": "© 2026 Barberking. All rights reserved.",
-        "developer": "Developed by Студія Тест"
+        "tagline": "Modern barbershop chain in Kyiv. Haircuts, beard grooming, shaving, and tattoos.",
+        "navigation": "Navigation",
+        "contacts": "Contacts",
+        "hours": "Working Hours",
+        "workingHours": "Mon-Sun: 10:00 – 21:00",
+        "rights": "All rights reserved.",
+        "developer": "Developed by Studio Test · Kyiv",
+        "link1": "Services & Prices",
+        "link2": "Visit Calculator",
+        "link3": "4 Locations in Kyiv",
+        "link4": "Tattoo Room",
+        "link5": "Master Team",
+        "b1": "18 Pavlivska St. (Lukianivka)",
+        "b2": "15K Dniprovska Embankment (Great RC)",
+        "b3": "8A Oleksandra Olesia St. (Varshavskyi)",
+        "b4": "11/44 Urlivska St. (Pozniaky)",
+        "email": "barberking.kv1@gmail.com"
       }
     }
   }

@@ -1,22 +1,24 @@
 {
   "currency": "UAH",
-  "ranks": [
-    { "id": "junior", "multiplier": 0.8 },
-    { "id": "barber", "multiplier": 1.0 },
-    { "id": "top", "multiplier": 1.25 },
-    { "id": "grand", "multiplier": 1.5 }
-  ],
-  "services": [
-    { "id": "haircut", "basePrice": 750, "timeMin": 45 },
-    { "id": "beard", "basePrice": 550, "timeMin": 30 },
-    { "id": "complex", "basePrice": 1150, "timeMin": 60 },
-    { "id": "clipper", "basePrice": 550, "timeMin": 30 },
-    { "id": "shave", "basePrice": 600, "timeMin": 45 },
-    { "id": "kids", "basePrice": 700, "timeMin": 45 },
-    { "id": "father_son", "basePrice": 1150, "timeMin": 75 },
-    { "id": "camo_hair", "basePrice": 550, "timeMin": 25 },
-    { "id": "camo_beard", "basePrice": 550, "timeMin": 25 },
-    { "id": "black_mask", "basePrice": 350, "timeMin": 20 },
-    { "id": "waxing", "basePrice": 150, "timeMin": 15 }
-  ]
+  "baseServices": {
+    "haircut": { "name": "Чоловіча стрижка", "price": 750 },
+    "beard": { "name": "Стрижка та окантовка бороди", "price": 550 },
+    "combo": { "name": "Комплекс «Стрижка + Борода»", "price": 1150 },
+    "royalShave": { "name": "Королівське гоління", "price": 600 },
+    "machine": { "name": "Стрижка машинкою (2 насадки)", "price": 550 },
+    "fatherSon": { "name": "Комплекс «Батько + Син»", "price": 1150 },
+    "camouflage": { "name": "Камуфлювання сивини", "price": 550 },
+    "facial": { "name": "Професійний догляд за обличчям", "price": 450 }
+  },
+  "masterCategories": {
+    "barber": { "label": "Barber", "multiplier": 1.0 },
+    "topBarber": { "label": "Top Barber", "multiplier": 1.15 },
+    "grandMaster": { "label": "Grand Master", "multiplier": 1.35 }
+  },
+  "branchMultipliers": {
+    "pavlivska": 1.0,
+    "great": 1.0,
+    "varshavsky": 1.0,
+    "urlivska": 0.9
+  }
 }

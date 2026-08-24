@@ -1,18 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: hsl(18 12% 8%);
-  --color-primary-light: hsl(18 10% 12%);
-  --color-primary-card: hsl(18 10% 15%);
-  --color-accent: hsl(38 90% 50%);
-  --color-accent-hover: hsl(35 95% 42%);
-  --color-accent-muted: hsl(38 60% 20%);
-  --color-bg-light: hsl(30 20% 96%);
-  --color-surface-light: hsl(30 15% 92%);
-  --color-text-main: hsl(30 10% 90%);
-  --color-text-muted: hsl(30 8% 65%);
-  --color-text-dark: hsl(18 12% 10%);
-  
+  --color-primary: hsl(24 15% 10%);
+  --color-accent: hsl(38 92% 50%);
+  --color-accent-hover: hsl(38 92% 42%);
+  --color-bg-dark: hsl(24 18% 7%);
+  --color-bg-light: hsl(36 20% 96%);
+  --color-text-main: hsl(24 15% 18%);
+  --color-text-muted: hsl(24 10% 45%);
+  --color-surface-dark: hsl(24 15% 12%);
+  --color-surface-card: hsl(0 0% 100%);
   --font-display: 'Alumni Sans', sans-serif;
   --font-body: 'Libre Franklin', sans-serif;
 }
@@ -21,18 +18,18 @@
   html {
     font-size: 16px;
     scroll-behavior: smooth;
-    background-color: hsl(18 12% 8%);
-    color: hsl(30 10% 90%);
   }
-  
   @media (min-width: 768px) { html { font-size: 17px; } }
   @media (min-width: 1280px) { html { font-size: 18px; } }
   @media (min-width: 1600px) { html { font-size: 19px; } }
 
   body {
     font-family: var(--font-body);
+    background-color: var(--color-bg-dark);
+    color: hsl(0 0% 92%);
     overflow-x: hidden;
-    background-color: hsl(18 12% 8%);
+    margin: 0;
+    padding: 0;
   }
 
   h1, h2, h3, h4, .font-display {
@@ -40,70 +37,35 @@
   }
 }
 
-/* Motion Curves */
-:root {
-  --ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
-  --ease-transition: cubic-bezier(0.65, 0, 0.35, 1);
-  --ease-micro: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
 @keyframes spin-slow {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 32s linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
-
 .animate-spin-slow {
-  animation: spin-slow 24s linear infinite;
-}
-
-/* Custom hairline borders */
-.border-hairline {
-  border-color: hsl(30 10% 90% / 0.12);
-}
-
-.border-hairline-accent {
-  border-color: hsl(38 90% 50% / 0.3);
-}
-
-/* Custom scrollbars */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: hsl(18 12% 8%);
-}
-::-webkit-scrollbar-thumb {
-  background: hsl(18 10% 25%);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(38 90% 50%);
+  animation: spin-slow 22s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *, ::before, ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+
+html { font-size: 16px; }
+@media (min-width: 768px)  { html { font-size: 17px; } }
+@media (min-width: 1280px) { html { font-size: 18px; } }
+@media (min-width: 1600px) { html { font-size: 19px; } }
+@media (min-width: 1920px) { html { font-size: 20px; } }
 
 /* iOS Safari zooms the whole page when a focused field is under 16px. */
 @media (max-width: 1024px) {

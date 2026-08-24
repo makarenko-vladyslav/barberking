@@ -1,154 +1,140 @@
 "use client";
-import { useState } from "react";
+
 import { useLocale } from "@/lib/i18n";
 
-interface LocationsProps {
-  onOpenBooking: (locationId?: string) => void;
-}
-
-export default function Locations({ onOpenBooking }: LocationsProps) {
+export default function Locations() {
   const { t } = useLocale();
-  const list = (t("locations.list") as Array<{
-    id: string;
-    name: string;
-    address: string;
-    metro: string;
-    phone: string;
-    hours: string;
-    features: string[];
-    mapQuery: string;
-  }>) || [];
 
-  const [activeTab, setActiveTab] = useState(list[0]?.id || "pavlivska");
-  const selected = list.find((item) => item.id === activeTab) || list[0];
+  const branches = [
+    {
+      key: "branch1",
+      title: String(t("locations.branch1.title")),
+      address: String(t("locations.branch1.address")),
+      metro: String(t("locations.branch1.metro")),
+      hours: String(t("locations.branch1.hours")),
+      parking: String(t("locations.branch1.parking")),
+      features: String(t("locations.branch1.features")),
+      mapUrl: "https://www.google.com/maps?q=вул.+Павлівська+18+Київ&output=embed"
+    },
+    {
+      key: "branch2",
+      title: String(t("locations.branch2.title")),
+      address: String(t("locations.branch2.address")),
+      metro: String(t("locations.branch2.metro")),
+      hours: String(t("locations.branch2.hours")),
+      parking: String(t("locations.branch2.parking")),
+      features: String(t("locations.branch2.features")),
+      mapUrl: "https://www.google.com/maps?q=Дніпровська+Набережна+15К+Київ&output=embed"
+    },
+    {
+      key: "branch3",
+      title: String(t("locations.branch3.title")),
+      address: String(t("locations.branch3.address")),
+      metro: String(t("locations.branch3.metro")),
+      hours: String(t("locations.branch3.hours")),
+      parking: String(t("locations.branch3.parking")),
+      features: String(t("locations.branch3.features")),
+      mapUrl: "https://www.google.com/maps?q=Олександра+Олеся+8А+Київ&output=embed"
+    },
+    {
+      key: "branch4",
+      title: String(t("locations.branch4.title")),
+      address: String(t("locations.branch4.address")),
+      metro: String(t("locations.branch4.metro")),
+      hours: String(t("locations.branch4.hours")),
+      parking: String(t("locations.branch4.parking")),
+      features: String(t("locations.branch4.features")),
+      mapUrl: "https://www.google.com/maps?q=Урлівська+11/44+Київ&output=embed"
+    }
+  ];
 
   return (
-    <section id="locations" className="py-20 bg-[hsl(18_12%_8%)] text-white scroll-mt-20">
+    <section id="locations" className="py-20 bg-[hsl(24_18%_7%)] text-white relative border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="space-y-2 mb-12">
-          <div className="text-amber-500 text-xs font-bold uppercase tracking-widest">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-xs font-bold uppercase tracking-[0.25em] text-[hsl(38_92%_50%)] mb-2 block">
             {String(t("locations.kicker"))}
-          </div>
-          <h2 className="font-display font-extrabold text-5xl sm:text-7xl uppercase tracking-tight text-white">
-            {String(t("locations.heading"))}
+          </span>
+          <h2 className="font-display text-4xl sm:text-6xl font-extrabold uppercase tracking-tight text-white mb-4">
+            {String(t("locations.title"))}
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg max-w-2xl">
-            {String(t("locations.subheading"))}
+          <p className="text-white/75 text-sm sm:text-base">
+            {String(t("locations.subtitle"))}
           </p>
         </div>
 
-        {/* Location Tabs */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
-          {list.map((loc) => (
-            <button
-              key={loc.id}
-              onClick={() => setActiveTab(loc.id)}
-              className={`p-4 rounded border text-left transition-all ${
-                activeTab === loc.id
-                  ? "bg-amber-500 text-black border-amber-500 shadow-lg shadow-amber-500/20"
-                  : "bg-[hsl(18_10%_12%)] text-gray-300 border-hairline hover:border-gray-600"
-              }`}
+        {/* 4 Branches Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {branches.map((b) => (
+            <div
+              key={b.key}
+              className="bg-[hsl(24_15%_12%)] border border-white/10 rounded-xl overflow-hidden flex flex-col justify-between hover:border-[hsl(38_92%_50%/0.5)] transition-all duration-300 shadow-xl"
             >
-              <div className="font-display font-extrabold text-2xl uppercase leading-tight">
-                {loc.name}
+              <div className="p-6 sm:p-8">
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+                  <h3 className="font-display text-3xl font-extrabold text-[hsl(38_92%_50%)] uppercase">
+                    {b.title}
+                  </h3>
+                  <span className="px-2.5 py-1 rounded bg-white/10 text-[10px] font-extrabold tracking-widest text-white/80">
+                    ВІДЧИНЕНО
+                  </span>
+                </div>
+
+                <div className="space-y-2.5 text-xs text-white/80 mb-6">
+                  <p className="flex justify-between border-b border-white/5 pb-1">
+                    <span className="text-white/50 uppercase font-bold">{String(t("locations.addressLabel"))}</span>
+                    <strong className="text-white">{b.address}</strong>
+                  </p>
+                  <p className="flex justify-between border-b border-white/5 pb-1">
+                    <span className="text-white/50 uppercase font-bold">{String(t("locations.landmarkLabel"))}</span>
+                    <span>{b.metro}</span>
+                  </p>
+                  <p className="flex justify-between border-b border-white/5 pb-1">
+                    <span className="text-white/50 uppercase font-bold">{String(t("locations.hoursLabel"))}</span>
+                    <span>{b.hours}</span>
+                  </p>
+                  <p className="flex justify-between border-b border-white/5 pb-1">
+                    <span className="text-white/50 uppercase font-bold">{String(t("locations.parkingLabel"))}</span>
+                    <span>{b.parking}</span>
+                  </p>
+                  <p className="flex justify-between pt-1">
+                    <span className="text-[hsl(38_92%_50%)] uppercase font-bold">{String(t("locations.servicesLabel"))}</span>
+                    <span className="text-white/90">{b.features}</span>
+                  </p>
+                </div>
+
+                {/* Google Maps Embed iframe */}
+                <div className="w-full h-44 rounded overflow-hidden border border-white/10 relative">
+                  <iframe
+                    src={b.mapUrl}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, filter: String(t("locations.mapFilter")) }}
+                    allowFullScreen
+                    loading="lazy"
+                    title={b.title}
+                  />
+                </div>
               </div>
-              <div
-                className={`text-xs mt-1 ${
-                  activeTab === loc.id ? "text-black/80" : "text-gray-400"
-                }`}
-              >
-                {loc.metro}
+
+              <div className="px-6 py-4 bg-black/40 border-t border-white/10 flex items-center justify-between">
+                <a
+                  href="tel:0951079215"
+                  className="text-xs font-bold text-white hover:text-[hsl(38_92%_50%)] transition-colors py-1"
+                >
+                  095 107 92 15
+                </a>
+                <a
+                  href="#booking"
+                  className="px-4 py-2.5 rounded text-xs font-extrabold uppercase tracking-wider bg-[hsl(38_92%_50%)] text-[hsl(24_18%_7%)] hover:bg-[hsl(38_92%_42%)] transition-all"
+                >
+                  Записатися сюди
+                </a>
               </div>
-            </button>
+            </div>
           ))}
         </div>
-
-        {/* Selected Location Details & Embed Map */}
-        {selected && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch bg-[hsl(18_10%_12%)] border border-hairline rounded-lg p-6 sm:p-8">
-            <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                <div className="inline-block bg-amber-500/10 text-amber-400 border border-hairline-accent px-3 py-1 rounded text-xs font-bold uppercase">
-                  {selected.metro}
-                </div>
-
-                <h3 className="font-display font-extrabold text-4xl uppercase text-white">
-                  {selected.name}
-                </h3>
-
-                <div className="space-y-3 text-sm text-gray-300">
-                  <div className="flex items-start space-x-3">
-                    <span className="text-amber-500 font-bold text-lg">📍</span>
-                    <div>
-                      <div className="text-gray-400 text-xs">Адреса:</div>
-                      <div className="font-semibold text-white">{selected.address}</div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <span className="text-amber-500 font-bold text-lg">🕒</span>
-                    <div>
-                      <div className="text-gray-400 text-xs">Графік роботи:</div>
-                      <div className="font-semibold text-white">{selected.hours}</div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <span className="text-amber-500 font-bold text-lg">📞</span>
-                    <div>
-                      <div className="text-gray-400 text-xs">Прямий телефон:</div>
-                      <a
-                        href={String(t("brand.phoneRaw"))}
-                        className="font-semibold text-amber-400 hover:underline"
-                      >
-                        {selected.phone}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-2">
-                  <div className="text-xs uppercase text-gray-400 font-bold mb-2">
-                    Зручності у цій філії:
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {selected.features.map((feat, i) => (
-                      <span
-                        key={i}
-                        className="bg-gray-800 text-gray-200 text-xs px-2.5 py-1 rounded border border-hairline"
-                      >
-                        ✓ {feat}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-hairline">
-                <button
-                  onClick={() => onOpenBooking(selected.id)}
-                  className="w-full bg-amber-500 hover:bg-amber-400 text-black font-display font-extrabold text-2xl py-3 rounded transition-all shadow-lg shadow-amber-500/20"
-                >
-                  {String(t("locations.bookThis"))} →
-                </button>
-              </div>
-            </div>
-
-            {/* Map Embed */}
-            <div className="lg:col-span-7 min-h-[320px] rounded-md overflow-hidden border border-hairline relative bg-gray-900">
-              <iframe
-                title={`Map of ${selected.name}`}
-                width="100%"
-                height="100%"
-                style={{ border: 0, minHeight: "350px" }}
-                loading="lazy"
-                allowFullScreen
-                src={`https://www.google.com/maps?q=${selected.mapQuery}&output=embed`}
-              />
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );

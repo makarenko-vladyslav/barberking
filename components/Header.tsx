@@ -1,12 +1,9 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import { useLocale } from "@/lib/i18n";
 
-interface HeaderProps {
-  onOpenBooking: (locationId?: string) => void;
-}
-
-export default function Header({ onOpenBooking }: HeaderProps) {
+export default function Header() {
   const { locale, setLocale, t } = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,7 +12,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -27,14 +24,13 @@ export default function Header({ onOpenBooking }: HeaderProps) {
     }
   }, [mobileMenuOpen]);
 
-  const navItems = [
-    { href: "#locations", label: String(t("nav.locations")) },
+  const navLinks = [
     { href: "#services", label: String(t("nav.services")) },
     { href: "#calculator", label: String(t("nav.calculator")) },
-    { href: "#craft", label: String(t("nav.craft")) },
-    { href: "#gallery", label: String(t("nav.gallery")) },
-    { href: "#team", label: String(t("nav.team")) },
+    { href: "#locations", label: String(t("nav.locations")) },
     { href: "#tattoo", label: String(t("nav.tattoo")) },
+    { href: "#team", label: String(t("nav.team")) },
+    { href: "#gallery", label: String(t("nav.gallery")) },
     { href: "#reviews", label: String(t("nav.reviews")) },
     { href: "#faq", label: String(t("nav.faq")) },
   ];
@@ -43,180 +39,154 @@ export default function Header({ onOpenBooking }: HeaderProps) {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[hsl(18_12%_8%/0.95)] backdrop-blur-md py-3 border-b border-hairline shadow-2xl"
-          : "bg-gradient-to-b from-[hsl(18_12%_8%/0.9)] to-transparent py-5"
+          ? "bg-[hsl(24_18%_7%/0.95)] backdrop-blur-md border-b border-white/10 py-3 shadow-xl"
+          : "bg-gradient-to-b from-black/85 via-black/40 to-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Wordmark */}
-        <a href="#" className="group flex flex-col">
-          <span className="font-display font-extrabold text-3xl tracking-wider text-white group-hover:text-amber-400 transition-colors">
+        {/* Brand Wordmark Logo */}
+        <a href="#" className="group flex flex-col focus:outline-none py-1">
+          <span className="font-display text-2xl sm:text-3xl font-extrabold tracking-wider text-white group-hover:text-[hsl(38_92%_50%)] transition-colors">
             BARBERKING
           </span>
-          <span className="text-[10px] uppercase tracking-widest text-amber-500 font-medium -mt-1">
-            {String(t("brand.established"))} · КИЇВ
+          <span className="text-[9px] uppercase tracking-[0.25em] text-[hsl(38_92%_50%)] font-semibold -mt-1">
+            {String(t("nav.brandSub"))}
           </span>
         </a>
 
-        {/* Desktop Nav */}
-        <nav className="hidden xl:flex items-center space-x-6 text-sm font-medium">
-          {navItems.map((item) => (
+        {/* Desktop Nav Links */}
+        <nav className="hidden lg:flex items-center space-x-6 text-xs uppercase tracking-wider font-semibold">
+          {navLinks.map((link) => (
             <a
-              key={item.href}
-              href={item.href}
-              className="text-gray-300 hover:text-amber-400 transition-colors py-1"
+              key={link.href}
+              href={link.href}
+              className="text-white/80 hover:text-[hsl(38_92%_50%)] transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[hsl(38_92%_50%)] hover:after:w-full after:transition-all"
             >
-              {item.label}
+              {link.label}
             </a>
           ))}
         </nav>
 
-        {/* Right Action Bar */}
+        {/* Actions Right */}
         <div className="hidden sm:flex items-center space-x-4">
-          {/* Phone Link */}
           <a
-            href={String(t("brand.phoneRaw"))}
-            className="flex items-center space-x-2 text-xs font-semibold tracking-wider text-amber-400 hover:text-amber-300 transition-colors px-3 py-1.5 rounded border border-hairline-accent bg-amber-500/10"
+            href="tel:0951079215"
+            className="text-xs font-bold tracking-wider text-white hover:text-[hsl(38_92%_50%)] transition-colors flex items-center gap-2 py-2"
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>{String(t("brand.phone"))}</span>
+            <span className="w-2 h-2 rounded-full bg-[hsl(38_92%_50%)] animate-pulse" />
+            095 107 92 15
           </a>
 
-          {/* Lang Switcher */}
-          <div className="flex items-center border border-hairline rounded overflow-hidden text-xs">
+          {/* Language Switcher */}
+          <div className="flex items-center rounded-full bg-white/10 p-0.5 border border-white/10 text-[10px] font-bold">
             <button
+              type="button"
               onClick={() => setLocale("uk")}
-              className={`px-2 py-1 font-bold transition-colors ${
+              className={`px-2.5 py-1 rounded-full transition-all ${
                 locale === "uk"
-                  ? "bg-amber-500 text-black"
-                  : "text-gray-400 hover:text-white"
+                  ? "bg-[hsl(38_92%_50%)] text-[hsl(24_18%_7%)]"
+                  : "text-white/70 hover:text-white"
               }`}
             >
               UA
             </button>
             <button
+              type="button"
               onClick={() => setLocale("en")}
-              className={`px-2 py-1 font-bold transition-colors ${
+              className={`px-2.5 py-1 rounded-full transition-all ${
                 locale === "en"
-                  ? "bg-amber-500 text-black"
-                  : "text-gray-400 hover:text-white"
+                  ? "bg-[hsl(38_92%_50%)] text-[hsl(24_18%_7%)]"
+                  : "text-white/70 hover:text-white"
               }`}
             >
               EN
             </button>
           </div>
 
-          {/* Booking CTA */}
-          <button
-            onClick={() => onOpenBooking()}
-            className="bg-amber-500 hover:bg-amber-400 text-black font-display font-bold text-xl px-5 py-2 rounded transition-all transform hover:scale-[1.02] shadow-lg shadow-amber-500/20 active:scale-95"
+          <a
+            href="#booking"
+            className="px-4 py-2.5 text-xs font-bold uppercase tracking-wider rounded bg-[hsl(38_92%_50%)] text-[hsl(24_18%_7%)] hover:bg-[hsl(38_92%_42%)] transition-all shadow-lg shadow-[hsl(38_92%_50%/0.2)]"
           >
-            {String(t("nav.bookBtn"))}
-          </button>
+            {String(t("nav.book"))}
+          </a>
         </div>
 
-        {/* Mobile menu button */}
-        <div className="flex xl:hidden items-center space-x-3">
-          <button
-            onClick={() => onOpenBooking()}
-            className="bg-amber-500 text-black font-display font-bold text-base px-3 py-1.5 rounded sm:hidden"
-          >
-            {String(t("nav.bookBtn"))}
-          </button>
-
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle Navigation Menu"
-            className="p-2 text-gray-300 hover:text-amber-400 focus:outline-none"
-          >
-            <svg
-              className="w-7 h-7"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {mobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
-        </div>
+        {/* Mobile Hamburger Toggle */}
+        <button
+          type="button"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="lg:hidden px-3 py-2.5 rounded bg-white/10 text-xs font-bold uppercase tracking-wider text-white hover:text-[hsl(38_92%_50%)] focus:outline-none border border-white/15"
+          aria-label={String(t("nav.toggleMenu"))}
+        >
+          {mobileMenuOpen ? "ЗАКРИТИ" : "МЕНЮ"}
+        </button>
       </div>
 
-      {/* Full screen Mobile Menu Overlay */}
+      {/* Fullscreen Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 top-[60px] bg-[hsl(18_12%_8%/0.98)] backdrop-blur-xl z-50 flex flex-col justify-between p-6 xl:hidden border-t border-hairline">
-          <div className="space-y-4">
-            <div className="flex items-center justify-between pb-4 border-b border-hairline">
-              <span className="text-xs uppercase tracking-widest text-amber-500 font-semibold">
-                {String(t("nav.langLabel"))}
-              </span>
-              <div className="flex items-center space-x-2 text-sm">
+        <div className="fixed inset-0 z-50 bg-[hsl(24_18%_7%)] flex flex-col justify-between p-6 sm:p-10 lg:hidden">
+          <div className="flex items-center justify-between border-b border-white/10 pb-4">
+            <div className="flex flex-col">
+              <span className="font-display text-3xl font-extrabold text-white">BARBERKING</span>
+              <span className="text-[10px] tracking-widest text-[hsl(38_92%_50%)]">{String(t("nav.brandSub"))}</span>
+            </div>
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-3 py-2.5 rounded bg-white/10 text-xs font-bold text-white hover:text-[hsl(38_92%_50%)] uppercase border border-white/15"
+            >
+              ЗАКРИТИ
+            </button>
+          </div>
+
+          <nav className="flex flex-col space-y-4 my-auto">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="font-display text-2xl uppercase tracking-wider text-white hover:text-[hsl(38_92%_50%)] transition-colors py-1"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="flex flex-col space-y-4 border-t border-white/10 pt-6">
+            <a
+              href="tel:0951079215"
+              className="text-lg font-bold text-[hsl(38_92%_50%)] text-center py-3 border border-[hsl(38_92%_50%/0.3)] rounded"
+            >
+              095 107 92 15
+            </a>
+
+            <div className="flex items-center justify-between py-1">
+              <span className="text-xs text-white/60">{String(t("nav.languageLabel"))}</span>
+              <div className="flex gap-2">
                 <button
-                  onClick={() => setLocale("uk")}
-                  className={`px-3 py-1 rounded font-bold ${
-                    locale === "uk"
-                      ? "bg-amber-500 text-black"
-                      : "bg-gray-800 text-gray-300"
-                  }`}
+                  type="button"
+                  onClick={() => { setLocale("uk"); setMobileMenuOpen(false); }}
+                  className={`px-3 py-2 rounded text-xs font-bold ${locale === 'uk' ? 'bg-[hsl(38_92%_50%)] text-black' : 'bg-white/10 text-white'}`}
                 >
-                  УКРАЇНСЬКА
+                  УКР
                 </button>
                 <button
-                  onClick={() => setLocale("en")}
-                  className={`px-3 py-1 rounded font-bold ${
-                    locale === "en"
-                      ? "bg-amber-500 text-black"
-                      : "bg-gray-800 text-gray-300"
-                  }`}
+                  type="button"
+                  onClick={() => { setLocale("en"); setMobileMenuOpen(false); }}
+                  className={`px-3 py-2 rounded text-xs font-bold ${locale === 'en' ? 'bg-[hsl(38_92%_50%)] text-black' : 'bg-white/10 text-white'}`}
                 >
-                  ENGLISH
+                  ENG
                 </button>
               </div>
             </div>
 
-            <nav className="flex flex-col space-y-3 pt-2">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="font-display font-bold text-2xl text-gray-200 hover:text-amber-400 py-1 transition-colors"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-          </div>
-
-          <div className="space-y-3 pt-6 border-t border-hairline">
             <a
-              href={String(t("brand.phoneRaw"))}
-              className="block text-center font-display text-2xl font-bold text-amber-400 py-2 border border-hairline-accent rounded"
+              href="#booking"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full text-center py-3.5 text-sm font-bold uppercase tracking-wider rounded bg-[hsl(38_92%_50%)] text-[hsl(24_18%_7%)] shadow-lg"
             >
-              {String(t("brand.phone"))}
+              {String(t("nav.book"))}
             </a>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenBooking();
-              }}
-              className="w-full bg-amber-500 hover:bg-amber-400 text-black font-display font-bold text-2xl py-3 rounded shadow-lg shadow-amber-500/20"
-            >
-              {String(t("nav.bookBtn"))}
-            </button>
           </div>
         </div>
       )}

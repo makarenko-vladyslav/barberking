@@ -1,83 +1,83 @@
 "use client";
 
-import { useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import MarqueeTicker from "@/components/MarqueeTicker";
-import Locations from "@/components/Locations";
-import ServicesMenu from "@/components/ServicesMenu";
+import Ticker from "@/components/Ticker";
+import Services from "@/components/Services";
 import Calculator from "@/components/Calculator";
-import CraftAdvantages from "@/components/CraftAdvantages";
-import Gallery from "@/components/Gallery";
-import VideoShowcase from "@/components/VideoShowcase";
+import Locations from "@/components/Locations";
+import TattooRoom from "@/components/TattooRoom";
 import Team from "@/components/Team";
-import TattooStudio from "@/components/TattooStudio";
+import Gallery from "@/components/Gallery";
+import VideoSection from "@/components/VideoSection";
+import WhyUs from "@/components/WhyUs";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
-import CtaBanner from "@/components/CtaBanner";
+import BookingSection from "@/components/BookingSection";
 import Footer from "@/components/Footer";
-import BookingModal from "@/components/BookingModal";
-import { LabeledHairline, StatementBand, RatingStrip } from "@/components/Interstitials";
+import { Reveal } from "@/components/motion";
+import { useLocale } from "@/lib/i18n";
 
 export default function Home() {
-  const [bookingOpen, setBookingOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState("");
-
-  const handleOpenBooking = (serviceName?: string) => {
-    setSelectedService(serviceName || "");
-    setBookingOpen(true);
-  };
+  const { t } = useLocale();
 
   return (
-    <div className="min-h-screen bg-[hsl(18_12%_8%)] text-white">
-      <Header onOpenBooking={handleOpenBooking} />
-      
+    <>
+      <Header />
       <main>
-        <Hero onOpenBooking={handleOpenBooking} />
-        
-        <MarqueeTicker />
-        
-        <Locations onOpenBooking={handleOpenBooking} />
-        
-        <LabeledHairline label="BARBERKING KYIV — PREMIER MEN'S GROOMING & PRICELIST" />
-        
-        <ServicesMenu onOpenBooking={handleOpenBooking} />
-        
-        <Calculator onOpenBooking={handleOpenBooking} />
-        
-        <RatingStrip />
-        
-        <CraftAdvantages />
-        
-        <Gallery />
-        
-        <StatementBand 
-          title="10 РОКІВ БЕЗДОГАННОЇ РЕПУТАЦІЇ В КИЄВІ" 
-          subtitle="БЕЗДОГАННИЙ ФОРМАТ ЧОЛОВІЧОГО КЛУБУ З БЕЗКОШТОВНИМ БАРОМ" 
-        />
-        
-        <VideoShowcase />
-        
-        <Team onOpenBooking={handleOpenBooking} />
-        
-        <TattooStudio onOpenBooking={handleOpenBooking} />
-        
-        <LabeledHairline label="ГОСТІ ПРО BARBERKING — СУМЛІННІ ВІДГУКИ ТА ОЦІНКИ" />
-        
-        <Testimonials />
-        
-        <FAQ />
-        
-        <CtaBanner onOpenBooking={handleOpenBooking} />
+        <Reveal><Hero /></Reveal>
+        <Reveal><Ticker /></Reveal>
+        <Reveal><Services /></Reveal>
+        <Reveal><Calculator /></Reveal>
+
+        {/* Interstitial 1: Statement Hairline Strip */}
+        <Reveal>
+          <div className="bg-[hsl(24_15%_10%)] border-y border-white/10 py-6 text-center">
+            <div className="max-w-7xl mx-auto px-4 flex items-center justify-center gap-4 text-xs font-extrabold uppercase tracking-[0.25em] text-white/50">
+              <span className="h-[1px] bg-white/20 flex-1 max-w-xs" />
+              <span>{String(t("interstitial.standards"))}</span>
+              <span className="h-[1px] bg-white/20 flex-1 max-w-xs" />
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal><Locations /></Reveal>
+        <Reveal><TattooRoom /></Reveal>
+
+        {/* Interstitial 2: Watermark Statement Band */}
+        <Reveal>
+          <div className="bg-[hsl(38_92%_50%/0.08)] border-y border-[hsl(38_92%_50%/0.2)] py-10 overflow-hidden relative">
+            <div className="max-w-7xl mx-auto px-4 text-center">
+              <span className="font-display text-2xl sm:text-4xl font-black uppercase tracking-wider text-[hsl(38_92%_50%)]">
+                {String(t("interstitial.methodology"))}
+              </span>
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal><Team /></Reveal>
+        <Reveal><Gallery /></Reveal>
+
+        {/* Interstitial 3: Press & Trust Strip */}
+        <Reveal>
+          <div className="bg-[hsl(24_18%_7%)] border-y border-white/10 py-5">
+            <div className="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-between gap-4 text-xs font-bold uppercase tracking-wider text-white/60">
+              <span>{String(t("interstitial.branchesParking"))}</span>
+              <span className="text-[hsl(38_92%_50%)]">◆</span>
+              <span>{String(t("interstitial.freeBar"))}</span>
+              <span className="text-[hsl(38_92%_50%)]">◆</span>
+              <span>{String(t("interstitial.sterility"))}</span>
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal><VideoSection /></Reveal>
+        <Reveal><WhyUs /></Reveal>
+        <Reveal><Testimonials /></Reveal>
+        <Reveal><FAQ /></Reveal>
+        <Reveal><BookingSection /></Reveal>
       </main>
-
       <Footer />
-
-      <BookingModal
-        isOpen={bookingOpen}
-        onClose={() => setBookingOpen(false)}
-        initialService={selectedService}
-      />
-    </div>
+    </>
   );
 }

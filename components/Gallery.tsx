@@ -1,72 +1,58 @@
 "use client";
-
 import { useState } from "react";
 import { useLocale } from "@/lib/i18n";
 
 export default function Gallery() {
   const { t } = useLocale();
-  const [selectedImg, setSelectedImg] = useState<string | null>(null);
 
-  const galleryImages = [
-    {
-      url: "https://kyiv.bking.com.ua/wp-content/themes/bking/images/price-banner.jpg",
-      caption: String(t("gallery.cap1"))
-    },
-    {
-      url: "https://kyiv.bking.com.ua/wp-content/themes/bking/images/map-banner.jpg",
-      caption: String(t("gallery.cap2"))
-    },
-    {
-      url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6059-1024x683.jpg",
-      caption: String(t("gallery.cap3"))
-    },
-    {
-      url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5902-2-1024x683.jpg",
-      caption: String(t("gallery.cap4"))
-    },
-    {
-      url: "https://kyiv.bking.com.ua/wp-content/themes/bking/images/banner2.jpg",
-      caption: String(t("gallery.cap5"))
-    },
-    {
-      url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-1024x683.jpg",
-      caption: String(t("gallery.cap6"))
-    }
+  const realImages = [
+    { url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-300x200.jpg", title: String(t("gallery.img1")) },
+    { url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5902-2-300x200.jpg", title: String(t("gallery.img2")) },
+    { url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6059-300x200.jpg", title: String(t("gallery.img3")) },
+    { url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5183-300x200.jpg", title: String(t("gallery.img4")) },
+    { url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6955-300x200.jpg", title: String(t("gallery.img5")) },
+    { url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5352-300x200.jpg", title: String(t("gallery.img6")) },
+    { url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_7104-300x200.jpg", title: String(t("gallery.img7")) },
+    { url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_4972-300x200.jpg", title: String(t("gallery.img8")) },
+    { url: "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_4572-300x200.jpg", title: String(t("gallery.img9")) }
   ];
 
+  const [activeImg, setActiveImg] = useState<string | null>(null);
+
   return (
-    <section id="gallery" className="py-20 bg-[hsl(24_15%_10%)] text-white relative border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="gallery" className="py-24 bg-[hsl(0_0%_5%)] text-[hsl(0_0%_95%)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold uppercase tracking-[0.25em] text-[hsl(38_92%_50%)] mb-2 block">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-xs uppercase tracking-widest text-[hsl(38_90%_50%)] font-bold">
             {String(t("gallery.kicker"))}
           </span>
-          <h2 className="font-display text-4xl sm:text-6xl font-extrabold uppercase tracking-tight text-white mb-4">
+          <h2 className="font-['Alumni_Sans'] text-4xl sm:text-6xl font-extrabold uppercase tracking-tight mt-2 mb-4">
             {String(t("gallery.title"))}
           </h2>
-          <p className="text-white/70 text-sm sm:text-base">
+          <p className="text-sm sm:text-base text-[hsl(0_0%_65%)]">
             {String(t("gallery.subtitle"))}
           </p>
         </div>
 
-        {/* Gallery Masonry Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {galleryImages.map((img, idx) => (
+        {/* Gallery Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {realImages.map((img, idx) => (
             <div
               key={idx}
-              onClick={() => setSelectedImg(img.url)}
-              className="group relative h-72 rounded-xl overflow-hidden cursor-pointer border border-white/10 bg-black shadow-lg"
+              onClick={() => setActiveImg(img.url)}
+              className="group relative h-64 bg-[hsl(0_0%_10%)] border border-[hsl(0_0%_16%)] rounded-xs overflow-hidden cursor-pointer"
             >
               <img
                 src={img.url}
-                alt={img.caption}
+                alt={img.title}
                 loading="lazy"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85 group-hover:opacity-100"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 filter brightness-90 group-hover:brightness-100"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity" />
-              <div className="absolute bottom-4 left-4 right-4 text-xs font-bold uppercase tracking-wider text-white group-hover:text-[hsl(38_92%_50%)] transition-colors">
-                {img.caption}
+              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(0_0%_5%/0.9)] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+                <span className="font-['Alumni_Sans'] text-2xl font-bold uppercase tracking-wider text-[hsl(38_90%_50%)]">
+                  {img.title}
+                </span>
               </div>
             </div>
           ))}
@@ -74,20 +60,23 @@ export default function Gallery() {
       </div>
 
       {/* Lightbox Modal */}
-      {selectedImg && (
+      {activeImg && (
         <div
-          onClick={() => setSelectedImg(null)}
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+          onClick={() => setActiveImg(null)}
+          className="fixed inset-0 z-50 bg-[hsl(0_0%_0%/0.92)] backdrop-blur-md flex items-center justify-center p-4"
         >
-          <div className="relative max-w-4xl w-full max-h-[90vh] overflow-hidden rounded-lg">
+          <div className="relative max-w-4xl w-full max-h-[90vh]">
+            <img
+              src={activeImg}
+              alt={String(t("gallery.enlargedAlt"))}
+              className="w-full h-auto max-h-[85vh] object-contain rounded-xs border border-[hsl(38_90%_50%/0.5)]"
+            />
             <button
-              type="button"
-              onClick={() => setSelectedImg(null)}
-              className="absolute top-4 right-4 z-10 px-3 py-1 rounded bg-black/80 text-white border border-white/20 hover:text-[hsl(38_92%_50%)] text-xs font-bold uppercase"
+              onClick={() => setActiveImg(null)}
+              className="absolute -top-10 right-0 text-[hsl(0_0%_100%)] text-xs font-bold uppercase tracking-widest hover:text-[hsl(38_90%_50%)]"
             >
-              ЗАКРИТИ
+              {String(t("gallery.close"))} [X]
             </button>
-            <img src={selectedImg} alt="Enlarged view" className="w-full h-auto max-h-[85vh] object-contain mx-auto" />
           </div>
         </div>
       )}

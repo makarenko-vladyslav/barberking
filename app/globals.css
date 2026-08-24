@@ -1,15 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: hsl(24 15% 10%);
-  --color-accent: hsl(38 92% 50%);
-  --color-accent-hover: hsl(38 92% 42%);
-  --color-bg-dark: hsl(24 18% 7%);
-  --color-bg-light: hsl(36 20% 96%);
-  --color-text-main: hsl(24 15% 18%);
-  --color-text-muted: hsl(24 10% 45%);
-  --color-surface-dark: hsl(24 15% 12%);
-  --color-surface-card: hsl(0 0% 100%);
+  --color-primary: hsl(0 0% 7%);
+  --color-accent: hsl(38 90% 50%);
+  --color-accent-hover: hsl(35 95% 45%);
+  --color-bg-dark: hsl(0 0% 5%);
+  --color-bg-card: hsl(0 0% 10%);
+  --color-bg-light: hsl(40 15% 97%);
+  --color-border-dark: hsl(0 0% 18%);
+  --color-text-main: hsl(0 0% 95%);
+  --color-text-muted: hsl(0 0% 65%);
+  --color-text-dark: hsl(0 0% 12%);
+
   --font-display: 'Alumni Sans', sans-serif;
   --font-body: 'Libre Franklin', sans-serif;
 }
@@ -18,36 +20,29 @@
   html {
     font-size: 16px;
     scroll-behavior: smooth;
+    background-color: hsl(0 0% 5%);
+    color: hsl(0 0% 95%);
   }
-  @media (min-width: 768px) { html { font-size: 17px; } }
+
+  @media (min-width: 768px)  { html { font-size: 17px; } }
   @media (min-width: 1280px) { html { font-size: 18px; } }
   @media (min-width: 1600px) { html { font-size: 19px; } }
 
   body {
     font-family: var(--font-body);
-    background-color: var(--color-bg-dark);
-    color: hsl(0 0% 92%);
     overflow-x: hidden;
     margin: 0;
     padding: 0;
   }
-
-  h1, h2, h3, h4, .font-display {
-    font-family: var(--font-display);
-  }
 }
 
-@keyframes spin-slow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.animate-spin-slow {
-  animation: spin-slow 22s linear infinite;
+:focus-visible {
+  outline: 2px solid hsl(38 90% 50%);
+  outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -55,9 +50,19 @@
   }
 }
 
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
+/* Custom scrollbar for dark masculine feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(0 0% 6%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(0 0% 20%);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(38 90% 50%);
 }
 
 

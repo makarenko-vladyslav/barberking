@@ -1,24 +1,19 @@
 {
-  "currency": "UAH",
-  "baseServices": {
-    "haircut": { "name": "Чоловіча стрижка", "price": 750 },
-    "beard": { "name": "Стрижка та окантовка бороди", "price": 550 },
-    "combo": { "name": "Комплекс «Стрижка + Борода»", "price": 1150 },
-    "royalShave": { "name": "Королівське гоління", "price": 600 },
-    "machine": { "name": "Стрижка машинкою (2 насадки)", "price": 550 },
-    "fatherSon": { "name": "Комплекс «Батько + Син»", "price": 1150 },
-    "camouflage": { "name": "Камуфлювання сивини", "price": 550 },
-    "facial": { "name": "Професійний догляд за обличчям", "price": 450 }
+  "currency": "грн",
+  "basePrices": {
+    "haircut": { "barber": 750, "top": 850, "grand": 1150, "junior": 600 },
+    "combo": { "barber": 1150, "top": 1250, "grand": 1600, "junior": 850 },
+    "beard": { "barber": 550, "top": 600, "grand": 800, "junior": 350 },
+    "razor_shave": { "barber": 500, "top": 600, "grand": 700, "junior": 400 },
+    "father_son": { "barber": 1150, "top": 1400, "grand": 1750, "junior": 1000 },
+    "clipper": { "barber": 550, "top": 600, "grand": 750, "junior": 450 }
   },
-  "masterCategories": {
-    "barber": { "label": "Barber", "multiplier": 1.0 },
-    "topBarber": { "label": "Top Barber", "multiplier": 1.15 },
-    "grandMaster": { "label": "Grand Master", "multiplier": 1.35 }
+  "addons": {
+    "black_mask": 350,
+    "head_care": 300,
+    "waxing": 150,
+    "ear_fire": 50,
+    "grey_camouflage": 550
   },
-  "branchMultipliers": {
-    "pavlivska": 1.0,
-    "great": 1.0,
-    "varshavsky": 1.0,
-    "urlivska": 0.9
-  }
+  "subscribersDiscountPercent": 10
 }

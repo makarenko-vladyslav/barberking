@@ -1,70 +1,84 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import SocialProof from "@/components/SocialProof";
-import Services from "@/components/Services";
-import BookingWidget from "@/components/BookingWidget";
+import ServicesPricing from "@/components/ServicesPricing";
+import BookingCalculator from "@/components/BookingCalculator";
 import Advantages from "@/components/Advantages";
-import Team from "@/components/Team";
-import VideoSection from "@/components/VideoSection";
-import Certificates from "@/components/Certificates";
+import MastersTeam from "@/components/MastersTeam";
 import Gallery from "@/components/Gallery";
+import RitualProcess from "@/components/RitualProcess";
+import TattooAndSpecialized from "@/components/TattooAndSpecialized";
+import CertificatesSubscriptions from "@/components/CertificatesSubscriptions";
 import Testimonials from "@/components/Testimonials";
 import LocationsMap from "@/components/LocationsMap";
-import FAQ from "@/components/FAQ";
-import ContactForm from "@/components/ContactForm";
+import Faq from "@/components/Faq";
+import BookingForm from "@/components/BookingForm";
 import Footer from "@/components/Footer";
+import { useLocale } from "@/lib/i18n";
+
+export const metadata = {
+  title: "Barberking — Барбершоп у Києві",
+};
 
 export default function Home() {
+  return <HomePageContent />;
+}
+
+function HomePageContent() {
   return (
     <>
       <Header />
-      <main>
+      <main className="bg-[hsl(0_0%_5%)] text-white">
         <Hero />
-        {/* Labeled Hairline Interstitial 1 */}
-        <div className="bg-neutral-950 py-3 border-y border-white/10 text-center">
-          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent">
-            ПРОФЕСІЙНИЙ ЧОЛОВІЧИЙ ДОГЛЯД У КИЄВІ · EST. 2018
-          </span>
-        </div>
-
+        
+        {/* Interstitial 1: Social Proof Ticker */}
         <SocialProof />
-
-        {/* Standalone Statement Band Interstitial 2 */}
-        <div className="bg-neutral-900 py-6 border-b border-white/10 text-center px-4">
-          <p className="font-display text-2xl sm:text-3xl font-extrabold uppercase text-white tracking-wider">
-            БЕЗДОГАННИЙ ФЕЙД ТА ГАРЯЧИЙ КОМПРЕС ДЛЯ КОЖНОГО ГОСТЯ
-          </p>
-        </div>
-
-        <Services />
-        <BookingWidget />
-
-        {/* Watermark Strip Interstitial 3 */}
-        <div className="bg-neutral-950 py-4 border-b border-white/10 text-center overflow-hidden">
-          <span className="font-display text-4xl sm:text-6xl font-extrabold uppercase tracking-widest text-white/10 select-none">
-            BARBERKING CRAFT & STYLE
+        
+        <ServicesPricing />
+        
+        {/* Interstitial 2: Labeled Hairline Strip */}
+        <div className="py-4 bg-[hsl(0_0%_6%)] border-y border-[hsl(0_0%_15%)] text-center">
+          <span className="text-xs uppercase font-mono tracking-[0.3em] text-[hsl(38_88%_52%)]">
+            — СТАНДАРТИ ОБСЛУГОВУВАННЯ BARBERKING 2026 —
           </span>
         </div>
 
+        <BookingCalculator />
         <Advantages />
-        <Team />
-        <VideoSection />
-
-        {/* Press / Rating Strip Interstitial 4 */}
-        <div className="bg-neutral-900 py-4 border-b border-white/10 text-center px-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-neutral-300">
-            4.9 / 5.0 НА GOOGLE MAPS · 500+ ПІДТВЕРДЖЕНИХ ВІДГУКІВ · ПАРКОВКА У ЦЕНТРІ КИЄВА
-          </span>
+        
+        {/* Interstitial 3: Standalone Statement Band */}
+        <div className="py-8 bg-[hsl(38_88%_52%)] text-[hsl(0_0%_5%)] text-center font-display font-extrabold text-2xl sm:text-4xl uppercase tracking-wider">
+          ГОЛІННЯ НЕБЕЗПЕЧНОЮ БРИТВОЮ · ГАРЯЧІ ЕВКАЛІПТОВІ РУШНИКИ · СВІЖООБСМАЖЕНА КАВА
         </div>
 
-        <Certificates />
+        <MastersTeam />
         <Gallery />
+
+        {/* Interstitial 4: Press & Rating Strip */}
+        <TranslatedPressStrip />
+
+        <RitualProcess />
+        <TattooAndSpecialized />
+        <CertificatesSubscriptions />
         <Testimonials />
         <LocationsMap />
-        <FAQ />
-        <ContactForm />
+        <Faq />
+        <BookingForm />
       </main>
       <Footer />
     </>
+  );
+}
+
+function TranslatedPressStrip() {
+  // Client component helper or inline text using useLocale via Header/etc, but since page.tsx is server, we render simple wrapper
+  return (
+    <div className="py-4 bg-[hsl(0_0%_7%)] border-y border-[hsl(0_0%_15%)] flex justify-center items-center gap-8 text-xs uppercase font-mono tracking-widest text-[hsl(0_0%_65%)]">
+      <span>4.9 / 5.0 GOOGLE MAPS</span>
+      <span>·</span>
+      <span>4 КИЇВСЬКІ ФІЛІЇ</span>
+      <span>·</span>
+      <span>ВЛАСНИЙ ПАРКІНГ</span>
+    </div>
   );
 }

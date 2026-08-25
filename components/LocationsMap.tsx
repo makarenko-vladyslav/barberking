@@ -1,103 +1,120 @@
+
 "use client";
 
+import React, { useState } from "react";
 import { useLocale } from "@/lib/i18n";
-import { Reveal, Stagger, StaggerItem } from "./motion";
-
-interface Branch {
-  name: string;
-  address: string;
-  metro: string;
-  hours: string;
-  phone: string;
-  parking: string;
-  features: string;
-}
+import { Reveal } from "@/components/motion";
 
 export default function LocationsMap() {
   const { t } = useLocale();
 
-  const branches = (t("branches.items") as Branch[]) || [];
+  const kicker = t("locations.kicker") as string;
+  const title = t("locations.title") as string;
+  const subtitle = t("locations.subtitle") as string;
+  const mapFilter = t("locations.mapFilter") as string;
+  const branches = (t("locations.branches") as Array<{
+    name: string;
+    address: string;
+    subway: string;
+    parking: string;
+    phone: string;
+    hours: string;
+    mapQuery: string;
+  }>) || [];
+
+  const [selectedBranch, setSelectedBranch] = useState(0);
+  const activeBranch = branches[selectedBranch] || branches[0];
 
   return (
-    <section id="branches" className="py-24 bg-neutral-950 border-b border-white/10 scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Reveal>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-accent mb-2 block">
-              {String(t("branches.kicker"))}
+    <section id="locations" className="py-24 bg-[hsl(0_0%_7%)] text-white relative border-b border-[hsl(0_0%_14%)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <Reveal>
+            <span className="text-xs font-semibold tracking-[0.25em] text-[hsl(38_88%_52%)] uppercase block mb-3">
+              {kicker}
             </span>
-            <h2 className="font-display text-4xl sm:text-6xl font-extrabold uppercase text-white tracking-tight mb-4">
-              {String(t("branches.title"))}
+          </Reveal>
+          <Reveal>
+            <h2 className="font-display font-extrabold text-4xl sm:text-6xl uppercase tracking-tight text-white mb-4">
+              {title}
             </h2>
-            <p className="text-neutral-400 text-base sm:text-lg">
-              {String(t("branches.subtitle"))}
+          </Reveal>
+          <Reveal>
+            <p className="text-[hsl(0_0%_75%)] text-base sm:text-lg font-light">
+              {subtitle}
             </p>
+          </Reveal>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Branch Selector Cards */}
+          <div className="lg:col-span-5 space-y-4">
+            {branches.map((b, idx) => (
+              <button
+                key={idx}
+                onClick={() => setSelectedBranch(idx)}
+                className={`w-full text-left p-6 min-h-[44px] rounded-xl border transition-all ${
+                  selectedBranch === idx
+                    ? "bg-[hsl(0_0%_12%)] border-[hsl(38_88%_52%)] shadow-lg"
+                    : "bg-[hsl(0_0%_9%)] border-[hsl(0_0%_16%)] hover:border-[hsl(0_0%_25%)]"
+                }`}
+              >
+                <div className="flex items-center justify-between mb-1">
+                  <h3 className="font-display text-2xl font-bold uppercase tracking-wide text-white">
+                    {b.name}
+                  </h3>
+                  {selectedBranch === idx && (
+                    <span className="w-2.5 h-2.5 rounded-full bg-[hsl(38_88%_52%)]" />
+                  )}
+                </div>
+                <div className="text-sm font-semibold text-[hsl(38_88%_52%)] mb-2">
+                  {b.address}
+                </div>
+                <div className="text-xs text-[hsl(0_0%_70%)] space-y-1 font-mono">
+                  <div>{t("locations.subwayLabel") as string}: {b.subway}</div>
+                  <div>{t("locations.parkingLabel") as string}: {b.parking}</div>
+                  <div>{t("locations.hoursLabel") as string}: {b.hours}</div>
+                </div>
+              </button>
+            ))}
           </div>
-        </Reveal>
 
-        {/* Branches Cards Grid */}
-        <Stagger className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {branches.map((branch, idx) => (
-            <StaggerItem key={idx}>
-              <div className="bg-neutral-900 border border-white/10 rounded-xl p-6 hover:border-accent/50 transition-all">
-                <div className="flex items-start justify-between mb-4 pb-4 border-b border-white/10">
-                  <div>
-                    <span className="text-xs font-bold text-accent uppercase tracking-wider block mb-1">
-                      {String(t("branches.branchLabel"))} №0{idx + 1}
-                    </span>
-                    <h3 className="font-display text-2xl font-bold uppercase text-white">
-                      {branch.name}
-                    </h3>
-                  </div>
-                  <span className="px-3 py-1 bg-accent/10 border border-accent/20 rounded text-[10px] font-bold text-accent uppercase">
-                    {String(t("branches.parkingLabel"))}: {branch.parking}
-                  </span>
+          {/* Interactive Map Embed */}
+          <div className="lg:col-span-7 bg-[hsl(0_0%_9%)] border border-[hsl(0_0%_18%)] rounded-2xl overflow-hidden p-3 flex flex-col justify-between h-full min-h-[450px]">
+            <div className="w-full h-[380px] rounded-xl overflow-hidden relative">
+              <iframe
+                src={`https://www.google.com/maps?q=${activeBranch.mapQuery}&output=embed`}
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: mapFilter }}
+                allowFullScreen
+                loading="lazy"
+                title={`${t("locations.mapTitlePrefix") as string} - ${activeBranch.name}`}
+              />
+            </div>
+
+            <div className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-2">
+              <div>
+                <div className="font-display text-xl font-bold uppercase text-white">
+                  {activeBranch.name}
                 </div>
-
-                <div className="space-y-3 text-xs text-neutral-300">
-                  <div className="flex items-center justify-between">
-                    <span className="text-neutral-400 font-semibold uppercase">{String(t("branches.addressLabel"))}:</span>
-                    <span className="font-bold text-white">{branch.address} ({branch.metro})</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-neutral-400 font-semibold uppercase">{String(t("branches.hoursLabel"))}:</span>
-                    <span className="font-bold text-accent">{branch.hours}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-neutral-400 font-semibold uppercase">{String(t("branches.phoneLabel"))}:</span>
-                    <a href={`tel:${branch.phone}`} className="hover:text-accent font-bold">{branch.phone}</a>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-neutral-400 font-semibold uppercase">{String(t("branches.servicesLabel"))}:</span>
-                    <span className="font-bold text-white">{branch.features}</span>
-                  </div>
+                <div className="text-xs text-[hsl(0_0%_70%)] font-mono">
+                  {activeBranch.address} · {t("locations.phonePrefix") as string}: {activeBranch.phone}
                 </div>
-
-                <a
-                  href="#booking"
-                  className="mt-6 w-full inline-flex items-center justify-center py-3 bg-neutral-950 hover:bg-accent hover:text-black border border-white/10 text-xs font-bold uppercase tracking-wider rounded transition-colors text-white"
-                >
-                  {String(t("branches.bookBtn"))}
-                </a>
               </div>
-            </StaggerItem>
-          ))}
-        </Stagger>
 
-        {/* Map Container */}
-        <Reveal delay={0.3}>
-          <div className="rounded-2xl overflow-hidden border border-white/15 aspect-[21/9] w-full bg-neutral-900 relative">
-            <iframe
-              src="https://www.google.com/maps?q=вул.+Січових+Стрільців,+10,+Київ&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0, filter: String(t("branches.mapFilter")) }}
-              allowFullScreen={false}
-              loading="lazy"
-              title={String(t("branches.mapTitle"))}
-            />
+              <a
+                href={`https://www.google.com/maps?q=${activeBranch.mapQuery}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2.5 min-h-[44px] flex items-center justify-center bg-[hsl(38_88%_52%)] text-black font-display text-sm uppercase font-bold tracking-wider rounded text-center shrink-0 hover:bg-[hsl(35_92%_44%)] transition-colors"
+              >
+                {t("locations.routeBtn") as string}
+              </a>
+            </div>
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

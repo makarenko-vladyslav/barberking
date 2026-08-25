@@ -1,85 +1,83 @@
+
 "use client";
 
+import React from "react";
 import { useLocale } from "@/lib/i18n";
-import { Reveal, Carousel } from "./motion";
-
-interface Testimonial {
-  name: string;
-  branch: string;
-  date: string;
-  stars: string;
-  text: string;
-}
+import { Reveal, Carousel } from "@/components/motion";
 
 export default function Testimonials() {
   const { t } = useLocale();
 
-  const items = (t("testimonials.items") as Testimonial[]) || [];
-
-  const slides = items.map((review, idx) => (
-    <div key={idx} className="bg-neutral-950 border border-white/10 rounded-xl p-8 max-w-2xl mx-auto text-left">
-      <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
-        <div>
-          <h3 className="font-display text-2xl font-bold uppercase text-white">
-            {review.name}
-          </h3>
-          <span className="text-xs text-neutral-400 font-medium">
-            Локація: {review.branch} · {review.date}
-          </span>
-        </div>
-        <div className="text-right">
-          <span className="font-display text-2xl font-extrabold text-accent block">
-            {review.stars}
-          </span>
-          <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest">
-            ОЦІНКА ГОСТЯ
-          </span>
-        </div>
-      </div>
-      <p className="text-neutral-300 text-sm leading-relaxed italic">
-        "{review.text}"
-      </p>
-    </div>
-  ));
+  const kicker = t("testimonials.kicker") as string;
+  const title = t("testimonials.title") as string;
+  const subtitle = t("testimonials.subtitle") as string;
+  const ratingLabel = t("testimonials.ratingLabel") as string;
+  const mapsLabel = t("testimonials.mapsLabel") as string;
+  const countLabel = t("testimonials.countLabel") as string;
+  const items = (t("testimonials.items") as Array<{ name: string; branch: string; rating: number; text: string }>) || [];
 
   return (
-    <section className="py-24 bg-neutral-900 border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Reveal>
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-bold uppercase tracking-widest text-accent mb-2 block">
-              {String(t("testimonials.kicker"))}
+    <section className="py-24 bg-[hsl(0_0%_5%)] text-white relative border-b border-[hsl(0_0%_14%)]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <Reveal>
+            <span className="text-xs font-semibold tracking-[0.25em] text-[hsl(38_88%_52%)] uppercase block mb-3">
+              {kicker}
             </span>
-            <h2 className="font-display text-4xl sm:text-6xl font-extrabold uppercase text-white tracking-tight mb-4">
-              {String(t("testimonials.title"))}
+          </Reveal>
+          <Reveal>
+            <h2 className="font-display font-extrabold text-4xl sm:text-6xl uppercase tracking-tight text-white mb-4">
+              {title}
             </h2>
-            <p className="text-neutral-400 text-base sm:text-lg">
-              {String(t("testimonials.subtitle"))}
+          </Reveal>
+          <Reveal>
+            <p className="text-[hsl(0_0%_75%)] text-base sm:text-lg font-light mb-4">
+              {subtitle}
             </p>
-          </div>
-        </Reveal>
+          </Reveal>
+          
+          <Reveal>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[hsl(0_0%_12%)] border border-[hsl(0_0%_20%)] text-xs text-[hsl(0_0%_70%)] font-mono">
+              <span>{ratingLabel} <strong className="text-[hsl(38_88%_52%)]">4.9 / 5.0</strong></span>
+              <span>·</span>
+              <span>{mapsLabel}</span>
+              <span>·</span>
+              <span>{countLabel}</span>
+            </div>
+          </Reveal>
+        </div>
 
-        {/* Display Quote Block with Oversized Quotation Mark */}
-        <Reveal delay={0.1}>
-          <div className="mb-12 bg-neutral-950 border border-white/10 rounded-2xl p-8 max-w-4xl mx-auto relative overflow-hidden text-center">
-            <span className="font-display text-8xl font-extrabold text-accent/20 absolute -top-4 left-6 select-none pointer-events-none">
-              “
-            </span>
-            <p className="font-display text-2xl sm:text-3xl font-bold uppercase text-white leading-snug relative z-10 mb-4">
-              {String(t("testimonials.displayQuote"))}
-            </p>
-            <span className="text-xs font-bold text-accent uppercase tracking-widest block mb-1">
-              {String(t("testimonials.quoteAuthor"))}
-            </span>
-            <span className="text-[11px] text-neutral-400 uppercase tracking-wider block">
-              {String(t("testimonials.ratingSource"))}
-            </span>
-          </div>
-        </Reveal>
+        {/* Testimonials Carousel (DOT indicators, zero arrows) */}
+        <Carousel>
+          {items.map((item, idx) => (
+            <div key={idx} className="px-4">
+              <div className="bg-[hsl(0_0%_9%)] border border-[hsl(0_0%_18%)] p-8 sm:p-12 rounded-2xl max-w-3xl mx-auto text-center relative shadow-xl">
+                
+                {/* Display Quotation Mark */}
+                <div className="text-6xl font-display font-extrabold text-[hsl(38_88%_52%/0.2)] leading-none mb-2 select-none">
+                  “
+                </div>
 
-        <Reveal delay={0.2}>
-          <Carousel items={slides} />
-        </Reveal>
+                <blockquote className="font-body text-lg sm:text-xl text-[hsl(0_0%_90%)] italic font-light leading-relaxed mb-6">
+                  “{item.text}”
+                </blockquote>
+
+                <div className="font-display text-2xl font-bold uppercase tracking-wide text-white">
+                  {item.name}
+                </div>
+                
+                <div className="text-xs text-[hsl(38_88%_52%)] font-semibold mt-1">
+                  {item.branch} · постійний гість
+                </div>
+
+                <div className="mt-4 pt-4 border-t border-[hsl(0_0%_15%)] text-[11px] text-[hsl(0_0%_50%)] font-mono">
+                  Підтверджений візит через онлайн-запис
+                </div>
+              </div>
+            </div>
+          ))}
+        </Carousel>
       </div>
     </section>
   );

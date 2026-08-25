@@ -1,97 +1,164 @@
+
 "use client";
 
+import React from "react";
 import { useLocale } from "@/lib/i18n";
-import { Reveal, Stagger, StaggerItem } from "./motion";
-
-interface AdvantageItem {
-  title: string;
-  desc: string;
-}
+import { Reveal, Stagger, StaggerItem } from "@/components/motion";
 
 export default function Advantages() {
   const { t } = useLocale();
 
-  const items = (t("advantages.items") as AdvantageItem[]) || [];
+  const kicker = t("whyUs.kicker") as string;
+  const title = t("whyUs.title") as string;
+  const subtitle = t("whyUs.subtitle") as string;
+  const brandQuote = t("whyUs.brandQuote") as string;
+  const sterilizationText = t("whyUs.sterilizationText") as string;
+  const bookOnlineBtn = t("whyUs.bookOnlineBtn") as string;
+  const masterAtWork = t("whyUs.masterAtWork") as string;
+  const cards = (t("whyUs.cards") as Array<{ num: string; title: string; text: string }>) || [];
+  const advLabel = t("whyUs.advLabel") as string;
 
   return (
-    <section id="advantages" className="py-24 bg-neutral-950 border-b border-white/10 scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Reveal>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-accent mb-2 block">
-              {String(t("advantages.kicker"))}
+    <section id="why-us" className="py-24 bg-[hsl(0_0%_5%)] text-white relative border-b border-[hsl(0_0%_14%)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <Reveal>
+            <span className="text-xs font-semibold tracking-[0.25em] text-[hsl(38_88%_52%)] uppercase block mb-3">
+              {kicker}
             </span>
-            <h2 className="font-display text-4xl sm:text-6xl font-extrabold uppercase text-white tracking-tight mb-4">
-              {String(t("advantages.title"))}
-            </h2>
-            <p className="text-neutral-400 text-base sm:text-lg">
-              {String(t("advantages.subtitle"))}
-            </p>
-          </div>
-        </Reveal>
-
-        {/* Pull-Quote & 2-Photo Overlapped Cluster */}
-        <div className="mb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-neutral-900 border border-white/10 rounded-2xl p-8 lg:p-12">
-          <Reveal className="space-y-6">
-            <span className="text-xs font-bold uppercase tracking-widest text-accent block">
-              ФІЛОСОФІЯ ТА СТАНДАРТ
-            </span>
-            <blockquote className="font-display text-2xl sm:text-3xl font-bold uppercase text-white leading-tight">
-              "{String(t("advantages.pullQuote"))}"
-            </blockquote>
-            <p className="text-xs font-semibold text-accent uppercase tracking-wider">
-              — {String(t("advantages.quoteAuthor"))}
-            </p>
-            <div className="pt-4 border-t border-white/10">
-              <a href="#booking" className="text-xs font-bold uppercase tracking-widest text-white hover:text-accent transition-colors">
-                {String(t("advantages.secondaryLink"))} ↗
-              </a>
-            </div>
           </Reveal>
-
-          <Reveal delay={0.2} className="relative">
-            <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-white/20 shadow-2xl">
-              <img
-                src="/barberking/media/3de94b826c157f9d.jpg"
-                alt="Process"
-                loading="lazy"
-                className="w-full h-full object-cover filter brightness-90"
-              />
-            </div>
-            <div className="absolute -bottom-6 -right-4 w-2/3 aspect-[4/3] rounded-xl overflow-hidden border-2 border-accent shadow-2xl hidden sm:block">
-              <img
-                src="/barberking/media/efa843d5303a55ab.jpg"
-                alt="Craft"
-                loading="lazy"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <p className="text-[11px] font-semibold text-neutral-400 uppercase tracking-widest mt-4">
-              {String(t("advantages.photoCaption"))}
+          <Reveal>
+            <h2 className="font-display font-extrabold text-4xl sm:text-6xl uppercase tracking-tight text-white mb-4">
+              {title}
+            </h2>
+          </Reveal>
+          <Reveal>
+            <p className="text-[hsl(0_0%_75%)] text-base sm:text-lg font-light">
+              {subtitle}
             </p>
           </Reveal>
         </div>
 
-        {/* Advantage Cards Grid */}
-        <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {items.map((item, idx) => (
-            <StaggerItem key={idx}>
-              <div className="bg-neutral-900 border border-white/10 rounded-xl p-8 hover:border-accent/50 transition-all h-full flex flex-col justify-between group">
-                <div>
-                  <div className="text-xs font-bold text-accent uppercase tracking-widest mb-4">
-                    СТАНДАРТ 0{idx + 1}
-                  </div>
-                  <h3 className="font-display text-2xl font-bold uppercase text-white mb-3 group-hover:text-accent transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-neutral-400 leading-relaxed">
-                    {item.desc}
-                  </p>
+        {/* Oversized Statement Pull-Quote */}
+        <Reveal className="mb-16">
+          <div className="p-8 sm:p-12 bg-[hsl(0_0%_8%)] border-l-4 border-[hsl(38_88%_52%)] rounded-r-2xl border-y border-r border-[hsl(0_0%_16%)] relative overflow-hidden">
+            <div className="absolute top-2 right-4 text-7xl font-display font-extrabold text-[hsl(38_88%_52%/0.1)] select-none pointer-events-none">
+              “
+            </div>
+            <blockquote className="font-display text-2xl sm:text-4xl font-extrabold uppercase tracking-tight text-white leading-tight mb-4 max-w-4xl">
+              {t("whyUs.quoteText") as string}
+            </blockquote>
+            <div className="flex items-center gap-3 text-xs text-[hsl(0_0%_60%)] font-mono">
+              <span className="w-6 h-px bg-[hsl(38_88%_52%)]" />
+              <span>{brandQuote}</span>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* 2-Photo Cluster + Stat Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
+          {/* Photo Cluster */}
+          <div className="lg:col-span-6 relative">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-[hsl(0_0%_20%)] bg-[hsl(0_0%_10%)] shadow-2xl">
+              <img
+                src="https://kyiv.bking.com.ua/wp-content/themes/bking/images/banner2.jpg"
+                alt={t("whyUs.interiorAlt") as string}
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+            </div>
+
+            {/* Overlapped Framed Photo */}
+            <div className="absolute -bottom-6 -right-4 w-1/2 aspect-[4/3] rounded-xl overflow-hidden border-2 border-[hsl(38_88%_52%)] bg-[hsl(0_0%_12%)] shadow-2xl hidden sm:block">
+              <img
+                src="https://kyiv.bking.com.ua/wp-content/uploads/2026/03/dyno-e1774703810461-904x1024.webp"
+                alt={masterAtWork}
+                loading="lazy"
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+
+            <div className="mt-4 text-xs text-[hsl(0_0%_60%)] font-mono flex items-center gap-2">
+              <span className="w-4 h-px bg-[hsl(38_88%_52%)]" />
+              <span>{sterilizationText}</span>
+            </div>
+          </div>
+
+          {/* Stat Row & Craft Overview */}
+          <div className="lg:col-span-6 space-y-6">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="p-5 bg-[hsl(0_0%_8%)] border border-[hsl(0_0%_16%)] rounded-xl">
+                <div className="font-display text-4xl font-extrabold text-[hsl(38_88%_52%)] tabular-nums">
+                  265,000+
                 </div>
-                <div className="mt-6 pt-4 border-t border-white/5 text-[10px] text-neutral-400 font-semibold tracking-wider uppercase">
-                  Гарантія якості Barberking Kyiv
+                <div className="text-xs text-[hsl(0_0%_70%)] uppercase tracking-wider font-medium mt-1">
+                  {t("whyUs.stat1Label") as string}
                 </div>
               </div>
+
+              <div className="p-5 bg-[hsl(0_0%_8%)] border border-[hsl(0_0%_16%)] rounded-xl">
+                <div className="font-display text-4xl font-extrabold text-[hsl(38_88%_52%)] tabular-nums">
+                  4 локації
+                </div>
+                <div className="text-xs text-[hsl(0_0%_70%)] uppercase tracking-wider font-medium mt-1">
+                  {t("whyUs.stat2Label") as string}
+                </div>
+              </div>
+
+              <div className="p-5 bg-[hsl(0_0%_8%)] border border-[hsl(0_0%_16%)] rounded-xl">
+                <div className="font-display text-4xl font-extrabold text-[hsl(38_88%_52%)] tabular-nums">
+                  8 років
+                </div>
+                <div className="text-xs text-[hsl(0_0%_70%)] uppercase tracking-wider font-medium mt-1">
+                  {t("whyUs.stat3Label") as string}
+                </div>
+              </div>
+
+              <div className="p-5 bg-[hsl(0_0%_8%)] border border-[hsl(0_0%_16%)] rounded-xl">
+                <div className="font-display text-4xl font-extrabold text-[hsl(38_88%_52%)] tabular-nums">
+                  4.9 / 5.0
+                </div>
+                <div className="text-xs text-[hsl(0_0%_70%)] uppercase tracking-wider font-medium mt-1">
+                  {t("whyUs.stat4Label") as string}
+                </div>
+              </div>
+            </div>
+
+            <p className="text-sm text-[hsl(0_0%_75%)] font-light leading-relaxed">
+              {t("whyUs.descText") as string}
+            </p>
+
+            <div>
+              <a
+                href="#booking"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[hsl(38_88%_52%)] hover:underline font-mono min-h-[44px] py-2"
+              >
+                <span>{bookOnlineBtn}</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* 6 Grid Advantage Cards */}
+        <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {cards.map((card, idx) => (
+            <StaggerItem
+              key={idx}
+              className="p-8 bg-[hsl(0_0%_9%)] border border-[hsl(0_0%_16%)] rounded-xl relative hover:border-[hsl(38_88%_52%/0.5)] transition-all group"
+            >
+              <div className="font-display text-5xl font-extrabold text-[hsl(38_88%_52%/0.3)] group-hover:text-[hsl(38_88%_52%)] transition-colors mb-4 tabular-nums">
+                {card.num}
+              </div>
+              <h3 className="font-display text-2xl font-bold uppercase tracking-wide text-white mb-3">
+                {card.title}
+              </h3>
+              <p className="text-sm text-[hsl(0_0%_70%)] font-light leading-relaxed">
+                {card.text}
+              </p>
             </StaggerItem>
           ))}
         </Stagger>

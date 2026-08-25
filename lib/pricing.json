@@ -1,15 +1,18 @@
 {
   "currency": "грн",
-  "basePrices": {
-    "junior": 600,
-    "barber": 750,
-    "top": 850,
-    "grand": 1150
+  "tiers": {
+    "junior": { "name": "Junior Barber", "multiplier": 0.8 },
+    "barber": { "name": "Barber", "multiplier": 1.0 },
+    "top": { "name": "Top Barber", "multiplier": 1.15 },
+    "grand": { "name": "Grand Barber", "multiplier": 1.5 }
   },
-  "addons": {
-    "beard": 400,
-    "waxing": 100,
-    "mask": 350,
-    "royalShave": 600
-  }
+  "services": [
+    { "id": "haircut", "name": "Професійна чоловіча стрижка", "basePrice": 750, "duration": 50 },
+    { "id": "hair_beard", "name": "Стрижка + оформлення бороди", "basePrice": 1150, "duration": 75 },
+    { "id": "clipper", "name": "Стрижка машинкою", "basePrice": 550, "duration": 30 },
+    { "id": "shave", "name": "Королівське гоління", "basePrice": 500, "duration": 45 },
+    { "id": "beard", "name": "Стрижка та окантовка бороди", "basePrice": 550, "duration": 40 },
+    { "id": "father_son", "name": "Комплекс «Батько та син»", "basePrice": 1150, "duration": 90 },
+    { "id": "wedding", "name": "Передвесільний комплекс", "basePrice": 1500, "duration": 110 }
+  ]
 }

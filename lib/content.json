@@ -39,7 +39,7 @@
         "ctaPrimary": "Обрати час та майстра",
         "ctaSecondary": "Переглянути ціни",
         "videoSrc": "https://kyiv.bking.com.ua/wp-content/themes/bking/video-bg/video-bg.mp4",
-        "posterUrl": "https://kyiv.bking.com.ua/wp-content/themes/bking/images/banner2.jpg",
+        "posterUrl": "/barberking/media/36fa59f33a84581a.jpg",
         "branch1": "01. ПАВЛІВСЬКА 18",
         "branch2": "02. ДНІПРОВСЬКА НАБ.",
         "branch3": "03. ОЛЕСЯ 8А",
@@ -105,7 +105,7 @@
             "priceGrand": "1 150 грн",
             "time": "45-60 хв",
             "tag": "ТОП-ВІЗИТ",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-300x200.jpg"
+            "imageUrl": "/barberking/media/efa843d5303a55ab.jpg"
           },
           {
             "id": "combo",
@@ -118,7 +118,7 @@
             "priceGrand": "1 600 грн",
             "time": "75-90 хв",
             "tag": "ПОПУЛЯРНЕ",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5902-2-300x200.jpg"
+            "imageUrl": "/barberking/media/3de94b826c157f9d.jpg"
           },
           {
             "id": "clipper",
@@ -131,7 +131,7 @@
             "priceGrand": "750 грн",
             "time": "30 хв",
             "tag": "",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6059-300x200.jpg"
+            "imageUrl": "/barberking/media/7d68ec366c050a0f.jpg"
           },
           {
             "id": "beard",
@@ -144,7 +144,7 @@
             "priceGrand": "800 грн",
             "time": "45 хв",
             "tag": "",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5183-300x200.jpg"
+            "imageUrl": "/barberking/media/558b1a9dde7d9efc.jpg"
           },
           {
             "id": "royal_shave",
@@ -157,7 +157,7 @@
             "priceGrand": "700 грн",
             "time": "45 хв",
             "tag": "РИТУАЛ",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6955-300x200.jpg"
+            "imageUrl": "/barberking/media/68694e9df96631aa.jpg"
           },
           {
             "id": "father_son",
@@ -170,7 +170,7 @@
             "priceGrand": "1 750 грн",
             "time": "60-75 хв",
             "tag": "СЕМЕЙНИЙ",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5352-300x200.jpg"
+            "imageUrl": "/barberking/media/eef99b5fe845d343.jpg"
           },
           {
             "id": "grey_camouflage",
@@ -183,7 +183,7 @@
             "priceGrand": "600 грн",
             "time": "20-30 хв",
             "tag": "",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_7104-300x200.jpg"
+            "imageUrl": "/barberking/media/3cb4bc541f8fcf33.jpg"
           },
           {
             "id": "waxing",
@@ -196,7 +196,7 @@
             "priceGrand": "150 грн",
             "time": "15 хв",
             "tag": "",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_4972-300x200.jpg"
+            "imageUrl": "/barberking/media/ef9a434c10d88667.jpg"
           }
         ]
       },
@@ -350,7 +350,7 @@
             "location": "вул. Павлівська, 18 (Центр)",
             "exp": "8+ років досвіду",
             "spec": "Експерт подовжених стрижок, геометричний fade та моделювання бороди.",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2026/03/dyno-e1774703810461-904x1024.webp"
+            "imageUrl": "/barberking/media/c95335bf6f2294f5.webp"
           },
           {
             "name": "Андрій (АРТ)",
@@ -358,7 +358,7 @@
             "location": "вул. Павлівська, 18 (Тату-кімната)",
             "exp": "6+ років досвіду",
             "spec": "Художній графічний стиль, перекриття шрамів та авторські ескізи.",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2026/06/img_4703-e1782466384832-759x1024.webp"
+            "imageUrl": "/barberking/media/024ab8c94532e3e3.webp"
           },
           {
             "name": "Максим",
@@ -366,7 +366,7 @@
             "location": "вул. Дніпровська набережна, 15К",
             "exp": "5 років досвіду",
             "spec": "Майстер текстурних кропів, фейдів будь-якої складності та камуфляжу сивини.",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2026/03/img_1831-e1773677468520-737x1024.webp"
+            "imageUrl": "/barberking/media/95c049defc314132.webp"
           },
           {
             "name": "Євгеній",
@@ -374,7 +374,7 @@
             "location": "вул. Олександра Олеся, 8А",
             "exp": "4 роки досвіду",
             "spec": "Королівське гоління, спортивні стрижки та дитячі сети.",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2024/12/1-scaled-e1736622253994-859x1024.jpg"
+            "imageUrl": "/barberking/media/47bdacb7ed0e5d90.jpg"
           },
           {
             "name": "Дмитро",
@@ -382,7 +382,7 @@
             "location": "вул. Урлівська, 11/44",
             "exp": "4 роки досвіду",
             "spec": "Класичні формальності, окантовка бороди воском, робота з жорстким волоссям.",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2025/04/photo_2025-04-26-15.12.24-768x1024.webp"
+            "imageUrl": "/barberking/media/cb21fce583949171.webp"
           }
         ]
       },
@@ -391,14 +391,14 @@
         "title": "ФОТОГРАФІЇ РЕАЛЬНИХ СТРИЖОК ТА АТМОСФЕРИ",
         "subtitle": "Тільки реальні роботи наших майстрів без фотошопу та фільтрів. Реальні клієнти, результат.",
         "images": [
-          { "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-300x200.jpg", "caption": "Класичний Кроп & Стрижка бороди" },
-          { "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5902-2-300x200.jpg", "caption": "Прецизійний Low Fade" },
-          { "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6059-300x200.jpg", "caption": "Королівське гоління розпареним рушником" },
-          { "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5183-300x200.jpg", "caption": "Моделювання бороди та контури" },
-          { "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6955-300x200.jpg", "caption": "Укладка подовженої форми" },
-          { "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5352-300x200.jpg", "caption": "Дитячий стрижечний сет" },
-          { "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_7104-300x200.jpg", "caption": "Камуфляж сивини з природним ефектом" },
-          { "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_4572-300x200.jpg", "caption": "Атмосфера барбершопу на Павлівській" }
+          { "url": "/barberking/media/efa843d5303a55ab.jpg", "caption": "Класичний Кроп & Стрижка бороди" },
+          { "url": "/barberking/media/3de94b826c157f9d.jpg", "caption": "Прецизійний Low Fade" },
+          { "url": "/barberking/media/7d68ec366c050a0f.jpg", "caption": "Королівське гоління розпареним рушником" },
+          { "url": "/barberking/media/558b1a9dde7d9efc.jpg", "caption": "Моделювання бороди та контури" },
+          { "url": "/barberking/media/68694e9df96631aa.jpg", "caption": "Укладка подовженої форми" },
+          { "url": "/barberking/media/eef99b5fe845d343.jpg", "caption": "Дитячий стрижечний сет" },
+          { "url": "/barberking/media/3cb4bc541f8fcf33.jpg", "caption": "Камуфляж сивини з природним ефектом" },
+          { "url": "/barberking/media/62b0764570b9184a.jpg", "caption": "Атмосфера барбершопу на Павлівській" }
         ]
       },
       "certificates": {
@@ -407,7 +407,7 @@
         "subtitle": "Сертифікат у Barberking — це вдалий подарунок для чоловіка, колеги чи батька на будь-яку подію.",
         "cardTitle": "Подарунковий Сертифікат Barberking",
         "cardDesc": "Доступні номінали від 1 000 грн або на конкретний комплекс послуг. Пакування з печаткою.",
-        "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2024/12/certificate-768x549.png",
+        "imageUrl": "/barberking/media/fc4d1e148af779a7.png",
         "giftAlt": "Gift certificate",
         "subTitle": "Абонементи на стрижки зі знижкою 15%:",
         "subs": [
@@ -615,7 +615,7 @@
         "ctaPrimary": "Book Master & Time",
         "ctaSecondary": "View Prices",
         "videoSrc": "https://kyiv.bking.com.ua/wp-content/themes/bking/video-bg/video-bg.mp4",
-        "posterUrl": "https://kyiv.bking.com.ua/wp-content/themes/bking/images/banner2.jpg",
+        "posterUrl": "/barberking/media/36fa59f33a84581a.jpg",
         "branch1": "01. PAVLIVSKA 18",
         "branch2": "02. DNIPROVSKA EMB.",
         "branch3": "03. OLESYA 8A",
@@ -681,7 +681,7 @@
             "priceGrand": "1,150 UAH",
             "time": "45-60 min",
             "tag": "MOST POPULAR",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-300x200.jpg"
+            "imageUrl": "/barberking/media/efa843d5303a55ab.jpg"
           },
           {
             "id": "combo",
@@ -694,7 +694,7 @@
             "priceGrand": "1,600 UAH",
             "time": "75-90 min",
             "tag": "FEATURED",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5902-2-300x200.jpg"
+            "imageUrl": "/barberking/media/3de94b826c157f9d.jpg"
           }
         ]
       },
@@ -810,7 +810,7 @@
             "location": "18 Pavlivska Str. (Center)",
             "exp": "8+ years exp",
             "spec": "Long hair specialist, geometric fades & custom beard sculpting.",
-            "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2026/03/dyno-e1774703810461-904x1024.webp"
+            "imageUrl": "/barberking/media/c95335bf6f2294f5.webp"
           }
         ]
       },
@@ -819,7 +819,7 @@
         "title": "REAL CLIENTS & BARBERSHOP ATMOSPHERE",
         "subtitle": "Authentic work by our team. No filters, zero photoshop.",
         "images": [
-          { "url": "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-300x200.jpg", "caption": "Classic Crop & Beard Sculpting" }
+          { "url": "/barberking/media/efa843d5303a55ab.jpg", "caption": "Classic Crop & Beard Sculpting" }
         ]
       },
       "certificates": {
@@ -828,7 +828,7 @@
         "subtitle": "Barberking certificates are the gift for friends and colleagues.",
         "cardTitle": "Barberking Gift Certificate",
         "cardDesc": "Available in custom values or specific service packages with luxury seal packaging.",
-        "imageUrl": "https://kyiv.bking.com.ua/wp-content/uploads/2024/12/certificate-768x549.png",
+        "imageUrl": "/barberking/media/fc4d1e148af779a7.png",
         "giftAlt": "Gift certificate",
         "subTitle": "10-visit subscriptions with 15% discount:",
         "subs": [

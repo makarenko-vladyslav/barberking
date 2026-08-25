@@ -143,6 +143,30 @@ interface RevealProps extends MotionBoxProps {
    * 0 keeps the old behaviour exactly — one element, one movement.
    */
   stagger?: number;
+  /**
+   * Which way the element travels as it arrives. `up` — the default and the
+   * only behaviour this had — means it starts below and rises.
+   *
+   * It exists because the generator kept asking for it: eight `direction` props
+   * on one shipped barbershop site, on a primitive that declared none, so React
+   * dropped every one of them and each section rose from below like all the
+   * others. The distance is still whatever `y` says.
+   */
+  direction?: "up" | "down" | "left" | "right";
+}
+
+/** Where the element starts, in the px `y` has always meant. */
+function travelFrom(direction: NonNullable<RevealProps["direction"]>, distance: number): { x: number } | { y: number } {
+  switch (direction) {
+    case "down":
+      return { y: -distance };
+    case "left":
+      return { x: distance };
+    case "right":
+      return { x: -distance };
+    default:
+      return { y: distance };
+  }
 }
 
 /**
@@ -156,12 +180,15 @@ export function Reveal({
   duration = 0.55,
   ease = CURVES.enter,
   stagger = 0,
+  direction = "up",
   as = "div",
   className,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const revealed = useRevealed(ref);
   const reduced = useReducedMotion();
+  const from = travelFrom(direction, y);
+  const settled = Object.fromEntries(Object.keys(from).map((axis) => [axis, 0]));
 
   if (reduced) {
     const Plain = as;

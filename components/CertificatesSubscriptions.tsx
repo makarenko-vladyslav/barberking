@@ -51,7 +51,7 @@ export default function CertificatesSubscriptions({ onOpenBooking }: Certificate
               </p>
 
               <img
-                src="https://kyiv.bking.com.ua/wp-content/uploads/2024/12/certificate-768x549.png"
+                src="/barberking/media/fc4d1e148af779a7.png"
                 alt={String(t("certificates.giftAlt"))}
                 className="w-full h-48 sm:h-56 object-contain rounded border border-[hsl(36_10%_22%)] bg-[hsl(24_14%_11%)] p-2"
               />

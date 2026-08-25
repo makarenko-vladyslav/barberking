@@ -13,7 +13,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const logoUrl = "https://kyiv.bking.com.ua/wp-content/themes/bking/images/logo.png";
+  const logoUrl = "/barberking/media/210b09d0793a22f8.png";
   const brandName = (t("brand.name") as string) || "Barberking";
 
   useEffect(() => {

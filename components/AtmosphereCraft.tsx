@@ -89,7 +89,7 @@ export default function AtmosphereCraft() {
               {/* Primary Image */}
               <div className="relative z-10 rounded overflow-hidden border-2 border-[hsl(36_10%_22%)] shadow-2xl">
                 <img
-                  src="https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6059-300x200.jpg"
+                  src="/barberking/media/7d68ec366c050a0f.jpg"
                   alt="Atmosphere main view"
                   className="w-full h-[360px] sm:h-[420px] object-cover filter brightness-90"
                 />
@@ -99,7 +99,7 @@ export default function AtmosphereCraft() {
               {/* Overlapped Secondary Image */}
               <div className="absolute bottom-0 left-4 sm:-left-6 z-20 w-48 sm:w-60 h-36 sm:h-44 rounded overflow-hidden border-4 border-[hsl(24_14%_11%)] shadow-2xl transform -rotate-3">
                 <img
-                  src="https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5183-300x200.jpg"
+                  src="/barberking/media/558b1a9dde7d9efc.jpg"
                   alt="Barbershop Details"
                   className="w-full h-full object-cover"
                 />

@@ -27,7 +27,7 @@ export default function BeforeAfterShowcase() {
           <div className="relative h-[380px] sm:h-[500px] rounded-lg overflow-hidden border-2 border-[hsl(36_10%_22%)] select-none">
             {/* After Image (Full width background) */}
             <img
-              src="https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5902-2-300x200.jpg"
+              src="/barberking/media/3de94b826c157f9d.jpg"
               alt={String(t("ba.afterAlt"))}
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -41,7 +41,7 @@ export default function BeforeAfterShowcase() {
               style={{ width: `${sliderPos}%` }}
             >
               <img
-                src="https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-300x200.jpg"
+                src="/barberking/media/efa843d5303a55ab.jpg"
                 alt={String(t("ba.beforeAlt"))}
                 className="absolute inset-0 w-full h-full object-cover filter grayscale contrast-125"
                 style={{ width: "100%", maxWidth: "none" }}

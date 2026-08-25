@@ -1,18 +1,47 @@
 {
   "currency": "грн",
-  "tiers": {
-    "junior": { "name": "Junior Barber", "multiplier": 0.8 },
-    "barber": { "name": "Barber", "multiplier": 1.0 },
-    "top": { "name": "Top Barber", "multiplier": 1.15 },
-    "grand": { "name": "Grand Barber", "multiplier": 1.5 }
-  },
-  "services": [
-    { "id": "haircut", "name": "Професійна чоловіча стрижка", "basePrice": 750, "duration": 50 },
-    { "id": "hair_beard", "name": "Стрижка + оформлення бороди", "basePrice": 1150, "duration": 75 },
-    { "id": "clipper", "name": "Стрижка машинкою", "basePrice": 550, "duration": 30 },
-    { "id": "shave", "name": "Королівське гоління", "basePrice": 500, "duration": 45 },
-    { "id": "beard", "name": "Стрижка та окантовка бороди", "basePrice": 550, "duration": 40 },
-    { "id": "father_son", "name": "Комплекс «Батько та син»", "basePrice": 1150, "duration": 90 },
-    { "id": "wedding", "name": "Передвесільний комплекс", "basePrice": 1500, "duration": 110 }
+  "tiers": [
+    {
+      "id": "junior",
+      "name": "Junior Barber",
+      "subtitle": "Перспектива та молода точність",
+      "haircut": 600,
+      "combo": 850,
+      "beard": 350,
+      "machine": 450
+    },
+    {
+      "id": "barber",
+      "name": "Barber",
+      "subtitle": "Перевірена класика та сучасні техніки",
+      "haircut": 750,
+      "combo": 1150,
+      "beard": 550,
+      "machine": 550
+    },
+    {
+      "id": "top",
+      "name": "Top Barber",
+      "subtitle": "Висока майстерність та моделювання",
+      "haircut": 850,
+      "combo": 1250,
+      "beard": 600,
+      "machine": 600
+    },
+    {
+      "id": "grand",
+      "name": "Grand Barber",
+      "subtitle": "Найвищий ступінь ремесла та індивідуалізму",
+      "haircut": 1150,
+      "combo": 1600,
+      "beard": 800,
+      "machine": 750
+    }
+  ],
+  "addOns": [
+    { "id": "camouflage", "name": "Камуфляж сивини", "price": 550 },
+    { "id": "blackMask", "name": "Чорна маска (Black Mask)", "price": 350 },
+    { "id": "waxing", "name": "Воскова корекція (обличчя)", "price": 100 },
+    { "id": "scalpCare", "name": "Догляд за шкірою голови", "price": 300 }
   ]
 }

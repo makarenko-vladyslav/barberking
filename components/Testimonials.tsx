@@ -1,83 +1,88 @@
-
 "use client";
 
-import React from "react";
 import { useLocale } from "@/lib/i18n";
-import { Reveal, Carousel } from "@/components/motion";
+import { Carousel } from "@/components/motion";
 
 export default function Testimonials() {
   const { t } = useLocale();
 
-  const kicker = t("testimonials.kicker") as string;
-  const title = t("testimonials.title") as string;
-  const subtitle = t("testimonials.subtitle") as string;
-  const ratingLabel = t("testimonials.ratingLabel") as string;
-  const mapsLabel = t("testimonials.mapsLabel") as string;
-  const countLabel = t("testimonials.countLabel") as string;
-  const items = (t("testimonials.items") as Array<{ name: string; branch: string; rating: number; text: string }>) || [];
+  const reviews = (t("testimonials.reviews") as Array<{
+    name: string;
+    role: string;
+    text: string;
+    rating: number;
+    date: string;
+  }>) || [];
 
   return (
-    <section className="py-24 bg-[hsl(0_0%_5%)] text-white relative border-b border-[hsl(0_0%_14%)]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <Reveal>
-            <span className="text-xs font-semibold tracking-[0.25em] text-[hsl(38_88%_52%)] uppercase block mb-3">
-              {kicker}
-            </span>
-          </Reveal>
-          <Reveal>
-            <h2 className="font-display font-extrabold text-4xl sm:text-6xl uppercase tracking-tight text-white mb-4">
-              {title}
-            </h2>
-          </Reveal>
-          <Reveal>
-            <p className="text-[hsl(0_0%_75%)] text-base sm:text-lg font-light mb-4">
-              {subtitle}
-            </p>
-          </Reveal>
-          
-          <Reveal>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[hsl(0_0%_12%)] border border-[hsl(0_0%_20%)] text-xs text-[hsl(0_0%_70%)] font-mono">
-              <span>{ratingLabel} <strong className="text-[hsl(38_88%_52%)]">4.9 / 5.0</strong></span>
-              <span>·</span>
-              <span>{mapsLabel}</span>
-              <span>·</span>
-              <span>{countLabel}</span>
-            </div>
-          </Reveal>
+    <section className="py-24 bg-zinc-950 relative border-t border-zinc-800 overflow-hidden">
+      {/* Absolute Decorative Background Mark */}
+      <div
+        aria-hidden="true"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none opacity-[0.02] z-0"
+      >
+        <span className="font-display font-extrabold text-[35vw] uppercase text-white leading-none">
+          REVIEWS
+        </span>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Proof Section Header (Layers 1-3) */}
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <span className="text-xs font-semibold uppercase tracking-widest text-amber-400 bg-amber-500/10 border border-amber-500/30 px-3.5 py-1 rounded">
+            {t("testimonials.kicker") as string}
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-display font-extrabold uppercase text-white mt-4 mb-3">
+            {t("testimonials.title") as string}
+          </h2>
+          <p className="text-zinc-400 text-base sm:text-lg">
+            {t("testimonials.subtitle") as string}
+          </p>
         </div>
 
-        {/* Testimonials Carousel (DOT indicators, zero arrows) */}
+        {/* Testimonials Carousel (Dots only, no prev/next arrows) */}
         <Carousel>
-          {items.map((item, idx) => (
-            <div key={idx} className="px-4">
-              <div className="bg-[hsl(0_0%_9%)] border border-[hsl(0_0%_18%)] p-8 sm:p-12 rounded-2xl max-w-3xl mx-auto text-center relative shadow-xl">
-                
-                {/* Display Quotation Mark */}
-                <div className="text-6xl font-display font-extrabold text-[hsl(38_88%_52%/0.2)] leading-none mb-2 select-none">
+          {reviews.map((review, idx) => (
+            <div key={idx} className="p-4">
+              <div className="max-w-3xl mx-auto bg-zinc-900 border border-zinc-800 rounded-2xl p-8 sm:p-12 shadow-2xl text-center space-y-6 relative">
+                {/* Oversized Display Quotation Mark */}
+                <div 
+                  aria-hidden="true" 
+                  className="font-display font-extrabold text-7xl sm:text-8xl text-amber-500/20 leading-none select-none -mb-8"
+                >
                   “
                 </div>
 
-                <blockquote className="font-body text-lg sm:text-xl text-[hsl(0_0%_90%)] italic font-light leading-relaxed mb-6">
-                  “{item.text}”
-                </blockquote>
-
-                <div className="font-display text-2xl font-bold uppercase tracking-wide text-white">
-                  {item.name}
-                </div>
-                
-                <div className="text-xs text-[hsl(38_88%_52%)] font-semibold mt-1">
-                  {item.branch} · постійний гість
+                {/* Rating Display */}
+                <div className="flex justify-center items-center gap-2 text-xs font-mono uppercase text-amber-400 tracking-widest">
+                  <span className="font-bold text-lg">4.9 / 5.0</span>
+                  <span className="text-zinc-600">·</span>
+                  <span>{t("testimonials.googleLabel") as string}</span>
                 </div>
 
-                <div className="mt-4 pt-4 border-t border-[hsl(0_0%_15%)] text-[11px] text-[hsl(0_0%_50%)] font-mono">
-                  Підтверджений візит через онлайн-запис
+                {/* Quote Text */}
+                <p className="text-lg sm:text-2xl text-zinc-100 font-body leading-relaxed">
+                  "{review.text}"
+                </p>
+
+                {/* Attribution & Descriptor */}
+                <div className="pt-6 border-t border-zinc-800/80">
+                  <div className="font-display font-extrabold uppercase text-2xl text-white">
+                    {review.name}
+                  </div>
+                  <div className="text-xs text-zinc-400 font-mono mt-1">
+                    {review.role} · <span className="text-amber-400">{review.date}</span>
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </Carousel>
+
+        {/* Named Source Summary Badge */}
+        <div className="mt-12 text-center text-xs font-mono text-zinc-400 uppercase tracking-widest">
+          ПОНАД 580 ПІДТВЕРДЖЕНИХ ВІДГУКІВ НА GOOGLE MAPS ДЛЯ 4 ЛОКАЦІЙ КИЄВА
+        </div>
       </div>
     </section>
   );

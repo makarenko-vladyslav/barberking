@@ -1,119 +1,76 @@
-
 "use client";
 
-import React, { useState } from "react";
 import { useLocale } from "@/lib/i18n";
-import { Reveal } from "@/components/motion";
 
 export default function LocationsMap() {
   const { t } = useLocale();
 
-  const kicker = t("locations.kicker") as string;
-  const title = t("locations.title") as string;
-  const subtitle = t("locations.subtitle") as string;
-  const mapFilter = t("locations.mapFilter") as string;
-  const branches = (t("locations.branches") as Array<{
+  const branches = (t("branches.list") as Array<{
     name: string;
     address: string;
-    subway: string;
-    parking: string;
     phone: string;
-    hours: string;
-    mapQuery: string;
+    parking: string;
+    features: string;
   }>) || [];
 
-  const [selectedBranch, setSelectedBranch] = useState(0);
-  const activeBranch = branches[selectedBranch] || branches[0];
-
   return (
-    <section id="locations" className="py-24 bg-[hsl(0_0%_7%)] text-white relative border-b border-[hsl(0_0%_14%)]">
+    <section id="branches" className="py-24 bg-zinc-950 relative border-t border-zinc-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <Reveal>
-            <span className="text-xs font-semibold tracking-[0.25em] text-[hsl(38_88%_52%)] uppercase block mb-3">
-              {kicker}
-            </span>
-          </Reveal>
-          <Reveal>
-            <h2 className="font-display font-extrabold text-4xl sm:text-6xl uppercase tracking-tight text-white mb-4">
-              {title}
-            </h2>
-          </Reveal>
-          <Reveal>
-            <p className="text-[hsl(0_0%_75%)] text-base sm:text-lg font-light">
-              {subtitle}
-            </p>
-          </Reveal>
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <span className="text-xs font-semibold uppercase tracking-widest text-amber-400 bg-amber-500/10 border border-amber-500/30 px-3.5 py-1 rounded">
+            {t("branches.kicker") as string}
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-display font-extrabold uppercase text-white mt-4 mb-3">
+            {t("branches.title") as string}
+          </h2>
+          <p className="text-zinc-400 text-base">
+            {t("branches.subtitle") as string}
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Branch Selector Cards */}
-          <div className="lg:col-span-5 space-y-4">
-            {branches.map((b, idx) => (
-              <button
-                key={idx}
-                onClick={() => setSelectedBranch(idx)}
-                className={`w-full text-left p-6 min-h-[44px] rounded-xl border transition-all ${
-                  selectedBranch === idx
-                    ? "bg-[hsl(0_0%_12%)] border-[hsl(38_88%_52%)] shadow-lg"
-                    : "bg-[hsl(0_0%_9%)] border-[hsl(0_0%_16%)] hover:border-[hsl(0_0%_25%)]"
-                }`}
-              >
-                <div className="flex items-center justify-between mb-1">
-                  <h3 className="font-display text-2xl font-bold uppercase tracking-wide text-white">
-                    {b.name}
-                  </h3>
-                  {selectedBranch === idx && (
-                    <span className="w-2.5 h-2.5 rounded-full bg-[hsl(38_88%_52%)]" />
-                  )}
-                </div>
-                <div className="text-sm font-semibold text-[hsl(38_88%_52%)] mb-2">
-                  {b.address}
-                </div>
-                <div className="text-xs text-[hsl(0_0%_70%)] space-y-1 font-mono">
-                  <div>{t("locations.subwayLabel") as string}: {b.subway}</div>
-                  <div>{t("locations.parkingLabel") as string}: {b.parking}</div>
-                  <div>{t("locations.hoursLabel") as string}: {b.hours}</div>
-                </div>
-              </button>
-            ))}
-          </div>
-
-          {/* Interactive Map Embed */}
-          <div className="lg:col-span-7 bg-[hsl(0_0%_9%)] border border-[hsl(0_0%_18%)] rounded-2xl overflow-hidden p-3 flex flex-col justify-between h-full min-h-[450px]">
-            <div className="w-full h-[380px] rounded-xl overflow-hidden relative">
-              <iframe
-                src={`https://www.google.com/maps?q=${activeBranch.mapQuery}&output=embed`}
-                width="100%"
-                height="100%"
-                style={{ border: 0, filter: mapFilter }}
-                allowFullScreen
-                loading="lazy"
-                title={`${t("locations.mapTitlePrefix") as string} - ${activeBranch.name}`}
-              />
-            </div>
-
-            <div className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-2">
+        {/* 4 Kyiv Branches Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {branches.map((b, idx) => (
+            <div
+              key={idx}
+              className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex flex-col justify-between hover:border-amber-500/50 transition-colors"
+            >
               <div>
-                <div className="font-display text-xl font-bold uppercase text-white">
-                  {activeBranch.name}
+                <div className="text-[11px] text-amber-400 font-mono uppercase tracking-wider mb-2">
+                  ЛОКАЦІЯ 0{idx + 1} · {b.features}
                 </div>
-                <div className="text-xs text-[hsl(0_0%_70%)] font-mono">
-                  {activeBranch.address} · {t("locations.phonePrefix") as string}: {activeBranch.phone}
+                <h3 className="text-2xl font-display font-bold uppercase text-white mb-3">
+                  {b.name}
+                </h3>
+                <p className="text-xs text-zinc-300 font-body mb-4">
+                  АДРЕСА: {b.address}
+                </p>
+                <div className="text-xs text-zinc-400 font-mono mb-4 bg-zinc-950 p-2.5 rounded border border-zinc-800/80">
+                  ПАРКІНГ: {b.parking}
                 </div>
               </div>
 
               <a
-                href={`https://www.google.com/maps?q=${activeBranch.mapQuery}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2.5 min-h-[44px] flex items-center justify-center bg-[hsl(38_88%_52%)] text-black font-display text-sm uppercase font-bold tracking-wider rounded text-center shrink-0 hover:bg-[hsl(35_92%_44%)] transition-colors"
+                href={`tel:${b.phone.replace(/\s+/g, "")}`}
+                className="block text-center py-2.5 bg-zinc-950 hover:bg-amber-500 hover:text-zinc-950 text-amber-400 font-display font-bold uppercase tracking-wider text-base rounded border border-zinc-800 transition-colors"
               >
-                {t("locations.routeBtn") as string}
+                {b.phone}
               </a>
             </div>
-          </div>
+          ))}
+        </div>
+
+        {/* Map Embed */}
+        <div className="rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl h-80 sm:h-96 relative">
+          <iframe
+            src="https://www.google.com/maps?q=вул.+Січових+Стрільців,+10,+Київ&output=embed"
+            width="100%"
+            height="100%"
+            style={{ border: 0, filter: t("branches.mapFilter") as string }}
+            allowFullScreen
+            loading="lazy"
+            title={t("branches.mapTitle") as string}
+          />
         </div>
       </div>
     </section>

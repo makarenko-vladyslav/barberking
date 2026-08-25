@@ -1,84 +1,73 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import SocialProof from "@/components/SocialProof";
-import ServicesPricing from "@/components/ServicesPricing";
-import BookingCalculator from "@/components/BookingCalculator";
-import Advantages from "@/components/Advantages";
-import MastersTeam from "@/components/MastersTeam";
-import Gallery from "@/components/Gallery";
-import RitualProcess from "@/components/RitualProcess";
-import TattooAndSpecialized from "@/components/TattooAndSpecialized";
+import Philosophy from "@/components/Philosophy";
+import ServicesPrices from "@/components/ServicesPrices";
+import Calculator from "@/components/Calculator";
+import Team from "@/components/Team";
+import Transformations from "@/components/Transformations";
+import HygieneStandards from "@/components/HygieneStandards";
+import TattooGrooming from "@/components/TattooGrooming";
 import CertificatesSubscriptions from "@/components/CertificatesSubscriptions";
 import Testimonials from "@/components/Testimonials";
+import FAQSection from "@/components/FAQSection";
 import LocationsMap from "@/components/LocationsMap";
-import Faq from "@/components/Faq";
-import BookingForm from "@/components/BookingForm";
+import CTAForm from "@/components/CTAForm";
 import Footer from "@/components/Footer";
+import StickyMobileBar from "@/components/StickyMobileBar";
 import { useLocale } from "@/lib/i18n";
-
-export const metadata = {
-  title: "Barberking — Барбершоп у Києві",
-};
+import ServerInterstitials from "@/components/ServerInterstitials";
 
 export default function Home() {
-  return <HomePageContent />;
-}
-
-function HomePageContent() {
   return (
-    <>
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-body">
       <Header />
-      <main className="bg-[hsl(0_0%_5%)] text-white">
+      <main>
         <Hero />
-        
-        {/* Interstitial 1: Social Proof Ticker */}
         <SocialProof />
-        
-        <ServicesPricing />
-        
-        {/* Interstitial 2: Labeled Hairline Strip */}
-        <div className="py-4 bg-[hsl(0_0%_6%)] border-y border-[hsl(0_0%_15%)] text-center">
-          <span className="text-xs uppercase font-mono tracking-[0.3em] text-[hsl(38_88%_52%)]">
-            — СТАНДАРТИ ОБСЛУГОВУВАННЯ BARBERKING 2026 —
+
+        {/* Interstitial 1: Labeled Hairline */}
+        <div className="w-full bg-zinc-950 py-4 border-y border-zinc-800/80 text-center">
+          <span className="text-xs font-mono uppercase tracking-[0.3em] text-amber-400/80">
+            — ФІЛОСОФІЯ ЧИСТОГО РЕМЕСЛА ТА ГЕОМЕТРІЇ —
           </span>
         </div>
 
-        <BookingCalculator />
-        <Advantages />
-        
-        {/* Interstitial 3: Standalone Statement Band */}
-        <div className="py-8 bg-[hsl(38_88%_52%)] text-[hsl(0_0%_5%)] text-center font-display font-extrabold text-2xl sm:text-4xl uppercase tracking-wider">
-          ГОЛІННЯ НЕБЕЗПЕЧНОЮ БРИТВОЮ · ГАРЯЧІ ЕВКАЛІПТОВІ РУШНИКИ · СВІЖООБСМАЖЕНА КАВА
+        <Philosophy />
+        <ServicesPrices />
+
+        {/* Interstitial 2: Standalone Oversized Statement Band */}
+        <div className="w-full bg-amber-500 py-6 text-zinc-950 text-center overflow-hidden">
+          <div className="font-display font-extrabold uppercase text-2xl sm:text-4xl tracking-tight max-w-5xl mx-auto px-4">
+            ПОНАД 265 000 СТРИЖОК З 2018 РОКУ: ТВІЙ СТИЛЬ БЕЗ ЗАПІЗНЕНЬ
+          </div>
         </div>
 
-        <MastersTeam />
-        <Gallery />
+        <Calculator />
+        <Team />
+        <Transformations />
 
-        {/* Interstitial 4: Press & Rating Strip */}
-        <TranslatedPressStrip />
+        {/* Interstitial 3: Labeled Hairline */}
+        <div className="w-full bg-zinc-900 py-4 border-y border-zinc-800 text-center">
+          <span className="text-xs font-mono uppercase tracking-[0.3em] text-zinc-400">
+            — БЕЗПЕКА ГОСТЯ ТА 100% СТЕРИЛІЗАЦІЯ ІНСТРУМЕНТІВ —
+          </span>
+        </div>
 
-        <RitualProcess />
-        <TattooAndSpecialized />
+        <HygieneStandards />
+        <TattooGrooming />
         <CertificatesSubscriptions />
         <Testimonials />
+
+        {/* Interstitial 4: Press / Rating Strip */}
+        <ServerInterstitials />
+
+        <FAQSection />
         <LocationsMap />
-        <Faq />
-        <BookingForm />
+        <CTAForm />
       </main>
       <Footer />
-    </>
-  );
-}
-
-function TranslatedPressStrip() {
-  // Client component helper or inline text using useLocale via Header/etc, but since page.tsx is server, we render simple wrapper
-  return (
-    <div className="py-4 bg-[hsl(0_0%_7%)] border-y border-[hsl(0_0%_15%)] flex justify-center items-center gap-8 text-xs uppercase font-mono tracking-widest text-[hsl(0_0%_65%)]">
-      <span>4.9 / 5.0 GOOGLE MAPS</span>
-      <span>·</span>
-      <span>4 КИЇВСЬКІ ФІЛІЇ</span>
-      <span>·</span>
-      <span>ВЛАСНИЙ ПАРКІНГ</span>
+      <StickyMobileBar />
     </div>
   );
 }

@@ -1,15 +1,16 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import { useLocale } from "@/lib/i18n";
 
 export default function Header() {
-  const { locale, setLocale, t } = useLocale();
+  const { t, locale, setLocale } = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
+      setScrolled(window.scrollY > 40);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -25,149 +26,145 @@ export default function Header() {
 
   const navLinks = [
     { href: "#services", label: String(t("nav.services")) },
-    { href: "#calculator", label: String(t("nav.calculator")) },
-    { href: "#locations", label: String(t("nav.locations")) },
-    { href: "#team", label: String(t("nav.team")) },
+    { href: "#advantages", label: String(t("nav.advantages")) },
+    { href: "#masters", label: String(t("nav.masters")) },
     { href: "#gallery", label: String(t("nav.gallery")) },
-    { href: "#tattoo", label: String(t("nav.tattoo")) },
-    { href: "#testimonials", label: String(t("nav.testimonials")) },
+    { href: "#branches", label: String(t("nav.branches")) },
     { href: "#faq", label: String(t("nav.faq")) },
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[hsl(0_0%_5%/0.95)] backdrop-blur-md py-3 border-b border-[hsl(0_0%_15%)]"
-          : "bg-gradient-to-b from-[hsl(0_0%_0%/0.8)] to-transparent py-5"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-        {/* Real Client Logo */}
-        <a href="#" className="flex items-center gap-2 group py-1">
-          <img
-            src="/barberking/media/210b09d0793a22f8.png"
-            alt="Barberking Kyiv"
-            className="h-9 sm:h-10 w-auto object-contain transition-transform group-hover:scale-105"
-          />
-        </a>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-xs uppercase tracking-widest text-[hsl(0_0%_80%)] hover:text-[hsl(38_90%_50%)] transition-colors font-medium py-1"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        {/* Right side controls */}
-        <div className="flex items-center gap-4">
-          {/* Direct Phone Call */}
-          <a
-            href="tel:0951079215"
-            className="hidden sm:flex items-center gap-2 text-xs uppercase tracking-wider font-semibold text-[hsl(0_0%_90%)] hover:text-[hsl(38_90%_50%)] transition-colors py-1"
-          >
-            <span className="w-2 h-2 rounded-full bg-[hsl(38_90%_50%)]"></span>
-            095 107 92 15
-          </a>
-
-          {/* Language Switcher */}
-          <div className="flex items-center border border-[hsl(0_0%_20%)] rounded-xs overflow-hidden text-xs">
-            <button
-              onClick={() => setLocale("uk")}
-              className={`px-2.5 py-1 font-bold transition-colors ${
-                locale === "uk"
-                  ? "bg-[hsl(38_90%_50%)] text-[hsl(0_0%_5%)]"
-                  : "text-[hsl(0_0%_70%)] hover:bg-[hsl(0_0%_15%)]"
-              }`}
-            >
-              UA
-            </button>
-            <button
-              onClick={() => setLocale("en")}
-              className={`px-2.5 py-1 font-bold transition-colors ${
-                locale === "en"
-                  ? "bg-[hsl(38_90%_50%)] text-[hsl(0_0%_5%)]"
-                  : "text-[hsl(0_0%_70%)] hover:bg-[hsl(0_0%_15%)]"
-              }`}
-            >
-              EN
-            </button>
-          </div>
-
-          {/* Primary CTA button */}
-          <a
-            href="#booking"
-            className="hidden sm:inline-flex items-center justify-center px-4 py-2 bg-[hsl(38_90%_50%)] hover:bg-[hsl(35_95%_45%)] text-[hsl(0_0%_5%)] font-bold text-xs uppercase tracking-wider rounded-xs transition-transform active:scale-95"
-          >
-            {String(t("nav.bookCta"))}
-          </a>
-
-          {/* Mobile Menu Burger */}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden p-2 text-[hsl(0_0%_90%)] hover:text-[hsl(38_90%_50%)] focus:outline-none"
-            aria-label={String(t("header.toggleMenu"))}
-          >
-            <span className="text-sm font-bold tracking-widest uppercase">
-              {menuOpen ? String(t("header.close")) : String(t("header.menu"))}
-            </span>
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Full Screen Menu Overlay */}
-      {menuOpen && (
-        <div className="fixed inset-0 z-50 bg-[hsl(0_0%_5%)] flex flex-col justify-between p-6 sm:p-10">
-          <div className="flex items-center justify-between border-b border-[hsl(0_0%_15%)] pb-4">
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          scrolled
+            ? "bg-neutral-950/95 backdrop-blur-md py-3 shadow-xl border-b border-white/10"
+            : "bg-gradient-to-b from-black/90 via-black/50 to-transparent py-5"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          {/* Logo */}
+          <a href="#" className="flex items-center gap-3 group py-1">
             <img
               src="/barberking/media/210b09d0793a22f8.png"
-              alt={String(t("header.brandAlt"))}
-              className="h-8 w-auto object-contain"
+              alt="Barberking"
+              className="h-9 sm:h-11 w-auto object-contain transition-transform group-hover:scale-105"
+            />
+          </a>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-xs uppercase tracking-widest text-neutral-300 hover:text-accent font-semibold transition-colors py-2"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Header Right Actions */}
+          <div className="flex items-center gap-4">
+            {/* Language Switcher */}
+            <div className="flex items-center bg-white/5 border border-white/10 rounded-full p-1 text-xs font-semibold">
+              <button
+                onClick={() => setLocale("uk")}
+                className={`px-2.5 py-1 rounded-full transition-colors ${
+                  locale === "uk" ? "bg-accent text-black font-bold" : "text-neutral-300 hover:text-white"
+                }`}
+              >
+                UA
+              </button>
+              <button
+                onClick={() => setLocale("en")}
+                className={`px-2.5 py-1 rounded-full transition-colors ${
+                  locale === "en" ? "bg-accent text-black font-bold" : "text-neutral-300 hover:text-white"
+                }`}
+              >
+                EN
+              </button>
+            </div>
+
+            {/* Phone */}
+            <a
+              href="tel:0951079215"
+              className="hidden sm:flex items-center gap-2 text-xs uppercase tracking-wider font-bold text-accent hover:text-white transition-colors py-2"
+            >
+              <span>{String(t("nav.phone"))}</span>
+            </a>
+
+            {/* CTA Button */}
+            <a
+              href="#booking"
+              className="hidden md:inline-flex items-center justify-center px-5 py-2.5 text-xs uppercase font-bold tracking-widest bg-accent hover:bg-amber-400 text-black rounded-lg transition-all transform hover:-translate-y-0.5 shadow-md shadow-amber-500/20"
+            >
+              {String(t("nav.book"))}
+            </a>
+
+            {/* Mobile Burger Toggle */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="lg:hidden px-3 py-2 rounded bg-white/5 border border-white/10 text-xs font-bold uppercase tracking-widest text-white hover:text-accent focus:outline-none"
+              aria-label={String(t("header.toggleMenu"))}
+            >
+              {menuOpen ? String(t("header.closeMenu")) : String(t("header.menu"))}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Fullscreen Mobile Menu */}
+      {menuOpen && (
+        <div className="fixed inset-0 z-50 bg-neutral-950 flex flex-col justify-between p-6 lg:hidden">
+          <div className="flex items-center justify-between border-b border-white/10 pb-6">
+            <img
+              src="/barberking/media/210b09d0793a22f8.png"
+              alt="Barberking"
+              className="h-9 w-auto"
             />
             <button
               onClick={() => setMenuOpen(false)}
-              className="p-2 text-[hsl(38_90%_50%)] text-xs font-bold uppercase tracking-widest"
+              className="px-4 py-2 border border-accent/40 rounded text-accent text-xs font-bold uppercase tracking-widest"
+              aria-label={String(t("header.closeMenuAlt"))}
             >
-              {String(t("header.closeX"))}
+              {String(t("header.closeMenu"))}
             </button>
           </div>
 
-          <div className="flex flex-col gap-4 my-auto py-6">
+          <div className="flex flex-col gap-6 my-auto">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="font-['Alumni_Sans'] text-4xl uppercase tracking-wider text-[hsl(0_0%_90%)] hover:text-[hsl(38_90%_50%)] transition-colors"
+                className="font-display text-3xl font-bold uppercase tracking-wider text-white hover:text-accent transition-colors"
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          <div className="pt-6 border-t border-[hsl(0_0%_15%)] flex flex-col gap-4">
+          <div className="flex flex-col gap-4 border-t border-white/10 pt-6">
             <a
               href="tel:0951079215"
-              className="text-lg font-bold text-[hsl(38_90%_50%)] tracking-wider py-1"
+              className="text-lg font-bold text-accent flex items-center justify-between py-2"
             >
-              {String(t("header.telPrefix"))}: 095 107 92 15
+              <span className="text-xs text-neutral-400 uppercase tracking-widest">{String(t("header.telLabel"))}</span>
+              <span>095 107 92 15</span>
             </a>
+
             <a
               href="#booking"
               onClick={() => setMenuOpen(false)}
-              className="w-full text-center py-3 bg-[hsl(38_90%_50%)] text-[hsl(0_0%_5%)] font-bold text-xs uppercase tracking-wider rounded-xs"
+              className="w-full py-4 text-center font-display text-lg uppercase font-bold tracking-wider bg-accent text-black rounded-lg"
             >
-              {String(t("nav.bookCta"))}
+              {String(t("nav.book"))}
             </a>
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

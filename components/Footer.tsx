@@ -1,68 +1,64 @@
 "use client";
+
 import { useLocale } from "@/lib/i18n";
 
 export default function Footer() {
   const { t } = useLocale();
 
   return (
-    <footer className="bg-[hsl(0_0%_4%)] border-t border-[hsl(0_0%_15%)] text-[hsl(0_0%_80%)] pt-16 pb-24 lg:pb-12 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
-          {/* Brand Info */}
-          <div>
-            <img
-              src="/barberking/media/210b09d0793a22f8.png"
-              alt={String(t("footer.brandAlt"))}
-              className="h-10 w-auto object-contain mb-4"
-            />
-            <p className="text-xs text-[hsl(0_0%_60%)] leading-relaxed mb-4 font-normal">
-              {String(t("footer.aboutDesc"))}
+    <footer className="bg-neutral-950 text-neutral-400 border-t border-white/10 pt-16 pb-12 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-white/10">
+          {/* Col 1: Brand */}
+          <div className="space-y-4">
+            <span className="font-display text-2xl font-extrabold uppercase tracking-wider text-white block">
+              BARBERKING
+            </span>
+            <p className="text-xs text-neutral-400 leading-relaxed">
+              {String(t("footer.desc"))}
             </p>
-            <div className="text-[11px] text-[hsl(38_90%_50%)] font-bold uppercase tracking-widest">
-              {String(t("footer.est"))}
+            {/* Social Row as Plain Text Links */}
+            <div className="pt-2 flex items-center gap-4 text-xs font-bold uppercase tracking-widest">
+              <a
+                href="https://www.facebook.com/BarberKingkh/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-white hover:text-accent transition-colors border-b border-white/20 pb-0.5 py-1"
+              >
+                FACEBOOK
+              </a>
+              <a
+                href="https://www.instagram.com/barberking_kv/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-white hover:text-accent transition-colors border-b border-white/20 pb-0.5 py-1"
+              >
+                INSTAGRAM
+              </a>
             </div>
           </div>
 
-          {/* Quick Links Nav Column */}
+          {/* Col 2: Navigation Column */}
           <div>
-            <h4 className="font-['Alumni_Sans'] text-2xl font-bold uppercase tracking-wider text-[hsl(0_0%_95%)] mb-4">
-              {String(t("footer.navigation"))}
+            <h4 className="font-display text-xl font-bold uppercase text-white mb-4">
+              {String(t("footer.navTitle"))}
             </h4>
-            <ul className="flex flex-col gap-2.5 text-xs">
-              <li>
-                <a href="#services" className="hover:text-[hsl(38_90%_50%)] transition-colors py-1 block">
-                  {String(t("footer.navServices"))}
-                </a>
-              </li>
-              <li>
-                <a href="#calculator" className="hover:text-[hsl(38_90%_50%)] transition-colors py-1 block">
-                  {String(t("footer.navCalculator"))}
-                </a>
-              </li>
-              <li>
-                <a href="#locations" className="hover:text-[hsl(38_90%_50%)] transition-colors py-1 block">
-                  {String(t("footer.navLocations"))}
-                </a>
-              </li>
-              <li>
-                <a href="#team" className="hover:text-[hsl(38_90%_50%)] transition-colors py-1 block">
-                  {String(t("footer.navTeam"))}
-                </a>
-              </li>
-              <li>
-                <a href="#tattoo" className="hover:text-[hsl(38_90%_50%)] transition-colors py-1 block">
-                  {String(t("footer.navTattoo"))}
-                </a>
-              </li>
+            <ul className="space-y-2 text-xs font-medium">
+              <li><a href="#services" className="hover:text-accent transition-colors py-1 inline-block">{String(t("footer.linkServices"))}</a></li>
+              <li><a href="#advantages" className="hover:text-accent transition-colors py-1 inline-block">{String(t("footer.linkAdvantages"))}</a></li>
+              <li><a href="#masters" className="hover:text-accent transition-colors py-1 inline-block">{String(t("footer.linkMasters"))}</a></li>
+              <li><a href="#gallery" className="hover:text-accent transition-colors py-1 inline-block">{String(t("footer.linkGallery"))}</a></li>
+              <li><a href="#certificates" className="hover:text-accent transition-colors py-1 inline-block">{String(t("footer.linkCertificates"))}</a></li>
+              <li><a href="#branches" className="hover:text-accent transition-colors py-1 inline-block">{String(t("footer.linkBranches"))}</a></li>
             </ul>
           </div>
 
-          {/* Branches Column */}
+          {/* Col 3: Kyiv Branches Column */}
           <div>
-            <h4 className="font-['Alumni_Sans'] text-2xl font-bold uppercase tracking-wider text-[hsl(0_0%_95%)] mb-4">
-              {String(t("footer.branches"))}
+            <h4 className="font-display text-xl font-bold uppercase text-white mb-4">
+              {String(t("footer.branchesTitle"))}
             </h4>
-            <ul className="flex flex-col gap-2.5 text-xs text-[hsl(0_0%_70%)]">
+            <ul className="space-y-2 text-xs font-medium">
               <li>{String(t("footer.branch1"))}</li>
               <li>{String(t("footer.branch2"))}</li>
               <li>{String(t("footer.branch3"))}</li>
@@ -70,75 +66,44 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contacts & Hours Column */}
+          {/* Col 4: Contacts & Hours */}
           <div>
-            <h4 className="font-['Alumni_Sans'] text-2xl font-bold uppercase tracking-wider text-[hsl(0_0%_95%)] mb-4">
-              {String(t("footer.contacts"))}
+            <h4 className="font-display text-xl font-bold uppercase text-white mb-4">
+              {String(t("footer.contactsTitle"))}
             </h4>
-            <div className="flex flex-col gap-3 text-xs">
-              <a
-                href="tel:0951079215"
-                className="text-base font-bold text-[hsl(38_90%_50%)] hover:underline tracking-wider py-1"
-              >
-                {String(t("footer.phoneVal"))}
-              </a>
-              <div>{String(t("footer.emailVal"))}</div>
-              <div>{String(t("footer.hoursVal"))}</div>
-              
-              {/* Social Row as Text Links */}
-              <div className="flex gap-4 mt-3">
-                <a
-                  href="https://www.instagram.com/barberking_kv/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1.5 bg-[hsl(0_0%_12%)] hover:bg-[hsl(38_90%_50%)] hover:text-[hsl(0_0%_5%)] text-[10px] font-bold uppercase tracking-wider rounded-xs transition-colors"
-                >
-                  INSTAGRAM
-                </a>
-                <a
-                  href="https://www.facebook.com/BarberKingkh/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-3 py-1.5 bg-[hsl(0_0%_12%)] hover:bg-[hsl(38_90%_50%)] hover:text-[hsl(0_0%_5%)] text-[10px] font-bold uppercase tracking-wider rounded-xs transition-colors"
-                >
-                  FACEBOOK
-                </a>
-              </div>
+            <div className="space-y-2 text-xs font-medium">
+              <p>{String(t("footer.telLabel"))} <a href="tel:0951079215" className="text-accent font-bold hover:underline py-1 inline-block">095 107 92 15</a></p>
+              <p>{String(t("footer.emailLabel"))} <a href="mailto:barberking.kv1@gmail.com" className="hover:text-white py-1 inline-block">barberking.kv1@gmail.com</a></p>
+              <p>{String(t("footer.hoursLabel"))}</p>
+              <p className="text-neutral-400">{String(t("footer.parkingLabel"))}</p>
             </div>
           </div>
         </div>
 
-        {/* Brand Voice Credit Meta-Line */}
-        <div className="py-4 border-t border-[hsl(0_0%_12%)] text-center text-xs uppercase tracking-widest text-[hsl(0_0%_50%)] font-semibold">
-          {String(t("brand.voiceCredit"))}
+        {/* Giant Full-Width Brand Wordmark Bleeding Off Bottom Edge */}
+        <div className="py-8 text-center border-b border-white/5 overflow-hidden">
+          <span className="font-display text-7xl sm:text-9xl lg:text-[13vw] font-extrabold uppercase tracking-widest text-white/5 select-none block leading-none">
+            {String(t("footer.brandWordmark"))}
+          </span>
         </div>
 
-        {/* Bottom Legal Row */}
-        <div className="pt-6 border-t border-[hsl(0_0%_12%)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[hsl(0_0%_50%)]">
+        {/* Legal Row & Credit Meta-Line */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
           <div>
-            {String(t("footer.copyright"))}
+            © 2026 Barberking Kyiv. {String(t("footer.rights"))} Est. 2018.
           </div>
+
           <div>
             <a
               href="https://makarich.framer.website"
               target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[hsl(38_90%_50%)] underline transition-colors py-1 inline-block"
+              rel="noreferrer"
+              className="hover:text-accent transition-colors font-semibold py-1 inline-block"
             >
-              {String(t("footer.developerCredit"))}
+              {String(t("footer.developer"))}
             </a>
           </div>
         </div>
-      </div>
-
-      {/* Giant Full-Width Brand Wordmark Bleeding Off Bottom Edge */}
-      <div
-        aria-hidden="true"
-        className="w-full text-center pointer-events-none select-none overflow-hidden opacity-5 mt-8 -mb-16"
-      >
-        <span className="font-['Alumni_Sans'] font-extrabold text-[20vw] uppercase tracking-tighter text-[hsl(0_0%_100%)] leading-none whitespace-nowrap">
-          BARBERKING
-        </span>
       </div>
     </footer>
   );

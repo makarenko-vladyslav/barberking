@@ -1,19 +1,15 @@
 {
   "currency": "грн",
   "basePrices": {
-    "haircut": { "barber": 750, "top": 850, "grand": 1150, "junior": 600 },
-    "combo": { "barber": 1150, "top": 1250, "grand": 1600, "junior": 850 },
-    "beard": { "barber": 550, "top": 600, "grand": 800, "junior": 350 },
-    "razor_shave": { "barber": 500, "top": 600, "grand": 700, "junior": 400 },
-    "father_son": { "barber": 1150, "top": 1400, "grand": 1750, "junior": 1000 },
-    "clipper": { "barber": 550, "top": 600, "grand": 750, "junior": 450 }
+    "junior": 600,
+    "barber": 750,
+    "top": 850,
+    "grand": 1150
   },
   "addons": {
-    "black_mask": 350,
-    "head_care": 300,
-    "waxing": 150,
-    "ear_fire": 50,
-    "grey_camouflage": 550
-  },
-  "subscribersDiscountPercent": 10
+    "beard": 400,
+    "waxing": 100,
+    "mask": 350,
+    "royalShave": 600
+  }
 }

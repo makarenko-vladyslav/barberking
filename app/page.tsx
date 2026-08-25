@@ -2,43 +2,69 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import SocialProof from "@/components/SocialProof";
 import Services from "@/components/Services";
-import Calculator from "@/components/Calculator";
-import Locations from "@/components/Locations";
+import BookingWidget from "@/components/BookingWidget";
+import Advantages from "@/components/Advantages";
 import Team from "@/components/Team";
+import VideoSection from "@/components/VideoSection";
+import Certificates from "@/components/Certificates";
 import Gallery from "@/components/Gallery";
-import TattooSection from "@/components/TattooSection";
-import VideoShowcase from "@/components/VideoShowcase";
 import Testimonials from "@/components/Testimonials";
-import FAQSection from "@/components/FAQSection";
+import LocationsMap from "@/components/LocationsMap";
+import FAQ from "@/components/FAQ";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
-import BottomNav from "@/components/BottomNav";
-import { StatementStrip, LabeledHairline } from "@/components/Interstitials";
-import { Reveal, Stagger, StaggerItem } from "@/components/motion";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[hsl(0_0%_5%)]">
-        <Reveal><Hero /></Reveal>
-        <Reveal><SocialProof /></Reveal>
-        <Reveal><Services /></Reveal>
-        <LabeledHairline label="КАЛЬКУЛЯТОР ВАРТОСТІ ВІЗИТУ" />
-        <Reveal><Calculator /></Reveal>
-        <Reveal><Locations /></Reveal>
-        <StatementStrip text="4 ЛОКАЦІЇ В КИЄВІ — ВЛАСНИЙ ПАРКІНГ ДЛЯ ГОСТЕЙ" />
-        <Reveal><Team /></Reveal>
-        <Reveal><Gallery /></Reveal>
-        <Reveal><TattooSection /></Reveal>
-        <Reveal><VideoShowcase /></Reveal>
-        <Reveal><Testimonials /></Reveal>
-        <LabeledHairline label="ПОПУЛЯРНІ ЗАПИТАННЯ ТА ВІДПОВІДІ" />
-        <Reveal><FAQSection /></Reveal>
-        <Reveal><ContactForm /></Reveal>
+      <main>
+        <Hero />
+        {/* Labeled Hairline Interstitial 1 */}
+        <div className="bg-neutral-950 py-3 border-y border-white/10 text-center">
+          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent">
+            ПРОФЕСІЙНИЙ ЧОЛОВІЧИЙ ДОГЛЯД У КИЄВІ · EST. 2018
+          </span>
+        </div>
+
+        <SocialProof />
+
+        {/* Standalone Statement Band Interstitial 2 */}
+        <div className="bg-neutral-900 py-6 border-b border-white/10 text-center px-4">
+          <p className="font-display text-2xl sm:text-3xl font-extrabold uppercase text-white tracking-wider">
+            БЕЗДОГАННИЙ ФЕЙД ТА ГАРЯЧИЙ КОМПРЕС ДЛЯ КОЖНОГО ГОСТЯ
+          </p>
+        </div>
+
+        <Services />
+        <BookingWidget />
+
+        {/* Watermark Strip Interstitial 3 */}
+        <div className="bg-neutral-950 py-4 border-b border-white/10 text-center overflow-hidden">
+          <span className="font-display text-4xl sm:text-6xl font-extrabold uppercase tracking-widest text-white/10 select-none">
+            BARBERKING CRAFT & STYLE
+          </span>
+        </div>
+
+        <Advantages />
+        <Team />
+        <VideoSection />
+
+        {/* Press / Rating Strip Interstitial 4 */}
+        <div className="bg-neutral-900 py-4 border-b border-white/10 text-center px-4">
+          <span className="text-xs font-bold uppercase tracking-widest text-neutral-300">
+            4.9 / 5.0 НА GOOGLE MAPS · 500+ ПІДТВЕРДЖЕНИХ ВІДГУКІВ · ПАРКОВКА У ЦЕНТРІ КИЄВА
+          </span>
+        </div>
+
+        <Certificates />
+        <Gallery />
+        <Testimonials />
+        <LocationsMap />
+        <FAQ />
+        <ContactForm />
       </main>
       <Footer />
-      <BottomNav />
     </>
   );
 }

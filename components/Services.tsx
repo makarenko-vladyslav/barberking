@@ -1,160 +1,186 @@
 "use client";
+
 import { useState } from "react";
 import { useLocale } from "@/lib/i18n";
+import { Reveal, Stagger, StaggerItem } from "./motion";
+
+interface ServiceItem {
+  id: string;
+  category: string;
+  name: string;
+  price: string;
+  desc: string;
+  duration: string;
+  badge?: string;
+  img: string;
+}
 
 export default function Services() {
   const { t } = useLocale();
-  const [activeCategory, setActiveCategory] = useState<string>("all");
-  const [activeTier, setActiveTier] = useState<"barber" | "topBarber" | "grandBarber" | "juniorBarber">("barber");
+  const [activeTab, setActiveTab] = useState<string>("combo");
 
-  const serviceItems = (t("services.items") as Array<{
-    id: string;
-    title: string;
-    desc: string;
-    price: string;
-    category: string;
-    tag?: string;
-    signature?: boolean;
-    photo: string;
-  }>) || [];
-
-  const filteredItems = activeCategory === "all"
-    ? serviceItems
-    : serviceItems.filter((item) => item.category === activeCategory);
+  const items = (t("services.items") as ServiceItem[]) || [];
+  const filteredItems = items.filter((item) => item.category === activeTab);
 
   return (
-    <section id="services" className="py-24 bg-[hsl(0_0%_5%)] text-[hsl(0_0%_95%)] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-xs uppercase tracking-widest text-[hsl(38_90%_50%)] font-bold">
-            {String(t("services.kicker"))}
-          </span>
-          <h2 className="font-['Alumni_Sans'] text-4xl sm:text-6xl font-extrabold uppercase tracking-tight mt-2 mb-4 text-[hsl(0_0%_95%)]">
-            {String(t("services.title"))}
-          </h2>
-          <p className="text-sm sm:text-base text-[hsl(0_0%_65%)] leading-relaxed">
-            {String(t("services.subtitle"))}
-          </p>
-        </div>
-
-        {/* Barber Tier Selector */}
-        <div className="flex justify-center mb-8">
-          <div className="inline-flex p-1 bg-[hsl(0_0%_9%)] border border-[hsl(0_0%_18%)] rounded-xs gap-1 overflow-x-auto max-w-full">
-            {[
-              { id: "juniorBarber", label: String(t("services.tiers.juniorBarber")) },
-              { id: "barber", label: String(t("services.tiers.barber")) },
-              { id: "topBarber", label: String(t("services.tiers.topBarber")) },
-              { id: "grandBarber", label: String(t("services.tiers.grandBarber")) }
-            ].map((tier) => (
-              <button
-                key={tier.id}
-                onClick={() => setActiveTier(tier.id as any)}
-                className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-xs transition-all whitespace-nowrap ${
-                  activeTier === tier.id
-                    ? "bg-[hsl(38_90%_50%)] text-[hsl(0_0%_5%)]"
-                    : "text-[hsl(0_0%_70%)] hover:text-[hsl(0_0%_95%)]"
-                }`}
-              >
-                {tier.label}
-              </button>
-            ))}
+    <section id="services" className="py-24 bg-neutral-950 border-b border-white/10 scroll-mt-20 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal>
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-xs font-bold uppercase tracking-widest text-accent mb-2 block">
+              {String(t("services.kicker"))}
+            </span>
+            <h2 className="font-display text-4xl sm:text-6xl font-extrabold uppercase text-white tracking-tight mb-4">
+              {String(t("services.title"))}
+            </h2>
+            <p className="text-neutral-400 text-base sm:text-lg">
+              {String(t("services.subtitle"))}
+            </p>
           </div>
-        </div>
+        </Reveal>
 
-        {/* Category Filters */}
-        <div className="flex justify-center gap-2 mb-12 flex-wrap">
-          {[
-            { id: "all", label: String(t("services.categories.all")) },
-            { id: "haircut", label: String(t("services.categories.haircut")) },
-            { id: "combo", label: String(t("services.categories.combo")) },
-            { id: "beard", label: String(t("services.categories.beard")) },
-            { id: "care", label: String(t("services.categories.care")) }
-          ].map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-              className={`px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider border rounded-xs transition-colors ${
-                activeCategory === cat.id
-                  ? "border-[hsl(38_90%_50%)] text-[hsl(38_90%_50%)] bg-[hsl(38_90%_50%/0.1)]"
-                  : "border-[hsl(0_0%_20%)] text-[hsl(0_0%_65%)] hover:border-[hsl(0_0%_40%)]"
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Price / Offer List Rows */}
-        <div className="flex flex-col gap-4 mb-12">
-          {filteredItems.map((item) => {
-            const isSignature = item.signature;
-            return (
-              <div
-                key={item.id}
-                className={`rounded-xs border transition-all duration-300 overflow-hidden flex flex-col md:flex-row md:items-center justify-between ${
-                  isSignature
-                    ? "bg-[hsl(0_0%_9%)] border-[hsl(38_90%_50%)] shadow-lg shadow-[hsl(38_90%_50%/0.1)]"
-                    : "bg-[hsl(0_0%_7%)] border-[hsl(0_0%_15%)] hover:border-[hsl(0_0%_25%)]"
-                }`}
+        {/* Highlighted Signature Item Box */}
+        <Reveal delay={0.1}>
+          <div className="mb-12 bg-neutral-900 border border-accent/40 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-6 justify-between">
+            <div className="space-y-2 max-w-2xl">
+              <span className="px-3 py-1 bg-accent/20 border border-accent/40 text-accent text-[10px] font-bold uppercase tracking-widest rounded">
+                {String(t("services.signatureLabel"))}
+              </span>
+              <h3 className="font-display text-3xl font-extrabold uppercase text-white">
+                {String(t("services.signatureTitle"))}
+              </h3>
+              <p className="text-xs text-neutral-300 leading-relaxed">
+                {String(t("services.signatureDesc"))}
+              </p>
+            </div>
+            <div className="flex flex-col items-end gap-3 shrink-0">
+              <span className="font-display text-4xl font-extrabold text-accent tabular-nums">
+                {String(t("services.signaturePrice"))}
+              </span>
+              <a
+                href="#booking"
+                className="px-6 py-3 bg-accent hover:bg-amber-400 text-black font-bold text-xs uppercase tracking-widest rounded-lg transition-colors"
               >
-                {/* Full-width media band on mobile, thumbnail on desktop */}
-                <div className="w-full md:w-48 aspect-[4/3] md:aspect-square shrink-0 overflow-hidden border-b md:border-b-0 md:border-r border-[hsl(0_0%_20%)]">
-                  <img
-                    src={item.photo}
-                    alt={item.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover filter brightness-90"
-                  />
+                {String(t("services.bookNow"))}
+              </a>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Category Tabs */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12 border-b border-white/10 pb-6">
+          <button
+            onClick={() => setActiveTab("combo")}
+            className={`px-5 py-2.5 rounded-lg text-xs uppercase font-bold tracking-wider transition-all ${
+              activeTab === "combo"
+                ? "bg-accent text-black font-bold shadow-md shadow-amber-500/20"
+                : "bg-neutral-900 text-neutral-400 hover:text-white border border-white/10"
+            }`}
+          >
+            {String(t("services.tabs.combo"))}
+          </button>
+          <button
+            onClick={() => setActiveTab("barber")}
+            className={`px-5 py-2.5 rounded-lg text-xs uppercase font-bold tracking-wider transition-all ${
+              activeTab === "barber"
+                ? "bg-accent text-black font-bold shadow-md shadow-amber-500/20"
+                : "bg-neutral-900 text-neutral-400 hover:text-white border border-white/10"
+            }`}
+          >
+            {String(t("services.tabs.barber"))}
+          </button>
+          <button
+            onClick={() => setActiveTab("top")}
+            className={`px-5 py-2.5 rounded-lg text-xs uppercase font-bold tracking-wider transition-all ${
+              activeTab === "top"
+                ? "bg-accent text-black font-bold shadow-md shadow-amber-500/20"
+                : "bg-neutral-900 text-neutral-400 hover:text-white border border-white/10"
+            }`}
+          >
+            {String(t("services.tabs.top"))}
+          </button>
+          <button
+            onClick={() => setActiveTab("grand")}
+            className={`px-5 py-2.5 rounded-lg text-xs uppercase font-bold tracking-wider transition-all ${
+              activeTab === "grand"
+                ? "bg-accent text-black font-bold shadow-md shadow-amber-500/20"
+                : "bg-neutral-900 text-neutral-400 hover:text-white border border-white/10"
+            }`}
+          >
+            {String(t("services.tabs.grand"))}
+          </button>
+          <button
+            onClick={() => setActiveTab("subs")}
+            className={`px-5 py-2.5 rounded-lg text-xs uppercase font-bold tracking-wider transition-all ${
+              activeTab === "subs"
+                ? "bg-accent text-black font-bold shadow-md shadow-amber-500/20"
+                : "bg-neutral-900 text-neutral-400 hover:text-white border border-white/10"
+            }`}
+          >
+            {String(t("services.tabs.subs"))}
+          </button>
+        </div>
+
+        {/* Offer Rows with Dotted Leader & Tabular Price */}
+        <Stagger className="space-y-4">
+          {filteredItems.map((service) => (
+            <StaggerItem key={service.id}>
+              <div className="group bg-neutral-900 border border-white/10 rounded-xl overflow-hidden hover:border-accent/40 transition-all flex flex-col md:flex-row items-start md:items-center justify-between">
+                <div className="w-full md:w-auto flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                  <div className="w-full sm:w-48 aspect-[4/3] shrink-0 overflow-hidden bg-neutral-800">
+                    <img
+                      src={service.img}
+                      alt={service.name}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90"
+                    />
+                  </div>
+                  <div className="p-5 sm:p-0">
+                    <div className="flex items-center gap-2">
+                      <h3 className="font-display text-xl font-bold uppercase text-white group-hover:text-accent transition-colors">
+                        {service.name}
+                      </h3>
+                      {service.badge && (
+                        <span className="px-2 py-0.5 bg-accent text-black text-[9px] font-bold uppercase tracking-wider rounded">
+                          {service.badge}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-xs text-neutral-400 mt-1 max-w-xl">
+                      {service.desc}
+                    </p>
+                  </div>
                 </div>
 
-                {/* Left: Content */}
-                <div className="p-5 sm:p-6 flex flex-col flex-1">
-                  <div className="flex flex-wrap items-center gap-2 mb-1">
-                    <h3 className="font-['Alumni_Sans'] text-2xl font-bold uppercase tracking-wider text-[hsl(0_0%_95%)]">
-                      {item.title}
-                    </h3>
-                    {item.tag && (
-                      <span className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest bg-[hsl(38_90%_50%)] text-[hsl(0_0%_5%)] rounded-xs">
-                        {item.tag}
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-xs text-[hsl(0_0%_65%)] leading-relaxed max-w-2xl font-normal">
-                    {item.desc}
-                  </p>
-                </div>
-
-                {/* Right: Price & Quick CTA */}
-                <div className="p-5 sm:p-6 pt-0 md:pt-5 flex items-center justify-between md:justify-end gap-6 shrink-0 border-t md:border-t-0 border-[hsl(0_0%_15%)]">
-                  <div className="text-right">
-                    <span className="text-[10px] uppercase tracking-wider text-[hsl(0_0%_50%)] block">
-                      {String(t("services.priceLabel"))}
-                    </span>
-                    <span className="font-['Alumni_Sans'] text-3xl font-extrabold text-[hsl(38_90%_50%)] tabular-nums">
-                      {item.price}
-                    </span>
-                  </div>
+                <div className="p-5 sm:p-0 sm:pr-6 flex items-center justify-between md:justify-end gap-6 w-full md:w-auto pt-3 md:pt-0 border-t md:border-t-0 border-white/10">
+                  <span className="text-xs font-semibold text-neutral-400 uppercase tracking-widest shrink-0">
+                    {String(t("services.durationLabel"))}: {service.duration}
+                  </span>
+                  <span className="font-display text-2xl font-extrabold text-accent shrink-0 tabular-nums">
+                    {service.price}
+                  </span>
                   <a
                     href="#booking"
-                    className="px-4 py-2.5 bg-[hsl(0_0%_14%)] hover:bg-[hsl(38_90%_50%)] text-[hsl(0_0%_90%)] hover:text-[hsl(0_0%_5%)] text-xs uppercase tracking-wider font-bold rounded-xs transition-colors"
+                    className="px-4 py-2 bg-neutral-950 border border-white/20 hover:border-accent text-white hover:text-accent rounded text-xs font-bold uppercase tracking-wider transition-colors shrink-0"
                   >
                     {String(t("services.bookBtn"))}
                   </a>
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </StaggerItem>
+          ))}
+        </Stagger>
 
-        {/* Footnote & Secondary CTA */}
-        <div className="pt-6 border-t border-[hsl(0_0%_15%)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[hsl(0_0%_60%)]">
-          <p>{String(t("services.footnote"))}</p>
+        {/* Footnote Line & Secondary CTA */}
+        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-neutral-400 max-w-2xl">
+            {String(t("services.footnote"))}
+          </p>
           <a
-            href="#calculator"
-            className="text-[hsl(38_90%_50%)] font-bold uppercase tracking-wider hover:underline"
+            href="#booking"
+            className="text-xs uppercase font-bold tracking-widest text-accent hover:text-white transition-colors shrink-0"
           >
-            {String(t("services.secondaryCta"))} →
+            {String(t("services.secondaryCta"))}
           </a>
         </div>
       </div>

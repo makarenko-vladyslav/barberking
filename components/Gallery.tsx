@@ -1,85 +1,51 @@
 "use client";
-import { useState } from "react";
+
 import { useLocale } from "@/lib/i18n";
+import { Reveal } from "./motion";
 
 export default function Gallery() {
   const { t } = useLocale();
 
-  const realImages = [
-    { url: "/barberking/media/efa843d5303a55ab.jpg", title: String(t("gallery.img1")) },
-    { url: "/barberking/media/3de94b826c157f9d.jpg", title: String(t("gallery.img2")) },
-    { url: "/barberking/media/7d68ec366c050a0f.jpg", title: String(t("gallery.img3")) },
-    { url: "/barberking/media/558b1a9dde7d9efc.jpg", title: String(t("gallery.img4")) },
-    { url: "/barberking/media/68694e9df96631aa.jpg", title: String(t("gallery.img5")) },
-    { url: "/barberking/media/eef99b5fe845d343.jpg", title: String(t("gallery.img6")) },
-    { url: "/barberking/media/3cb4bc541f8fcf33.jpg", title: String(t("gallery.img7")) },
-    { url: "/barberking/media/ef9a434c10d88667.jpg", title: String(t("gallery.img8")) },
-    { url: "/barberking/media/62b0764570b9184a.jpg", title: String(t("gallery.img9")) }
-  ];
-
-  const [activeImg, setActiveImg] = useState<string | null>(null);
+  const items = (t("gallery.items") as string[]) || [];
 
   return (
-    <section id="gallery" className="py-24 bg-[hsl(0_0%_5%)] text-[hsl(0_0%_95%)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-xs uppercase tracking-widest text-[hsl(38_90%_50%)] font-bold">
-            {String(t("gallery.kicker"))}
-          </span>
-          <h2 className="font-['Alumni_Sans'] text-4xl sm:text-6xl font-extrabold uppercase tracking-tight mt-2 mb-4">
-            {String(t("gallery.title"))}
-          </h2>
-          <p className="text-sm sm:text-base text-[hsl(0_0%_65%)]">
-            {String(t("gallery.subtitle"))}
-          </p>
-        </div>
+    <section id="gallery" className="py-24 bg-neutral-950 border-b border-white/10 scroll-mt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold uppercase tracking-widest text-accent mb-2 block">
+              {String(t("gallery.kicker"))}
+            </span>
+            <h2 className="font-display text-4xl sm:text-6xl font-extrabold uppercase text-white tracking-tight mb-4">
+              {String(t("gallery.title"))}
+            </h2>
+            <p className="text-neutral-400 text-base sm:text-lg">
+              {String(t("gallery.subtitle"))}
+            </p>
+          </div>
+        </Reveal>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {realImages.map((img, idx) => (
-            <div
-              key={idx}
-              onClick={() => setActiveImg(img.url)}
-              className="group relative h-64 bg-[hsl(0_0%_10%)] border border-[hsl(0_0%_16%)] rounded-xs overflow-hidden cursor-pointer"
-            >
-              <img
-                src={img.url}
-                alt={img.title}
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 filter brightness-90 group-hover:brightness-100"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[hsl(0_0%_5%/0.9)] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
-                <span className="font-['Alumni_Sans'] text-2xl font-bold uppercase tracking-wider text-[hsl(38_90%_50%)]">
-                  {img.title}
-                </span>
+        {/* Masonry Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {items.map((imgUrl, idx) => (
+            <Reveal key={idx} delay={idx * 0.05}>
+              <div className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-neutral-900 border border-white/10">
+                <img
+                  src={imgUrl}
+                  alt={`Barberking Haircut ${idx + 1}`}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter brightness-90"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-accent">
+                    Робота майстра #{idx + 1} · Barberking Kyiv
+                  </span>
+                </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
-
-      {/* Lightbox Modal */}
-      {activeImg && (
-        <div
-          onClick={() => setActiveImg(null)}
-          className="fixed inset-0 z-50 bg-[hsl(0_0%_0%/0.92)] backdrop-blur-md flex items-center justify-center p-4"
-        >
-          <div className="relative max-w-4xl w-full max-h-[90vh]">
-            <img
-              src={activeImg}
-              alt={String(t("gallery.enlargedAlt"))}
-              className="w-full h-auto max-h-[85vh] object-contain rounded-xs border border-[hsl(38_90%_50%/0.5)]"
-            />
-            <button
-              onClick={() => setActiveImg(null)}
-              className="absolute -top-10 right-0 text-[hsl(0_0%_100%)] text-xs font-bold uppercase tracking-widest hover:text-[hsl(38_90%_50%)]"
-            >
-              {String(t("gallery.close"))} [X]
-            </button>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

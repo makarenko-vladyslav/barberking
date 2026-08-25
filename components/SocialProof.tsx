@@ -1,56 +1,53 @@
 "use client";
+
 import { useLocale } from "@/lib/i18n";
-import { Marquee } from "@/components/motion";
+import { Reveal } from "./motion";
 
 export default function SocialProof() {
   const { t } = useLocale();
-  const stats = (t("stats") as Array<{ value: string; label: string }>) || [];
-
-  const tickerPhrases = [
-    String(t("socialProof.p1")),
-    "—",
-    String(t("socialProof.p2")),
-    "—",
-    String(t("socialProof.p3")),
-    "—",
-    String(t("socialProof.p4")),
-    "—",
-    String(t("socialProof.p5")),
-    "—",
-    String(t("socialProof.p6")),
-    "—",
-    String(t("socialProof.p7")),
-    "—"
-  ];
 
   return (
-    <section className="bg-[hsl(0_0%_6%)] border-y border-[hsl(0_0%_15%)] py-8 overflow-hidden">
-      {/* Ticker marquee strip using Marquee component */}
-      <div className="relative w-full overflow-hidden whitespace-nowrap mb-8 opacity-75 select-none">
-        <Marquee speed={40} className="text-xs font-bold uppercase tracking-widest text-[hsl(38_90%_50%)] gap-8">
-          {tickerPhrases.map((phrase, idx) => (
-            <span key={idx} className="mx-4">{phrase}</span>
-          ))}
-        </Marquee>
-      </div>
-
-      {/* Stats Counter Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-          {stats.map((stat, idx) => (
-            <div
-              key={idx}
-              className="p-5 bg-[hsl(0_0%_8%)] border border-[hsl(0_0%_15%)] rounded-xs"
-            >
-              <div className="font-['Alumni_Sans'] text-4xl sm:text-5xl font-extrabold text-[hsl(0_0%_95%)] mb-1 tabular-nums">
-                {stat.value}
+    <section className="bg-neutral-900 border-b border-white/10 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="p-4 border-r border-white/10 last:border-none">
+              <div className="font-display text-4xl lg:text-5xl font-extrabold text-accent tabular-nums">
+                {String(t("proof.stat1_val"))}
               </div>
-              <div className="text-[11px] text-[hsl(0_0%_60%)] uppercase tracking-wider font-semibold max-w-[200px] mx-auto">
-                {stat.label}
+              <div className="text-xs text-neutral-400 uppercase tracking-wider mt-2 font-medium">
+                {String(t("proof.stat1_lbl"))}
               </div>
             </div>
-          ))}
-        </div>
+
+            <div className="p-4 border-r border-white/10 last:border-none">
+              <div className="font-display text-4xl lg:text-5xl font-extrabold text-white tabular-nums">
+                {String(t("proof.stat2_val"))}
+              </div>
+              <div className="text-xs text-neutral-400 uppercase tracking-wider mt-2 font-medium">
+                {String(t("proof.stat2_lbl"))}
+              </div>
+            </div>
+
+            <div className="p-4 border-r border-white/10 last:border-none">
+              <div className="font-display text-4xl lg:text-5xl font-extrabold text-accent tabular-nums">
+                {String(t("proof.stat3_val"))}
+              </div>
+              <div className="text-xs text-neutral-400 uppercase tracking-wider mt-2 font-medium">
+                {String(t("proof.stat3_lbl"))}
+              </div>
+            </div>
+
+            <div className="p-4">
+              <div className="font-display text-4xl lg:text-5xl font-extrabold text-white tabular-nums">
+                {String(t("proof.stat4_val"))}
+              </div>
+              <div className="text-xs text-neutral-400 uppercase tracking-wider mt-2 font-medium">
+                {String(t("proof.stat4_lbl"))}
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

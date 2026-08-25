@@ -1,47 +1,42 @@
 {
   "currency": "грн",
-  "tiers": [
-    {
-      "id": "junior",
-      "name": "Junior Barber",
-      "subtitle": "Перспектива та молода точність",
-      "haircut": 600,
-      "combo": 850,
-      "beard": 350,
-      "machine": 450
+  "estimationLogic": "master_tier_plus_addons",
+  "basePrices": {
+    "haircut": {
+      "junior": 600,
+      "barber": 750,
+      "top": 850,
+      "grand": 1150
     },
-    {
-      "id": "barber",
-      "name": "Barber",
-      "subtitle": "Перевірена класика та сучасні техніки",
-      "haircut": 750,
-      "combo": 1150,
-      "beard": 550,
-      "machine": 550
+    "combo": {
+      "junior": 850,
+      "barber": 1150,
+      "top": 1250,
+      "grand": 1600
     },
-    {
-      "id": "top",
-      "name": "Top Barber",
-      "subtitle": "Висока майстерність та моделювання",
-      "haircut": 850,
-      "combo": 1250,
-      "beard": 600,
-      "machine": 600
+    "beard": {
+      "junior": 350,
+      "barber": 550,
+      "top": 600,
+      "grand": 800
     },
-    {
-      "id": "grand",
-      "name": "Grand Barber",
-      "subtitle": "Найвищий ступінь ремесла та індивідуалізму",
-      "haircut": 1150,
-      "combo": 1600,
-      "beard": 800,
-      "machine": 750
+    "royal_shave": {
+      "junior": 400,
+      "barber": 500,
+      "top": 600,
+      "grand": 700
+    },
+    "father_son": {
+      "junior": 1000,
+      "barber": 1150,
+      "top": 1400,
+      "grand": 1750
     }
-  ],
-  "addOns": [
-    { "id": "camouflage", "name": "Камуфляж сивини", "price": 550 },
-    { "id": "blackMask", "name": "Чорна маска (Black Mask)", "price": 350 },
-    { "id": "waxing", "name": "Воскова корекція (обличчя)", "price": 100 },
-    { "id": "scalpCare", "name": "Догляд за шкірою голови", "price": 300 }
-  ]
+  },
+  "addons": {
+    "waxing": 100,
+    "black_mask": 350,
+    "grey_camouflage": 550,
+    "head_massage": 500
+  }
 }

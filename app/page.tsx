@@ -1,73 +1,100 @@
+"use client";
+
+import React, { useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import SocialProof from "@/components/SocialProof";
-import Philosophy from "@/components/Philosophy";
-import ServicesPrices from "@/components/ServicesPrices";
-import Calculator from "@/components/Calculator";
-import Team from "@/components/Team";
-import Transformations from "@/components/Transformations";
-import HygieneStandards from "@/components/HygieneStandards";
-import TattooGrooming from "@/components/TattooGrooming";
-import CertificatesSubscriptions from "@/components/CertificatesSubscriptions";
-import Testimonials from "@/components/Testimonials";
-import FAQSection from "@/components/FAQSection";
+import ServicesShowcase from "@/components/ServicesShowcase";
+import BookingCalculator from "@/components/BookingCalculator";
 import LocationsMap from "@/components/LocationsMap";
-import CTAForm from "@/components/CTAForm";
+import AtmosphereCraft from "@/components/AtmosphereCraft";
+import BeforeAfterShowcase from "@/components/BeforeAfterShowcase";
+import GalleryMasonry from "@/components/GalleryMasonry";
+import TeamSection from "@/components/TeamSection";
+import ProcessTimeline from "@/components/ProcessTimeline";
+import Testimonials from "@/components/Testimonials";
+import CertificatesSubscriptions from "@/components/CertificatesSubscriptions";
+import FaqSection from "@/components/FaqSection";
+import BookingContactModal from "@/components/BookingContactModal";
 import Footer from "@/components/Footer";
-import StickyMobileBar from "@/components/StickyMobileBar";
-import { useLocale } from "@/lib/i18n";
-import ServerInterstitials from "@/components/ServerInterstitials";
 
 export default function Home() {
+  const [bookingOpen, setBookingOpen] = useState(false);
+
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-body">
-      <Header />
-      <main>
-        <Hero />
+    <div className="min-h-screen flex flex-col bg-[hsl(24_16%_8%)] text-[hsl(36_10%_92%)]">
+      <Header onOpenBooking={() => setBookingOpen(true)} />
+
+      <main className="flex-grow">
+        {/* Section 1: Hero */}
+        <Hero onOpenBooking={() => setBookingOpen(true)} />
+
+        {/* Interstitial 1: Text Marquee */}
         <SocialProof />
 
-        {/* Interstitial 1: Labeled Hairline */}
-        <div className="w-full bg-zinc-950 py-4 border-y border-zinc-800/80 text-center">
-          <span className="text-xs font-mono uppercase tracking-[0.3em] text-amber-400/80">
-            — ФІЛОСОФІЯ ЧИСТОГО РЕМЕСЛА ТА ГЕОМЕТРІЇ —
-          </span>
+        {/* Section 2: Services & Price List */}
+        <ServicesShowcase onOpenBooking={() => setBookingOpen(true)} />
+
+        {/* Interstitial 2: Standalone Statement Band */}
+        <div className="bg-[hsl(24_14%_12%)] py-4 border-y border-[hsl(36_10%_22%)] text-center">
+          <p className="text-xs sm:text-sm font-mono uppercase tracking-widest text-[hsl(32_95%_50%)] font-bold">
+            «КОЖЕН МІЛІМЕТР ЗРІЗУ — ЦЕ РЕПУТАЦІЯ НАШОЇ МЕРЕЖІ»
+          </p>
         </div>
 
-        <Philosophy />
-        <ServicesPrices />
+        {/* Section 3: Booking Calculator */}
+        <BookingCalculator onOpenBooking={() => setBookingOpen(true)} />
 
-        {/* Interstitial 2: Standalone Oversized Statement Band */}
-        <div className="w-full bg-amber-500 py-6 text-zinc-950 text-center overflow-hidden">
-          <div className="font-display font-extrabold uppercase text-2xl sm:text-4xl tracking-tight max-w-5xl mx-auto px-4">
-            ПОНАД 265 000 СТРИЖОК З 2018 РОКУ: ТВІЙ СТИЛЬ БЕЗ ЗАПІЗНЕНЬ
-          </div>
+        {/* Section 4: Locations & Parking Map */}
+        <LocationsMap />
+
+        {/* Interstitial 3: Watermark Labeled Hairline */}
+        <div className="py-6 bg-[hsl(24_16%_8%)] flex items-center justify-center gap-4 text-xs font-mono text-[hsl(36_8%_55%)] uppercase tracking-widest">
+          <div className="w-16 h-px bg-[hsl(36_10%_22%)]" />
+          <span>ЧОЛОВІЧИЙ КЛУБ ТА ФІЛОСОФІЯ ГРАДІЄНТА</span>
+          <div className="w-16 h-px bg-[hsl(36_10%_22%)]" />
         </div>
 
-        <Calculator />
-        <Team />
-        <Transformations />
+        {/* Section 5: Atmosphere & Philosophy */}
+        <AtmosphereCraft />
 
-        {/* Interstitial 3: Labeled Hairline */}
-        <div className="w-full bg-zinc-900 py-4 border-y border-zinc-800 text-center">
-          <span className="text-xs font-mono uppercase tracking-[0.3em] text-zinc-400">
-            — БЕЗПЕКА ГОСТЯ ТА 100% СТЕРИЛІЗАЦІЯ ІНСТРУМЕНТІВ —
-          </span>
+        {/* Section 6: Before & After Precision */}
+        <BeforeAfterShowcase />
+
+        {/* Section 7: Real Gallery */}
+        <GalleryMasonry />
+
+        {/* Interstitial 4: Rating Proof Strip */}
+        <div className="bg-[hsl(32_95%_50%/0.1)] py-4 border-y border-[hsl(32_95%_50%/0.25)] text-center">
+          <p className="text-xs font-mono uppercase tracking-widest text-[hsl(36_10%_92%)]">
+            4.9 / 5.0 У GOOGLE MAPS • 580+ ПІДТВЕРДЖЕНИХ ВІДГУКІВ • 4 ФІЛІЇ З ПАРКІНГОМ
+          </p>
         </div>
 
-        <HygieneStandards />
-        <TattooGrooming />
-        <CertificatesSubscriptions />
+        {/* Section 8: Masters & Team */}
+        <TeamSection onOpenBooking={() => setBookingOpen(true)} />
+
+        {/* Section 9: Process Timeline */}
+        <ProcessTimeline />
+
+        {/* Section 10: Testimonials */}
         <Testimonials />
 
-        {/* Interstitial 4: Press / Rating Strip */}
-        <ServerInterstitials />
+        {/* Section 11: Certificates & Subscriptions */}
+        <CertificatesSubscriptions onOpenBooking={() => setBookingOpen(true)} />
 
-        <FAQSection />
-        <LocationsMap />
-        <CTAForm />
+        {/* Section 12: FAQ Accordions */}
+        <FaqSection />
       </main>
+
+      {/* Footer */}
       <Footer />
-      <StickyMobileBar />
+
+      {/* Online Booking Modal */}
+      <BookingContactModal
+        isOpen={bookingOpen}
+        onClose={() => setBookingOpen(false)}
+      />
     </div>
   );
 }

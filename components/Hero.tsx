@@ -1,134 +1,154 @@
 "use client";
 
+import React from "react";
 import { useLocale } from "@/lib/i18n";
-import { TextReveal } from "@/components/motion";
+import { Marquee } from "@/components/motion";
 
-export default function Hero() {
+interface HeroProps {
+  onOpenBooking: () => void;
+}
+
+export default function Hero({ onOpenBooking }: HeroProps) {
   const { t } = useLocale();
 
+  const kicker = String(t("hero.kicker"));
+  const line1 = String(t("hero.titleLine1"));
+  const line2 = String(t("hero.titleLine2"));
+  const subtitle = String(t("hero.subtitle"));
+  const ctaPrimary = String(t("hero.ctaPrimary"));
+  const videoSrc = String(t("hero.videoSrc"));
+  const posterUrl = String(t("hero.posterUrl"));
+
   return (
-    <section className="relative min-h-[100svh] flex flex-col justify-between pt-28 pb-12 overflow-hidden bg-zinc-950">
-      {/* Absolute Watermark Layer (Layer 1) */}
+    <section className="relative min-h-[100svh] flex flex-col justify-between pt-24 pb-0 overflow-hidden bg-[hsl(24_16%_8%)]">
+      {/* Layer 1: Giant Background Watermark Word */}
       <div 
-        aria-hidden="true" 
-        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0 overflow-hidden opacity-5"
+        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0 overflow-hidden"
+        aria-hidden="true"
       >
-        <span className="font-display font-extrabold text-[18vw] leading-none uppercase tracking-tighter text-white whitespace-nowrap">
+        <span className="text-[22vw] font-display font-bold uppercase tracking-tighter text-[hsl(32_95%_50%/0.03)] leading-none whitespace-nowrap">
           BARBERKING
         </span>
       </div>
 
-      {/* Background Video with Scrim Overlay (Layer 2) */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
+      {/* Layer 2: Background Video Stack with Dark Scrim */}
+      <div className="absolute inset-0 z-0">
         <video
           autoPlay
           muted
           loop
           playsInline
-          poster={t("hero.posterUrl") as string}
-          className="w-full h-full object-cover opacity-35 scale-105"
+          poster={posterUrl}
+          className="w-full h-full object-cover opacity-30 filter contrast-125 brightness-90 scale-105"
         >
-          <source src={t("hero.videoSrc") as string} type="video/mp4" />
+          <source src={videoSrc} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/70 to-zinc-950/50" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,hsl(220_20%_8%)_90%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(24_16%_8%)] via-[hsl(24_16%_8%/0.65)] to-[hsl(24_16%_8%/0.8)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,hsl(24_16%_8%/0.85)_100%)]" />
       </div>
 
-      {/* Flanking Side Labels (Layer 3) */}
-      <div className="hidden xl:flex justify-between items-center absolute left-8 right-8 top-1/2 -translate-y-1/2 z-10 pointer-events-none text-[11px] font-mono tracking-widest uppercase text-zinc-500/80">
-        <div className="rotate-90 origin-left">
-          ПРАВИЙ БЕРЕГ — ПАВЛІВСЬКА & ОЛЕСЯ
-        </div>
-        <div className="-rotate-90 origin-right">
-          ЛІВИЙ БЕРЕГ — ДНІПРОВСЬКА НАБ. & УРЛІВСЬКА
-        </div>
+      {/* Layer 3: Flanking Mini-copy Left & Right (Desktop) */}
+      <div className="hidden lg:block absolute left-8 top-1/2 -translate-y-1/2 z-10 text-[11px] font-mono text-[hsl(36_8%_55%)] space-y-3 tracking-widest uppercase">
+        <p className="border-l border-[hsl(32_95%_50%)] pl-3">{String(t("hero.branch1"))}</p>
+        <p className="border-l border-[hsl(36_10%_22%)] pl-3">{String(t("hero.branch2"))}</p>
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center my-auto">
-        {/* Kicker Badge with Real Meta (Layer 4) */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-500/40 bg-zinc-900/80 backdrop-blur-md mb-6">
-          <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-          <span className="text-xs font-semibold uppercase tracking-widest text-amber-300">
-            {t("hero.kicker") as string}
-          </span>
-        </div>
-
-        {/* Multi-line Poster H1 with Styled Word Accent (Layer 5) */}
-        <div className="relative max-w-5xl mx-auto mb-6">
-          <TextReveal
-            text={t("hero.title") as string}
-            as="h1"
-            className="justify-center text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-display font-extrabold uppercase tracking-tight text-white leading-[0.9] text-center"
-          />
-        </div>
-
-        {/* Lede / Subtitle (Layer 6) */}
-        <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-zinc-300 font-body leading-relaxed mb-8">
-          {t("hero.subtitle") as string}
-        </p>
-
-        {/* CTA Pair (Layer 7) */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-          <a
-            href="#booking"
-            className="w-full sm:w-auto px-8 py-4 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-display font-bold uppercase tracking-wider text-xl rounded shadow-xl shadow-amber-500/20 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
-          >
-            {t("hero.ctaPrimary") as string}
-          </a>
-          <a
-            href="#services"
-            className="w-full sm:w-auto px-8 py-4 bg-zinc-900/90 hover:bg-zinc-800 text-amber-400 border border-amber-500/40 font-display font-bold uppercase tracking-wider text-xl rounded backdrop-blur-md transition-all flex items-center justify-center gap-2"
-          >
-            <span>{t("hero.ctaSecondary") as string}</span>
-            <span className="font-mono text-xs">→</span>
-          </a>
-        </div>
-
-        {/* 3-Item Meta Strip with Hairlines (Layer 8) */}
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 py-3 px-6 rounded-full bg-zinc-900/60 border border-zinc-800/80 max-w-3xl mx-auto backdrop-blur-md text-xs sm:text-sm text-zinc-300 font-mono">
-          <span>{t("hero.metaHours") as string}</span>
-          <span className="text-amber-500/40">|</span>
-          <span>{t("hero.metaAddress") as string}</span>
-          <span className="text-amber-500/40">|</span>
-          <span className="text-amber-400 font-semibold">{t("hero.metaTrust") as string}</span>
-        </div>
+      <div className="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 z-10 text-[11px] font-mono text-[hsl(36_8%_55%)] space-y-3 tracking-widest uppercase text-right">
+        <p className="border-r border-[hsl(32_95%_50%)] pr-3">{String(t("hero.branch3"))}</p>
+        <p className="border-r border-[hsl(36_10%_22%)] pr-3">{String(t("hero.branch4"))}</p>
       </div>
 
-      {/* Floating Rotating Text Seal Badge (Layer 9) */}
-      <div className="hidden lg:block absolute bottom-24 right-12 z-20 pointer-events-none">
-        <div className="relative w-28 h-28 flex items-center justify-center rounded-full border border-amber-500/30 bg-zinc-950/80 backdrop-blur-md shadow-2xl">
+      {/* Layer 4: Floating Text-Only Badge Seal */}
+      <div className="absolute top-28 right-6 lg:right-16 z-20 pointer-events-none hidden sm:block">
+        <div className="relative w-24 h-24 flex items-center justify-center">
           <svg className="w-full h-full animate-[spin_20s_linear_infinite]" viewBox="0 0 100 100">
             <path
-              id="textPath"
+              id="circlePath"
               d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
               fill="none"
             />
-            <text className="text-[9.5px] font-mono uppercase fill-amber-400 font-semibold tracking-widest">
-              <textPath href="#textPath" startOffset="0%">
-                BARBERKING KYIV · EST 2018 · GRAND BARBER ·
+            <text className="text-[9.5px] font-mono uppercase tracking-[0.2em] fill-[hsl(32_95%_50%)] font-bold">
+              <textPath href="#circlePath" startOffset="0%">
+                BARBERKING KYIV • EST. 2018 •
               </textPath>
             </text>
           </svg>
-          <div className="absolute text-center">
-            <span className="font-display font-extrabold text-amber-400 text-lg leading-none">4.9</span>
+          <div className="absolute text-[10px] font-mono font-bold text-white uppercase tracking-tighter">
+            2018
           </div>
         </div>
       </div>
 
-      {/* Scroll Cue (Layer 10) */}
-      <div className="relative z-10 flex flex-col items-center justify-center gap-1.5 opacity-80 mt-6">
-        <span className="text-[9px] font-mono uppercase tracking-[0.3em] text-zinc-400">{t("hero.scrollCue") as string}</span>
-        <div className="w-0.5 h-7 bg-gradient-to-b from-amber-500 via-amber-500/50 to-transparent animate-pulse rounded-full" />
+      {/* Layer 5: Main Hero Content Cluster */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center pt-8 my-auto">
+        {/* Kicker with REAL meta */}
+        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[hsl(32_95%_50%/0.12)] border border-[hsl(32_95%_50%/0.3)] mb-6">
+          <span className="w-2 h-2 rounded-full bg-[hsl(32_95%_50%)] animate-pulse" />
+          <span className="text-xs uppercase tracking-widest font-mono text-[hsl(32_95%_50%)] font-semibold">
+            {kicker}
+          </span>
+        </div>
+
+        {/* Multi-line Poster H1 with italic accent word */}
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold uppercase tracking-tight text-[hsl(36_10%_92%)] leading-[0.92] max-w-4xl mb-6">
+          <span className="block">{line1}</span>
+          <span className="block text-[hsl(32_95%_50%)] italic font-semibold">{line2}</span>
+        </h1>
+
+        {/* 1-2 line subtitle */}
+        <p className="max-w-2xl text-sm sm:text-base md:text-lg text-[hsl(36_8%_75%)] font-normal leading-relaxed mb-8">
+          {subtitle}
+        </p>
+
+        {/* CTA Pair (Primary button + quiet phone text link) */}
+        <div className="flex flex-col sm:flex-row items-center gap-5 w-full sm:w-auto mb-10">
+          <button
+            onClick={onOpenBooking}
+            className="w-full sm:w-auto bg-[hsl(32_95%_50%)] hover:bg-[hsl(35_100%_44%)] text-[hsl(24_15%_9%)] font-display font-bold text-lg uppercase tracking-widest px-8 py-4 rounded-sm transition-all shadow-xl hover:shadow-[hsl(32_95%_50%/0.35)] transform hover:-translate-y-0.5 text-center min-h-[44px]"
+          >
+            {ctaPrimary}
+          </button>
+          <a
+            href="tel:0951079215"
+            className="text-xs font-mono uppercase tracking-widest text-[hsl(36_8%_75%)] hover:text-[hsl(32_95%_50%)] transition-colors py-3 px-2 border-b border-[hsl(36_10%_28%)] inline-block"
+          >
+            {String(t("hero.phoneText"))}
+          </a>
+        </div>
+
+        {/* 3-item Meta Strip with Hairline Separators */}
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs font-mono text-[hsl(36_8%_65%)] py-3 px-6 bg-[hsl(24_14%_13%/0.6)] backdrop-blur-sm rounded-full border border-[hsl(36_10%_22%/0.6)]">
+          <span>{String(t("hero.hoursMeta"))}</span>
+          <span className="text-[hsl(36_10%_28%)]">•</span>
+          <span>{String(t("hero.branchesMeta"))}</span>
+          <span className="text-[hsl(36_10%_28%)]">•</span>
+          <span className="text-[hsl(32_95%_50%)]">{String(t("hero.ratingMeta"))}</span>
+        </div>
       </div>
 
-      {/* Hero Base Micro Ticker Bar */}
-      <div className="w-full bg-zinc-900/90 border-t border-zinc-800 py-2 mt-4 z-10">
-        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-[10px] sm:text-xs font-mono tracking-widest uppercase text-zinc-400">
-          <span>{t("hero.networkBadge") as string}</span>
-          <span className="hidden sm:inline text-amber-500/60">·</span>
-          <span>{t("hero.parkingBadge") as string}</span>
-          <span className="hidden sm:inline text-amber-500/60">·</span>
-          <span>{t("hero.haircutsBadge") as string}</span>
+      {/* Layer 6: Base Section Ticker & Classic Scroll Indicator */}
+      <div className="relative z-10 w-full mt-10">
+        <div className="bg-[hsl(24_14%_12%)] border-t border-[hsl(36_10%_22%)] py-2 text-[11px] font-mono text-[hsl(36_8%_55%)] uppercase tracking-widest">
+          <Marquee speed={35}>
+            <span className="flex items-center gap-8 whitespace-nowrap px-4">
+              <span>{String(t("hero.ticker1"))}</span>
+              <span>•</span>
+              <span>{String(t("hero.ticker2"))}</span>
+              <span>•</span>
+              <span>{String(t("hero.ticker3"))}</span>
+              <span>•</span>
+              <span>{String(t("hero.ticker4"))}</span>
+              <span>•</span>
+            </span>
+          </Marquee>
+        </div>
+
+        {/* Classic Scroll Indicator */}
+        <div className="py-2 flex flex-col items-center gap-1 opacity-70">
+          <span className="text-[9px] uppercase font-mono tracking-widest text-[hsl(36_8%_60%)]">
+            SCROLL
+          </span>
+          <span className="w-0.5 h-4 bg-gradient-to-b from-[hsl(32_95%_50%)] to-transparent animate-pulse" />
         </div>
       </div>
     </section>

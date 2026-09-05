@@ -207,8 +207,8 @@ export function Reveal({
         {kids.map((child, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y }}
-            animate={revealed ? { opacity: 1, y: 0 } : { opacity: 0, y }}
+            initial={{ opacity: 0, ...from }}
+            animate={revealed ? { opacity: 1, ...settled } : { opacity: 0, ...from }}
             transition={{ duration, ease, delay: delay + i * stagger }}
           >
             {child}
@@ -222,8 +222,8 @@ export function Reveal({
     <Animated
       ref={ref}
       className={className}
-      initial={{ opacity: 0, y }}
-      animate={revealed ? { opacity: 1, y: 0 } : { opacity: 0, y }}
+      initial={{ opacity: 0, ...from }}
+      animate={revealed ? { opacity: 1, ...settled } : { opacity: 0, ...from }}
       transition={{ duration, ease, delay }}
     >
       {children}
@@ -377,9 +377,25 @@ export function Parallax({ children, distance = 80, as = "div", className }: Par
 
 interface MarqueeProps {
   /** One pass of content. It is repeated as many times as the screen needs. */
-  children: ReactNode;
+  children?: ReactNode;
+  /**
+   * The same thing as a list, which is how the generator asks for it.
+   *
+   * `<Marquee items={tickerItems} />` with no children shipped on a live hero
+   * and rendered an empty bar: `items` was not a prop, React dropped it, and
+   * there was nothing left to repeat. Children still win when both are given.
+   */
+  items?: ReactNode[];
   /** Seconds for one pass to cross its own width. Higher is calmer. */
   duration?: number;
+  /**
+   * What the generator calls `duration`, in the same seconds.
+   *
+   * Two shipped sites wrote `speed={22}` and `speed={30}` against a 26s
+   * default — either side of it, which is what settles whether "speed" here
+   * means seconds or pixels. `duration` still wins if both are present.
+   */
+  speed?: number;
   /** Right-to-left by default; `true` runs it the other way. */
   reverse?: boolean;
   className?: string;
@@ -401,7 +417,9 @@ interface MarqueeProps {
  * always at least one screen longer than the screen. The track moves by exactly
  * one pass width, on its own layer.
  */
-export function Marquee({ children, duration = 26, reverse = false, className }: MarqueeProps) {
+export function Marquee({ children, items, duration, speed, reverse = false, className }: MarqueeProps) {
+  const seconds = duration ?? speed ?? 26;
+  const content = children ?? items?.map((item, i) => <span key={i}>{item}</span>);
   const box = useRef<HTMLDivElement>(null);
   const pass = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
@@ -422,7 +440,7 @@ export function Marquee({ children, duration = 26, reverse = false, className }:
     document.fonts?.ready.then(measure).catch(() => undefined);
     window.addEventListener("resize", measure, { passive: true });
     return () => window.removeEventListener("resize", measure);
-  }, [children]);
+  }, [content]);
 
   // The trailing gap belongs to the pass, not to the track — that is what makes
   // consecutive passes tile with no seam.
@@ -433,7 +451,7 @@ export function Marquee({ children, duration = 26, reverse = false, className }:
       aria-hidden={hidden || undefined}
       className="flex shrink-0 items-center gap-[var(--marquee-gap,2.5rem)] pr-[var(--marquee-gap,2.5rem)]"
     >
-      {children}
+      {content}
     </div>
   );
 
@@ -451,7 +469,7 @@ export function Marquee({ children, duration = 26, reverse = false, className }:
         className="flex w-max"
         style={{ willChange: "transform" }}
         animate={{ x: reverse ? [-width, 0] : [0, -width] }}
-        transition={{ duration, ease: "linear", repeat: Infinity }}
+        transition={{ duration: seconds, ease: "linear", repeat: Infinity }}
       >
         {Array.from({ length: copies }, (_, i) => onePass(i, i > 0))}
       </motion.div>

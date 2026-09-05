@@ -1,16 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: hsl(24 15% 9%);
-  --color-primary-card: hsl(24 14% 13%);
-  --color-accent: hsl(32 95% 50%);
-  --color-accent-hover: hsl(35 100% 44%);
-  --color-accent-subtle: hsl(32 95% 50% / 0.12);
-  --color-bg-dark: hsl(24 16% 8%);
-  --color-bg-light: hsl(36 20% 95%);
-  --color-text-main: hsl(36 10% 92%);
-  --color-text-muted: hsl(36 8% 65%);
-  --color-border: hsl(36 10% 22%);
+  --color-primary: hsl(215 20% 12%);
+  --color-primary-light: hsl(215 15% 18%);
+  --color-accent: hsl(38 92% 50%);
+  --color-accent-deep: hsl(32 85% 42%);
+  --color-bg-dark: hsl(220 22% 8%);
+  --color-bg-surface: hsl(218 18% 13%);
+  --color-bg-light: hsl(38 22% 95%);
+  --color-card-light: hsl(0 0% 100%);
+  --color-text-main: hsl(215 20% 15%);
+  --color-text-light: hsl(40 20% 93%);
+  --color-text-muted: hsl(215 12% 60%);
+  --color-border-dark: hsl(215 15% 20%);
+  --color-border-light: hsl(38 15% 85%);
 
   --font-display: 'Alumni Sans', sans-serif;
   --font-body: 'Libre Franklin', sans-serif;
@@ -21,93 +24,81 @@
     font-size: 16px;
   }
   @media (min-width: 768px) {
-    html { font-size: 17px; }
+    html {
+      font-size: 17px;
+    }
   }
   @media (min-width: 1280px) {
-    html { font-size: 18px; }
+    html {
+      font-size: 18px;
+    }
   }
   @media (min-width: 1600px) {
-    html { font-size: 19px; }
+    html {
+      font-size: 19px;
+    }
+  }
+
+  body {
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
   }
 }
 
-body {
-  font-family: var(--font-body);
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-main);
-  overflow-x: hidden;
+@keyframes slowPan {
+  0% { transform: scale(1.0); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1.0); }
 }
 
-.font-display {
-  font-family: var(--font-display);
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 0.35; }
 }
-::-webkit-scrollbar-track {
-  background: hsl(24 16% 8%);
+
+@keyframes scrollLine {
+  0% { transform: translateY(0); opacity: 1; }
+  75% { transform: translateY(14px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
 }
-::-webkit-scrollbar-thumb {
-  background: hsl(36 10% 22%);
-  border-radius: 4px;
+
+.animate-spin-slow {
+  animation: spinSlow 22s linear infinite;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(32 95% 50%);
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 3s ease-in-out infinite;
+}
+
+.animate-scroll-line {
+  animation: scrollLine 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }
-
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
-}
-
-
-/* The root size, chosen per breakpoint.
-
-   Everything on these pages is laid out in rem, so this single value sets the
-   size of the whole site at each width. A viewport-scaled root breaks on
-   exactly the devices people hold: measured live, 17.3px at 390px, heading for
-   26.7px at 600px, while an 800px tablet got 12.5px.
-
-   The ladder is reading distance, not arithmetic. A phone is held at arm's
-   length and the platform is calibrated to 16px — iOS text-size settings
-   assume it, and 16px at 390px gives about 45 characters a line, the low end of
-   comfortable. Each step out adds distance and screen, so the type grows with
-   it, and stops at 20px where a line would otherwise run past 75 characters. */
-html { font-size: 16px; }
-@media (min-width: 768px)  { html { font-size: 17px; } }
-@media (min-width: 1280px) { html { font-size: 18px; } }
-@media (min-width: 1600px) { html { font-size: 19px; } }
-@media (min-width: 1920px) { html { font-size: 20px; } }
-
-
-/* The root size, chosen per breakpoint.
-
-   Everything on these pages is laid out in rem, so this single value sets the
-   size of the whole site at each width. A viewport-scaled root breaks on
-   exactly the devices people hold: measured live, 17.3px at 390px, heading for
-   26.7px at 600px, while an 800px tablet got 12.5px.
-
-   The ladder is reading distance, not arithmetic. A phone is held at arm's
-   length and the platform is calibrated to 16px — iOS text-size settings
-   assume it, and 16px at 390px gives about 45 characters a line, the low end of
-   comfortable. Each step out adds distance and screen, so the type grows with
-   it, and stops at 20px where a line would otherwise run past 75 characters. */
-html { font-size: 16px; }
-@media (min-width: 768px)  { html { font-size: 17px; } }
-@media (min-width: 1280px) { html { font-size: 18px; } }
-@media (min-width: 1600px) { html { font-size: 19px; } }
-@media (min-width: 1920px) { html { font-size: 20px; } }
 
 
 /* The root size, chosen per breakpoint.

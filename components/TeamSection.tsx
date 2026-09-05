@@ -1,81 +1,93 @@
 "use client";
-
-import React from "react";
 import { useLocale } from "@/lib/i18n";
-import content from "@/lib/content.json";
 
-interface TeamSectionProps {
-  onOpenBooking: () => void;
-}
-
-export default function TeamSection({ onOpenBooking }: TeamSectionProps) {
+export default function TeamSection() {
   const { t } = useLocale();
 
-  const kicker = String(t("team.kicker"));
-  const title = String(t("team.title"));
-  const subtitle = String(t("team.subtitle"));
-  const members = content.locales.uk.team.members;
+  const team = [
+    {
+      name: "ДАНІЕЛ (DINO)",
+      role: "GRAND BARBER",
+      branch: "вул. Павлівська 18 (Центр)",
+      exp: "7+ років досвіду",
+      spec: "Складні класичні стрижки, ідеальне зведення fade та окантовка небезпечним лезом.",
+      photo: "https://kyiv.bking.com.ua/wp-content/uploads/2026/03/dyno-e1774703810461-904x1024.webp"
+    },
+    {
+      name: "АНДРІЙ (АРТ)",
+      role: "TATTOO ARTIST",
+      branch: "вул. Павлівська 18 (Тату-зона)",
+      exp: "6+ років досвіду",
+      spec: "Графіка, чіткий лайнворк, реалістичні ескізи та безпечне перекриття.",
+      photo: "https://kyiv.bking.com.ua/wp-content/uploads/2026/06/img_4703-e1782466384832-759x1024.webp"
+    },
+    {
+      name: "ДМИТРО",
+      role: "TOP BARBER",
+      branch: "вул. Дніпровська набережна 15К (Позняки)",
+      exp: "5 років досвіду",
+      spec: "Моделювання довгої бороди, камуфляж сивини, робота з жорстким кучерявим волоссям.",
+      photo: "https://kyiv.bking.com.ua/wp-content/uploads/2025/04/photo_2025-04-26-15.12.24-768x1024.webp"
+    }
+  ];
 
   return (
-    <section id="team" className="py-20 sm:py-28 bg-[hsl(24_16%_8%)] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="text-xs uppercase tracking-widest font-mono text-[hsl(32_95%_50%)] font-semibold mb-2 block">
-            {kicker}
-          </span>
-          <h2 className="text-4xl sm:text-5xl font-display font-bold uppercase tracking-tight text-[hsl(36_10%_92%)] mb-4">
-            {title}
+    <section id="team" className="py-20 sm:py-28 bg-bg-dark border-b border-border-dark scroll-mt-20">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+        <div className="max-w-3xl">
+          <div className="text-accent font-display text-sm tracking-widest uppercase mb-2">
+            {String(t("teamSection.kicker"))}
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-display font-extrabold uppercase leading-tight text-text-light">
+            {String(t("teamSection.title"))}
           </h2>
-          <p className="text-[hsl(36_8%_70%)] text-sm sm:text-base leading-relaxed">
-            {subtitle}
+          <p className="mt-3 text-text-muted text-base sm:text-lg">
+            {String(t("teamSection.subtitle"))}
           </p>
         </div>
 
-        {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {members.map((m, idx) => (
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {team.map((member, idx) => (
             <div
               key={idx}
-              className="bg-[hsl(24_14%_13%)] border border-[hsl(36_10%_22%)] rounded-lg overflow-hidden group hover:border-[hsl(32_95%_50%/0.5)] transition-all flex flex-col justify-between"
+              className="bg-bg-surface rounded overflow-hidden border border-border-dark hover:border-accent transition-colors flex flex-col"
             >
-              <div>
-                <div className="relative h-80 overflow-hidden bg-[hsl(24_16%_8%)]">
-                  <img
-                    src={m.imageUrl}
-                    alt={m.name}
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 filter contrast-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(24_14%_13%)] via-transparent to-transparent opacity-90" />
-                  <div className="absolute top-3 left-3 bg-[hsl(32_95%_50%)] text-[hsl(24_15%_9%)] font-display font-bold text-xs uppercase px-2.5 py-1 rounded">
-                    {m.role}
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <div className="flex items-baseline justify-between mb-1">
-                    <h3 className="text-2xl font-display font-bold text-[hsl(36_10%_92%)] uppercase">
-                      {m.name}
-                    </h3>
-                    <span className="text-xs font-mono text-[hsl(32_95%_50%)] font-bold">
-                      {m.exp}
-                    </span>
-                  </div>
-                  <p className="text-xs font-mono text-[hsl(36_8%_60%)] mb-3">
-                    📍 {m.location}
-                  </p>
-                  <p className="text-xs sm:text-sm text-[hsl(36_8%_75%)] leading-relaxed">
-                    {m.spec}
-                  </p>
+              <div className="w-full aspect-[4/5] overflow-hidden bg-primary relative">
+                <img
+                  src={member.photo}
+                  alt={member.name}
+                  loading="lazy"
+                  className="w-full h-full object-cover object-top"
+                />
+                <div className="absolute top-3 left-3 bg-bg-dark/85 px-3 py-1 rounded text-xs font-display tracking-wider uppercase text-accent border border-border-dark">
+                  {member.role}
                 </div>
               </div>
 
-              <div className="p-6 pt-0">
-                <button
-                  onClick={onOpenBooking}
-                  className="w-full py-2.5 bg-[hsl(24_16%_8%)] hover:bg-[hsl(32_95%_50%)] text-[hsl(36_10%_92%)] hover:text-[hsl(24_15%_9%)] border border-[hsl(36_10%_22%)] font-display font-bold text-xs uppercase tracking-wider rounded transition-all"
-                >
-                  Записатись до майстра
-                </button>
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="font-display text-2xl font-bold uppercase text-text-light">
+                    {member.name}
+                  </h3>
+                  <div className="text-xs uppercase tracking-wider text-text-muted mt-1">
+                    {member.branch}
+                  </div>
+                  <div className="font-mono text-xs text-accent mt-1">
+                    {member.exp}
+                  </div>
+                  <p className="mt-4 text-sm text-text-muted leading-relaxed">
+                    {member.spec}
+                  </p>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-border-dark">
+                  <a
+                    href="#booking"
+                    className="w-full py-2.5 text-center font-display text-lg uppercase tracking-wider font-bold text-text-light hover:text-accent block transition-colors"
+                  >
+                    Записатися до майстра →
+                  </a>
+                </div>
               </div>
             </div>
           ))}

@@ -1,42 +1,51 @@
 {
   "currency": "грн",
-  "estimationLogic": "master_tier_plus_addons",
-  "basePrices": {
-    "haircut": {
-      "junior": 600,
-      "barber": 750,
-      "top": 850,
-      "grand": 1150
+  "tiers": [
+    { "id": "junior", "name": "Junior Barber", "multiplier": 0.8 },
+    { "id": "barber", "name": "Barber", "multiplier": 1.0 },
+    { "id": "top", "name": "Top Barber", "multiplier": 1.15 },
+    { "id": "grand", "name": "Grand Barber", "multiplier": 1.5 }
+  ],
+  "services": [
+    { "id": "haircut", "name": "Професійна чоловіча стрижка", "price": 750, "duration": 50 },
+    { "id": "beard", "name": "Стрижка та моделювання бороди", "price": 550, "duration": 35 },
+    { "id": "shave", "name": "Королівське гоління небезпечною бритвою", "price": 500, "duration": 45 },
+    { "id": "waxing", "name": "Waxing (віск для обличчя: ніс, вуха)", "price": 100, "duration": 15 },
+    { "id": "blackmask", "name": "Black mask (очищення пор обличчя)", "price": 350, "duration": 20 },
+    { "id": "camouflage", "name": "Камуфляж сивини бороди/волосся", "price": 550, "duration": 30 }
+  ],
+  "branches": [
+    {
+      "id": "pavlivska",
+      "name": "Центр / Лук'янівка",
+      "address": "вул. Павлівська, 18",
+      "features": "Головний барбершоп · Тату-зона · Власний паркінг",
+      "metro": "м. Лук'янівська / Вокзальна",
+      "phone": "095 107 92 15"
     },
-    "combo": {
-      "junior": 850,
-      "barber": 1150,
-      "top": 1250,
-      "grand": 1600
+    {
+      "id": "great",
+      "name": "Позняки / ЖК Great",
+      "address": "вул. Дніпровська набережна, 15К",
+      "features": "Панорамні вікна · Паркінг ЖК · Зона відпочинку",
+      "metro": "м. Осокорки / Лівобережна",
+      "phone": "095 107 92 15"
     },
-    "beard": {
-      "junior": 350,
-      "barber": 550,
-      "top": 600,
-      "grand": 800
+    {
+      "id": "varshavsky",
+      "name": "Виноградар / ЖК Варшавський",
+      "address": "вул. Олександра Олеся, 8А",
+      "features": "Зручний заїзд · Гостьові паркомісця · Дитяча зона",
+      "metro": "Подільський район",
+      "phone": "095 107 92 15"
     },
-    "royal_shave": {
-      "junior": 400,
-      "barber": 500,
-      "top": 600,
-      "grand": 700
-    },
-    "father_son": {
-      "junior": 1000,
-      "barber": 1150,
-      "top": 1400,
-      "grand": 1750
+    {
+      "id": "urlivska",
+      "name": "Позняки / Осокорки",
+      "address": "вул. Урлівська, 11/44",
+      "features": "Затишний простір · Кавова зона · Паркінг поруч",
+      "metro": "м. Позняки",
+      "phone": "095 107 92 15"
     }
-  },
-  "addons": {
-    "waxing": 100,
-    "black_mask": 350,
-    "grey_camouflage": 550,
-    "head_massage": 500
-  }
+  ]
 }

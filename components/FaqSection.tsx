@@ -2,44 +2,17 @@
 import { useState } from "react";
 import { useLocale } from "@/lib/i18n";
 
+interface FaqItem {
+  q: string;
+  a: string;
+}
+
 export default function FaqSection() {
   const { t } = useLocale();
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
-  const faqs = [
-    {
-      q: "Скільки коштує чоловіча стрижка у Barberking Київ?",
-      a: "Чоловіча стрижка в Barberking — від 750 грн (рівень Barber), 850 грн (Top Barber) та 1 150 грн (Grand Barber). Комплекс «стрижка + борода» — від 1 150 грн. Стрижка машинкою — від 550 грн. Усі ціни фіксовані без прихованих платежів."
-    },
-    {
-      q: "Скільки триває чоловіча стрижка?",
-      a: "Зазвичай від 45 до 60 хвилин залежно від довжини, вихідної форми та складності зведення фейду. Комплекс «стрижка + борода» триває близько 75–90 хвилин."
-    },
-    {
-      q: "Чи можна записатися день у день?",
-      a: "Так, якщо є вільні слоти в онлайн-календарі. Найшвидше перевірити доступний час — відкрити форму онлайн-запису на нашому сайті або зателефонувати 095 107 92 15."
-    },
-    {
-      q: "Що входить в оформлення бороди?",
-      a: "Консультація щодо гармонії форми з овалом обличчя, розпарювання гарячим рушником, стрижка довжини ножицями та машинкою, окантовка контуру небезпечною бритвою й обробка бальзамом."
-    },
-    {
-      q: "Чи робите камуфляж сивини для волосся та бороди?",
-      a: "Так, ми використовуємо спеціальні безаміачні чоловічі барвники, що дають м'який природний відтінок без ефекту 'пофарбованого перукарського шолома'."
-    },
-    {
-      q: "Чи є біля філій зручний паркінг?",
-      a: "Так, біля кожної з 4 локацій (Павлівська, Дніпровська набережна, Олеся, Урлівська) передбачені паркомісця для автомобілів наших гостей."
-    },
-    {
-      q: "Як працює тату-простір у Barberking?",
-      a: "Наш тату-майстер Андрій приймає на локації вул. Павлівська, 18. Консультація та розробка індивідуального ескізу проводяться за попереднім записом."
-    },
-    {
-      q: "Через скільки днів можна знімати плівку після тату?",
-      a: "Плівку з татуювання зазвичай знімають через 3-5 днів за рекомендацією майстра. Після зняття тату акуратно промивають теплою водою з рідким милом і наносять загоювальний крем (Bepanthen, Panthenol)."
-    }
-  ];
+  const rawFaqs = t("faqSection.items");
+  const faqs: FaqItem[] = Array.isArray(rawFaqs) ? (rawFaqs as FaqItem[]) : [];
 
   return (
     <section id="faq" className="py-20 sm:py-28 bg-bg-surface border-b border-border-dark scroll-mt-20">
@@ -65,7 +38,7 @@ export default function FaqSection() {
                 <button
                   type="button"
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="w-full flex items-center justify-between text-left gap-4 group"
+                  className="w-full min-h-[44px] flex items-center justify-between text-left gap-4 group"
                   aria-expanded={isOpen}
                 >
                   <span className="font-display text-2xl font-bold uppercase text-text-light group-hover:text-accent transition-colors">

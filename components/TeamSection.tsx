@@ -1,35 +1,19 @@
 "use client";
 import { useLocale } from "@/lib/i18n";
 
+interface TeamMember {
+  name: string;
+  role: string;
+  branch: string;
+  exp: string;
+  spec: string;
+  photo: string;
+}
+
 export default function TeamSection() {
   const { t } = useLocale();
-
-  const team = [
-    {
-      name: "ДАНІЕЛ (DINO)",
-      role: "GRAND BARBER",
-      branch: "вул. Павлівська 18 (Центр)",
-      exp: "7+ років досвіду",
-      spec: "Складні класичні стрижки, ідеальне зведення fade та окантовка небезпечним лезом.",
-      photo: "https://kyiv.bking.com.ua/wp-content/uploads/2026/03/dyno-e1774703810461-904x1024.webp"
-    },
-    {
-      name: "АНДРІЙ (АРТ)",
-      role: "TATTOO ARTIST",
-      branch: "вул. Павлівська 18 (Тату-зона)",
-      exp: "6+ років досвіду",
-      spec: "Графіка, чіткий лайнворк, реалістичні ескізи та безпечне перекриття.",
-      photo: "https://kyiv.bking.com.ua/wp-content/uploads/2026/06/img_4703-e1782466384832-759x1024.webp"
-    },
-    {
-      name: "ДМИТРО",
-      role: "TOP BARBER",
-      branch: "вул. Дніпровська набережна 15К (Позняки)",
-      exp: "5 років досвіду",
-      spec: "Моделювання довгої бороди, камуфляж сивини, робота з жорстким кучерявим волоссям.",
-      photo: "https://kyiv.bking.com.ua/wp-content/uploads/2025/04/photo_2025-04-26-15.12.24-768x1024.webp"
-    }
-  ];
+  const rawTeam = t("teamSection.members");
+  const team: TeamMember[] = Array.isArray(rawTeam) ? (rawTeam as TeamMember[]) : [];
 
   return (
     <section id="team" className="py-20 sm:py-28 bg-bg-dark border-b border-border-dark scroll-mt-20">
@@ -83,9 +67,9 @@ export default function TeamSection() {
                 <div className="mt-6 pt-4 border-t border-border-dark">
                   <a
                     href="#booking"
-                    className="w-full py-2.5 text-center font-display text-lg uppercase tracking-wider font-bold text-text-light hover:text-accent block transition-colors"
+                    className="w-full min-h-[44px] py-2.5 text-center font-display text-lg uppercase tracking-wider font-bold text-text-light hover:text-accent inline-flex items-center justify-center transition-colors"
                   >
-                    Записатися до майстра →
+                    {String(t("teamSection.cardCta"))}
                   </a>
                 </div>
               </div>

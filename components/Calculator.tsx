@@ -59,7 +59,7 @@ export default function Calculator() {
                   <button
                     key={tier.id}
                     onClick={() => setSelectedTier(tier.id)}
-                    className={`py-3 px-3 rounded font-display text-lg uppercase tracking-wider border transition-[border-color,background-color,color] duration-200 ease-out ${
+                    className={`min-h-[44px] py-3 px-3 rounded font-display text-lg uppercase tracking-wider border transition-[border-color,background-color,color] duration-200 ease-out ${
                       selectedTier === tier.id
                         ? "bg-accent text-bg-dark font-bold border-accent"
                         : "bg-bg-dark text-text-muted border-border-dark hover:border-text-muted hover:text-text-light"
@@ -84,7 +84,7 @@ export default function Calculator() {
                       key={srv.id}
                       type="button"
                       onClick={() => handleToggleService(srv.id)}
-                      className={`w-full p-3.5 rounded border text-left flex items-center justify-between transition-colors duration-200 ease-out ${
+                      className={`w-full min-h-[44px] p-3.5 rounded border text-left flex items-center justify-between transition-colors duration-200 ease-out ${
                         isChecked
                           ? "bg-bg-dark border-accent text-text-light"
                           : "bg-bg-dark/40 border-border-dark text-text-muted hover:border-border-dark"
@@ -105,7 +105,7 @@ export default function Calculator() {
                         </span>
                       </div>
                       <span className="font-display text-xl font-bold text-accent">
-                        {srv.price} грн
+                        {srv.price} {String(t("pricingCalculator.currency"))}
                       </span>
                     </button>
                   );
@@ -120,10 +120,10 @@ export default function Calculator() {
                   htmlFor={guestSliderId}
                   className="text-xs font-semibold uppercase tracking-wider text-text-muted"
                 >
-                  Кількість осіб у записі:
+                  {String(t("pricingCalculator.guestsLabel"))}
                 </label>
                 <span className="font-display text-2xl font-bold text-accent">
-                  {extraGuests} {extraGuests === 1 ? "гість" : extraGuests < 5 ? "гостя" : "гостей"}
+                  {extraGuests} {extraGuests === 1 ? String(t("pricingCalculator.guestSuffix1")) : extraGuests < 5 ? String(t("pricingCalculator.guestSuffixFew")) : String(t("pricingCalculator.guestSuffixMany"))}
                 </span>
               </div>
               <input
@@ -137,10 +137,10 @@ export default function Calculator() {
                 className="w-full h-2 bg-bg-dark rounded-lg appearance-none cursor-pointer accent-accent"
               />
               <div className="flex justify-between text-xs text-text-muted mt-1 font-mono">
-                <span>1 персона</span>
-                <span>2 (Батько+Син)</span>
-                <span>3 персони</span>
-                <span>4 персони</span>
+                <span>{String(t("pricingCalculator.guest1"))}</span>
+                <span>{String(t("pricingCalculator.guest2"))}</span>
+                <span>{String(t("pricingCalculator.guest3"))}</span>
+                <span>{String(t("pricingCalculator.guest4"))}</span>
               </div>
             </div>
           </div>
@@ -148,7 +148,7 @@ export default function Calculator() {
           {/* Result Card */}
           <div className="lg:col-span-5 bg-primary p-6 sm:p-8 rounded border border-border-dark sticky top-28">
             <div className="text-xs uppercase tracking-widest text-accent font-display">
-              ПІДСУМОК КОМПЛЕКСУ
+              {String(t("pricingCalculator.summaryKicker"))}
             </div>
 
             <div className="mt-6 flex items-baseline justify-between border-b border-border-dark pb-6">
@@ -157,7 +157,7 @@ export default function Calculator() {
                   {String(t("pricingCalculator.totalLabel"))}
                 </div>
                 <div className="font-display text-5xl sm:text-6xl font-extrabold text-accent mt-1">
-                  {calculatedTotal} <span className="text-2xl text-text-light">грн</span>
+                  {calculatedTotal} <span className="text-2xl text-text-light">{String(t("pricingCalculator.currency"))}</span>
                 </div>
               </div>
               <div className="text-right">
@@ -172,31 +172,31 @@ export default function Calculator() {
 
             <div className="py-6 space-y-3 border-b border-border-dark text-sm">
               <div className="flex justify-between text-text-muted">
-                <span>Рівень барбера:</span>
+                <span>{String(t("pricingCalculator.rankLabel"))}</span>
                 <span className="text-text-light font-semibold uppercase">
                   {currentTierObj.name}
                 </span>
               </div>
               <div className="flex justify-between text-text-muted">
-                <span>Обраних послуг:</span>
+                <span>{String(t("pricingCalculator.countLabel"))}</span>
                 <span className="text-text-light font-semibold">
                   {selectedServices.length}
                 </span>
               </div>
               <div className="flex justify-between text-text-muted">
-                <span>Гарантоване паркомісце:</span>
-                <span className="text-accent font-semibold">Включено</span>
+                <span>{String(t("pricingCalculator.parkingLabel"))}</span>
+                <span className="text-accent font-semibold">{String(t("pricingCalculator.includedValue"))}</span>
               </div>
               <div className="flex justify-between text-text-muted">
-                <span>Фірмові напої:</span>
-                <span className="text-accent font-semibold">Безкоштовно</span>
+                <span>{String(t("pricingCalculator.drinksLabel"))}</span>
+                <span className="text-accent font-semibold">{String(t("pricingCalculator.freeValue"))}</span>
               </div>
             </div>
 
             <div className="mt-6">
               <a
                 href="#booking"
-                className="w-full py-4 bg-accent text-bg-dark font-display text-2xl font-bold uppercase tracking-wider rounded text-center block hover:bg-accent-deep transition-colors duration-200 ease-out"
+                className="w-full min-h-[44px] py-4 bg-accent text-bg-dark font-display text-2xl font-bold uppercase tracking-wider rounded text-center inline-flex items-center justify-center hover:bg-accent-deep transition-colors duration-200 ease-out"
               >
                 {String(t("pricingCalculator.bookButton"))}
               </a>

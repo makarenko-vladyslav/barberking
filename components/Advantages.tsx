@@ -35,7 +35,7 @@ export default function Advantages() {
           </p>
           <div className="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-text-muted pt-3 border-t border-border-dark/60">
             <span>{String(t("advantages.author"))}</span>
-            <a href="#booking" className="text-accent hover:underline uppercase tracking-wider font-semibold">
+            <a href="#booking" className="text-accent hover:underline uppercase tracking-wider font-semibold min-h-[44px] inline-flex items-center">
               {String(t("advantages.linkText"))}
             </a>
           </div>
@@ -87,7 +87,7 @@ export default function Advantages() {
                       {item.title}
                     </h3>
                     <span className="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest text-text-muted bg-primary px-2 py-0.5 rounded border border-border-dark shrink-0">
-                      Standard
+                      {String(t("advantages.standardBadge"))}
                     </span>
                   </div>
                   <p className="text-sm text-text-muted leading-relaxed">
@@ -103,20 +103,20 @@ export default function Advantages() {
             <div className="relative rounded overflow-hidden border border-border-dark bg-bg-dark group">
               <div className="aspect-[4/3] w-full overflow-hidden">
                 <img
-                  src="https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5902-2-1024x683.jpg"
-                  alt="Стерилізація інструментів та королівське гоління"
+                  src="https://images.pexels.com/photos/7320169/pexels-photo-7320169.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+                  alt={String(t("advantages.protocolImgAlt"))}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
               </div>
               <div className="p-5 border-t border-border-dark">
                 <div className="text-[10px] uppercase font-mono tracking-widest text-accent mb-1">
-                  ПРОТОКОЛ БЕЗПЕКИ #03
+                  {String(t("advantages.protocolLabel"))}
                 </div>
                 <div className="font-display text-xl font-bold uppercase text-text-light">
-                  Триетапна медична стерилізація лез
+                  {String(t("advantages.protocolTitle"))}
                 </div>
                 <p className="text-xs text-text-muted mt-1 leading-relaxed">
-                  Ультразвукова ванна, дезінфекційний розчин та сухожарова обробка інструментів перед кожним гостем.
+                  {String(t("advantages.protocolDesc"))}
                 </p>
               </div>
             </div>
@@ -124,20 +124,20 @@ export default function Advantages() {
             <div className="relative rounded overflow-hidden border border-border-dark bg-bg-dark group">
               <div className="aspect-[4/3] w-full overflow-hidden">
                 <img
-                  src="https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-1024x683.jpg"
-                  alt="Точна геометрія стрижки та моделювання бороди"
+                  src="https://images.pexels.com/photos/9146943/pexels-photo-9146943.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+                  alt={String(t("advantages.archImgAlt"))}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
               </div>
               <div className="p-5 border-t border-border-dark">
                 <div className="text-[10px] uppercase font-mono tracking-widest text-accent mb-1">
-                  АРХІТЕКТУРА ЛІНІЙ #04
+                  {String(t("advantages.archLabel"))}
                 </div>
                 <div className="font-display text-xl font-bold uppercase text-text-light">
-                  Індивідуальне зведення Fade під анатомію
+                  {String(t("advantages.archTitle"))}
                 </div>
                 <p className="text-xs text-text-muted mt-1 leading-relaxed">
-                  Плавний градієнт від шкіри без видимих переходів та сходинок, вивірений баланс форми черепа.
+                  {String(t("advantages.archDesc"))}
                 </p>
               </div>
             </div>

@@ -47,7 +47,16 @@
         "metaRating": "4.9 / 5.0 (540+ відгуків)",
         "flankLeft": "Фіксований графік: початок роботи хвилина в хвилину згідно з онлайн-записом.",
         "flankRight": "Кава espresso, охолоджені напої та власне паркомісце закріплені за вашим візитом.",
-        "scroll": "SCROLL"
+        "scroll": "SCROLL",
+        "heroBadge": "Grand Protocol",
+        "heroCardTitle": "Анатомічний Fade & Чисте Лезо",
+        "heroCardDesc": "Фіксація форми до 3-4 тижнів",
+        "statHaircuts": "Стрижок з 2018",
+        "statGoogle": "Google Maps",
+        "labelHours": "ГОДИНИ:",
+        "labelLocations": "ЛОКАЦІЇ:",
+        "labelRating": "РЕЙТИНГ:",
+        "heroImgAlt": "Barberking Kyiv Master Cut"
       },
       "ticker": {
         "items": [
@@ -72,6 +81,15 @@
         "stat3": "100%",
         "stat3Desc": "гарантований паркінг",
         "linkText": "Детальніше про сервіс та запис →",
+        "protocolLabel": "ПРОТОКОЛ БЕЗПЕКИ #03",
+        "protocolTitle": "Триетапна медична стерилізація лез",
+        "protocolDesc": "Ультразвукова ванна, дезінфекційний розчин та сухожарова обробка інструментів перед кожним гостем.",
+        "protocolImgAlt": "Стерилізація інструментів та королівське гоління",
+        "archLabel": "АРХІТЕКТУРА ЛІНІЙ #04",
+        "archTitle": "Індивідуальне зведення Fade під анатомію",
+        "archDesc": "Плавний градієнт від шкіри без видимих переходів та сходинок, вивірений баланс форми черепа.",
+        "archImgAlt": "Точна геометрія стрижки та моделювання бороди",
+        "standardBadge": "Standard",
         "items": [
           {
             "num": "01",
@@ -105,13 +123,79 @@
           }
         ]
       },
+      "ratingStrip": {
+        "item1Value": "265 000+",
+        "item1Label": "Виконаних стрижок",
+        "item2Value": "4 філії",
+        "item2Label": "Київ: Правий та Лівий берег",
+        "item3Value": "4.9 / 5.0",
+        "item3Label": "Google Maps рейтинг",
+        "item4Value": "100%",
+        "item4Label": "Власний паркінг"
+      },
+      "statementStrip": {
+        "kicker": "КИЇВСЬКИЙ СТАНДАРТ ЧОЛОВІЧОЇ ФОРМИ",
+        "text": "ЧІТКИЙ FADE БЕЗ СХОДИНОК · БОРОДА ЗА АНАТОМІЄЮ · ВЛАСНИЙ ПАРКІНГ",
+        "cta": "Обрати філію →"
+      },
       "servicesSection": {
         "kicker": "Реєстр послуг та вартості",
         "title": "ОСНОВНЕ МЕНЮ БАРБЕРШОПУ",
         "subtitle": "Ціни вказані для рангу Barber. Для рівнів Top та Grand Master діє прозора тарифікація.",
         "fullPriceCta": "Повний прайс-лист за категоріями →",
         "consultLabel": "Консультація включена",
-        "bookCardCta": "Записатись →"
+        "bookCardCta": "Записатись →",
+        "mainMenuItem": "Головна позиція меню",
+        "items": [
+          {
+            "title": "Професійна чоловіча стрижка",
+            "price": "від 750 грн",
+            "time": "45–60 хв",
+            "desc": "Індивідуальний підбір форми з урахуванням росту волосся, геометрії обличчя та образу. Включає подвійне миття голови, точну окантовку бритви та укладку професійною глиною.",
+            "tag": "Найпопулярніша",
+            "photo": "/barberking/media/6d8ca618a07c0dcf.jpg"
+          },
+          {
+            "title": "Стрижка + оформлення бороди",
+            "price": "від 1 150 грн",
+            "time": "75–90 хв",
+            "desc": "Комплексний сеанс повного перезавантаження. Гармонійне зведення скроневих зон у лінію бороди, розпарювання гарячим рушником та підбір геометрії вусів.",
+            "tag": "Вибір клієнтів",
+            "photo": "/barberking/media/2188dccec9e8a19a.jpg"
+          },
+          {
+            "title": "Королівське гоління небезпечною бритвою",
+            "price": "від 500 грн",
+            "time": "45 хв",
+            "desc": "Традиційний ритуал чистого гоління з підготовкою шкіри ефірними оліями, компресом гарячим рушником та делікатним доглядом після гоління охолоджувальним бальзамом.",
+            "tag": "Традиція",
+            "photo": "/barberking/media/2cc21eda3b9b3b20.jpg"
+          },
+          {
+            "title": "Стрижка машинкою (2 насадки)",
+            "price": "від 550 грн",
+            "time": "35 хв",
+            "desc": "Мінімалістична та чітка чоловіча форма з ідеальним зведенням fade. Включає промивання шкіри голови та детальне вирівнювання крайової лінії шиї.",
+            "tag": "Експрес",
+            "photo": "/barberking/media/8408791178036424.jpg"
+          },
+          {
+            "title": "Передвесільний комплекс для нареченого",
+            "price": "від 1 500 грн",
+            "time": "100 хв",
+            "desc": "Повний сеанс підготовки до важливої події: професійна стрижка, моделювання бороди або чисте гоління, очищення пор Black Mask та воскова корекція.",
+            "tag": "Преміум",
+            "photo": "/barberking/media/c2bc7887f5e4b2bf.jpg"
+          },
+          {
+            "title": "Батько та син (до 10 років)",
+            "price": "від 1 150 грн",
+            "time": "75 хв",
+            "desc": "Одночасний спільний візит двох поколінь. Уважний підхід до наймолодших клієнтів без сліз та комфортне крісло для батька з фірмовою кавою.",
+            "tag": "Сімейний",
+            "photo": "https://images.pexels.com/photos/18301169/pexels-photo-18301169.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+          }
+        ]
       },
       "pricingSection": {
         "kicker": "Прозорий прайс Києва",
@@ -123,13 +207,219 @@
         "colService": "Послуга та опис",
         "colJunior": "Junior",
         "colBarber": "Barber",
-        "colTop": "Top Barber",
+        "colTop": "Top",
         "colGrand": "Grand",
         "subNoteTitle": "Абонементи мережі:",
         "subNoteText": "10 стрижок «Barber» — 6 300 грн · Стрижка + борода (10 візитів) — 9 900 грн.",
         "subNoteLink": "Придбати абонемент →",
         "footnote": "Тривалість процедур становить від 35 до 90 хвилин залежно від обраного комплексу.",
         "ctaText": "Забронювати час за цим тарифом"
+      },
+      "priceList": {
+        "hair": [
+          {
+            "name": "Професійна чоловіча стрижка",
+            "junior": "600 грн",
+            "barber": "750 грн",
+            "top": "850 грн",
+            "grand": "1 150 грн",
+            "desc": "Класична форма, crop, fade, pompadour. Подвійне миття голови та укладка.",
+            "tag": "Базовий вибір"
+          },
+          {
+            "name": "Стрижка машинкою (2 насадки)",
+            "junior": "450 грн",
+            "barber": "550 грн",
+            "top": "600 грн",
+            "grand": "750 грн",
+            "desc": "Швидка робота з чистим зведенням крайових ліній шиї."
+          },
+          {
+            "name": "Стрижка подовженого волосся",
+            "junior": "700 грн",
+            "barber": "850 грн",
+            "top": "950 грн",
+            "grand": "1 250 грн",
+            "desc": "Робота з текстурою та каскадом ножицями без втрати потрібної довжини."
+          },
+          {
+            "name": "Оновлення стрижки (до 10 днів)",
+            "junior": "450 грн",
+            "barber": "600 грн",
+            "top": "700 грн",
+            "grand": "900 грн",
+            "desc": "Підчищення контурів та скронь для постійного охайного вигляду."
+          },
+          {
+            "name": "Дитяча стрижка (до 10 років)",
+            "junior": "550 грн",
+            "barber": "700 грн",
+            "top": "800 грн",
+            "grand": "950 грн",
+            "desc": "Уважний та спокійний сервіс для наймолодших з витримкою геометрії."
+          },
+          {
+            "name": "Батько та син (одночасний сеанс)",
+            "junior": "1 000 грн",
+            "barber": "1 150 грн",
+            "top": "1 400 грн",
+            "grand": "1 750 грн",
+            "desc": "Спільний візит у сусідніх кріслах зі знижкою на комплексний чек.",
+            "tag": "Сімейний сет"
+          },
+          {
+            "name": "Стрижка бороди з окантовкою",
+            "junior": "350 грн",
+            "barber": "550 грн",
+            "top": "600 грн",
+            "grand": "800 грн",
+            "desc": "Створення лінії щоки, окантовка небезпечною бритвою та живлення олією."
+          },
+          {
+            "name": "Стрижка волосся + стрижка бороди",
+            "junior": "850 грн",
+            "barber": "1 150 грн",
+            "top": "1 250 грн",
+            "grand": "1 600 грн",
+            "desc": "Головний флагманський комплекс Barberking для повного оновлення форми.",
+            "tag": "ТОП вибір"
+          }
+        ],
+        "beard": [
+          {
+            "name": "Стрижка та моделювання бороди",
+            "junior": "350 грн",
+            "barber": "550 грн",
+            "top": "600 грн",
+            "grand": "800 грн",
+            "desc": "Створення чіткої лінії щоки та шиї, підрізання вусів і окантовка лезом.",
+            "tag": "Регулярний догляд"
+          },
+          {
+            "name": "Стрижка волосся + стрижка бороди",
+            "junior": "850 грн",
+            "barber": "1 150 грн",
+            "top": "1 250 грн",
+            "grand": "1 600 грн",
+            "desc": "Головний комплекс Barberking для повного оновлення чоловічого стилю.",
+            "tag": "Повний комплекс"
+          },
+          {
+            "name": "Королівське гоління небезпечною бритвою",
+            "junior": "400 грн",
+            "barber": "500 грн",
+            "top": "600 грн",
+            "grand": "700 грн",
+            "desc": "Розпарювання рушником, ефірні масла, гладке лезо та заспокоєння шкіри."
+          },
+          {
+            "name": "Гоління голови бритвою",
+            "junior": "400 грн",
+            "barber": "500 грн",
+            "top": "600 грн",
+            "grand": "700 грн",
+            "desc": "Чистий зріз під нуль з доглядовим охолоджувальним лосьйоном."
+          },
+          {
+            "name": "Окантовка бороди воском",
+            "junior": "150 грн",
+            "barber": "150 грн",
+            "top": "200 грн",
+            "grand": "400 грн",
+            "desc": "Видалення дрібного пушкового волосся вище основної лінії бороди."
+          },
+          {
+            "name": "Камуфляж бороди",
+            "junior": "450 грн",
+            "barber": "550 грн",
+            "top": "600 грн",
+            "grand": "700 грн",
+            "desc": "Природне затемнення сивини без ефекту неприродного фарбування."
+          },
+          {
+            "name": "SPA-розпарювання бороди",
+            "junior": "250 грн",
+            "barber": "300 грн",
+            "top": "350 грн",
+            "grand": "400 грн",
+            "desc": "Глибоке живлення волосся термокомпресом та аргановою олією."
+          },
+          {
+            "name": "Корекція форми вусів",
+            "junior": "150 грн",
+            "barber": "200 грн",
+            "top": "250 грн",
+            "grand": "300 грн",
+            "desc": "Окреме виведення геометрії та фіксація воском з матовим ефектом."
+          }
+        ],
+        "care": [
+          {
+            "name": "Передвесільний комплекс для чоловіка",
+            "junior": "1 200 грн",
+            "barber": "1 500 грн",
+            "top": "1 700 грн",
+            "grand": "2 100 грн",
+            "desc": "Стрижка, борода/гоління, Face waxing та очищувальна Black Mask.",
+            "tag": "All Inclusive"
+          },
+          {
+            "name": "Камуфляж сивини волосся",
+            "junior": "500 грн",
+            "barber": "550 грн",
+            "top": "550 грн",
+            "grand": "600 грн",
+            "desc": "Натуральний матовий відтінок без штучного блиску."
+          },
+          {
+            "name": "Black Mask — очищення пор обличчя",
+            "junior": "300 грн",
+            "barber": "350 грн",
+            "top": "400 грн",
+            "grand": "400 грн",
+            "desc": "Глибоке очищення т-зони від пилу та надлишкового себуму."
+          },
+          {
+            "name": "Waxing (ніс / вуха / міжбрів'я)",
+            "junior": "100 грн",
+            "barber": "100 грн",
+            "top": "100 грн",
+            "grand": "150 грн",
+            "desc": "Видалення зайвого волосся теплим воском за 5 хвилин."
+          },
+          {
+            "name": "Обпалення вух вогнем",
+            "junior": "50 грн",
+            "barber": "50 грн",
+            "top": "50 грн",
+            "grand": "50 грн",
+            "desc": "Традиційний східний метод усунення тонкого пуху на вушних раковинах."
+          },
+          {
+            "name": "Масаж голови з тоніком",
+            "junior": "200 грн",
+            "barber": "250 грн",
+            "top": "300 грн",
+            "grand": "350 грн",
+            "desc": "Покращення мікроциркуляції та зняття напруги після робочого дня."
+          },
+          {
+            "name": "Глибокий пілінг шкіри голови",
+            "junior": "350 грн",
+            "barber": "400 грн",
+            "top": "450 грн",
+            "grand": "500 грн",
+            "desc": "Очищення від залишків стайлінгу та ороговілих клітин шкіри."
+          },
+          {
+            "name": "Індивідуальний підбір стайлінгу",
+            "junior": "100 грн",
+            "barber": "100 грн",
+            "top": "100 грн",
+            "grand": "100 грн",
+            "desc": "Тестування помади, пасти чи глини під тип вашого волосся."
+          }
+        ]
       },
       "pricingCalculator": {
         "kicker": "Розрахунок візиту",
@@ -148,7 +438,15 @@
         "drinksLabel": "Фірмові напої:",
         "freeValue": "Безкоштовно",
         "bookButton": "Записатися на цей комплекс",
-        "disclaimer": "Остаточна ціна узгоджується перед початком сеансу залежно від структури волосся."
+        "disclaimer": "Остаточна ціна узгоджується перед початком сеансу залежно від структури волосся.",
+        "currency": "грн",
+        "guest1": "1 персона",
+        "guest2": "2 (Батько+Син)",
+        "guest3": "3 персони",
+        "guest4": "4 персони",
+        "guestSuffix1": "гість",
+        "guestSuffixFew": "гостя",
+        "guestSuffixMany": "гостей"
       },
       "workflow": {
         "kicker": "Послідовність процедури",
@@ -182,7 +480,33 @@
         "kicker": "Команда Києва",
         "title": "ГОЛОВНІ МАЙСТРИ МЕРЕЖІ",
         "subtitle": "Люди, які щоденно тримають стандарти майстерності у наших 4 філіях на Правому та Лівому берегах.",
-        "cardCta": "Записатися до майстра →"
+        "cardCta": "Записатися до майстра →",
+        "members": [
+          {
+            "name": "ДАНІЕЛ (DINO)",
+            "role": "GRAND BARBER",
+            "branch": "вул. Павлівська 18 (Центр)",
+            "exp": "7+ років досвіду",
+            "spec": "Складні класичні стрижки, ідеальне зведення fade та окантовка небезпечним лезом.",
+            "photo": "/barberking/media/c95335bf6f2294f5.webp"
+          },
+          {
+            "name": "АНДРІЙ (АРТ)",
+            "role": "TATTOO ARTIST",
+            "branch": "вул. Павлівська 18 (Тату-зона)",
+            "exp": "6+ років досвіду",
+            "spec": "Графіка, чіткий лайнворк, реалістичні ескізи та безпечне перекриття.",
+            "photo": "/barberking/media/024ab8c94532e3e3.webp"
+          },
+          {
+            "name": "ДМИТРО",
+            "role": "TOP BARBER",
+            "branch": "вул. Дніпровська набережна 15К (Позняки)",
+            "exp": "5 років досвіду",
+            "spec": "Моделювання довгої бороди, камуфляж сивини, робота з жорстким кучерявим волоссям.",
+            "photo": "/barberking/media/cb21fce583949171.webp"
+          }
+        ]
       },
       "gallerySection": {
         "kicker": "Реальні результати",
@@ -190,7 +514,26 @@
         "subtitle": "Живі фотографії робіт з наших крісел без ретуші та фільтрів. Чіткі контури, вивірений баланс та міцний силует.",
         "reviewQuote": "«Стрижуся на Павлівській вже 4 роки. Жодного разу не було затримки за часом, а фейд тримає чітку лінію щонайменше три тижні».",
         "reviewAuthor": "Олександр В. — постійний гість з 2020 року",
-        "reviewSource": "4.9 / 5.0 · Google Maps · 540 відгуків клієнтів"
+        "reviewSource": "4.9 / 5.0 · Google Maps · 540 відгуків клієнтів",
+        "reviewsCount": "540+ підтверджених відгуків",
+        "frameLabel": "Кадр",
+        "works": [
+          {
+            "url": "/barberking/media/25737c91946010b6.jpg",
+            "title": "Textured Crop Fade",
+            "desc": "Низький skin-fade з матовою текстурою верху."
+          },
+          {
+            "url": "https://images.pexels.com/photos/4969838/pexels-photo-4969838.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+            "title": "Моделювання довгої бороди",
+            "desc": "Вирівнювання лінії щоки та насичений контур лезом."
+          },
+          {
+            "url": "/barberking/media/3d153ab177b41d38.jpg",
+            "title": "Classic Side Part",
+            "desc": "Класичний діловий проділ з фіксацією без блиску."
+          }
+        ]
       },
       "videoSection": {
         "kicker": "Атмосфера та ритм",
@@ -205,10 +548,13 @@
         "title": "СЕРТИФІКАТ НА ЧОЛОВІЧИЙ ДОГЛЯД",
         "subtitle": "Практичний подарунок для колеги, друга чи батька з фіксованим або відкритим номіналом.",
         "text": "Фірмовий сертифікат діє в усіх 4 філіях Києва. Можна обрати комплекс або вказати суму від 750 грн. Доступні як фізичні конверти, так і миттєві цифрові картки.",
-        "feature1": "Матовий чорний конверт з фірмовим тисненням",
-        "feature2": "Цифрова версія в Apple Wallet / Telegram за 5 хвилин",
-        "feature3": "Термін дії — 6 місяців з дати оформлення",
-        "button": "Замовити сертифікат"
+        "feature1": "Паперовий сертифікат у матовому чорному конверті",
+        "feature2": "Електронний сертифікат в Apple Wallet / Telegram за 5 хвилин",
+        "feature3": "Термін дії — 6 місяців з дати придбання",
+        "button": "Замовити сертифікат",
+        "altText": "Подарунковий сертифікат Barberking",
+        "allBranches": "Діє у всіх 4 філіях Києва",
+        "fromPrice": "Номінал від 750 грн"
       },
       "branchesSection": {
         "kicker": "Локації в Києві",
@@ -222,20 +568,58 @@
       "faqSection": {
         "kicker": "Відповіді на запитання",
         "title": "УСЕ, ЩО ВАРТО ЗНАТИ ДО ВІЗИТУ",
-        "subtitle": "Відповіді на типові питання щодо цін, тривалості сеансів, татуювань та дитячих стрижок."
+        "subtitle": "Відповіді на типові питання щодо цін, тривалості сеансів, татуювань та дитячих стрижок.",
+        "items": [
+          {
+            "q": "Скільки коштує чоловіча стрижка у Barberking Київ?",
+            "a": "Чоловіча стрижка в Barberking — від 750 грн (рівень Barber), 850 грн (Top Barber) та 1 150 грн (Grand Barber). Комплекс «стрижка + борода» — від 1 150 грн. Стрижка машинкою — від 550 грн. Усі ціни фіксовані без прихованих платежів."
+          },
+          {
+            "q": "Скільки триває чоловіча стрижка?",
+            "a": "Зазвичай від 45 до 60 хвилин залежно від довжини, вихідної форми та складності зведення фейду. Комплекс «стрижка + борода» триває близько 75–90 хвилин."
+          },
+          {
+            "q": "Чи можна записатися день у день?",
+            "a": "Так, якщо є вільні слоти в онлайн-календарі. Найшвидше перевірити доступний час — відкрити форму онлайн-запису на нашому сайті або зателефонувати 095 107 92 15."
+          },
+          {
+            "q": "Що входить в оформлення бороди?",
+            "a": "Консультація щодо гармонії форми з овалом обличчя, розпарювання гарячим рушником, стрижка довжини ножицями та машинкою, окантовка контуру небезпечною бритвою й обробка бальзамом."
+          },
+          {
+            "q": "Чи робите камуфляж сивини для волосся та бороди?",
+            "a": "Так, ми використовуємо спеціальні безаміачні чоловічі барвники, що дають м'який природний відтінок без ефекту пофарбованого перукарського шолома."
+          },
+          {
+            "q": "Чи є біля філій зручний паркінг?",
+            "a": "Так, біля кожної з 4 локацій (Павлівська, Дніпровська набережна, Олеся, Урлівська) передбачені паркомісця для автомобілів наших гостей."
+          },
+          {
+            "q": "Як працює тату-простір у Barberking?",
+            "a": "Наш тату-майстер Андрій приймає на локації вул. Павлівська, 18. Консультація та розробка індивідуального ескізу проводяться за попереднім записом."
+          },
+          {
+            "q": "Через скільки днів можна знімати плівку після тату?",
+            "a": "Плівку з татуювання зазвичай знімають через 3-5 днів за рекомендацією майстра. Після зняття тату акуратно промивають теплою водою з рідким милом і наносять загоювальний крем (Bepanthen, Panthenol)."
+          }
+        ]
       },
       "ctaSection": {
         "kicker": "Онлайн-резервування",
         "title": "ЗАБРОНЮЙТЕ КРІСЛО БЕЗ ЧЕРГИ ТА ЗАТРИМОК",
         "subtitle": "Оберіть філію, майстра та зручний слот прямо зараз у кілька кліків.",
         "hoursTitle": "Графік роботи:",
-        "hoursDaily": "Щоденно: 10:00 — 21:00",
-        "hoursWeekend": "Субота / Неділя: 10:00 — 21:00",
+        "daysWeekdays": "Понеділок — П'ятниця:",
+        "daysWeekends": "Субота — Неділя:",
+        "workMode": "Режим роботи:",
+        "hoursDailyTime": "10:00 — 21:00",
         "hoursNote": "Без вихідних та перерв",
         "addressLine": "вул. Павлівська, 18 · вул. Дніпровська набережна, 15К · вул. О. Олеся, 8А · вул. Урлівська, 11/44",
         "trustLine": "Середній час оформлення — 45 секунд. SMS-підтвердження надходить миттєво.",
         "primaryBtn": "Записатися в онлайн-календарі",
-        "phoneBtn": "095 107 92 15"
+        "phoneBtn": "095 107 92 15",
+        "viewBranchesMap": "Переглянути мапу філій →",
+        "bookingSuccess": "Запис успішно створено"
       },
       "contactForm": {
         "kicker": "Швидкий запит",
@@ -257,7 +641,10 @@
         "branchesTitle": "Наші філії",
         "menuTitle": "Навігація",
         "contactsTitle": "Контакти",
-        "hoursTitle": "Години роботи",
+        "labelHours": "ГОДИНИ РОБОТИ:",
+        "labelPhone": "Телефон:",
+        "labelEmail": "Email:",
+        "labelOffice": "Адреса офісу:",
         "hours": "Щоденно з 10:00 до 21:00",
         "address": "вул. Січових Стрільців, 10, Київ",
         "phone": "095 107 92 15",
@@ -313,7 +700,16 @@
         "metaRating": "4.9 / 5.0 (540+ reviews)",
         "flankLeft": "Punctual schedule: each session begins on the exact scheduled minute.",
         "flankRight": "Espresso, cold beverages and dedicated parking reserved for your visit.",
-        "scroll": "SCROLL"
+        "scroll": "SCROLL",
+        "heroBadge": "Grand Protocol",
+        "heroCardTitle": "Anatomical Fade & Clean Razor",
+        "heroCardDesc": "Holds shape up to 3-4 weeks",
+        "statHaircuts": "Haircuts since 2018",
+        "statGoogle": "Google Maps",
+        "labelHours": "HOURS:",
+        "labelLocations": "LOCATIONS:",
+        "labelRating": "RATING:",
+        "heroImgAlt": "Barberking Kyiv Master Cut"
       },
       "ticker": {
         "items": [
@@ -338,6 +734,15 @@
         "stat3": "100%",
         "stat3Desc": "parking certainty",
         "linkText": "Explore full service details →",
+        "protocolLabel": "SAFETY PROTOCOL #03",
+        "protocolTitle": "Three-stage medical blade sterilization",
+        "protocolDesc": "Ultrasonic bath, disinfectant solution and dry heat autoclave treatment before every guest.",
+        "protocolImgAlt": "Sterilization of tools and royal shave",
+        "archLabel": "LINE ARCHITECTURE #04",
+        "archTitle": "Individual Fade taper tailored to anatomy",
+        "archDesc": "Smooth skin taper with no visible lines or steps, balanced to cranial shape.",
+        "archImgAlt": "Precise haircut geometry and beard styling",
+        "standardBadge": "Standard",
         "items": [
           {
             "num": "01",
@@ -371,13 +776,79 @@
           }
         ]
       },
+      "ratingStrip": {
+        "item1Value": "265,000+",
+        "item1Label": "Completed haircuts",
+        "item2Value": "4 branches",
+        "item2Label": "Kyiv: Right & Left banks",
+        "item3Value": "4.9 / 5.0",
+        "item3Label": "Google Maps rating",
+        "item4Value": "100%",
+        "item4Label": "Dedicated parking"
+      },
+      "statementStrip": {
+        "kicker": "KYIV BENCHMARK OF MASCULINE FORM",
+        "text": "CLEAN STEP-FREE FADE · ANATOMIC BEARD · DEDICATED PARKING",
+        "cta": "Choose branch →"
+      },
       "servicesSection": {
         "kicker": "Service catalog & rates",
         "title": "CORE GROOMING MENU",
         "subtitle": "Baseline rates shown for Barber tier. Top and Grand Master levels available with transparent tier additions.",
         "fullPriceCta": "Full price list by tiers →",
         "consultLabel": "Consultation included",
-        "bookCardCta": "Book slot →"
+        "bookCardCta": "Book slot →",
+        "mainMenuItem": "Signature menu item",
+        "items": [
+          {
+            "title": "Professional Men's Haircut",
+            "price": "from 750 UAH",
+            "time": "45–60 min",
+            "desc": "Custom tailored shape considering growth vectors, facial geometry and lifestyle. Includes double hair wash, crisp razor edging and styling.",
+            "tag": "Most Popular",
+            "photo": "/barberking/media/6d8ca618a07c0dcf.jpg"
+          },
+          {
+            "title": "Haircut + Beard Styling Combo",
+            "price": "from 1,150 UAH",
+            "time": "75–90 min",
+            "desc": "Complete reset combo. Seamless transition from temple tapers into beard line, hot towel steam and mustache grooming.",
+            "tag": "Clients' Choice",
+            "photo": "/barberking/media/2188dccec9e8a19a.jpg"
+          },
+          {
+            "title": "Royal Straight Razor Shave",
+            "price": "from 500 UAH",
+            "time": "45 min",
+            "desc": "Traditional clean shave ritual with essential oil skin prep, hot towel compress and cooling aftershave balm.",
+            "tag": "Heritage",
+            "photo": "/barberking/media/2cc21eda3b9b3b20.jpg"
+          },
+          {
+            "title": "Clipper Haircut (2 guards)",
+            "price": "from 550 UAH",
+            "time": "35 min",
+            "desc": "Minimalist clean masculine cut with flawless fade. Includes scalp rinse and detailed neckline taper.",
+            "tag": "Express",
+            "photo": "/barberking/media/8408791178036424.jpg"
+          },
+          {
+            "title": "Groom Wedding Grooming Package",
+            "price": "from 1,500 UAH",
+            "time": "100 min",
+            "desc": "Complete prep session for special events: precision haircut, beard shaping or clean shave, Black Mask pore detox and waxing.",
+            "tag": "Premium",
+            "photo": "/barberking/media/c2bc7887f5e4b2bf.jpg"
+          },
+          {
+            "title": "Father & Son (under 10 y.o.)",
+            "price": "from 1,150 UAH",
+            "time": "75 min",
+            "desc": "Simultaneous joint session for two generations. Gentle approach for young ones and comfort for the father with coffee.",
+            "tag": "Family",
+            "photo": "https://images.pexels.com/photos/18301169/pexels-photo-18301169.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
+          }
+        ]
       },
       "pricingSection": {
         "kicker": "Transparent Kyiv rates",
@@ -389,13 +860,219 @@
         "colService": "Procedure & details",
         "colJunior": "Junior",
         "colBarber": "Barber",
-        "colTop": "Top Barber",
+        "colTop": "Top",
         "colGrand": "Grand",
         "subNoteTitle": "Network Subscriptions:",
         "subNoteText": "10 haircuts «Barber» — 6 300 UAH · Haircut + beard (10 visits) — 9 900 UAH.",
         "subNoteLink": "Purchase subscription →",
         "footnote": "Service durations range from 35 to 90 minutes depending on chosen procedures.",
         "ctaText": "Reserve your slot at this rate"
+      },
+      "priceList": {
+        "hair": [
+          {
+            "name": "Professional Men's Haircut",
+            "junior": "600 UAH",
+            "barber": "750 UAH",
+            "top": "850 UAH",
+            "grand": "1 150 UAH",
+            "desc": "Classic shape, crop, fade, pompadour. Double shampoo and styling.",
+            "tag": "Essential"
+          },
+          {
+            "name": "Clipper Haircut (2 guards)",
+            "junior": "450 UAH",
+            "barber": "550 UAH",
+            "top": "600 UAH",
+            "grand": "750 UAH",
+            "desc": "Fast precision work with clean necklines."
+          },
+          {
+            "name": "Long Hair Trim",
+            "junior": "700 UAH",
+            "barber": "850 UAH",
+            "top": "950 UAH",
+            "grand": "1 250 UAH",
+            "desc": "Scissor layering and texture preservation."
+          },
+          {
+            "name": "Touch-up Cut (within 10 days)",
+            "junior": "450 UAH",
+            "barber": "600 UAH",
+            "top": "700 UAH",
+            "grand": "900 UAH",
+            "desc": "Temple and neckline cleanup for continuous neatness."
+          },
+          {
+            "name": "Kids Haircut (under 10 y.o.)",
+            "junior": "550 UAH",
+            "barber": "700 UAH",
+            "top": "800 UAH",
+            "grand": "950 UAH",
+            "desc": "Gentle, calm service with clean geometric tapering."
+          },
+          {
+            "name": "Father & Son (simultaneous session)",
+            "junior": "1 000 UAH",
+            "barber": "1 150 UAH",
+            "top": "1 400 UAH",
+            "grand": "1 750 UAH",
+            "desc": "Side-by-side chairs with special package pricing.",
+            "tag": "Family Set"
+          },
+          {
+            "name": "Beard Trim with Edge Lining",
+            "junior": "350 UAH",
+            "barber": "550 UAH",
+            "top": "600 UAH",
+            "grand": "800 UAH",
+            "desc": "Cheek line definition, straight razor edging and nourishing oil."
+          },
+          {
+            "name": "Haircut + Beard Styling Combo",
+            "junior": "850 UAH",
+            "barber": "1 150 UAH",
+            "top": "1 250 UAH",
+            "grand": "1 600 UAH",
+            "desc": "Signature Barberking flagship package for complete style renewal.",
+            "tag": "Top Choice"
+          }
+        ],
+        "beard": [
+          {
+            "name": "Beard Sculpting & Trim",
+            "junior": "350 UAH",
+            "barber": "550 UAH",
+            "top": "600 UAH",
+            "grand": "800 UAH",
+            "desc": "Cheek and neck lines, mustache trim and razor outline.",
+            "tag": "Regular Care"
+          },
+          {
+            "name": "Haircut + Beard Styling Combo",
+            "junior": "850 UAH",
+            "barber": "1 150 UAH",
+            "top": "1 250 UAH",
+            "grand": "1 600 UAH",
+            "desc": "Barberking flagship combo for complete masculine style.",
+            "tag": "Full Package"
+          },
+          {
+            "name": "Royal Straight Razor Shave",
+            "junior": "400 UAH",
+            "barber": "500 UAH",
+            "top": "600 UAH",
+            "grand": "700 UAH",
+            "desc": "Hot towel steam, essential oils, razor glide and soothing balm."
+          },
+          {
+            "name": "Full Head Razor Shave",
+            "junior": "400 UAH",
+            "barber": "500 UAH",
+            "top": "600 UAH",
+            "grand": "700 UAH",
+            "desc": "Clean zero shave with refreshing cooling lotion."
+          },
+          {
+            "name": "Beard Wax Edging",
+            "junior": "150 UAH",
+            "barber": "150 UAH",
+            "top": "200 UAH",
+            "grand": "400 UAH",
+            "desc": "Warm wax removal of stray cheek hairs."
+          },
+          {
+            "name": "Beard Grey Camouflage",
+            "junior": "450 UAH",
+            "barber": "550 UAH",
+            "top": "600 UAH",
+            "grand": "700 UAH",
+            "desc": "Natural matte blending of grey hairs without artificial dye shine."
+          },
+          {
+            "name": "SPA Hot Towel Beard Treatment",
+            "junior": "250 UAH",
+            "barber": "300 UAH",
+            "top": "350 UAH",
+            "grand": "400 UAH",
+            "desc": "Deep nourishment with hot compress and organic argan oil."
+          },
+          {
+            "name": "Mustache Shaping",
+            "junior": "150 UAH",
+            "barber": "200 UAH",
+            "top": "250 UAH",
+            "grand": "300 UAH",
+            "desc": "Dedicated geometry trimming and matte wax hold."
+          }
+        ],
+        "care": [
+          {
+            "name": "Groom Wedding Grooming Package",
+            "junior": "1 200 UAH",
+            "barber": "1 500 UAH",
+            "top": "1 700 UAH",
+            "grand": "2 100 UAH",
+            "desc": "Haircut, beard/shave, Face waxing and Black Mask detox.",
+            "tag": "All Inclusive"
+          },
+          {
+            "name": "Hair Grey Camouflage",
+            "junior": "500 UAH",
+            "barber": "550 UAH",
+            "top": "550 UAH",
+            "grand": "600 UAH",
+            "desc": "Natural matte shade without synthetic shine."
+          },
+          {
+            "name": "Black Mask — Facial Pore Cleansing",
+            "junior": "300 UAH",
+            "barber": "350 UAH",
+            "top": "400 UAH",
+            "grand": "400 UAH",
+            "desc": "Deep T-zone cleansing removing dust and excess sebum."
+          },
+          {
+            "name": "Waxing (nose / ears / brow)",
+            "junior": "100 UAH",
+            "barber": "100 UAH",
+            "top": "100 UAH",
+            "grand": "150 UAH",
+            "desc": "Fast 5-minute warm wax hair cleanup."
+          },
+          {
+            "name": "Traditional Fire Ear Singeing",
+            "junior": "50 UAH",
+            "barber": "50 UAH",
+            "top": "50 UAH",
+            "grand": "50 UAH",
+            "desc": "Authentic eastern method for fine ear hair elimination."
+          },
+          {
+            "name": "Scalp Massage with Tonic",
+            "junior": "200 UAH",
+            "barber": "250 UAH",
+            "top": "300 UAH",
+            "grand": "350 UAH",
+            "desc": "Microcirculation boost and post-work tension release."
+          },
+          {
+            "name": "Deep Scalp Exfoliation Peeling",
+            "junior": "350 UAH",
+            "barber": "400 UAH",
+            "top": "450 UAH",
+            "grand": "500 UAH",
+            "desc": "Cleansing styling buildup and dead skin cells."
+          },
+          {
+            "name": "Custom Styling Product Selection",
+            "junior": "100 UAH",
+            "barber": "100 UAH",
+            "top": "100 UAH",
+            "grand": "100 UAH",
+            "desc": "Testing pomade, paste or clay matched to your hair density."
+          }
+        ]
       },
       "pricingCalculator": {
         "kicker": "Visit estimation",
@@ -414,7 +1091,15 @@
         "drinksLabel": "Complimentary drinks:",
         "freeValue": "Free",
         "bookButton": "Reserve this combo",
-        "disclaimer": "Final total is confirmed in the chair depending on desired treatments."
+        "disclaimer": "Final total is confirmed in the chair depending on desired treatments.",
+        "currency": "UAH",
+        "guest1": "1 guest",
+        "guest2": "2 (Father+Son)",
+        "guest3": "3 guests",
+        "guest4": "4 guests",
+        "guestSuffix1": "guest",
+        "guestSuffixFew": "guests",
+        "guestSuffixMany": "guests"
       },
       "workflow": {
         "kicker": "Service discipline",
@@ -448,7 +1133,33 @@
         "kicker": "Kyiv masters",
         "title": "LEAD ARTISTS & BARBERS",
         "subtitle": "The individuals setting the benchmark for precision and trust across our 4 branches.",
-        "cardCta": "Book with this master →"
+        "cardCta": "Book with this master →",
+        "members": [
+          {
+            "name": "DANIEL (DINO)",
+            "role": "GRAND BARBER",
+            "branch": "18 Pavlivska St (Center)",
+            "exp": "7+ years experience",
+            "spec": "Complex classic haircuts, perfect fade transitions and straight razor edges.",
+            "photo": "/barberking/media/c95335bf6f2294f5.webp"
+          },
+          {
+            "name": "ANDRIY (ART)",
+            "role": "TATTOO ARTIST",
+            "branch": "18 Pavlivska St (Tattoo room)",
+            "exp": "6+ years experience",
+            "spec": "Graphics, crisp linework, realistic sketches and safe cover-ups.",
+            "photo": "/barberking/media/024ab8c94532e3e3.webp"
+          },
+          {
+            "name": "DMYTRO",
+            "role": "TOP BARBER",
+            "branch": "15K Dniprovska Embankment (Pozniaky)",
+            "exp": "5 years experience",
+            "spec": "Long beard modeling, grey hair camouflage, coarse curly hair discipline.",
+            "photo": "/barberking/media/cb21fce583949171.webp"
+          }
+        ]
       },
       "gallerySection": {
         "kicker": "Portfolio",
@@ -456,7 +1167,26 @@
         "subtitle": "Authentic photography straight from our chairs. Clean fades, disciplined beard edges, and no filter tricks.",
         "reviewQuote": "«I've been visiting Pavlivska branch for over 4 years. Never a single delay, and the fade stays crisp for at least three weeks».",
         "reviewAuthor": "Oleksandr V. — regular guest since 2020",
-        "reviewSource": "4.9 / 5.0 · Google Maps · 540 verified reviews"
+        "reviewSource": "4.9 / 5.0 · Google Maps · 540 verified reviews",
+        "reviewsCount": "540+ verified reviews",
+        "frameLabel": "Frame",
+        "works": [
+          {
+            "url": "/barberking/media/25737c91946010b6.jpg",
+            "title": "Textured Crop Fade",
+            "desc": "Low skin-fade with textured matte finish."
+          },
+          {
+            "url": "https://images.pexels.com/photos/4969838/pexels-photo-4969838.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
+            "title": "Long Beard Sculpting",
+            "desc": "Cheek line alignment and crisp razor edging."
+          },
+          {
+            "url": "/barberking/media/3d153ab177b41d38.jpg",
+            "title": "Classic Side Part",
+            "desc": "Classic executive parting with matte hold."
+          }
+        ]
       },
       "videoSection": {
         "kicker": "Atmosphere",
@@ -471,10 +1201,13 @@
         "title": "GIFT CERTIFICATES FOR MEN",
         "subtitle": "A purposeful gift for friends, family, or colleagues in Kyiv.",
         "text": "Valid across all 4 Kyiv branches. Available as printed cards or instant digital vouchers.",
-        "feature1": "Matte black envelope with foil stamped seal",
-        "feature2": "Digital version in Apple Wallet / Telegram within 5 min",
-        "feature3": "Validity period — 6 months from purchase date",
-        "button": "Order Gift Certificate"
+        "feature1": "Paper certificate in matte black envelope",
+        "feature2": "Digital certificate in Apple Wallet / Telegram within 5 minutes",
+        "feature3": "Valid for 6 months from purchase date",
+        "button": "Order Gift Certificate",
+        "altText": "Barberking Gift Certificate",
+        "allBranches": "Valid across all 4 Kyiv branches",
+        "fromPrice": "Denomination from 750 UAH"
       },
       "branchesSection": {
         "kicker": "Kyiv locations",
@@ -488,20 +1221,58 @@
       "faqSection": {
         "kicker": "Questions & answers",
         "title": "EVERYTHING YOU NEED TO KNOW",
-        "subtitle": "Straightforward answers regarding appointments, pricing tiers, tattoo healing, and beard care."
+        "subtitle": "Straightforward answers regarding appointments, pricing tiers, tattoo healing, and beard care.",
+        "items": [
+          {
+            "q": "How much does a men's haircut cost at Barberking Kyiv?",
+            "a": "Haircuts start from 750 UAH (Barber tier), 850 UAH (Top Barber), and 1,150 UAH (Grand Barber). Haircut + beard styling combo starts from 1,150 UAH. Clipper cut is 550 UAH. Fixed transparent rates with no hidden add-ons."
+          },
+          {
+            "q": "How long does a haircut take?",
+            "a": "Usually 45 to 60 minutes depending on hair length, density, and fade detail. Haircut and beard combo takes approximately 75–90 minutes."
+          },
+          {
+            "q": "Can I book same-day?",
+            "a": "Yes, provided there are open calendar slots. The fastest way is online reservation or calling 095 107 92 15."
+          },
+          {
+            "q": "What is included in beard shaping?",
+            "a": "Anatomical form consultation, hot towel steaming, scissor & clipper shaping, straight razor edge lining, and cooling balm."
+          },
+          {
+            "q": "Do you offer grey hair camouflage?",
+            "a": "Yes, we use ammonia-free men's camouflage dyes that naturally tone grey hair without artificial helmet effects."
+          },
+          {
+            "q": "Is convenient parking available near the shops?",
+            "a": "Yes, dedicated client parking spaces are available at each of our 4 Kyiv locations."
+          },
+          {
+            "q": "How does the tattoo studio work at Barberking?",
+            "a": "Our resident tattoo artist Andriy welcomes guests at 18 Pavlivska St. Consultations and custom sketches are arranged by prior appointment."
+          },
+          {
+            "q": "When can I remove the protective film after getting a tattoo?",
+            "a": "The film is usually removed after 3–5 days following your artist's directions. Then wash gently with warm water and apply healing ointment."
+          }
+        ]
       },
       "ctaSection": {
         "kicker": "Online reservation",
         "title": "RESERVE YOUR CHAIR WITHOUT DELAY",
         "subtitle": "Select your branch, barber, and open slot in just a few taps.",
         "hoursTitle": "Operating Hours:",
-        "hoursDaily": "Daily: 10:00 — 21:00",
-        "hoursWeekend": "Saturday / Sunday: 10:00 — 21:00",
+        "daysWeekdays": "Monday — Friday:",
+        "daysWeekends": "Saturday — Sunday:",
+        "workMode": "Schedule:",
+        "hoursDailyTime": "10:00 — 21:00",
         "hoursNote": "No breaks or holidays",
         "addressLine": "18 Pavlivska St · 15K Dniprovska Embankment · 8A O. Olesia St · 11/44 Urlivska St",
         "trustLine": "Average booking time — 45 seconds. Instant SMS confirmation.",
         "primaryBtn": "Open Calendar & Book",
-        "phoneBtn": "095 107 92 15"
+        "phoneBtn": "095 107 92 15",
+        "viewBranchesMap": "View branches map →",
+        "bookingSuccess": "Appointment created successfully"
       },
       "contactForm": {
         "kicker": "Quick request",
@@ -523,7 +1294,10 @@
         "branchesTitle": "Our Branches",
         "menuTitle": "Navigation",
         "contactsTitle": "Contacts",
-        "hoursTitle": "Operating Hours",
+        "labelHours": "WORKING HOURS:",
+        "labelPhone": "Phone:",
+        "labelEmail": "Email:",
+        "labelOffice": "Office Address:",
         "hours": "Daily 10:00 — 21:00",
         "address": "10 Sichovykh Striltsiv St, Kyiv",
         "phone": "095 107 92 15",

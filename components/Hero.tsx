@@ -6,23 +6,22 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[100svh] flex flex-col justify-between pt-24 pb-8 sm:pt-32 sm:pb-10 bg-bg-dark overflow-hidden">
-      {/* Background Video Stack with Scrim */}
+      {/* Background Video Stack with a Single Balanced Scrim Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
         <video
           autoPlay
           muted
           loop
           playsInline
-          poster="https://kyiv.bking.com.ua/wp-content/themes/bking/images/banner2.jpg"
-          className="w-full h-full object-cover opacity-25 scale-[1.02]"
+          poster="https://images.pexels.com/videos/7426382/pexels-photo-7426382.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200"
+          className="w-full h-full object-cover scale-[1.02]"
         >
           <source
             src="https://videos.pexels.com/video-files/7426382/7426382-hd_2048_864_25fps.mp4"
             type="video/mp4"
           />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/75 to-bg-dark/90" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(38_92%_50%/0.08),transparent_60%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/70 to-bg-dark/85" />
       </div>
 
       {/* Rotating Text-Only Badge (Top-Right Marginalia) */}
@@ -74,13 +73,13 @@ export default function Hero() {
             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <a
                 href="#booking"
-                className="inline-flex items-center justify-center px-8 py-4 bg-accent text-bg-dark font-display text-xl font-bold uppercase tracking-wider rounded hover:bg-accent-deep transition-colors duration-200 ease-out shadow-md"
+                className="inline-flex items-center justify-center px-8 py-4 bg-accent text-bg-dark font-display text-xl font-bold uppercase tracking-wider rounded hover:bg-accent-deep transition-colors duration-200 ease-out shadow-md min-h-[44px]"
               >
                 {String(t("hero.primaryCta"))}
               </a>
               <a
                 href="#prices"
-                className="inline-flex items-center justify-center px-6 py-4 text-text-light/90 hover:text-accent font-display text-lg font-semibold uppercase tracking-wider transition-colors duration-200 ease-out border-b border-border-dark hover:border-accent"
+                className="inline-flex items-center justify-center px-6 py-4 text-text-light/90 hover:text-accent font-display text-lg font-semibold uppercase tracking-wider transition-colors duration-200 ease-out border-b border-border-dark hover:border-accent min-h-[44px]"
               >
                 {String(t("hero.secondaryCta"))} →
               </a>
@@ -104,20 +103,20 @@ export default function Hero() {
             <div className="relative rounded bg-bg-surface border border-border-dark overflow-hidden p-3 group shadow-2xl">
               <div className="relative aspect-[4/5] rounded overflow-hidden">
                 <img
-                  src="https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6955-1024x682.jpg"
-                  alt="Barberking Kyiv Master Cut"
+                  src="/barberking/media/36fa59f33a84581a.jpg"
+                  alt={String(t("hero.heroImgAlt"))}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-transparent to-transparent opacity-80" />
                 <div className="absolute top-3 left-3 bg-bg-dark/90 px-3 py-1 rounded text-xs font-display tracking-widest text-accent uppercase border border-border-dark">
-                  Grand Protocol
+                  {String(t("hero.heroBadge"))}
                 </div>
                 <div className="absolute bottom-4 left-4 right-4">
                   <div className="font-display text-2xl font-bold uppercase text-text-light leading-tight">
-                    Анатомічний Fade & Чисте Лезо
+                    {String(t("hero.heroCardTitle"))}
                   </div>
                   <div className="text-[11px] font-mono text-text-muted mt-1">
-                    Фіксація форми до 3-4 тижнів
+                    {String(t("hero.heroCardDesc"))}
                   </div>
                 </div>
               </div>
@@ -126,11 +125,11 @@ export default function Hero() {
             <div className="grid grid-cols-2 gap-3">
               <div className="p-3.5 rounded bg-primary/60 border border-border-dark">
                 <div className="font-display text-3xl font-extrabold text-accent tabular-nums">265 000+</div>
-                <div className="text-[10px] uppercase font-mono tracking-wider text-text-muted mt-0.5">Стрижок з 2018</div>
+                <div className="text-[10px] uppercase font-mono tracking-wider text-text-muted mt-0.5">{String(t("hero.statHaircuts"))}</div>
               </div>
               <div className="p-3.5 rounded bg-primary/60 border border-border-dark">
                 <div className="font-display text-3xl font-extrabold text-text-light tabular-nums">4.9 / 5.0</div>
-                <div className="text-[10px] uppercase font-mono tracking-wider text-text-muted mt-0.5">Google Maps</div>
+                <div className="text-[10px] uppercase font-mono tracking-wider text-text-muted mt-0.5">{String(t("hero.statGoogle"))}</div>
               </div>
             </div>
           </div>
@@ -141,15 +140,15 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 w-full mt-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 py-4 border-t border-b border-border-dark text-xs uppercase tracking-wider text-text-muted">
           <div className="flex items-center gap-2">
-            <span className="text-accent font-bold">ГОДИНИ:</span>
+            <span className="text-accent font-bold">{String(t("hero.labelHours"))}</span>
             <span className="text-text-light font-mono">{String(t("hero.metaHours"))}</span>
           </div>
           <div className="flex items-center gap-2 md:justify-center border-t md:border-t-0 md:border-x border-border-dark/60 pt-2 md:pt-0">
-            <span className="text-accent font-bold">ЛОКАЦІЇ:</span>
+            <span className="text-accent font-bold">{String(t("hero.labelLocations"))}</span>
             <span className="text-text-light">{String(t("hero.metaAddress"))}</span>
           </div>
           <div className="flex items-center gap-2 md:justify-end border-t md:border-t-0 border-border-dark/60 pt-2 md:pt-0">
-            <span className="text-accent font-bold">РЕЙТИНГ:</span>
+            <span className="text-accent font-bold">{String(t("hero.labelRating"))}</span>
             <span className="text-text-light font-mono font-semibold">{String(t("hero.metaRating"))}</span>
           </div>
         </div>

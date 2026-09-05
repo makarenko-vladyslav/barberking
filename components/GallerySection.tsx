@@ -1,41 +1,16 @@
 "use client";
 import { useLocale } from "@/lib/i18n";
 
+interface WorkItem {
+  url: string;
+  title: string;
+  desc: string;
+}
+
 export default function GallerySection() {
   const { t } = useLocale();
-
-  const works = [
-    {
-      url: "https://kyiv.bking.com.ua/wp-content/themes/bking/images/map-banner.jpg",
-      title: "Textured Crop Fade",
-      desc: "Низький skin-fade з матовою текстурою верху."
-    },
-    {
-      url: "https://images.pexels.com/photos/4969838/pexels-photo-4969838.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-      title: "Моделювання довгої бороди",
-      desc: "Вирівнювання лінії щоки та насичений контур лезом."
-    },
-    {
-      url: "https://images.pexels.com/photos/9146943/pexels-photo-9146943.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-      title: "Classic Side Part",
-      desc: "Класичний діловий проділ з фіксацією без блиску."
-    },
-    {
-      url: "https://images.pexels.com/photos/7320169/pexels-photo-7320169.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
-      title: "Skin Fade машинка",
-      desc: "Зведення нанівець від шкіри без видимих переходів."
-    },
-    {
-      url: "https://images.pexels.com/videos/7426382/pexels-photo-7426382.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200",
-      title: "Комплекс стрижка + вуса",
-      desc: "Синхронізація ліній щелепи та форми скроневих зон."
-    },
-    {
-      url: "https://images.pexels.com/videos/27999071/dumbbell-factory-dumbbell-manufacturing-dumbbell-production-factory-operations-27999071.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200",
-      title: "Modern Taper Fade",
-      desc: "Плавне сходження на скронях та охайний потиличний контур."
-    }
-  ];
+  const rawWorks = t("gallerySection.works");
+  const works: WorkItem[] = Array.isArray(rawWorks) ? (rawWorks as WorkItem[]) : [];
 
   return (
     <section id="gallery" className="py-20 sm:py-28 bg-bg-surface border-b border-border-dark scroll-mt-20">
@@ -73,12 +48,11 @@ export default function GallerySection() {
               Google Maps
             </div>
             <div className="text-[10px] text-text-muted mt-0.5">
-              540+ підтверджених відгуків
+              {String(t("gallerySection.reviewsCount"))}
             </div>
             {/* Visual Dot Indicators */}
             <div className="mt-3 flex items-center justify-end gap-1.5">
               <span className="w-2 h-2 rounded-full bg-accent"></span>
-              <span className="w-1.5 h-1.5 rounded-full bg-border-dark"></span>
               <span className="w-1.5 h-1.5 rounded-full bg-border-dark"></span>
               <span className="w-1.5 h-1.5 rounded-full bg-border-dark"></span>
             </div>
@@ -100,7 +74,7 @@ export default function GallerySection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/35 to-transparent opacity-85 group-hover:opacity-95 transition-opacity duration-300" />
               <div className="absolute top-3 right-3 bg-bg-dark/80 px-2 py-0.5 rounded text-[10px] font-mono text-accent uppercase border border-border-dark">
-                Кадр {idx + 1} / 06
+                {String(t("gallerySection.frameLabel"))} {idx + 1} / 03
               </div>
               <div className="absolute bottom-4 left-4 right-4">
                 <div className="font-display text-xl font-bold uppercase text-text-light">

@@ -16,6 +16,7 @@ import BranchesSection from "@/components/BranchesSection";
 import FaqSection from "@/components/FaqSection";
 import BookingSection from "@/components/BookingSection";
 import Footer from "@/components/Footer";
+import { Reveal } from "@/components/motion";
 
 export default function Home() {
   return (
@@ -29,46 +30,70 @@ export default function Home() {
         <MarqueeStrip />
 
         {/* Section 2: Standards / Advantages */}
-        <Advantages />
+        <Reveal>
+          <Advantages />
+        </Reveal>
 
         {/* Interstitial 2: Bold Statement Band */}
         <StatementStrip />
 
         {/* Section 3: Primary Services Showcase */}
-        <ServicesSection />
+        <Reveal>
+          <ServicesSection />
+        </Reveal>
 
         {/* Section 4: Full Transparent Price Rows */}
-        <PriceListRows />
+        <Reveal>
+          <PriceListRows />
+        </Reveal>
 
         {/* Section 5: Dynamic Calculator with Slider */}
-        <Calculator />
+        <Reveal>
+          <Calculator />
+        </Reveal>
 
         {/* Section 6: Workflow Protocol */}
-        <Workflow />
+        <Reveal>
+          <Workflow />
+        </Reveal>
 
         {/* Interstitial 3: Social Proof & Metrics Strip */}
         <RatingStrip />
 
         {/* Section 7: Team with Real Barber Portraits */}
-        <TeamSection />
+        <Reveal>
+          <TeamSection />
+        </Reveal>
 
         {/* Section 8: Real Results Gallery & Proof */}
-        <GallerySection />
+        <Reveal>
+          <GallerySection />
+        </Reveal>
 
         {/* Section 9: Video Atmosphere Showcase */}
-        <VideoAtmosphere />
+        <Reveal>
+          <VideoAtmosphere />
+        </Reveal>
 
         {/* Section 10: Gift Certificates */}
-        <GiftCertificates />
+        <Reveal>
+          <GiftCertificates />
+        </Reveal>
 
         {/* Section 11: 4 Kyiv Branches with Parking */}
-        <BranchesSection />
+        <Reveal>
+          <BranchesSection />
+        </Reveal>
 
         {/* Section 12: Real Client FAQ Accordion */}
-        <FaqSection />
+        <Reveal>
+          <FaqSection />
+        </Reveal>
 
         {/* Section 13: Online Booking & Call Request */}
-        <BookingSection />
+        <Reveal>
+          <BookingSection />
+        </Reveal>
       </main>
       <Footer />
     </>

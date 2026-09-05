@@ -1,60 +1,21 @@
 "use client";
 import { useLocale } from "@/lib/i18n";
 
+interface ServiceItem {
+  title: string;
+  price: string;
+  time: string;
+  desc: string;
+  tag: string;
+  photo: string;
+}
+
 export default function ServicesSection() {
   const { t } = useLocale();
+  const rawCatalog = t("servicesSection.items");
+  const catalog: ServiceItem[] = Array.isArray(rawCatalog) ? (rawCatalog as ServiceItem[]) : [];
 
-  // Highlighted signature services with real prices and descriptions
-  const catalog = [
-    {
-      title: "Професійна чоловіча стрижка",
-      price: "від 750 грн",
-      time: "45–60 хв",
-      desc: "Індивідуальний підбір форми з урахуванням росту волосся, геометрії обличчя та образу. Включає подвійне миття голови, точну окантовку бритви та укладку професійною глиною.",
-      tag: "Найпопулярніша",
-      photo: "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6955-1024x682.jpg"
-    },
-    {
-      title: "Стрижка + оформлення бороди",
-      price: "від 1 150 грн",
-      time: "75–90 хв",
-      desc: "Комплексний сеанс повного перезавантаження. Гармонійне зведення скроневих зон у лінію бороди, розпарювання гарячим рушником та підбір геометрії вусів.",
-      tag: "Вибір клієнтів",
-      photo: "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5822-1024x683.jpg"
-    },
-    {
-      title: "Королівське гоління небезпечною бритвою",
-      price: "від 500 грн",
-      time: "45 хв",
-      desc: "Традиційний ритуал чистого гоління з підготовкою шкіри ефірними оліями, компресом гарячим рушником та делікатним доглядом після гоління охолоджувальним бальзамом.",
-      tag: "Традиція",
-      photo: "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_5902-2-1024x683.jpg"
-    },
-    {
-      title: "Стрижка машинкою (2 насадки)",
-      price: "від 550 грн",
-      time: "35 хв",
-      desc: "Мінімалістична та чітка чоловіча форма з ідеальним зведенням fade. Включає промивання шкіри голови та детальне вирівнювання крайової лінії шиї.",
-      tag: "Експрес",
-      photo: "https://kyiv.bking.com.ua/wp-content/uploads/2020/09/mg_6059-1024x683.jpg"
-    },
-    {
-      title: "Передвесільний комплекс для нареченого",
-      price: "від 1 500 грн",
-      time: "100 хв",
-      desc: "Повний сеанс підготовки до важливої події: професійна стрижка, моделювання бороди або чисте гоління, очищення пор Black Mask та воскова корекція.",
-      tag: "Преміум",
-      photo: "https://kyiv.bking.com.ua/wp-content/uploads/2020/11/img_5183.jpg"
-    },
-    {
-      title: "Батько та син (до 10 років)",
-      price: "від 1 150 грн",
-      time: "75 хв",
-      desc: "Одночасний спільний візит двох поколінь. Уважний підхід до наймолодших клієнтів без сліз та комфортне крісло для батька з фірмовою кавою.",
-      tag: "Сімейний",
-      photo: "https://images.pexels.com/photos/18301169/pexels-photo-18301169.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"
-    }
-  ];
+  if (catalog.length === 0) return null;
 
   const [featuredService, ...otherServices] = catalog;
 
@@ -76,7 +37,7 @@ export default function ServicesSection() {
           </div>
           <a
             href="#prices"
-            className="inline-flex items-center text-accent-deep hover:text-text-main font-display text-xl uppercase tracking-wider font-bold transition-colors duration-200 ease-out"
+            className="min-h-[44px] py-2.5 inline-flex items-center text-accent-deep hover:text-text-main font-display text-xl uppercase tracking-wider font-bold transition-colors duration-200 ease-out"
           >
             {String(t("servicesSection.fullPriceCta"))}
           </a>
@@ -99,7 +60,7 @@ export default function ServicesSection() {
             <div className="lg:col-span-5 p-7 sm:p-10 flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between text-xs font-mono uppercase text-text-main/60 mb-3">
-                  <span>Головна позиція меню</span>
+                  <span>{String(t("servicesSection.mainMenuItem"))}</span>
                   <span>{featuredService.time}</span>
                 </div>
                 <h3 className="font-display text-3xl sm:text-4xl font-extrabold uppercase text-text-main leading-tight">
@@ -119,7 +80,7 @@ export default function ServicesSection() {
                 </span>
                 <a
                   href="#booking"
-                  className="px-6 py-3 bg-bg-dark text-text-light font-display text-lg font-bold uppercase tracking-wider rounded text-center hover:bg-accent hover:text-bg-dark transition-colors duration-200 ease-out"
+                  className="min-h-[44px] px-6 py-2.5 inline-flex items-center justify-center bg-bg-dark text-text-light font-display text-lg font-bold uppercase tracking-wider rounded text-center hover:bg-accent hover:text-bg-dark transition-colors duration-200 ease-out"
                 >
                   {String(t("servicesSection.bookCardCta"))}
                 </a>
@@ -171,7 +132,7 @@ export default function ServicesSection() {
                   </span>
                   <a
                     href="#booking"
-                    className="font-display text-lg font-bold uppercase tracking-wider text-text-main group-hover:text-accent-deep transition-colors duration-200 ease-out"
+                    className="min-h-[44px] py-2 inline-flex items-center font-display text-lg font-bold uppercase tracking-wider text-text-main group-hover:text-accent-deep transition-colors duration-200 ease-out"
                   >
                     {String(t("servicesSection.bookCardCta"))}
                   </a>

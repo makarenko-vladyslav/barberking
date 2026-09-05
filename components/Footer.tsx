@@ -1,3 +1,4 @@
+
 "use client";
 import { useLocale } from "@/lib/i18n";
 import pricingData from "@/lib/pricing.json";
@@ -12,16 +13,19 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-border-dark">
           {/* Brand Col */}
           <div>
-            <img
-              src="https://kyiv.bking.com.ua/wp-content/themes/bking/images/price-banner.jpg"
-              alt={String(t("brand.name"))}
-              className="h-9 w-auto object-contain mb-4"
-            />
+            <div className="flex items-baseline gap-2 mb-4">
+              <span className="font-display font-black text-2xl tracking-wider text-text-light uppercase">
+                {String(t("brand.name"))}
+              </span>
+              <span className="text-[10px] font-mono tracking-widest text-accent uppercase px-1.5 py-0.5 border border-accent/40 rounded">
+                KYIV
+              </span>
+            </div>
             <p className="text-xs leading-relaxed text-text-muted">
               {String(t("footer.aboutText"))}
             </p>
             <div className="mt-4 p-3 rounded bg-bg-surface border border-border-dark text-xs font-mono text-text-light">
-              <span className="text-accent font-bold block mb-0.5">ГОДИНИ РОБОТИ:</span>
+              <span className="text-accent font-bold block mb-0.5">{String(t("footer.labelHours"))}</span>
               {String(t("footer.hours"))}
             </div>
           </div>
@@ -49,42 +53,42 @@ export default function Footer() {
             </div>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#services" className="hover:text-accent transition-colors duration-200 ease-out">
+                <a href="#services" className="hover:text-accent transition-colors duration-200 ease-out min-h-[44px] inline-flex items-center">
                   {String(t("nav.services"))}
                 </a>
               </li>
               <li>
-                <a href="#prices" className="hover:text-accent transition-colors duration-200 ease-out">
+                <a href="#prices" className="hover:text-accent transition-colors duration-200 ease-out min-h-[44px] inline-flex items-center">
                   {String(t("nav.prices"))}
                 </a>
               </li>
               <li>
-                <a href="#calculator" className="hover:text-accent transition-colors duration-200 ease-out">
+                <a href="#calculator" className="hover:text-accent transition-colors duration-200 ease-out min-h-[44px] inline-flex items-center">
                   {String(t("nav.calculator"))}
                 </a>
               </li>
               <li>
-                <a href="#standards" className="hover:text-accent transition-colors duration-200 ease-out">
+                <a href="#standards" className="hover:text-accent transition-colors duration-200 ease-out min-h-[44px] inline-flex items-center">
                   {String(t("nav.standards"))}
                 </a>
               </li>
               <li>
-                <a href="#team" className="hover:text-accent transition-colors duration-200 ease-out">
+                <a href="#team" className="hover:text-accent transition-colors duration-200 ease-out min-h-[44px] inline-flex items-center">
                   {String(t("nav.masters"))}
                 </a>
               </li>
               <li>
-                <a href="#gallery" className="hover:text-accent transition-colors duration-200 ease-out">
+                <a href="#gallery" className="hover:text-accent transition-colors duration-200 ease-out min-h-[44px] inline-flex items-center">
                   {String(t("nav.gallery"))}
                 </a>
               </li>
               <li>
-                <a href="#branches" className="hover:text-accent transition-colors duration-200 ease-out">
+                <a href="#branches" className="hover:text-accent transition-colors duration-200 ease-out min-h-[44px] inline-flex items-center">
                   {String(t("nav.branches"))}
                 </a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-accent transition-colors duration-200 ease-out">
+                <a href="#faq" className="hover:text-accent transition-colors duration-200 ease-out min-h-[44px] inline-flex items-center">
                   {String(t("nav.faq"))}
                 </a>
               </li>
@@ -98,22 +102,22 @@ export default function Footer() {
             </div>
             <div className="space-y-2 text-xs">
               <div>
-                <span className="text-[10px] uppercase tracking-wider text-text-muted block">Телефон:</span>
+                <span className="text-[10px] uppercase tracking-wider text-text-muted block">{String(t("footer.labelPhone"))}</span>
                 <a
                   href="tel:0951079215"
-                  className="font-display text-2xl text-accent font-bold hover:underline"
+                  className="font-display text-2xl text-accent font-bold hover:underline min-h-[44px] inline-flex items-center"
                 >
                   {String(t("footer.phone"))}
                 </a>
               </div>
               <div>
-                <span className="text-[10px] uppercase tracking-wider text-text-muted block">Email:</span>
-                <a href="mailto:barberking.kv1@gmail.com" className="text-text-light hover:text-accent transition-colors duration-200 ease-out font-mono">
+                <span className="text-[10px] uppercase tracking-wider text-text-muted block">{String(t("footer.labelEmail"))}</span>
+                <a href="mailto:barberking.kv1@gmail.com" className="text-text-light hover:text-accent transition-colors duration-200 ease-out font-mono min-h-[44px] inline-flex items-center">
                   {String(t("footer.email"))}
                 </a>
               </div>
               <div>
-                <span className="text-[10px] uppercase tracking-wider text-text-muted block">Адреса офісу:</span>
+                <span className="text-[10px] uppercase tracking-wider text-text-muted block">{String(t("footer.labelOffice"))}</span>
                 <div className="text-text-light">{String(t("footer.address"))}</div>
               </div>
             </div>
@@ -123,7 +127,7 @@ export default function Footer() {
                 href="https://www.instagram.com/barberking_kv/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs uppercase tracking-wider text-text-light hover:text-accent font-semibold"
+                className="text-xs uppercase tracking-wider text-text-light hover:text-accent font-semibold min-h-[44px] inline-flex items-center"
               >
                 Instagram ↗
               </a>
@@ -131,7 +135,7 @@ export default function Footer() {
                 href="https://www.facebook.com/BarberKingkh/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs uppercase tracking-wider text-text-light hover:text-accent font-semibold"
+                className="text-xs uppercase tracking-wider text-text-light hover:text-accent font-semibold min-h-[44px] inline-flex items-center"
               >
                 Facebook ↗
               </a>
@@ -152,7 +156,7 @@ export default function Footer() {
               href="https://makarich.framer.website"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-text-muted hover:text-accent transition-colors duration-200 ease-out"
+              className="text-text-muted hover:text-accent transition-colors duration-200 ease-out min-h-[44px] inline-flex items-center"
             >
               {String(t("footer.devCredit"))}
             </a>

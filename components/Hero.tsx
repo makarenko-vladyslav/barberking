@@ -58,10 +58,10 @@ export default function Hero() {
             </div>
 
             {/* Poster H1 with Targeted Commercial Anchor */}
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-display font-extrabold uppercase leading-[0.92] text-text-light tracking-tight">
-              <span className="block">{String(t("hero.titlePart1"))}</span>
-              <span className="text-accent italic font-normal inline-block">{String(t("hero.titleAccent"))}</span>{" "}
-              <span className="inline-block">{String(t("hero.titlePart2"))}</span>
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-display font-extrabold uppercase leading-[0.92] text-text-light tracking-tight text-balance">
+              <span>{String(t("hero.titlePart1"))}</span>{" "}
+              <span className="text-accent italic font-normal">{String(t("hero.titleAccent"))}</span>{" "}
+              <span>{String(t("hero.titlePart2"))}</span>
             </h1>
 
             {/* Lede Body */}

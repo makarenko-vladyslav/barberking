@@ -1,3 +1,4 @@
+import { FormBridge } from "@/components/form-bridge";
 import { MotionLayer } from "@/components/motion-layer";
 import "./motion-layer.css";
 import { SmoothScroll } from "@/components/smooth-scroll";
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <LocaleProvider>{children}</LocaleProvider>
         <SmoothScroll />
         <MotionLayer />
+        <FormBridge endpoint="http://localhost:3000/api/site-forms/cmsji815o0001n5cidz9wkxz0.e309acb46ffcc61edd71616b94af64eaf8daabfb79330b5109c552497f66ef95" />
       </body>
     </html>
   );
